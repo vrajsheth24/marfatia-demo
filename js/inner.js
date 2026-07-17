@@ -132,7 +132,8 @@
     '<a href="' + LINKS.demat + '" target="_blank" rel="noopener" class="btn btn-marfatia"><span>Open Demat Account</span></a>' +
     '</div>' +
     '<button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>' +
-    '</div>';
+    '</div>' +
+    '<div class="nav-backdrop" id="navBackdrop"></div>';
 
   var FOOTER_HTML =
     '<img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">' +
@@ -223,28 +224,116 @@
 
     /* ---------- nav behaviour (mirrors homepage main.js) ---------- */
     var strip = $("#strip");
+    function setHeaderHeightVar() {
+      if (strip) document.documentElement.style.setProperty("--header-h", strip.offsetHeight + "px");
+    }
+    setHeaderHeightVar();
+    window.addEventListener("load", setHeaderHeightVar);
+    window.addEventListener("resize", setHeaderHeightVar);
     window.addEventListener("scroll", function () {
       if (strip) strip.classList.toggle("scrolled", window.scrollY > 30);
+      setHeaderHeightVar();
     }, { passive: true });
 
-    var stripNav = $("#stripNav"), stripBurger = $("#stripBurger");
-    if (stripBurger) stripBurger.addEventListener("click", function () { stripNav.classList.toggle("open"); });
+    var stripNav = $("#stripNav"), stripBurger = $("#stripBurger"), navBackdrop = $("#navBackdrop");
+    function isMobileNav() { return window.matchMedia("(max-width:1150px)").matches; }
 
+    function closeAllDrawers() {
+      $$(".nav-item.open").forEach(function (i) { i.classList.remove("open"); });
+      $$(".strip-link.sub-open").forEach(function (b) { b.classList.remove("sub-open"); });
+      $$(".mobile-sub").forEach(function (s) { s.style.maxHeight = ""; });
+    }
+    function closeMobileMenu() {
+      if (!stripNav) return;
+      stripNav.classList.remove("open");
+      if (stripBurger) stripBurger.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      closeAllDrawers();
+    }
+    if (stripBurger && stripNav) {
+      stripBurger.addEventListener("click", function () {
+        var opening = !stripNav.classList.contains("open");
+        stripNav.classList.toggle("open", opening);
+        stripBurger.classList.toggle("open", opening);
+        document.body.classList.toggle("menu-open", opening);
+        if (!opening) closeAllDrawers();
+      });
+    }
+    if (navBackdrop) navBackdrop.addEventListener("click", closeMobileMenu);
+
+    /* build a plain mobile accordion list (title-only links) for every
+       Services/Calculators nav item — the icon+description mega-menu grid
+       is desktop-only; mobile reuses the same .mobile-sub pattern as Login */
+    $$(".nav-item").forEach(function (item) {
+      var btn = item.querySelector(".strip-link[data-drawer]");
+      var dropdown = item.querySelector(".nav-dropdown");
+      if (!btn || !dropdown) return;
+      var sub = document.createElement("div");
+      sub.className = "mobile-sub";
+      var group = document.createElement("div");
+      group.className = "drawer-group";
+      $$(".dd-item, .dd-item-simple", dropdown).forEach(function (a) {
+        var link = document.createElement("a");
+        link.href = a.getAttribute("href") || "#";
+        var title = a.querySelector(".dd-text h4");
+        link.textContent = title ? title.textContent : a.textContent.trim();
+        group.appendChild(link);
+      });
+      sub.appendChild(group);
+      btn.insertAdjacentElement("afterend", sub);
+    });
+
+    /* mobile menu: mirror header-right links (login + CTA) into the side nav */
+    (function () {
+      var loginMenu = $("#loginDdMenu"), dematBtn = $(".strip-right .btn-marfatia");
+      if (stripNav && loginMenu) {
+        var loginBtn = document.createElement("button");
+        loginBtn.type = "button";
+        loginBtn.className = "strip-link mobile-only";
+        loginBtn.dataset.drawer = "";
+        loginBtn.textContent = "Login";
+        var loginSub = document.createElement("div");
+        loginSub.className = "mobile-sub";
+        var group2 = document.createElement("div");
+        group2.className = "drawer-group";
+        group2.innerHTML = loginMenu.innerHTML;
+        loginSub.appendChild(group2);
+        stripNav.appendChild(loginBtn);
+        stripNav.appendChild(loginSub);
+      }
+
+      if (dematBtn) {
+        var cta = dematBtn.cloneNode(true);
+        cta.classList.add("mobile-only", "mobile-cta");
+        if (stripNav) stripNav.appendChild(cta);
+      }
+    })();
+
+    /* unified accordion toggle — Services / Calculators / Login all share
+       the same button + adjacent .mobile-sub pattern on mobile; desktop
+       keeps the original .nav-item.open + .nav-dropdown mega-menu untouched */
     $$(".strip-link[data-drawer]").forEach(function (btn) {
+      btn.setAttribute("type", "button");
       btn.addEventListener("click", function (e) {
+        e.preventDefault();
         e.stopPropagation();
+        var sub = btn.nextElementSibling;
+        if (isMobileNav() && sub && sub.classList.contains("mobile-sub")) {
+          var opening = !btn.classList.contains("sub-open");
+          closeAllDrawers();
+          if (opening) { btn.classList.add("sub-open"); sub.style.maxHeight = sub.scrollHeight + "px"; }
+          return;
+        }
         var item = btn.closest(".nav-item");
         if (!item) return;
         var wasOpen = item.classList.contains("open");
-        $$(".nav-item").forEach(function (i) { i.classList.remove("open"); });
-        if (!wasOpen) {
-          item.classList.add("open");
-        }
+        closeAllDrawers();
+        if (!wasOpen) item.classList.add("open");
       });
     });
     document.addEventListener("click", function (e) {
       if (!e.target.closest(".nav-item")) {
-        $$(".nav-item").forEach(function (i) { i.classList.remove("open"); });
+        closeAllDrawers();
       }
     });
 

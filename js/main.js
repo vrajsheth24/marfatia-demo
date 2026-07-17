@@ -160,60 +160,111 @@ $$(".magnetic").forEach(btn=>{
    SEC-01 — LIVE STRIP NAV
    ============================================================ */
 const strip=$("#strip");
-window.addEventListener("scroll", ()=>{ strip.classList.toggle("scrolled", window.scrollY>30); }, {passive:true});
+function setHeaderHeightVar(){
+  if(strip) document.documentElement.style.setProperty("--header-h", strip.offsetHeight+"px");
+}
+setHeaderHeightVar();
+window.addEventListener("load", setHeaderHeightVar);
+window.addEventListener("resize", setHeaderHeightVar);
+window.addEventListener("scroll", ()=>{ strip.classList.toggle("scrolled", window.scrollY>30); setHeaderHeightVar(); }, {passive:true});
 
-const stripNav=$("#stripNav"), stripBurger=$("#stripBurger");
-stripBurger.addEventListener("click", ()=>{ stripNav.classList.toggle("open"); });
+const stripNav=$("#stripNav"), stripBurger=$("#stripBurger"), navBackdrop=$("#navBackdrop");
+const isMobileNav=()=>window.matchMedia("(max-width:1150px)").matches;
 
-$$(".strip-link[data-drawer]").forEach(btn=>{
-  btn.addEventListener("click", (e)=>{
-    e.stopPropagation();
-    const item = btn.closest(".nav-item");
-    if (!item) return;
-    const wasOpen = item.classList.contains("open");
-    $$(".nav-item").forEach(i=>i.classList.remove("open"));
-    if(!wasOpen){
-      item.classList.add("open");
-    }
-  });
+function closeAllDrawers(){
+  $$(".nav-item.open").forEach(i=>i.classList.remove("open"));
+  $$(".strip-link.sub-open").forEach(b=>b.classList.remove("sub-open"));
+  $$(".mobile-sub").forEach(s=>{ s.style.maxHeight=""; });
+}
+function closeMobileMenu(){
+  stripNav.classList.remove("open");
+  stripBurger.classList.remove("open");
+  document.body.classList.remove("menu-open");
+  closeAllDrawers();
+}
+stripBurger.addEventListener("click", ()=>{
+  const opening=!stripNav.classList.contains("open");
+  stripNav.classList.toggle("open", opening);
+  stripBurger.classList.toggle("open", opening);
+  document.body.classList.toggle("menu-open", opening);
+  if(!opening) closeAllDrawers();
 });
-document.addEventListener("click", e=>{
-  if(!e.target.closest(".nav-item")) {
-    $$(".nav-item").forEach(i=>i.classList.remove("open"));
-  }
+if(navBackdrop) navBackdrop.addEventListener("click", closeMobileMenu);
+
+/* build a plain mobile accordion list (title-only links) for every
+   Services/Calculators nav item — the icon+description mega-menu grid
+   is desktop-only; mobile reuses the same .mobile-sub pattern as Login */
+$$(".nav-item").forEach(item=>{
+  const btn = item.querySelector(".strip-link[data-drawer]");
+  const dropdown = item.querySelector(".nav-dropdown");
+  if(!btn || !dropdown) return;
+  const sub=document.createElement("div");
+  sub.className="mobile-sub";
+  const group=document.createElement("div");
+  group.className="drawer-group";
+  dropdown.querySelectorAll(".dd-item, .dd-item-simple").forEach(a=>{
+    const link=document.createElement("a");
+    link.href=a.getAttribute("href")||"#";
+    const title=a.querySelector(".dd-text h4");
+    link.textContent = title ? title.textContent : a.textContent.trim();
+    group.appendChild(link);
+  });
+  sub.appendChild(group);
+  btn.insertAdjacentElement("afterend", sub);
 });
 
 /* mobile menu: mirror header-right links (login + CTA) into the side nav */
 (function(){
-  const loginMenu=$("#loginDdMenu"), dematBtn=$(".strip-right .btn-primary");
-  if(!loginMenu) return;
-
-  const loginBtn=document.createElement("button");
-  loginBtn.className="strip-link mobile-only";
-  loginBtn.dataset.drawer=""; // joins the accordion caret styling + close-others cleanup
-  loginBtn.textContent="Login";
-  const loginSub=document.createElement("div");
-  loginSub.className="mobile-sub";
-  const group=document.createElement("div");
-  group.className="drawer-group";
-  group.innerHTML=loginMenu.innerHTML;
-  loginSub.appendChild(group);
-  stripNav.appendChild(loginBtn);
-  stripNav.appendChild(loginSub);
-
-  loginBtn.addEventListener("click", ()=>{
-    const opening=!loginBtn.classList.contains("sub-open");
-    $$(".strip-link[data-drawer]").forEach(b=>b.classList.remove("sub-open"));
-    $$(".mobile-sub").forEach(s=>{ s.style.maxHeight=null; });
-    if(opening){ loginBtn.classList.add("sub-open"); loginSub.style.maxHeight=loginSub.scrollHeight+"px"; }
-  });
-
+  const loginMenu=$("#loginDdMenu"), dematBtn=$(".strip-right .btn-marfatia");
+  if(loginMenu){
+    const loginBtn=document.createElement("button");
+    loginBtn.type="button";
+    loginBtn.className="strip-link mobile-only";
+    loginBtn.dataset.drawer="";
+    loginBtn.textContent="Login";
+    const loginSub=document.createElement("div");
+    loginSub.className="mobile-sub";
+    const group=document.createElement("div");
+    group.className="drawer-group";
+    group.innerHTML=loginMenu.innerHTML;
+    loginSub.appendChild(group);
+    stripNav.appendChild(loginBtn);
+    stripNav.appendChild(loginSub);
+  }
   if(dematBtn){
     const cta=dematBtn.cloneNode(true);
     cta.classList.add("mobile-only","mobile-cta");
     stripNav.appendChild(cta);
   }
 })();
+
+/* unified accordion toggle — Services / Calculators / Login all share the
+   same button + adjacent .mobile-sub pattern on mobile; desktop keeps the
+   original .nav-item.open + .nav-dropdown mega-menu untouched */
+$$(".strip-link[data-drawer]").forEach(btn=>{
+  btn.setAttribute("type","button");
+  btn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    const sub = btn.nextElementSibling;
+    if(isMobileNav() && sub && sub.classList.contains("mobile-sub")){
+      const opening=!btn.classList.contains("sub-open");
+      closeAllDrawers();
+      if(opening){ btn.classList.add("sub-open"); sub.style.maxHeight=sub.scrollHeight+"px"; }
+      return;
+    }
+    const item = btn.closest(".nav-item");
+    if(!item) return;
+    const wasOpen = item.classList.contains("open");
+    closeAllDrawers();
+    if(!wasOpen) item.classList.add("open");
+  });
+});
+document.addEventListener("click", e=>{
+  if(!e.target.closest(".nav-item")) {
+    closeAllDrawers();
+  }
+});
 
 // login dropdown
 const loginDd=$("#loginDd"), loginDdTrigger=$("#loginDdTrigger");
@@ -656,12 +707,12 @@ $$(".ai-chip").forEach(chip=>{
         const rotY = localP * -178;
 
         // 2. translateZ to lift the page off the stack as it turns (peak depth in the middle)
-        const maxZ = 120; // Maximum Z lift in pixels
+        const maxZ = 180; // Maximum Z lift in pixels
         const transZ = Math.sin(localP * Math.PI) * maxZ;
 
         // 3. skewY to simulate paper bending/curl (peaks at 0.25 and 0.75 progress)
         const maxSkew = 8; // Max skew angle in degrees
-        const skewY = Math.sin(localP * Math.PI * 2) * maxSkew;
+        const skewY = Math.sin(localP * Math.PI) * maxSkew;
 
         // 4. scaleX to simulate the horizontal width contraction of the curved page
         const maxScaleShrink = 0.12; // Shrink up to 12% width at the peak
@@ -688,7 +739,7 @@ $$(".ai-chip").forEach(chip=>{
         // Crease shadow on the page itself as it flips
         if (localP > 0 && localP < 1) {
           shade.style.opacity = Math.sin(localP * Math.PI) * 0.4;
-          shade.style.background = "linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0) 60%)";
+          // shade.style.background = "linear-gradient(to right, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0) 60%)";
         }
       } else {
         // The last card remains flat
@@ -708,7 +759,7 @@ $$(".ai-chip").forEach(chip=>{
           const rotYPrev = localPPrev * -178;
           shade.style.opacity = Math.sin(localPPrev * Math.PI) * 0.35;
           const shadowExtent = 20 + localPPrev * 40; // 20% to 60% width shadow spread
-          shade.style.background = `linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) ${shadowExtent}%, rgba(0,0,0,0) 100%)`;
+          // shade.style.background = `linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) ${shadowExtent}%, rgba(0,0,0,0) 100%)`;
         }
       }
     }

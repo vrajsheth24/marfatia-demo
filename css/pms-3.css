@@ -4290,3 +4290,52 @@
     width: 100%;
   }
 }
+
+/* .pms-hero carries an inline style="padding-top:130px" in pms-3.html which beats
+   any non-!important rule regardless of media query — re-assert enough clearance
+   here (after the inline-competing rules above) so the eyebrow/title don't sit
+   under the taller wrapped mobile header. */
+@media (max-width:640px){ .pms-page .pms-hero{ padding-top:190px !important; } }
+@media (max-width:900px) and (min-width:641px){ .pms-page .pms-hero{ padding-top:160px !important; } }
+
+/* .pms-way-grid has several conflicting definitions earlier in this file (some
+   forcing a fixed 2-column layout via !important even inside the single-column
+   sidebar-collapsed layout). Re-assert single column on narrow phones — this
+   rule is last in source order so it wins ties against the earlier !important
+   declarations. */
+@media (max-width:560px){
+  .pms-page .pms-way-grid{ grid-template-columns:1fr !important; }
+  .pms-page .pms-way-card--lead{ grid-column:auto !important; }
+}
+
+/* ── SIDEBAR (ported verbatim from pms-4.html's "Stamped Ledger Rows" rail) ──
+   Base .sidebar-group / .ledgerlist / .ledger-row / .ledger-check / .ledger-txt /
+   .ledger-no styling already comes from css/inner.css (shared across pages);
+   these are pms-4's own small refinements on top of that base. */
+.pms-sticky-rail {
+  position: sticky;
+  top: 118px;
+}
+@media(max-width:960px) {
+  .pms-sticky-rail {
+    position: static;
+  }
+}
+.sidebar-group {
+  margin-bottom: 32px;
+}
+.sidebar-group:last-child {
+  margin-bottom: 0;
+}
+.sidebar-group .sp-index {
+  margin-bottom: 16px;
+}
+.ledger-row .ledger-check {
+  background: var(--paper-tint);
+  color: var(--green);
+  transition: background 0.3s, color 0.3s;
+}
+.ledger-row:hover .ledger-check {
+  background: var(--green);
+  color: #fff;
+}

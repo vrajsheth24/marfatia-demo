@@ -184,6 +184,7 @@
 
       <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
   </header>
 
   <main class="inner-main pms-page" id="pms-main">
@@ -443,96 +444,101 @@
 
       </div><!-- /pms-content-col -->
 
-      <aside class="pms-sidebar-rail">
-        <!-- A unified bespoke ledger panel -->
-        <div class="pms-ledger-panel">
-          <!-- <div class="pms-ledger-header">
-            <span>PMS LEDGER</span>
-            <h3>Access &amp; Rules</h3>
-          </div> -->
-          
-          <div class="pms-ledger-section">
-            <span class="pms-ledger-label">Apply &amp; Access</span>
-            <div class="pms-ledger-links">
-              <a class="pms-ledger-row" href="tel:02652351355">
-                <div class="pms-ledger-title">
-                  <b>PMS Desk</b>
-                  <span>Mon–Sat Vadodara HQ</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">Call <i class="bi bi-arrow-right"></i></span>
-              </a>
-              
-              <a class="pms-ledger-row" href="https://marfatia.wealthmagic.in/" target="_blank" rel="noopener">
-                <div class="pms-ledger-title">
-                  <b>Client Reports</b>
-                  <span>WealthMagic portal login</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">Login <i class="bi bi-arrow-up-right"></i></span>
-              </a>
-              
-              <a class="pms-ledger-row" href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener">
-                <div class="pms-ledger-title">
-                  <b>Open Demat Account</b>
-                  <span>PMS requirement · ~10 min</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">Start <i class="bi bi-arrow-up-right"></i></span>
-              </a>
-              
-              <a class="pms-ledger-row" href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">
-                <div class="pms-ledger-title">
-                  <b>Investor Services</b>
-                  <span>KYC &amp; application tools</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">Access <i class="bi bi-arrow-up-right"></i></span>
-              </a>
-            </div>
-          </div>
-          
-          <div class="pms-ledger-section">
-            <span class="pms-ledger-label">Compliance &amp; Legal</span>
-            <div class="pms-ledger-links">
-              <a class="pms-ledger-row" href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank" rel="noopener">
-                <div class="pms-ledger-title">
-                  <b>Disclosure Document</b>
-                  <span>Latest Official · Oct 24</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">PDF <i class="bi bi-file-earmark-pdf"></i></span>
-              </a>
-              
-              <a class="pms-ledger-row" href="#">
-                <div class="pms-ledger-title">
-                  <b>Investor Charter</b>
-                  <span>SEBI standards &amp; rights</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">View <i class="bi bi-arrow-right"></i></span>
-              </a>
-              
-              <a class="pms-ledger-row" href="https://scores.sebi.gov.in/" target="_blank" rel="noopener">
-                <div class="pms-ledger-title">
-                  <b>SEBI SCORES</b>
-                  <span>Regulator complaints portal</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">SCORES <i class="bi bi-arrow-up-right"></i></span>
-              </a>
-              
-              <a class="pms-ledger-row" href="https://smartodr.in/" target="_blank" rel="noopener">
-                <div class="pms-ledger-title">
-                  <b>SMART ODR</b>
-                  <span>Dispute resolution hub</span>
-                </div>
-                <span class="pms-ledger-dots"></span>
-                <span class="pms-ledger-action">ODR <i class="bi bi-arrow-up-right"></i></span>
-              </a>
-            </div>
+      <aside class="pms-sticky-rail" aria-label="Sidebar navigation and quick links">
+
+        <!-- Stamped Ledger Rows stacked links -->
+        <div class="sidebar-group">
+          <span class="sp-index">APPLY & ACCESS</span>
+          <div class="ledgerlist">
+            <a class="ledger-row" href="tel:02652351355">
+              <div class="ledger-check"><i class="bi bi-telephone-fill"></i></div>
+              <div class="ledger-txt">
+                <b>PMS Desk</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Call Mon–Sat · Vadodara HQ</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="https://marfatia.wealthmagic.in/" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-graph-up-arrow"></i></div>
+              <div class="ledger-txt">
+                <b>Client Reports</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">WealthMagic portal login</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-rocket-takeoff-fill"></i></div>
+              <div class="ledger-txt">
+                <b>Open Demat Account</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">PMS requirement · ~10 min</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-shield-lock-fill"></i></div>
+              <div class="ledger-txt">
+                <b>Investor Services Portal</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Applications & KYC tools</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
           </div>
         </div>
+
+        <div class="sidebar-group">
+          <span class="sp-index">COMPLIANCE & DOCUMENTS</span>
+          <div class="ledgerlist">
+            <a class="ledger-row" href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <div class="ledger-txt">
+                <b>Disclosure Document</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Latest Official · Oct 2024</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="#">
+              <div class="ledger-check"><i class="bi bi-bank2"></i></div>
+              <div class="ledger-txt">
+                <b>Investor Charter</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">SEBI standards & procedures</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="#">
+              <div class="ledger-check"><i class="bi bi-shield-fill-check"></i></div>
+              <div class="ledger-txt">
+                <b>Investor Protection</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Complaints & grievance ladder</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="https://scores.sebi.gov.in/" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-balance-scale"></i></div>
+              <div class="ledger-txt">
+                <b>SEBI SCORES Portal</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">File grievances with regulator</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="https://smartodr.in/" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-cpu-fill"></i></div>
+              <div class="ledger-txt">
+                <b>SMART ODR Portal</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Online Dispute Resolution</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+            <a class="ledger-row" href="https://www.apmiindia.org/" target="_blank" rel="noopener">
+              <div class="ledger-check"><i class="bi bi-graph-up"></i></div>
+              <div class="ledger-txt">
+                <b>APMI Industry Data</b>
+                <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Association of Portfolio Mgrs</span>
+              </div>
+              <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+            </a>
+          </div>
+        </div>
+
       </aside>
 
     </div><!-- /pms-grid-layout -->
@@ -685,11 +691,11 @@
 
       <div class="footer-col">
         <h5>Quick Links</h5>
-        <a href="#"><i class="bi bi-house-door"></i> Home</a>
-        <a href="#"><i class="bi bi-info-circle"></i> About Us</a>
+        <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+        <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
         <a href="#"><i class="bi bi-people"></i> Key Managerial Personnels</a>
         <a href="#"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
-        <a href="#"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
         <a href="#"><i class="bi bi-geo-alt"></i> Office Addresses</a>
         <a href="#"><i class="bi bi-download"></i> New Downloads</a>
         <a href="#"><i class="bi bi-play-btn"></i> Webinar</a>

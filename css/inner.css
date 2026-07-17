@@ -23,7 +23,7 @@
 }
 
 /* ---------- PAGE HERO ---------- */
-.p-hero{position:relative;overflow:hidden;background:var(--soft-gradient);padding: 100px 0 clamp(56px,8vw,96px);}
+.p-hero{position:relative;overflow:hidden;background:var(--soft-gradient);padding:calc(var(--header-h,140px) + 30px) 0 clamp(56px,8vw,96px);}
 .p-hero--dark{background:var(--mono-bg);color:var(--mono-ink);}
 .p-hero--dark .p-hero-title{color:#fff;}
 .p-hero--dark .p-hero-sub{color:rgba(220,235,225,.75);}
@@ -43,6 +43,8 @@
 .p-hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
 .p-hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4.4fr);gap:clamp(32px,5vw,72px);align-items:center;}
 @media(max-width:900px){.p-hero-grid{grid-template-columns:1fr;}}
+@media(max-width:640px){.p-hero{padding:180px 0 56px;}}
+@media(max-width:900px) and (min-width:641px){.p-hero{padding:150px 0 70px;}}
 
 /* dotted ledger backdrop */
 .dotgrid{background-image:radial-gradient(rgba(13,33,24,.14) 1px,transparent 1px);background-size:26px 26px;}
@@ -952,7 +954,10 @@
 
 @media (max-width: 768px) {
   .journey-card-wrap {
-    position: static !important;
+    /* relative, not static: .journey-card-shadow is position:absolute and needs
+       this element to stay a positioning context, or it escapes to a distant
+       positioned ancestor and balloons to cover unrelated sections below. */
+    position: relative !important;
   }
 }
 
