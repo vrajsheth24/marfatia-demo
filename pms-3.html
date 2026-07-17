@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Management Services (PMS) — Marfatia Stock Broking</title>
+  <meta name="description" content="PMS — customized investment strategies managed by experienced fund managers with strong research backup. SEBI Reg. No. INP000005117.">
+  <link rel="icon" href="content/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/inner.css">
+  <link rel="stylesheet" href="css/pms-3.css">
+</head>
+
+<body>
+  <canvas class="cursor-trail" id="cursorTrail" aria-hidden="true"></canvas>
+  <div class="progress-rail">
+    <div class="progress-fill" id="scrollProgress"></div>
+  </div>
+
+  <header class="strip" id="strip">
+    <div class="header-top-bar">
+      <div class="wrap header-top-bar-content">
+        <div class="header-top-bar-info">
+          <span><i class="bi bi-clock-fill"></i> Mon-Fri 8:00 am-6:00 pm</span>
+          <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
+          <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
+        </div>
+        <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
+          Client</a>
+      </div>
+    </div>
+    <div class="strip-row">
+      <a href="index.html" class="strip-logo"><img src="content/logo.png" alt="Marfatia Stock Broking"></a>
+
+      <nav class="strip-nav" id="stripNav">
+        <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
+        <div class="nav-item"><a class="strip-link" href="#">About Us</a></div>
+
+        <div class="nav-item">
+          <button class="strip-link" data-drawer="services">Services</button>
+          <div class="nav-dropdown services-grid-dropdown">
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-safe"></i></div>
+                <div class="dd-text">
+                  <h4>DP</h4>
+                  <p>Secure custody of stocks &amp; securities</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-briefcase"></i></div>
+                <div class="dd-text">
+                  <h4>PMS</h4>
+                  <p>Expert-managed portfolios</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-percent"></i></div>
+                <div class="dd-text">
+                  <h4>MTF</h4>
+                  <p>Up to 4x leverage to buy stocks</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-arrow-left-right"></i></div>
+                <div class="dd-text">
+                  <h4>SLB</h4>
+                  <p>Lend idle stocks to earn extra yield</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-gem"></i></div>
+                <div class="dd-text">
+                  <h4>EGR</h4>
+                  <p>Trade physical gold digitally</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-cash-stack"></i></div>
+                <div class="dd-text">
+                  <h4>Cash cm</h4>
+                  <p>Delivery &amp; intraday share trading</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div class="dd-text">
+                  <h4>FO Derivative</h4>
+                  <p>Trade options &amp; index futures</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-layers"></i></div>
+                <div class="dd-text">
+                  <h4>ETF</h4>
+                  <p>Diversification via market baskets</p>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-lightning"></i></div>
+                <div class="dd-text">
+                  <h4>IPO</h4>
+                  <p>Apply for upcoming public issues</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-bank"></i></div>
+                <div class="dd-text">
+                  <h4>Bond</h4>
+                  <p>Safe fixed-income investments</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-shield-check"></i></div>
+                <div class="dd-text">
+                  <h4>Insurance</h4>
+                  <p>Protect health, life &amp; assets</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-pie-chart"></i></div>
+                <div class="dd-text">
+                  <h4>MF</h4>
+                  <p>Top mutual funds for every budget</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>
+
+        <div class="nav-item">
+          <button class="strip-link" data-drawer="calculators">Calculators</button>
+          <div class="nav-dropdown calculators-dropdown">
+            <div class="dropdown-column">
+              <a href="#" class="dd-item-simple">Interest</a>
+              <a href="#" class="dd-item-simple">SIP</a>
+              <a href="#" class="dd-item-simple">Brokerage</a>
+              <a href="#" class="dd-item-simple">Margin</a>
+              <a href="#" class="dd-item-simple">CAGR</a>
+              <a href="#" class="dd-item-simple">SWP</a>
+            </div>
+            <div class="dropdown-column">
+              <a href="#" class="dd-item-simple">FD</a>
+              <a href="#" class="dd-item-simple">RD</a>
+              <a href="#" class="dd-item-simple">Lump sum</a>
+              <a href="#" class="dd-item-simple">Future Value</a>
+              <a href="#" class="dd-item-simple">EMI</a>
+              <a href="#" class="dd-item-simple">Option Value</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>
+      </nav>
+
+      <div class="strip-right">
+        <div class="login-dd" id="loginDd">
+          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10" height="6"
+              viewBox="0 0 10 6" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="login-dd-menu" id="loginDdMenu">
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Traders ↗</a>
+            <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener">Back Office ↗</a>
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Client ↗</a>
+          </div>
+        </div>
+        <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
+          class="btn btn-marfatia"><span>Open Demat Account</span></a>
+      </div>
+
+      <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="inner-main pms-page" id="pms-main">
+
+    <section class="pms-hero" aria-labelledby="pms-hero-title" style="padding-top: 130px;">
+      <div class="pms-decor pms-decor--grid" aria-hidden="true"></div>
+      <div class="pms-decor pms-decor--curve" aria-hidden="true"></div>
+      <div class="pms-decor pms-decor--candles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="container pms-container">
+        <div class="pms-hero-layout">
+          <div class="pms-hero-copy">
+            <div class="pms-eyebrow" data-pms-hero="eyebrow"><span class="dot dot--live"></span> SEBI-registered portfolio management</div>
+            <h1 class="pms-title pms-hero-title" id="pms-hero-title">
+              <span class="pms-title-mask"><span>Portfolio Management</span></span>
+              <span class="pms-title-mask"><span><em>Services.</em></span></span>
+            </h1>
+            <p class="pms-description pms-hero-description" data-pms-hero="description">A professionally managed portfolio of listed securities held in your own name - built and run by Marfatia's SEBI-registered portfolio desk in Vadodara, with the direct access only a 30-year Gujarat house can offer.</p>
+            <div class="pms-registration" data-pms-hero="registration">
+              <span><i class="bi bi-patch-check-fill" aria-hidden="true"></i> SEBI Reg. INP000005117</span>
+              <span><i class="bi bi-building-check" aria-hidden="true"></i> APMI member</span>
+            </div>
+            <div class="pms-hero-actions" data-pms-hero="actions">
+              <a href="tel:02652351355" class="btn btn-marfatia btn-lg pms-button" data-pms-static-button><span class="text-white">Talk to the PMS Desk</span></a>
+              <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener" class="btn btn-outline btn-lg pms-button" data-pms-static-button><span>Open Demat Account</span></a>
+            </div>
+          </div>
+
+          <div class="pms-trust-visual" data-pms-hero="visual" role="img" aria-label="30 years of market trust, SEBI registered and APMI member">
+            <span class="pms-trust-kicker"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Registered. Disciplined. Direct.</span>
+            <div class="pms-trust-stage">
+              <div class="pms-trust-halo" aria-hidden="true"></div>
+              <div class="pms-trust-ring" data-pms-trust-ring data-ring-text="SEBI REGISTERED • APMI MEMBER • SINCE 1994 • " aria-hidden="true"></div>
+              <div class="pms-trust-core">
+                <span>Since</span>
+                <strong>30<sup>+</sup></strong>
+                <b>Years of<br>market trust</b>
+              </div>
+              <span class="pms-trust-orbit-dot pms-trust-orbit-dot--one" aria-hidden="true"></span>
+              <span class="pms-trust-orbit-dot pms-trust-orbit-dot--two" aria-hidden="true"></span>
+            </div>
+            <div class="pms-trust-proofs">
+              <span class="pms-trust-proof"><i class="bi bi-shield-check" aria-hidden="true"></i><b>SEBI</b><small>INP000005117</small></span>
+              <span class="pms-trust-proof"><i class="bi bi-building-check" aria-hidden="true"></i><b>APMI</b><small>Member firm</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pms-facts" aria-label="PMS facts">
+      <div class="container pms-container">
+        <div class="pms-facts-row" data-pms-stagger>
+          <div class="pms-fact"><span></span><strong>SEBI</strong><small>Registered PMS</small></div>
+          <div class="pms-fact"><span></span><strong>Personalized</strong><small>Investment Strategies</small></div>
+          <div class="pms-fact"><span></span><strong>Research</strong><small>Driven Portfolio Selection</small></div>
+          <div class="pms-fact"><span></span><strong>Direct</strong><small>Demat ownership</small></div>
+          <div class="pms-fact"><span></span><strong>Long-Term</strong><small>Wealth Creation</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Background Gradient Wrapper -->
+    <div class="pms-global-layout-wrapper">
+      <div class="pms-grid-layout container pms-container" style="margin-top: 40px; padding-top: 40px; padding-bottom: 40px;">
+        <div class="pms-content-col">
+
+    <section class="pms-section pms-understand" id="pms-what">
+      <div class="pms-decor pms-decor--dots" aria-hidden="true"></div>
+      <div class="container pms-container">
+        <div class="pms-understand-layout">
+          <div class="pms-section-copy">
+            <div class="pms-section-head">
+              <span class="pms-section-number" aria-hidden="true">01</span>
+              <div class="pms-eyebrow" data-pms-reveal="up">Understand it</div>
+              <h2 class="pms-title" data-pms-reveal="up">What PMS is — <em>in one minute.</em></h2>
+            </div>
+            <p class="pms-description" data-pms-reveal="up">Under the SEBI (Portfolio Managers) Regulations, 2020, a portfolio manager invests directly on your behalf. No pooled units — the portfolio is yours, the strategy is tailored, and the manager is personally answerable to you.</p>
+            <p class="pms-description" data-pms-reveal="up">PMS is designed to provide total end-to-end customised and personalised services to HNI and institutional clients, enhancing wealth and returns through expert active fund management.</p>
+            <aside class="pms-ownership-note" data-pms-reveal="left">
+              <i class="bi bi-person-vcard" aria-hidden="true"></i>
+              <p><strong>You own the securities.</strong> Stocks are bought in your demat account, so you always see exactly what you own.</p>
+            </aside>
+          </div>
+
+          <div class="pms-comparison" aria-label="PMS and mutual fund comparison">
+            <div class="pms-comparison-head">
+              <span>At a glance</span><span>PMS</span><span>Mutual Fund</span>
+            </div>
+            <div class="pms-comparison-line" aria-hidden="true"><i></i></div>
+            <div class="pms-comparison-row" data-pms-reveal="right"><strong>You own</strong><span>Stocks in your demat</span><span>Units of a pool</span></div>
+            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Tailoring</strong><span>Customised to you</span><span>Same for all unit-holders</span></div>
+            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Minimum</strong><span>₹50 lakh (SEBI)</span><span>From ₹100–₹500</span></div>
+            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Taxation</strong><span>Direct equity, per transaction</span><span>On redemption of units</span></div>
+            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Best for</strong><span>HNIs seeking direct ownership</span><span>Every wallet size</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pms-section pms-why" id="pms-why">
+      <div class="pms-decor pms-decor--market-line" aria-hidden="true"></div>
+      <div class="container pms-container">
+        <div class="pms-why-layout">
+          <div class="pms-section-copy pms-why-copy">
+            <div class="pms-section-head">
+              <span class="pms-section-number" aria-hidden="true">02</span>
+              <div class="pms-eyebrow" data-pms-reveal="up">Why PMS</div>
+              <h2 class="pms-title" data-pms-reveal="up">Professional investing needs more than <em>occasional attention.</em></h2>
+            </div>
+            <p class="pms-description" data-pms-reveal="up">Efficient investment management requires time, knowledge, understanding, expertise and constant monitoring of developments in the micro and macro economic environment.</p>
+            <p class="pms-description" data-pms-reveal="up">That is difficult for investors involved in their own business, profession and other activities. An experienced fund manager considers your financial goal and the market environment to form the right investment strategy.</p>
+            <p class="pms-description" data-pms-reveal="up">Our fund manager's experience and skill set — together with strong research backup — are applied to help the portfolio pursue your long-term financial goals.</p>
+            <blockquote class="pms-research-quote" data-pms-reveal="left">“Research is a critical thrust area upon which the foundation of our strategy of presenting newer and quality investment ideas stands.”</blockquote>
+          </div>
+
+          <div class="pms-process" data-pms-process>
+            <div class="pms-process-track" aria-hidden="true"><i></i></div>
+            <article class="pms-process-stage is-active" data-pms-process-stage>
+              <span class="pms-process-number"></span>
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <div><h3>Research</h3><p>Build original insight from company, sector and market evidence.</p></div>
+            </article>
+            <article class="pms-process-stage" data-pms-process-stage>
+              <span class="pms-process-number"></span>
+              <i class="bi bi-check2-square" aria-hidden="true"></i>
+              <div><h3>Selection</h3><p>Convert conviction into carefully considered portfolio positions.</p></div>
+            </article>
+            <article class="pms-process-stage" data-pms-process-stage>
+              <span class="pms-process-number"></span>
+              <i class="bi bi-binoculars" aria-hidden="true"></i>
+              <div><h3>Monitoring</h3><p>Track businesses and the micro and macro environment continuously.</p></div>
+            </article>
+            <article class="pms-process-stage" data-pms-process-stage>
+              <span class="pms-process-number"></span>
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              <div><h3>Risk review</h3><p>Review position, portfolio and market risk through a long-term lens.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pms-section pms-way" id="pms-how">
+      <div class="pms-decor pms-decor--plus" aria-hidden="true">+ &nbsp; + &nbsp; +</div>
+      <div class="container pms-container">
+        <div class="pms-way-heading">
+          <div class="pms-section-head">
+            <span class="pms-section-number" aria-hidden="true">03</span>
+            <div class="pms-eyebrow" data-pms-reveal="up">The Marfatia Way</div>
+            <h2 class="pms-title" data-pms-reveal="up">Bottom-up picking, <em>long-term horizon.</em></h2>
+          </div>
+          <div class="pms-way-manifesto" data-pms-reveal="right">
+            <span>Our investment discipline</span>
+            <strong>Research → Conviction → Ownership</strong>
+            <p>A focused service shaped by direct access, platform-wide insight and transparent reporting.</p>
+          </div>
+        </div>
+        <div class="pms-way-grid" data-pms-way-grid>
+          <article class="pms-way-card pms-way-card--lead">
+            <div class="pms-way-card-top"><span></span><span class="pms-way-icon" aria-hidden="true"><i class="bi bi-person-check"></i><span class="pms-way-icon-dot"></span></span></div>
+            <div class="pms-way-card-copy"><h3>A named desk,<br>not a call centre.</h3><p>Your portfolio is overseen by a dedicated Principal Officer with MD-level access — the kind of direct relationship only a Gujarat-rooted house offers.</p></div>
+            <small>Direct access · Human accountability</small>
+          </article>
+          <article class="pms-way-card">
+            <div class="pms-way-card-top"><span></span><span class="pms-way-icon" aria-hidden="true"><i class="bi bi-search"></i><span class="pms-way-icon-dot"></span></span></div>
+            <div class="pms-way-card-copy"><h3>Full-platform research.</h3><p>Insight drawn from equity, F&amp;O, commodity, currency, IPOs and mutual funds — informed by three decades in Gujarat's markets.</p></div>
+            <small>Primary insight · Wider market lens</small>
+          </article>
+          <article class="pms-way-card pms-way-card--accent">
+            <div class="pms-way-card-top"><span></span><span class="pms-way-icon" aria-hidden="true"><i class="bi bi-bar-chart-line"></i><span class="pms-way-icon-dot"></span></span></div>
+            <div class="pms-way-card-copy"><h3>Transparent by regulation and habit.</h3><p>Monthly APMI reporting plus clear visibility of holdings and transactions through the dedicated client portal.</p></div>
+            <small>Visible holdings · Standardised reporting</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pms-section pms-journey" id="pms-start">
+      <div class="pms-decor pms-decor--dots pms-decor--dots-right" aria-hidden="true"></div>
+      <div class="container pms-container">
+        <div class="pms-journey-heading">
+          <div class="pms-section-head">
+            <span class="pms-section-number" aria-hidden="true">04</span>
+            <div class="pms-eyebrow" data-pms-reveal="up">Your journey</div>
+            <h2 class="pms-title" data-pms-reveal="up">Getting started — <em>five clear steps.</em></h2>
+          </div>
+          <p class="pms-description" data-pms-reveal="right">A guided path from the first suitability conversation to transparent portfolio reporting.</p>
+        </div>
+        <ol class="pms-journey-steps" data-pms-journey>
+          <li data-step="01"><span><i class="bi bi-chat-dots" aria-hidden="true"></i><b>01</b></span><small>Discover</small><h3>Conversation &amp; suitability</h3><p>Goals, horizon and risk appetite with the PMS desk — no forms first, just a proper talk.</p></li>
+          <li data-step="02"><span><i class="bi bi-file-earmark-text" aria-hidden="true"></i><b>02</b></span><small>Understand</small><h3>Read the Disclosure Document</h3><p>Fees, risks and approach in writing. Take your time and ask anything.</p></li>
+          <li data-step="03"><span><i class="bi bi-person-vcard" aria-hidden="true"></i><b>03</b></span><small>Formalise</small><h3>Agreements &amp; KYC</h3><p>PMS agreement plus a demat account in your name — open one online in about 10 minutes.</p></li>
+          <li data-step="04"><span><i class="bi bi-wallet2" aria-hidden="true"></i><b>04</b></span><small>Activate</small><h3>Fund the portfolio</h3><p>₹50 lakh minimum, as cash or approved securities.</p></li>
+          <li data-step="05"><span><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><b>05</b></span><small>Stay informed</small><h3>Reviews &amp; reporting</h3><p>Portal access from day one and scheduled reviews with the desk.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="pms-section pms-protections" id="pms-rights">
+      <div class="pms-decor pms-decor--document-grid" aria-hidden="true"></div>
+      <div class="container pms-container">
+        <div class="pms-rights-layout">
+          <div class="pms-rights-intro">
+            <div class="pms-section-head">
+              <span class="pms-section-number" aria-hidden="true">05</span>
+              <div class="pms-eyebrow" data-pms-reveal="up">Know your rights</div>
+              <h2 class="pms-title" data-pms-reveal="up">SEBI's investor protections, <em>built in.</em></h2>
+              <p class="pms-description" data-pms-reveal="up">Clear structural safeguards help protect high-net-worth investors before and throughout a portfolio management agreement.</p>
+            </div>
+            <div class="pms-rights-seal" data-pms-reveal="scale"><i class="bi bi-shield-check" aria-hidden="true"></i><span>Regulated framework</span><strong>Know the limits.<br>Own the decision.</strong></div>
+            <p class="pms-compliance-note" data-pms-reveal="up">Exact fee models are detailed in your signed agreement and the Disclosure Document available from the Compliance Officer.</p>
+          </div>
+          <div class="pms-rights-ledger" data-pms-rights-ledger>
+            <article><span>01</span><strong>₹0</strong><div><h3>Upfront distributor commission</h3><p>Prohibited entirely under the regulatory framework.</p></div><i class="bi bi-slash-circle" aria-hidden="true"></i></article>
+            <article><span>02</span><strong>0.5%</strong><div><h3>Annual operating expense</h3><p>Maximum yearly cap based on average AUM.</p></div><i class="bi bi-file-earmark-check" aria-hidden="true"></i></article>
+            <article><span>03</span><strong>3 · 2 · 1%</strong><div><h3>Exit-load limits</h3><p>Maximum for years one, two and three; nil thereafter.</p></div><i class="bi bi-graph-down-arrow" aria-hidden="true"></i></article>
+            <article><span>04</span><strong>Direct</strong><div><h3>Onboarding option</h3><p>No distributor fees when choosing direct onboarding.</p></div><i class="bi bi-person-check" aria-hidden="true"></i></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pms-section pms-faq" id="pms-faq">
+      <div class="container pms-container">
+        <div class="pms-faq-layout">
+          <div class="pms-section-head">
+            <span class="pms-section-number" aria-hidden="true">06</span>
+            <div class="pms-eyebrow" data-pms-reveal="up">Straight answers</div>
+            <h2 class="pms-title" data-pms-reveal="up">Questions investors <em>actually ask.</em></h2>
+            <p class="pms-description" data-pms-reveal="up">Clear answers about ownership, minimums, reporting and investor safeguards.</p>
+          </div>
+          <div class="pms-accordion" data-pms-stagger>
+            <article class="pms-accordion-item is-open">
+              <h3><button type="button" aria-expanded="true"><span>PMS vs mutual funds — the real difference?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>Ownership and tailoring. In PMS the shares sit in your demat account and the portfolio can be customised; a mutual fund gives you units of a common pool. Taxation in PMS is as if you traded directly — capital gains arise on each portfolio transaction in your name.</p></div></div>
+            </article>
+            <article class="pms-accordion-item">
+              <h3><button type="button" aria-expanded="false"><span>Is ₹50 lakh the minimum forever?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement.</p></div></div>
+            </article>
+            <article class="pms-accordion-item">
+              <h3><button type="button" aria-expanded="false"><span>Can I see my holdings whenever I want?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements. The securities are in your own demat, so depository statements show them too.</p></div></div>
+            </article>
+            <article class="pms-accordion-item">
+              <h3><button type="button" aria-expanded="false"><span>Who regulates this and where do I check?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>SEBI, under the Portfolio Managers Regulations, 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory, and see standardised industry data on APMI.</p></div></div>
+            </article>
+            <article class="pms-accordion-item">
+              <h3><button type="button" aria-expanded="false"><span>What if I have a complaint?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed. The full grievance ladder is detailed on our <a href="#">Investor Protection</a> page.</p></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      </div><!-- /pms-content-col -->
+
+      <aside class="pms-sidebar-rail">
+        <!-- A unified bespoke ledger panel -->
+        <div class="pms-ledger-panel">
+          <!-- <div class="pms-ledger-header">
+            <span>PMS LEDGER</span>
+            <h3>Access &amp; Rules</h3>
+          </div> -->
+          
+          <div class="pms-ledger-section">
+            <span class="pms-ledger-label">Apply &amp; Access</span>
+            <div class="pms-ledger-links">
+              <a class="pms-ledger-row" href="tel:02652351355">
+                <div class="pms-ledger-title">
+                  <b>PMS Desk</b>
+                  <span>Mon–Sat Vadodara HQ</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">Call <i class="bi bi-arrow-right"></i></span>
+              </a>
+              
+              <a class="pms-ledger-row" href="https://marfatia.wealthmagic.in/" target="_blank" rel="noopener">
+                <div class="pms-ledger-title">
+                  <b>Client Reports</b>
+                  <span>WealthMagic portal login</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">Login <i class="bi bi-arrow-up-right"></i></span>
+              </a>
+              
+              <a class="pms-ledger-row" href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener">
+                <div class="pms-ledger-title">
+                  <b>Open Demat Account</b>
+                  <span>PMS requirement · ~10 min</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">Start <i class="bi bi-arrow-up-right"></i></span>
+              </a>
+              
+              <a class="pms-ledger-row" href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">
+                <div class="pms-ledger-title">
+                  <b>Investor Services</b>
+                  <span>KYC &amp; application tools</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">Access <i class="bi bi-arrow-up-right"></i></span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="pms-ledger-section">
+            <span class="pms-ledger-label">Compliance &amp; Legal</span>
+            <div class="pms-ledger-links">
+              <a class="pms-ledger-row" href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank" rel="noopener">
+                <div class="pms-ledger-title">
+                  <b>Disclosure Document</b>
+                  <span>Latest Official · Oct 24</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">PDF <i class="bi bi-file-earmark-pdf"></i></span>
+              </a>
+              
+              <a class="pms-ledger-row" href="#">
+                <div class="pms-ledger-title">
+                  <b>Investor Charter</b>
+                  <span>SEBI standards &amp; rights</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">View <i class="bi bi-arrow-right"></i></span>
+              </a>
+              
+              <a class="pms-ledger-row" href="https://scores.sebi.gov.in/" target="_blank" rel="noopener">
+                <div class="pms-ledger-title">
+                  <b>SEBI SCORES</b>
+                  <span>Regulator complaints portal</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">SCORES <i class="bi bi-arrow-up-right"></i></span>
+              </a>
+              
+              <a class="pms-ledger-row" href="https://smartodr.in/" target="_blank" rel="noopener">
+                <div class="pms-ledger-title">
+                  <b>SMART ODR</b>
+                  <span>Dispute resolution hub</span>
+                </div>
+                <span class="pms-ledger-dots"></span>
+                <span class="pms-ledger-action">ODR <i class="bi bi-arrow-up-right"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /pms-grid-layout -->
+    </div><!-- /pms-global-layout-wrapper -->
+
+    <!-- <section class="pms-section pms-resources" aria-labelledby="pms-resources-title">
+      <div class="pms-decor pms-decor--market-line pms-decor--market-line-low" aria-hidden="true"></div>
+      <div class="container pms-container">
+        <div class="pms-resources-heading">
+          <div class="pms-section-head">
+            <span class="pms-section-number" aria-hidden="true">07</span>
+            <div class="pms-eyebrow" data-pms-reveal="up">Resources and access</div>
+            <h2 class="pms-title" id="pms-resources-title" data-pms-reveal="up">Apply, access <em>and verify.</em></h2>
+          </div>
+          <p class="pms-description" data-pms-reveal="right">Everything you need to begin, review your portfolio and verify the regulatory framework — organised by purpose.</p>
+        </div>
+        <div class="pms-resource-hub" data-pms-resource-hub>
+          <article class="pms-resource-panel pms-resource-panel--primary">
+            <span class="pms-resource-tag">Start here</span><i class="bi bi-telephone" aria-hidden="true"></i>
+            <h3>Speak with the PMS desk.</h3><p>Begin with your goals, horizon and suitability — no forms first.</p>
+            <a href="tel:02652351355">Call 0265 235 1355 <b aria-hidden="true">↗</b></a>
+            <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener">Open Demat Account <b aria-hidden="true">↗</b></a>
+          </article>
+          <article class="pms-resource-panel">
+            <span class="pms-resource-tag">Portfolio access</span>
+            <a href="https://marfatia.wealthmagic.in/" target="_blank" rel="noopener"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><span><strong>Client Reports</strong><small>Holdings and portfolio reporting</small></span><b aria-hidden="true">↗</b></a>
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener"><i class="bi bi-shield-lock" aria-hidden="true"></i><span><strong>Investor Services</strong><small>Applications and KYC tools</small></span><b aria-hidden="true">↗</b></a>
+            <a href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank" rel="noopener"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><span><strong>Disclosure Document</strong><small>Approach, risk and fee information</small></span><b aria-hidden="true">↗</b></a>
+          </article>
+          <article class="pms-resource-panel">
+            <span class="pms-resource-tag">Verify and protect</span>
+            <a href="#"><i class="bi bi-bank" aria-hidden="true"></i><span><strong>Investor Charter</strong><small>Standards, procedures and rights</small></span><b aria-hidden="true">→</b></a>
+            <a href="#"><i class="bi bi-shield-check" aria-hidden="true"></i><span><strong>Investor Protection</strong><small>Complaints and escalation paths</small></span><b aria-hidden="true">→</b></a>
+            <a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener"><i class="bi bi-exclamation-diamond" aria-hidden="true"></i><span><strong>SEBI SCORES</strong><small>Regulator grievance portal</small></span><b aria-hidden="true">↗</b></a>
+            <div class="pms-resource-mini-links"><a href="https://smartodr.in/" target="_blank" rel="noopener">SMART ODR ↗</a><a href="https://www.apmiindia.org/" target="_blank" rel="noopener">APMI Data ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="pms-section pms-final" aria-labelledby="pms-final-title">
+      <div class="pms-decor pms-decor--final-chart" aria-hidden="true"></div>
+      <div class="pms-decor pms-decor--candles pms-decor--candles-final" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="container pms-container">
+        <div class="pms-final-card" data-pms-final-card>
+          <div class="pms-final-copy">
+            <div class="pms-eyebrow">A measured first step</div>
+            <h2 class="pms-title" id="pms-final-title">A thoughtful conversation. <em>A clearer next step.</em></h2>
+            <p class="pms-description">Share your goals, time horizon and risk appetite directly with the Marfatia PMS desk. We will help you understand whether PMS is suitable for you.</p>
+            <div class="pms-final-actions-new">
+              <a href="tel:02652351355" class="btn btn-marfatia btn-lg pms-button"><span class="text-white">Talk to the PMS Desk</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+              <a href="mailto:customercare@marfatia.net?subject=PMS%20callback%20request" class="pms-final-callback">Request a callback <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="pms-final-proof"><span><i class="bi bi-check2" aria-hidden="true"></i>No forms first</span><span><i class="bi bi-check2" aria-hidden="true"></i>Direct desk access</span><span><i class="bi bi-check2" aria-hidden="true"></i>Suitability-led</span></div>
+          </div>
+          <aside class="pms-contact-card">
+            <div class="pms-contact-card-head"><i class="bi bi-compass" aria-hidden="true"></i><span>What happens next</span></div>
+            <ol class="pms-next-steps">
+              <li><span>1</span><div><strong>We listen first.</strong><p>Your goals, horizon and comfort with risk.</p></div></li>
+              <li><span>2</span><div><strong>We assess suitability.</strong><p>A clear discussion of fit, minimums and expectations.</p></div></li>
+              <li><span>3</span><div><strong>You decide.</strong><p>No pressure — move ahead only when it feels right.</p></div></li>
+            </ol>
+            <div class="pms-desk-line"><span>PMS desk · Vadodara</span><a href="tel:02652351355">0265 235 1355 <i class="bi bi-telephone" aria-hidden="true"></i></a></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
+    <div class="footer-glow" aria-hidden="true"></div>
+
+    <!-- <div class="footer-ticker" aria-hidden="true">
+      <div class="footer-ticker-track" id="footerTicker"></div>
+    </div> -->
+
+    <!-- <div class="footer-top">
+      <h2>Ready to trade<br><em>on your terms?</em></h2>
+      <a href="#" class="btn btn-accent btn-lg magnetic"><span>Open Demat Account →</span></a>
+    </div> -->
+
+    <!-- compact single row: small map thumbnail + rating/review strip, side by side -->
+    <div class="footer-locate">
+      <a class="footer-map-compact" href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <span class="footer-map-tag mono">📍 Open in Maps</span>
+      </a>
+      <div class="footer-reviews-compact">
+        <div class="google-badge">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#4285F4"
+              d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.5-9.6 6.5-16.6z" />
+            <path fill="#34A853"
+              d="M24 46c5.9 0 10.9-2 14.5-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46z" />
+            <path fill="#FBBC05"
+              d="M11.8 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.5C3 17 2 20.4 2 24s1 7 4.5 9.9l7.3-5.7z" />
+            <path fill="#EA4335"
+              d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.1l7.3 5.7c1.7-5.2 6.5-9 12.2-9z" />
+          </svg>
+          <span><b>4.8</b>/5 · 2,400+ Reviews</span>
+        </div>
+        <p class="footer-review-line">"Switched from a legacy broker — the algo automation alone paid for the
+          switch." <span>— Rohan Kapadia</span></p>
+        <a href="#" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <img src="content/logo.png" alt="Marfatia Stock Broking">
+        <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
+          intelligence, automation and 30+ years of market trust.</p>
+        <address class="footer-address mono">
+          <i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat – 390005,
+          India
+        </address>
+        <div class="footer-emails mono">
+          <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-at-fill"></i> compliance@marfatia.net</a>
+          <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="X"><svg viewBox="0 0 16 16" fill="currentColor">
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.8 1 12 1 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zm-13 3V9l5.2 3-5.2 3z" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.4 2.4 0 0 0 1.6-1.1c.2-.5.2-.9.1-1z" />
+            </svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="#"><i class="bi bi-house-door"></i> Home</a>
+        <a href="#"><i class="bi bi-info-circle"></i> About Us</a>
+        <a href="#"><i class="bi bi-people"></i> Key Managerial Personnels</a>
+        <a href="#"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
+        <a href="#"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="#"><i class="bi bi-geo-alt"></i> Office Addresses</a>
+        <a href="#"><i class="bi bi-download"></i> New Downloads</a>
+        <a href="#"><i class="bi bi-play-btn"></i> Webinar</a>
+        <a href="#"><i class="bi bi-envelope-open"></i> Web Mail Login</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Downloads &amp; Forms</h5>
+        <a href="#"><i class="bi bi-file-earmark-person"></i> Client Reg. Form (KYC)</a>
+        <a href="#"><i class="bi bi-folder2-open"></i> Download Forms Area</a>
+        <a href="#"><i class="bi bi-file-earmark-arrow-down"></i> NSE Exchange Margin File</a>
+        <a href="#"><i class="bi bi-translate"></i> Vernacular Languages</a>
+        <a href="#"><i class="bi bi-credit-card"></i> Client Bank Accounts</a>
+        <a href="#"><i class="bi bi-book"></i> eKYC Step-by-Step Guide</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Compliance &amp; Legal</h5>
+        <a href="#"><i class="bi bi-shield-lock"></i> Privacy Policy</a>
+        <a href="#"><i class="bi bi-file-earmark-check"></i> Terms &amp; Conditions</a>
+        <a href="#"><i class="bi bi-exclamation-triangle"></i> Disclaimer Policy</a>
+        <a href="#"><i class="bi bi-file-earmark-text"></i> Policies and Circulars</a>
+        <a href="#"><i class="bi bi-journal-text"></i> PMS Disclosure Document</a>
+        <a href="#"><i class="bi bi-question-circle"></i> How to File Complaints</a>
+        <a href="#"><i class="bi bi-megaphone"></i> Advisory for Investors</a>
+        <a href="#"><i class="bi bi-award"></i> Investor Charter — Stock Broker</a>
+        <a href="#"><i class="bi bi-graph-up"></i> Investor Charter — Research Analyst</a>
+        <a href="#"><i class="bi bi-safe"></i> Investor Charter — Depository Participant</a>
+        <a href="#"><i class="bi bi-clipboard-check"></i> Advisory — KYC Compliance</a>
+        <a href="#"><i class="bi bi-briefcase"></i> Investor Charter — PMS</a>
+        <a href="#"><i class="bi bi-cpu-fill"></i> Smart ODR Portal</a>
+      </div>
+    </div>
+
+    <div class="footer-regbar">
+      <span class="mono">Member Code NSE: 11925</span>
+      <span class="mono">Member Code BSE: 3065</span>
+      <span class="mono">SEBI Reg. No: INZ000215330</span>
+      <span class="mono">PMS SEBI Reg. No: INP000005117</span>
+      <span class="mono">Research Analyst SEBI Reg. No: INH000002178</span>
+      <span class="mono">Depository Participant: CDSL (DP ID: 12044400)</span>
+    </div>
+
+    <div class="footer-assoc">
+      <span>SEBI</span><span>NSE</span><span>BSE</span><span>CDSL</span><span>NSDL</span><span>MCX</span><span>NCDEX</span><span>RBI</span>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>Investments in securities market are subject to market risks. Read all the related documents carefully before
+        investing. Marfatia Stock Broking Pvt. Ltd. is a SEBI Registered Stock Broker, Portfolio Manager and Research
+        Analyst. Member: NSE, BSE, MCX. Registered Office: Vadodara, Gujarat, India.</p>
+      <p class="footer-copy">© <span id="year"></span> Marfatia Stock Broking Pvt. Ltd. All Rights Reserved. Powered By:
+        Barodaweb</p>
+    </div>
+  </footer>
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/inner.js"></script>
+  <script src="js/pms.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var sections = document.querySelectorAll(".pms-content-col section[id]");
+      var anchorLinks = document.querySelectorAll(".pms-sidebar-anchor");
+
+      if (sections.length > 0 && anchorLinks.length > 0) {
+        var sio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;
+              anchorLinks.forEach(function (a) {
+                if (a.getAttribute("href") === "#" + id) {
+                  a.classList.add("active");
+                } else {
+                  a.classList.remove("active");
+                }
+              });
+            }
+          });
+        }, { threshold: 0.15, rootMargin: "-100px 0px -60% 0px" });
+
+        sections.forEach(function (s) { sio.observe(s); });
+      }
+    });
+  </script>
+</body>
+
+</html>
