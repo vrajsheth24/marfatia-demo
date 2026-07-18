@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Brokerage Charges — Marfatia Stock Broking</title>
+  <meta name="description" content="Marfatia Stock Broking pricing — zero brokerage on equity delivery, flat ₹20 on intraday and F&amp;O, transparent statutory charges. No hidden fees.">
+  <link rel="icon" href="content/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/inner.css">
+  <style>
+    #scrollProgress{ z-index:1000; }
+    .sec{ overflow-x:hidden; }
+
+    .p-hero{
+      background:linear-gradient(180deg, rgba(8,117,59,0.06) 0%, rgba(155,206,22,0.03) 70%, rgba(255,255,255,0) 100%) !important;
+      position:relative; overflow:hidden; z-index:2;
+    }
+    .p-hero::before{
+      content:""; position:absolute; inset:0;
+      background-image:radial-gradient(rgba(8,117,59,0.08) 1px, transparent 1px), radial-gradient(rgba(155,206,22,0.05) 1.5px, transparent 1.5px);
+      background-size:24px 24px; background-position:0 0, 12px 12px; opacity:.9; z-index:1; pointer-events:none;
+    }
+    .pr-orb{ position:absolute; border-radius:50%; filter:blur(80px); opacity:.16; pointer-events:none; z-index:0; animation:pr-drift 14s ease-in-out infinite; }
+    .pr-orb-1{ width:340px; height:340px; background:var(--green); top:6%; left:-150px; }
+    .pr-orb-2{ width:380px; height:380px; background:var(--lime); bottom:6%; right:-170px; animation-delay:-6s; animation-direction:reverse; }
+    @keyframes pr-drift{ 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(28px,-22px) scale(1.08); } }
+
+    /* ── HERO: rate-card menu visual ── */
+    .rate-card{ background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:30px 28px; position:relative; overflow:hidden; animation:rate-bob 6s ease-in-out infinite; }
+    @keyframes rate-bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+    .rate-card::before{ content:""; position:absolute; width:200px; height:200px; border-radius:50%; top:-100px; right:-80px; background:radial-gradient(circle, rgba(155,206,22,.18), transparent 70%); pointer-events:none; }
+    .rate-card-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:20px; position:relative; z-index:1; }
+    .rate-card-head span{ font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+    .rate-card-head b{ font-family:var(--font-mono); font-size:10px; color:var(--green); background:var(--paper-tint); padding:5px 10px; border-radius:100px; }
+    .rate-row{ display:flex; align-items:baseline; gap:8px; padding:11px 0; position:relative; z-index:1; opacity:0; transform:translateX(-8px); animation:rate-in .5s var(--ease) forwards; }
+    .rate-row:nth-child(1){ animation-delay:.1s; } .rate-row:nth-child(2){ animation-delay:.25s; }
+    .rate-row:nth-child(3){ animation-delay:.4s; } .rate-row:nth-child(4){ animation-delay:.55s; }
+    @keyframes rate-in{ to{ opacity:1; transform:none; } }
+    .rate-row .rn{ font-size:14px; color:var(--ink); white-space:nowrap; }
+    .rate-row .rd{ flex:1; border-bottom:1px dashed var(--line); transform:translateY(-4px); }
+    .rate-row .rv{ font-family:var(--font-mono); font-weight:700; font-size:14px; color:var(--green); white-space:nowrap; }
+    .rate-card-foot{ margin-top:16px; padding-top:16px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-faint); position:relative; z-index:1; }
+
+    /* ── SEGMENT TABS ── */
+    .seg-tabs-wrap{ max-width:100%; }
+    .tabs{ overflow-x:auto; -webkit-overflow-scrolling:touch; flex-wrap:nowrap; scrollbar-width:none; padding-bottom:4px; }
+    .tabs::-webkit-scrollbar{ display:none; }
+    .tab-btn{ flex:0 0 auto; }
+    .price-hero-box{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; background:var(--green-deep); color:#fff; border-radius:var(--radius-lg); padding:26px 28px; margin-bottom:24px; }
+    .price-hero-box .phb-rate{ font-family:var(--font-disp); font-weight:800; font-size:clamp(24px,3vw,32px); color:var(--lime); }
+    .price-hero-box .phb-lbl{ font-size:14px; color:rgba(220,235,225,.85); }
+    .charge-table-wrap{ border:1px solid var(--line); border-radius:var(--radius-md); overflow:hidden; background:var(--paper-raised); box-shadow:var(--shadow-sm); }
+    .charge-table{ width:100%; border-collapse:collapse; font-size:14px; }
+    .charge-table th{ background:var(--paper-tint); font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); font-weight:700; padding:14px 20px; text-align:left; }
+    .charge-table td{ padding:13px 20px; border-top:1px solid var(--line); color:var(--ink-soft); }
+    .charge-table td:first-child{ color:var(--ink); font-weight:500; }
+    .charge-table td:last-child{ font-family:var(--font-mono); color:var(--ink); text-align:right; }
+    .charge-table tr:hover td{ background:rgba(8,117,59,.03); }
+
+    /* ── ESTIMATE CALCULATOR ── */
+    .est-shell{ position:relative; overflow:hidden; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:clamp(26px,3.5vw,40px); display:grid; grid-template-columns:1fr 1fr; gap:36px; transition:box-shadow .4s var(--ease), border-color .4s var(--ease); }
+    .est-shell:hover{ box-shadow:0 24px 60px rgba(8,117,59,.16); border-color:rgba(8,117,59,.25); }
+    .est-shell::before{ content:""; position:absolute; width:260px; height:260px; border-radius:50%; top:-130px; right:-100px; background:radial-gradient(circle, rgba(155,206,22,.14), transparent 70%); pointer-events:none; animation:est-glow-drift 10s ease-in-out infinite; }
+    @keyframes est-glow-drift{ 0%,100%{ transform:translate(0,0); } 50%{ transform:translate(-18px,14px); } }
+    @media(max-width:800px){ .est-shell{ grid-template-columns:1fr; } }
+    .est-field{ margin-bottom:20px; position:relative; z-index:1; }
+    .est-field label{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px; }
+    .est-field label b{ color:var(--green); font-family:var(--font-mono); font-size:13px; }
+    .est-seg{ display:flex; gap:8px; flex-wrap:wrap; }
+    .est-seg button{ font-family:var(--font-mono); font-size:12px; padding:9px 14px; border-radius:100px; border:1px solid var(--line); background:var(--paper-tint); color:var(--ink-soft); cursor:pointer; transition:all .25s var(--ease); }
+    .est-seg button.active{ background:var(--green); color:#fff; border-color:var(--green); box-shadow:0 6px 16px rgba(8,117,59,.28); }
+    .est-seg button:hover:not(.active){ background:var(--paper-raised); border-color:var(--green); color:var(--green); transform:translateY(-2px); }
+
+    /* custom range slider — themed to match the site's green/lime palette */
+    .est-field input[type="range"]{ -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:100px; margin:4px 0 10px; cursor:pointer; background:linear-gradient(90deg, var(--green) 0%, var(--lime) var(--est-fill, 50%), var(--paper-tint) var(--est-fill, 50%), var(--paper-tint) 100%); transition:box-shadow .25s; }
+    .est-field input[type="range"]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:#fff; border:3px solid var(--green); box-shadow:0 2px 8px rgba(8,117,59,.35); cursor:pointer; transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
+    .est-field input[type="range"]:hover::-webkit-slider-thumb{ transform:scale(1.15); box-shadow:0 0 0 6px rgba(8,117,59,.14); }
+    .est-field input[type="range"]:active::-webkit-slider-thumb{ background:var(--lime); border-color:var(--green-deep); }
+    .est-field input[type="range"]::-moz-range-track{ height:6px; border-radius:100px; background:var(--paper-tint); }
+    .est-field input[type="range"]::-moz-range-progress{ height:6px; border-radius:100px; background:linear-gradient(90deg, var(--green), var(--lime)); }
+    .est-field input[type="range"]::-moz-range-thumb{ width:16px; height:16px; border-radius:50%; background:#fff; border:3px solid var(--green); cursor:pointer; transition:transform .2s var(--ease); }
+    .est-field input[type="range"]:hover::-moz-range-thumb{ transform:scale(1.15); }
+
+    .est-num{ width:100%; background:var(--paper-tint); border:1px solid var(--line); border-radius:12px; padding:12px 16px; font-family:var(--font-mono); font-size:16px; font-weight:600; color:var(--ink); outline:none; margin-bottom:8px; transition:border-color .3s, box-shadow .3s; }
+    .est-num:focus{ border-color:var(--green); box-shadow:0 0 0 4px rgba(8,117,59,.1); }
+
+    .est-out{ position:relative; z-index:1; }
+    .est-out-row{ display:flex; align-items:center; gap:12px; padding:10px 10px; margin:0 -10px; border-radius:10px; font-size:13.5px; color:var(--ink-soft); transition:background .25s var(--ease), padding-left .25s var(--ease); }
+    .est-out-row:hover{ background:var(--paper-tint); }
+    .est-out-row i{ width:28px; height:28px; border-radius:8px; background:var(--paper-tint); color:var(--green); display:grid; place-items:center; font-size:13px; flex:0 0 auto; transition:background .25s, color .25s, transform .25s; }
+    .est-out-row:hover i{ background:var(--green); color:#fff; transform:scale(1.08); }
+    .est-out-row span{ flex:1; }
+    .est-out-row b{ font-family:var(--font-mono); color:var(--ink); }
+
+    .est-comp-bar{ display:flex; height:10px; border-radius:100px; overflow:hidden; margin-top:18px; background:var(--paper-tint); }
+    .est-comp-seg{ height:100%; width:0%; transition:width .7s var(--ease); }
+    .est-comp-brokerage{ background:var(--green); }
+    .est-comp-statutory{ background:var(--lime); }
+    .est-comp-gst{ background:var(--amber); }
+    .est-comp-legend{ display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint); }
+    .est-comp-legend span{ display:inline-flex; align-items:center; gap:6px; }
+    .est-comp-legend i{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+
+    .est-total{ position:relative; z-index:1; margin-top:14px; padding-top:16px; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; }
+    .est-total span{ font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+    .est-total b{ font-family:var(--font-disp); font-weight:800; font-size:clamp(24px,3vw,30px); color:var(--green); transition:color .3s; }
+    @media(prefers-reduced-motion: reduce){ .est-shell::before{ animation:none; } }
+
+    /* ── FEE VAULT (other charges) ── */
+    .fee-vault{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:860px){ .fee-vault{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:560px){ .fee-vault{ grid-template-columns:1fr; } }
+    .fee-card{ background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-md); padding:22px 20px; transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease); }
+    .fee-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:rgba(8,117,59,.3); }
+    .fee-card i{ font-size:20px; color:var(--green); margin-bottom:12px; display:block; }
+    .fee-card h4{ font-family:var(--font-disp); font-size:14.5px; font-weight:700; color:var(--ink); margin:0 0 6px; }
+    .fee-card .fee-val{ font-family:var(--font-mono); font-weight:700; font-size:15px; color:var(--green); margin-bottom:6px; }
+    .fee-card p{ font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin:0; }
+  </style>
+</head>
+
+<body>
+  <div class="progress-rail">
+    <div class="progress-fill" id="scrollProgress"></div>
+  </div>
+
+  <header class="strip" id="strip">
+    <div class="header-top-bar">
+      <div class="wrap header-top-bar-content">
+        <div class="header-top-bar-info">
+          <span><i class="bi bi-clock-fill"></i> Mon-Fri 8:00 am-6:00 pm</span>
+          <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
+          <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
+        </div>
+        <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
+          Client</a>
+      </div>
+    </div>
+    <div class="strip-row">
+      <a href="index.html" class="strip-logo"><img src="content/logo.png" alt="Marfatia Stock Broking"></a>
+
+      <nav class="strip-nav" id="stripNav">
+        <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
+        <div class="nav-item"><a class="strip-link" href="about.html">About Us</a></div>
+
+        <div class="nav-item">
+          <button class="strip-link" data-drawer="services">Services</button>
+          <div class="nav-dropdown services-grid-dropdown">
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-safe"></i></div>
+                <div class="dd-text">
+                  <h4>DP</h4>
+                  <p>Secure custody of stocks &amp; securities</p>
+                </div>
+              </a>
+              <a href="pms-4.html" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-briefcase"></i></div>
+                <div class="dd-text">
+                  <h4>PMS</h4>
+                  <p>Expert-managed portfolios</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-percent"></i></div>
+                <div class="dd-text">
+                  <h4>MTF</h4>
+                  <p>Up to 4x leverage to buy stocks</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-arrow-left-right"></i></div>
+                <div class="dd-text">
+                  <h4>SLB</h4>
+                  <p>Lend idle stocks to earn extra yield</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-gem"></i></div>
+                <div class="dd-text">
+                  <h4>EGR</h4>
+                  <p>Trade physical gold digitally</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-cash-stack"></i></div>
+                <div class="dd-text">
+                  <h4>Cash cm</h4>
+                  <p>Delivery &amp; intraday share trading</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div class="dd-text">
+                  <h4>FO Derivative</h4>
+                  <p>Trade options &amp; index futures</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-layers"></i></div>
+                <div class="dd-text">
+                  <h4>ETF</h4>
+                  <p>Diversification via market baskets</p>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-lightning"></i></div>
+                <div class="dd-text">
+                  <h4>IPO</h4>
+                  <p>Apply for upcoming public issues</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-bank"></i></div>
+                <div class="dd-text">
+                  <h4>Bond</h4>
+                  <p>Safe fixed-income investments</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-shield-check"></i></div>
+                <div class="dd-text">
+                  <h4>Insurance</h4>
+                  <p>Protect health, life &amp; assets</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-pie-chart"></i></div>
+                <div class="dd-text">
+                  <h4>MF</h4>
+                  <p>Top mutual funds for every budget</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a class="strip-link here" href="pricing.html">Pricing</a></div>
+
+        <div class="nav-item">
+          <button class="strip-link" data-drawer="calculators">Calculators</button>
+          <div class="nav-dropdown calculators-dropdown">
+            <div class="dropdown-column">
+              <a href="calculator-interest.html" class="dd-item-simple">Interest</a>
+              <a href="#" class="dd-item-simple">SIP</a>
+              <a href="#" class="dd-item-simple">Brokerage</a>
+              <a href="#" class="dd-item-simple">Margin</a>
+              <a href="#" class="dd-item-simple">CAGR</a>
+              <a href="#" class="dd-item-simple">SWP</a>
+            </div>
+            <div class="dropdown-column">
+              <a href="#" class="dd-item-simple">FD</a>
+              <a href="#" class="dd-item-simple">RD</a>
+              <a href="#" class="dd-item-simple">Lump sum</a>
+              <a href="#" class="dd-item-simple">Future Value</a>
+              <a href="#" class="dd-item-simple">EMI</a>
+              <a href="#" class="dd-item-simple">Option Value</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a class="strip-link" href="partner-with-us.html">Partner With Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
+      </nav>
+
+      <div class="strip-right">
+        <div class="login-dd" id="loginDd">
+          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10" height="6"
+              viewBox="0 0 10 6" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="login-dd-menu" id="loginDdMenu">
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Traders ↗</a>
+            <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener">Back Office ↗</a>
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Client ↗</a>
+          </div>
+        </div>
+        <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
+          class="btn btn-marfatia"><span>Open Demat Account</span></a>
+      </div>
+
+      <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </header>
+
+  <main class="inner-main">
+
+    <!-- ── PAGE HERO ── -->
+    <section class="p-hero">
+      <div class="pr-orb pr-orb-1"></div>
+      <div class="pr-orb pr-orb-2"></div>
+      <div class="p-hero-water">₹0</div>
+      <div class="wrap p-hero-grid">
+        <div>
+          <span class="p-crumb"><a href="index.html">Home</a> / <b>Pricing</b></span>
+          <h1 class="p-hero-title" data-reveal>Pricing that's honest, <em>not hidden.</em></h1>
+          <p class="p-hero-sub" data-reveal>Zero brokerage on equity delivery. A flat rate on everything else. Every statutory charge shown upfront — no fine print, no surprise deductions on your contract note.</p>
+
+          <div class="chipset" data-reveal style="margin-bottom:24px;">
+            <span class="chip">₹0 Equity Delivery</span>
+            <span class="chip">Flat ₹20 Intraday &amp; F&amp;O</span>
+            <span class="chip">₹0 Account Opening*</span>
+          </div>
+
+          <div class="p-hero-cta" data-reveal>
+            <a href="#chargesTable" class="btn btn-marfatia btn-lg"><span>See Full Charges ↓</span></a>
+            <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener" class="btn btn-outline btn-lg"><span>Open Demat Account ↗</span></a>
+          </div>
+        </div>
+
+        <div class="rate-card" data-reveal aria-hidden="true">
+          <div class="rate-card-head"><span>Rate Card</span><b>Per Executed Order</b></div>
+          <div class="rate-row"><span class="rn">Equity Delivery</span><span class="rd"></span><span class="rv">₹0</span></div>
+          <div class="rate-row"><span class="rn">Equity Intraday</span><span class="rd"></span><span class="rv">0.03% / ₹20</span></div>
+          <div class="rate-row"><span class="rn">F&amp;O Futures</span><span class="rd"></span><span class="rv">0.03% / ₹20</span></div>
+          <div class="rate-row"><span class="rn">F&amp;O Options</span><span class="rd"></span><span class="rv">Flat ₹20</span></div>
+          <div class="rate-card-foot">Whichever is lower, per executed order · statutory charges apply separately</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STAT STRIP ── -->
+    <section class="statline" data-reveal>
+      <div class="wrap statline-row">
+        <div class="statline-cell">
+          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">₹0</span>
+          <span class="statline-lbl">Equity Delivery Brokerage</span>
+        </div>
+        <div class="statline-cell">
+          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">Flat ₹20</span>
+          <span class="statline-lbl">Intraday &amp; F&amp;O, Per Order</span>
+        </div>
+        <div class="statline-cell">
+          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">Free</span>
+          <span class="statline-lbl">1st Year AMC (Resident Individual)</span>
+        </div>
+        <div class="statline-cell">
+          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">₹0</span>
+          <span class="statline-lbl">Individual Account Opening</span>
+        </div>
+        <div class="statline-cell">
+          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">Zero</span>
+          <span class="statline-lbl">Hidden Charges</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 01: CHARGES BY SEGMENT ── -->
+    <section class="sec" id="chargesTable">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:32px;">
+          <span class="eyebrow">Charges by Segment</span>
+          <h2 class="sec-title">Every charge, <em>fully itemised.</em></h2>
+          <p class="sec-sub">Brokerage is ours. Everything else below is a statutory or exchange charge applied identically across every broker in India, shown here so your contract note never surprises you.</p>
+        </div>
+
+        <div class="seg-tabs-wrap" data-reveal>
+          <div class="tabs" data-tabs="segments">
+            <button class="tab-btn active" data-tab="delivery">Equity Delivery</button>
+            <button class="tab-btn" data-tab="intraday">Equity Intraday</button>
+            <button class="tab-btn" data-tab="futures">F&amp;O Futures</button>
+            <button class="tab-btn" data-tab="options">F&amp;O Options</button>
+            <button class="tab-btn" data-tab="currency">Currency</button>
+            <button class="tab-btn" data-tab="commodity">Commodity</button>
+          </div>
+
+          <div class="tab-panel active" data-tab-group="segments" data-panel="delivery">
+            <div class="price-hero-box"><span class="phb-rate">₹0</span><span class="phb-lbl">Brokerage — buy and hold, pay nothing to us on the trade itself.</span></div>
+            <div class="charge-table-wrap">
+              <table class="charge-table">
+                <thead><tr><th>Charge</th><th>Applies On</th><th>Rate</th></tr></thead>
+                <tbody>
+                  <tr><td>STT / CTT</td><td>Buy &amp; Sell</td><td>0.1%</td></tr>
+                  <tr><td>Transaction Charges</td><td>Buy &amp; Sell</td><td>NSE 0.00297% · BSE 0.00375%</td></tr>
+                  <tr><td>SEBI Charges</td><td>Buy &amp; Sell</td><td>₹10 per crore</td></tr>
+                  <tr><td>Stamp Duty</td><td>Buy side only</td><td>0.015% or ₹1,500/crore</td></tr>
+                  <tr><td>GST</td><td>On (brokerage + SEBI + transaction)</td><td>18%</td></tr>
+                  <tr><td>DP Charges</td><td>On sell, per scrip</td><td>₹15.34</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-group="segments" data-panel="intraday">
+            <div class="price-hero-box"><span class="phb-rate">0.03% <span style="font-size:15px;color:rgba(220,235,225,.75);">or</span> ₹20</span><span class="phb-lbl">whichever is lower, per executed order</span></div>
+            <div class="charge-table-wrap">
+              <table class="charge-table">
+                <thead><tr><th>Charge</th><th>Applies On</th><th>Rate</th></tr></thead>
+                <tbody>
+                  <tr><td>STT / CTT</td><td>Sell side only</td><td>0.025%</td></tr>
+                  <tr><td>Transaction Charges</td><td>Buy &amp; Sell</td><td>NSE 0.00297% · BSE 0.00375%</td></tr>
+                  <tr><td>SEBI Charges</td><td>Buy &amp; Sell</td><td>₹10 per crore</td></tr>
+                  <tr><td>Stamp Duty</td><td>Buy side only</td><td>0.003% or ₹300/crore</td></tr>
+                  <tr><td>GST</td><td>On (brokerage + SEBI + transaction)</td><td>18%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-group="segments" data-panel="futures">
+            <div class="price-hero-box"><span class="phb-rate">0.03% <span style="font-size:15px;color:rgba(220,235,225,.75);">or</span> ₹20</span><span class="phb-lbl">whichever is lower, per executed order</span></div>
+            <div class="charge-table-wrap">
+              <table class="charge-table">
+                <thead><tr><th>Charge</th><th>Applies On</th><th>Rate</th></tr></thead>
+                <tbody>
+                  <tr><td>STT / CTT</td><td>Sell side only</td><td>0.02%</td></tr>
+                  <tr><td>Transaction Charges</td><td>Buy &amp; Sell</td><td>NSE 0.00173% · BSE nil</td></tr>
+                  <tr><td>SEBI Charges</td><td>Buy &amp; Sell</td><td>₹10 per crore</td></tr>
+                  <tr><td>Stamp Duty</td><td>Buy side only</td><td>0.002% or ₹200/crore</td></tr>
+                  <tr><td>GST</td><td>On (brokerage + SEBI + transaction)</td><td>18%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-group="segments" data-panel="options">
+            <div class="price-hero-box"><span class="phb-rate">Flat ₹20</span><span class="phb-lbl">per executed order, regardless of trade value</span></div>
+            <div class="charge-table-wrap">
+              <table class="charge-table">
+                <thead><tr><th>Charge</th><th>Applies On</th><th>Rate</th></tr></thead>
+                <tbody>
+                  <tr><td>STT / CTT</td><td>Sell (premium) / Exercised (intrinsic value)</td><td>0.1%</td></tr>
+                  <tr><td>Transaction Charges</td><td>On premium, Buy &amp; Sell</td><td>NSE 0.03503% · BSE 0.0325%</td></tr>
+                  <tr><td>SEBI Charges</td><td>Buy &amp; Sell</td><td>₹10 per crore</td></tr>
+                  <tr><td>Stamp Duty</td><td>Buy side only</td><td>0.003% or ₹300/crore</td></tr>
+                  <tr><td>GST</td><td>On (brokerage + SEBI + transaction)</td><td>18%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-group="segments" data-panel="currency">
+            <div class="price-hero-box"><span class="phb-rate">0.03% <span style="font-size:15px;color:rgba(220,235,225,.75);">/</span> ₹20</span><span class="phb-lbl">futures whichever is lower · flat ₹20 on options, per order</span></div>
+            <div class="charge-table-wrap">
+              <table class="charge-table">
+                <thead><tr><th>Charge</th><th>Futures</th><th>Options</th></tr></thead>
+                <tbody>
+                  <tr><td>STT / CTT</td><td>Nil</td><td>Nil</td></tr>
+                  <tr><td>Transaction Charges</td><td>NSE 0.00035% · BSE 0.00045%</td><td>NSE 0.0311% · BSE 0.001%</td></tr>
+                  <tr><td>SEBI Charges</td><td>₹10 per crore</td><td>₹10 per crore</td></tr>
+                  <tr><td>Stamp Duty</td><td>0.0001% or ₹10/crore</td><td>0.0001% or ₹10/crore</td></tr>
+                  <tr><td>GST</td><td colspan="2">18% on (brokerage + SEBI + transaction)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-tab-group="segments" data-panel="commodity">
+            <div class="price-hero-box"><span class="phb-rate">0.03% <span style="font-size:15px;color:rgba(220,235,225,.75);">/</span> ₹20</span><span class="phb-lbl">futures whichever is lower · flat ₹20 on options, per order</span></div>
+            <div class="charge-table-wrap">
+              <table class="charge-table">
+                <thead><tr><th>Charge</th><th>Futures</th><th>Options</th></tr></thead>
+                <tbody>
+                  <tr><td>STT / CTT</td><td>0.01% (non-agri, sell)</td><td>0.05% (sell)</td></tr>
+                  <tr><td>Transaction Charges</td><td>MCX 0.0021% · NSE 0.0001%</td><td>MCX 0.0418% · NSE 0.001%</td></tr>
+                  <tr><td>SEBI Charges</td><td>₹10 per crore</td><td>₹10 per crore</td></tr>
+                  <tr><td>Stamp Duty</td><td>0.002% or ₹200/crore</td><td>0.003% or ₹300/crore</td></tr>
+                  <tr><td>GST</td><td colspan="2">18% on (brokerage + SEBI + transaction)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:var(--ink-faint);margin-top:16px;">Rates shown are illustrative and track the current statutory framework at time of publishing. Government and exchange charges change from time to time — your contract note always reflects the rate applicable on the day of trade.</p>
+      </div>
+    </section>
+
+    <!-- ── 02: ESTIMATE YOUR CHARGES ── -->
+    <section class="sec sec--tint sec--rule-top">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:32px;">
+          <span class="eyebrow">Try It Yourself</span>
+          <h2 class="sec-title">Estimate your <em>total charges.</em></h2>
+          <p class="sec-sub">Enter a trade value to see roughly what you'd actually pay, all-in.</p>
+        </div>
+
+        <div class="est-shell" data-reveal>
+          <div>
+            <div class="est-field">
+              <label>Segment</label>
+              <div class="est-seg" id="estSegButtons">
+                <button data-seg="delivery" class="active">Equity Delivery</button>
+                <button data-seg="intraday">Equity Intraday</button>
+                <button data-seg="futures">F&amp;O Futures</button>
+                <button data-seg="options">F&amp;O Options</button>
+              </div>
+            </div>
+            <div class="est-field">
+              <label>Trade Value (One Side) <b id="estTurnoverOut">₹1,00,000</b></label>
+              <input type="range" id="estTurnoverRange" min="10000" max="10000000" step="10000" value="100000">
+              <input type="number" class="est-num" id="estTurnoverNum" value="100000" min="1000">
+            </div>
+            <p class="f-hint">Assumes one buy and one matching sell of equal value — the standard round-trip most traders compare.</p>
+          </div>
+          <div class="est-out">
+            <div class="est-out-row"><i class="bi bi-cash-coin"></i><span>Brokerage (buy + sell)</span><b id="outBrokerage">₹0</b></div>
+            <div class="est-out-row"><i class="bi bi-bank"></i><span>STT / CTT</span><b id="outSTT">₹0</b></div>
+            <div class="est-out-row"><i class="bi bi-arrow-left-right"></i><span>Transaction Charges</span><b id="outTxn">₹0</b></div>
+            <div class="est-out-row"><i class="bi bi-shield-check"></i><span>SEBI Charges</span><b id="outSebi">₹0</b></div>
+            <div class="est-out-row"><i class="bi bi-award"></i><span>Stamp Duty</span><b id="outStamp">₹0</b></div>
+            <div class="est-out-row"><i class="bi bi-receipt-cutoff"></i><span>GST (18%)</span><b id="outGst">₹0</b></div>
+
+            <div class="est-comp-bar" aria-hidden="true">
+              <div class="est-comp-seg est-comp-brokerage" id="compBrokerage"></div>
+              <div class="est-comp-seg est-comp-statutory" id="compStatutory"></div>
+              <div class="est-comp-seg est-comp-gst" id="compGst"></div>
+            </div>
+            <div class="est-comp-legend" aria-hidden="true">
+              <span><i style="background:var(--green);"></i>Brokerage</span>
+              <span><i style="background:var(--lime);"></i>Statutory</span>
+              <span><i style="background:var(--amber);"></i>GST</span>
+            </div>
+
+            <div class="est-total"><span>Total Charges</span><b id="outTotal">₹0</b></div>
+            <div class="est-total" style="margin-top:6px;padding-top:0;border-top:0;"><span>Effective Cost</span><b id="outPct" style="font-size:16px;color:var(--ink-soft);">0.00%</b></div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:var(--ink-faint);margin-top:14px;">Illustrative estimate only, based on the round-trip assumption above — actual charges depend on your exact order pattern, exchange (NSE/BSE/MCX) and prevailing rates.</p>
+      </div>
+    </section>
+
+    <!-- ── 03: ACCOUNT OPENING & AMC ── -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:32px;">
+          <span class="eyebrow">Account Charges</span>
+          <h2 class="sec-title">Opening &amp; <em>annual maintenance.</em></h2>
+        </div>
+        <div class="splitpanel" style="grid-template-columns:1fr 1fr;">
+          <div data-reveal>
+            <h3 style="font-family:var(--font-disp);font-size:18px;font-weight:700;color:var(--ink);margin:0 0 16px;">Account Opening</h3>
+            <div class="table-wrap">
+              <table class="dtable">
+                <thead><tr><th>Account Type</th><th>Opening Fee</th></tr></thead>
+                <tbody>
+                  <tr><td>Individual (resident)</td><td>Free</td></tr>
+                  <tr><td>Minor</td><td>Free</td></tr>
+                  <tr><td>HUF</td><td>Free online · ₹500 offline</td></tr>
+                  <tr><td>NRI</td><td>₹500</td></tr>
+                  <tr><td>Partnership / LLP / Corporate</td><td>₹500</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div data-reveal>
+            <h3 style="font-family:var(--font-disp);font-size:18px;font-weight:700;color:var(--ink);margin:0 0 16px;">Annual Maintenance Charge (AMC)</h3>
+            <div class="table-wrap">
+              <table class="dtable">
+                <thead><tr><th>Holding Value</th><th>AMC</th></tr></thead>
+                <tbody>
+                  <tr><td>Resident individual, Year 1</td><td>Free</td></tr>
+                  <tr><td>BSDA · up to ₹4 lakh</td><td>Free</td></tr>
+                  <tr><td>BSDA · ₹4–10 lakh</td><td>₹100/yr + GST</td></tr>
+                  <tr><td>BSDA · above ₹10 lakh</td><td>₹300/yr + GST</td></tr>
+                  <tr><td>Non-BSDA (standard)</td><td>₹300/yr + GST</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04: OTHER CHARGES ── -->
+    <section class="sec sec--tint sec--rule-top">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:32px;">
+          <span class="eyebrow">The Fine Print, In Plain Sight</span>
+          <h2 class="sec-title">Every other <em>charge you might hit.</em></h2>
+        </div>
+        <div class="fee-vault" data-reveal>
+          <div class="fee-card"><i class="bi bi-safe2"></i><h4>DP Charges</h4><div class="fee-val">₹15.34 / scrip</div><p>Charged on sell, per company, per day — covers depository (CDSL) and our own DP fee plus GST.</p></div>
+          <div class="fee-card"><i class="bi bi-telephone-outbound"></i><h4>Call &amp; Trade</h4><div class="fee-val">₹50 / order</div><p>Placing an order through a dealer over the phone instead of self-trading online.</p></div>
+          <div class="fee-card"><i class="bi bi-link-45deg"></i><h4>Pledging</h4><div class="fee-val">₹30 + GST</div><p>Per pledge request, per ISIN — for margin pledging or loan-against-shares.</p></div>
+          <div class="fee-card"><i class="bi bi-file-earmark-text"></i><h4>Physical CMR Request</h4><div class="fee-val">1st free, then ₹120*</div><p>*₹20 processing + ₹100 courier + GST for additional physical statement requests.</p></div>
+          <div class="fee-card"><i class="bi bi-arrow-left-right"></i><h4>Off-Market Transfer</h4><div class="fee-val">₹25 / transaction</div><p>Moving securities between demat accounts outside the exchange.</p></div>
+          <div class="fee-card"><i class="bi bi-credit-card"></i><h4>Payment Gateway</h4><div class="fee-val">₹9 + GST</div><p>Card/net-banking fund transfers — UPI transfers are free.</p></div>
+          <div class="fee-card"><i class="bi bi-graph-up-arrow"></i><h4>Margin Trading (MTF)</h4><div class="fee-val">0.04% / day</div><p>≈₹40 per lakh, per day on the funded amount, plus 0.3% or ₹20 brokerage, whichever lower.</p></div>
+          <div class="fee-card"><i class="bi bi-hourglass-split"></i><h4>Delayed Payment</h4><div class="fee-val">18% p.a.</div><p>Or 0.05% per day on any debit balance carried in your account.</p></div>
+          <div class="fee-card"><i class="bi bi-globe-asia-australia"></i><h4>NRI Brokerage</h4><div class="fee-val">0.5% or ₹50–200</div><p>Per executed order, whichever is lower — ₹200 cap applies for PIS accounts.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05: WHY THIS IS FAIR ── -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:36px;">
+          <span class="eyebrow">Beyond the Rate Card</span>
+          <h2 class="sec-title">Flat pricing. <em>Full-service desk.</em></h2>
+          <p class="sec-sub">Going flat on brokerage doesn't mean going quiet on support — everything below is still included, at no extra line item.</p>
+        </div>
+        <div class="bento" style="grid-template-columns:repeat(4,1fr);">
+          <div class="bento-cell" data-reveal>
+            <div class="bento-ico"><i class="bi bi-person-check-fill"></i></div>
+            <h3>A named desk</h3>
+            <p>Real people in Vadodara who know your account — not a rotating support queue.</p>
+          </div>
+          <div class="bento-cell" data-reveal>
+            <div class="bento-ico"><i class="bi bi-graph-up-arrow"></i></div>
+            <h3>Research included</h3>
+            <p>SEBI-registered research desk output at no extra subscription cost.</p>
+          </div>
+          <div class="bento-cell" data-reveal>
+            <div class="bento-ico"><i class="bi bi-receipt"></i></div>
+            <h3>No brokerage cap games</h3>
+            <p>What you see on this page is what lands on your contract note — nothing added later.</p>
+          </div>
+          <div class="bento-cell" data-reveal>
+            <div class="bento-ico"><i class="bi bi-shield-check"></i></div>
+            <h3>30 years of accountability</h3>
+            <p>A Vadodara-rooted house that answers for its numbers, not an anonymous app.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="sec sec--tint sec--rule-top">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:32px; max-width:820px; margin-left:auto; margin-right:auto; text-align:center;">
+          <span class="eyebrow">Straight Answers</span>
+          <h2 class="sec-title">Pricing <em>FAQs.</em></h2>
+        </div>
+        <div style="max-width:820px; margin:0 auto;">
+          <div class="acc" data-reveal>
+            <button class="acc-head"><span>Is equity delivery really free, with no minimum?</span><span class="acc-mark">+</span></button>
+            <div class="acc-body"><div class="acc-body-in"><p>Yes — zero brokerage on equity delivery trades on both NSE and BSE, regardless of order size. You still pay the statutory charges shown above (STT, transaction charges, stamp duty, GST) — those go to the government and exchanges, not to us.</p></div></div>
+          </div>
+          <div class="acc" data-reveal>
+            <button class="acc-head"><span>Why does my contract note show more than just brokerage?</span><span class="acc-mark">+</span></button>
+            <div class="acc-body"><div class="acc-body-in"><p>Every trade in India carries statutory charges set by the government (STT, stamp duty), the exchanges (transaction charges) and the regulator (SEBI turnover fee), plus GST on top of brokerage and some of those charges. These are identical across every broker — we just show them clearly instead of burying them.</p></div></div>
+          </div>
+          <div class="acc" data-reveal>
+            <button class="acc-head"><span>Is there a minimum brokerage per order?</span><span class="acc-mark">+</span></button>
+            <div class="acc-body"><div class="acc-body-in"><p>No. Intraday and F&amp;O futures are capped at whichever is lower between 0.03% and ₹20 — so small orders can cost less than ₹20, never more.</p></div></div>
+          </div>
+          <div class="acc" data-reveal>
+            <button class="acc-head"><span>Does PMS follow this same pricing?</span><span class="acc-mark">+</span></button>
+            <div class="acc-body"><div class="acc-body-in"><p>No — Portfolio Management Services has its own fee structure (management and performance fees), capped and regulated separately under SEBI's PMS Regulations. See our <a href="pms-4.html">PMS page</a> for those details.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BAND ── -->
+    <section class="ctaband" style="margin:0 auto 80px; max-width:1240px; border-radius:var(--radius-lg);" data-reveal>
+      <div class="wrap ctaband-inner">
+        <div>
+          <h2>One conversation is the <em>right first step.</em></h2>
+          <p style="opacity:.9;font-size:15px;margin-top:6px;">No forms, no pressure — tell us your goals; we'll tell you honestly what fits.</p>
+        </div>
+        <div class="ctaband-actions">
+          <a href="tel:02652351355" class="btn btn-lime btn-lg"><span>📞 Call Us Now</span></a>
+          <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener" class="btn btn-ghostlight btn-lg"><span>Open Demat Account ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
+    <div class="footer-glow" aria-hidden="true"></div>
+
+    <div class="footer-locate">
+      <a class="footer-map-compact" href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <span class="footer-map-tag mono">📍 Open in Maps</span>
+      </a>
+      <div class="footer-reviews-compact">
+        <div class="google-badge">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#4285F4"
+              d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.5-9.6 6.5-16.6z" />
+            <path fill="#34A853"
+              d="M24 46c5.9 0 10.9-2 14.5-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46z" />
+            <path fill="#FBBC05"
+              d="M11.8 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.5C3 17 2 20.4 2 24s1 7 4.5 9.9l7.3-5.7z" />
+            <path fill="#EA4335"
+              d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.1l7.3 5.7c1.7-5.2 6.5-9 12.2-9z" />
+          </svg>
+          <span><b>4.8</b>/5 · 2,400+ Reviews</span>
+        </div>
+        <p class="footer-review-line">"Switched from a legacy broker — the algo automation alone paid for the
+          switch." <span>— Rohan Kapadia</span></p>
+        <a href="#" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <img src="content/logo.png" alt="Marfatia Stock Broking">
+        <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
+          intelligence, automation and 30+ years of market trust.</p>
+        <address class="footer-address mono">
+          <i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat – 390005,
+          India
+        </address>
+        <div class="footer-emails mono">
+          <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-at-fill"></i> compliance@marfatia.net</a>
+          <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="X"><svg viewBox="0 0 16 16" fill="currentColor">
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.8 1 12 1 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zm-13 3V9l5.2 3-5.2 3z" />
+            </svg></a>
+          <a href="#" class="footer-social-ico" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.4 2.4 0 0 0 1.6-1.1c.2-.5.2-.9.1-1z" />
+            </svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+        <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
+        <a href="pricing.html"><i class="bi bi-tag"></i> Pricing</a>
+        <a href="#"><i class="bi bi-people"></i> Key Managerial Personnels</a>
+        <a href="#"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
+        <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="#"><i class="bi bi-geo-alt"></i> Office Addresses</a>
+        <a href="#"><i class="bi bi-download"></i> New Downloads</a>
+        <a href="#"><i class="bi bi-play-btn"></i> Webinar</a>
+        <a href="#"><i class="bi bi-envelope-open"></i> Web Mail Login</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Downloads &amp; Forms</h5>
+        <a href="#"><i class="bi bi-file-earmark-person"></i> Client Reg. Form (KYC)</a>
+        <a href="#"><i class="bi bi-folder2-open"></i> Download Forms Area</a>
+        <a href="#"><i class="bi bi-file-earmark-arrow-down"></i> NSE Exchange Margin File</a>
+        <a href="#"><i class="bi bi-translate"></i> Vernacular Languages</a>
+        <a href="#"><i class="bi bi-credit-card"></i> Client Bank Accounts</a>
+        <a href="#"><i class="bi bi-book"></i> eKYC Step-by-Step Guide</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Compliance &amp; Legal</h5>
+        <a href="#"><i class="bi bi-shield-lock"></i> Privacy Policy</a>
+        <a href="#"><i class="bi bi-file-earmark-check"></i> Terms &amp; Conditions</a>
+        <a href="#"><i class="bi bi-exclamation-triangle"></i> Disclaimer Policy</a>
+        <a href="#"><i class="bi bi-file-earmark-text"></i> Policies and Circulars</a>
+        <a href="#"><i class="bi bi-journal-text"></i> PMS Disclosure Document</a>
+        <a href="#"><i class="bi bi-question-circle"></i> How to File Complaints</a>
+        <a href="#"><i class="bi bi-megaphone"></i> Advisory for Investors</a>
+        <a href="#"><i class="bi bi-award"></i> Investor Charter — Stock Broker</a>
+        <a href="#"><i class="bi bi-graph-up"></i> Investor Charter — Research Analyst</a>
+        <a href="#"><i class="bi bi-safe"></i> Investor Charter — Depository Participant</a>
+        <a href="#"><i class="bi bi-clipboard-check"></i> Advisory — KYC Compliance</a>
+        <a href="#"><i class="bi bi-briefcase"></i> Investor Charter — PMS</a>
+        <a href="#"><i class="bi bi-cpu-fill"></i> Smart ODR Portal</a>
+      </div>
+    </div>
+
+    <div class="footer-regbar">
+      <span class="mono">Member Code NSE: 11925</span>
+      <span class="mono">Member Code BSE: 3065</span>
+      <span class="mono">SEBI Reg. No: INZ000215330</span>
+      <span class="mono">PMS SEBI Reg. No: INP000005117</span>
+      <span class="mono">Research Analyst SEBI Reg. No: INH000002178</span>
+      <span class="mono">Depository Participant: CDSL (DP ID: 12044400)</span>
+    </div>
+
+    <div class="footer-assoc">
+      <span>SEBI</span><span>NSE</span><span>BSE</span><span>CDSL</span><span>NSDL</span><span>MCX</span><span>NCDEX</span><span>RBI</span>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>Investments in securities market are subject to market risks. Read all the related documents carefully before
+        investing. Marfatia Stock Broking Pvt. Ltd. is a SEBI Registered Stock Broker, Portfolio Manager and Research
+        Analyst. Member: NSE, BSE, MCX. Registered Office: Vadodara, Gujarat, India.</p>
+      <p class="footer-copy">© <span id="year"></span> Marfatia Stock Broking Pvt. Ltd. All Rights Reserved. Powered By:
+        Barodaweb</p>
+    </div>
+  </footer>
+  <script src="js/inner.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var prog = document.getElementById("scrollProgress");
+      window.addEventListener("scroll", function () {
+        var h = document.documentElement;
+        if (prog) prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
+      }, { passive: true });
+
+      function $(s, c) { return (c || document).querySelector(s); }
+      function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+      function fmtINR(n) { return "₹" + Math.round(n).toLocaleString("en-IN"); }
+
+      /* ── charges estimator ── */
+      var RATES = {
+        delivery: { brokerage: function (v) { return 0; }, sttPct: 0.001, sttSide: "both", txnPct: 0.0000297, stampPct: 0.00015, stampSide: "buy" },
+        intraday: { brokerage: function (v) { return Math.min(v * 0.0003, 20); }, sttPct: 0.00025, sttSide: "sell", txnPct: 0.0000297, stampPct: 0.00003, stampSide: "buy" },
+        futures: { brokerage: function (v) { return Math.min(v * 0.0003, 20); }, sttPct: 0.0002, sttSide: "sell", txnPct: 0.0000173, stampPct: 0.00002, stampSide: "buy" },
+        options: { brokerage: function () { return 20; }, sttPct: 0.001, sttSide: "sell", txnPct: 0.0003503, stampPct: 0.00003, stampSide: "buy" }
+      };
+      var estSeg = "delivery";
+      var segButtons = $("#estSegButtons");
+      var turnoverRange = $("#estTurnoverRange"), turnoverNum = $("#estTurnoverNum"), turnoverOut = $("#estTurnoverOut");
+      var outTotalEl = $("#outTotal");
+      var lastTotal = 0;
+
+      function animateNumber(el, from, to, dur) {
+        var t0 = null;
+        function tick(t) {
+          if (!t0) t0 = t;
+          var p = Math.min((t - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmtINR(from + (to - from) * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+
+      function recalcEstimate() {
+        var v = Math.max(parseFloat(turnoverNum.value) || 0, 0);
+        turnoverOut.textContent = fmtINR(v);
+
+        var pct = (v - +turnoverRange.min) / (+turnoverRange.max - +turnoverRange.min) * 100;
+        turnoverRange.style.setProperty("--est-fill", Math.max(0, Math.min(100, pct)) + "%");
+
+        var r = RATES[estSeg];
+        var brokerage = r.brokerage(v) * 2; // buy + sell, one order each side
+        var stt = r.sttSide === "both" ? v * r.sttPct * 2 : v * r.sttPct;
+        var txn = v * r.txnPct * 2;
+        var sebi = (v * 2) * (10 / 10000000); // ₹10 per crore, on buy+sell turnover
+        var stamp = r.stampSide === "buy" ? v * r.stampPct : 0;
+        var gst = (brokerage + sebi + txn) * 0.18;
+        var statutory = stt + txn + sebi + stamp;
+        var total = brokerage + statutory + gst;
+
+        $("#outBrokerage").textContent = fmtINR(brokerage);
+        $("#outSTT").textContent = fmtINR(stt);
+        $("#outTxn").textContent = fmtINR(txn);
+        $("#outSebi").textContent = fmtINR(sebi);
+        $("#outStamp").textContent = fmtINR(stamp);
+        $("#outGst").textContent = fmtINR(gst);
+        $("#outPct").textContent = (v > 0 ? (total / (v * 2) * 100) : 0).toFixed(3) + "%";
+
+        animateNumber(outTotalEl, lastTotal, total, 450);
+        lastTotal = total;
+
+        var safeTotal = total || 1;
+        $("#compBrokerage").style.width = (brokerage / safeTotal * 100) + "%";
+        $("#compStatutory").style.width = (statutory / safeTotal * 100) + "%";
+        $("#compGst").style.width = (gst / safeTotal * 100) + "%";
+      }
+
+      if (segButtons) {
+        $$("button", segButtons).forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            $$("button", segButtons).forEach(function (b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+            estSeg = btn.dataset.seg;
+            recalcEstimate();
+          });
+        });
+      }
+      if (turnoverRange && turnoverNum) {
+        turnoverRange.addEventListener("input", function () { turnoverNum.value = turnoverRange.value; recalcEstimate(); });
+        turnoverNum.addEventListener("input", function () {
+          var v = parseFloat(turnoverNum.value) || 0;
+          if (v <= +turnoverRange.max) turnoverRange.value = v;
+          recalcEstimate();
+        });
+        recalcEstimate();
+      }
+    })();
+  </script>
+</body>
+
+</html>
