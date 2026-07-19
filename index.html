@@ -154,8 +154,9 @@
         </div>
 
         <div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>
+        <div class="nav-item"><a class="strip-link" href="#">FAQs</a></div>
 
-        <div class="nav-item">
+        <!-- <div class="nav-item">
           <button class="strip-link" data-drawer="calculators">Calculators</button>
           <div class="nav-dropdown calculators-dropdown">
             <div class="dropdown-column">
@@ -175,7 +176,7 @@
               <a href="#" class="dd-item-simple">Option Value</a>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
         <div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>
@@ -237,7 +238,7 @@
           <h1 class="hero-title">
             <span class="reveal-line">Make Your Money
             </span>
-            <span class="reveal-line"><em>Grow With Marfatia.</em></span>
+            <span class="reveal-line"><em>Grow With Marfatia</em></span>
           </h1>
           <h4 class="small-title"><em>Trade at the speed of thought.</em></h4>
           <p class="hero-sub reveal-line">
@@ -1952,6 +1953,28 @@
     </section>
 
     <!-- ============================================================
+     SEC-14c2 — LINKEDIN FEED: PROFESSIONAL CONVERSATIONS
+     ============================================================ -->
+    <section class="linkedin-feed-section" id="linkedin-feed">
+      <div class="bg-word" aria-hidden="true">LINKEDIN</div>
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="eyebrow"><i class="bi bi-linkedin"></i> Professional Channel</span>
+          <h2 class="sec-title">Insights on <em>LinkedIn.</em></h2>
+          <p class="sec-sub">Market analysis, leadership notes, and institutional news from our official network.</p>
+        </div>
+
+        <div class="linkedin-grid" id="linkedinGrid">
+          <!-- Dynamically populated from main.js -->
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-outline magnetic btn-linkedin-cta"><span>Connect on LinkedIn →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
      SEC-14d — YOUTUBE CHANNEL: LIVE DAILY MARKET VIDEO
      ============================================================ -->
     <section class="youtube-section" id="youtube">
@@ -2119,15 +2142,109 @@
         <div class="review-track" id="reviewTrack2"></div>
       </div>
     </section>
-    <section class="team-section" id="team">
+
+    <!-- ============================================================
+     SEC-15b — CLIENT VIDEO REVIEWS: VOICES OF TRUST
+     ============================================================ -->
+    <section class="video-reviews-section" id="video-reviews">
+      <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="eyebrow"><i class="bi bi-camera-video-fill"></i> Client Stories</span>
+          <h2 class="sec-title">Success Stories in <em>Motion.</em></h2>
+          <p class="sec-sub">Watch how active traders and long-term investors are scaling their journey with Marfatia.</p>
+        </div>
+
+        <div class="video-reviews-grid">
+          <!-- Card 1 -->
+          <div class="video-review-card" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0">
+            <div class="video-thumb-container">
+              <img class="video-thumb" src="content/img/video-thumb-1.png" alt="Amit Patel Video Review" loading="lazy">
+              <div class="video-play-btn">
+                <span class="video-play-ring"></span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="video-quote-overlay">
+                <p>“The free retail algo trading tools saved me 15+ hours a week while boosting my consistency.”</p>
+              </div>
+            </div>
+            <div class="video-review-info">
+              <h4>Amit Patel</h4>
+              <p class="mono">ALGO TRADER · SURAT</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="video-review-card" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0">
+            <div class="video-thumb-container">
+              <img class="video-thumb" src="content/img/video-thumb-2.png" alt="Priya Sharma Video Review" loading="lazy">
+              <div class="video-play-btn">
+                <span class="video-play-ring"></span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="video-quote-overlay">
+                <p>“Transitioning my demat account was seamless, and the advisory support has been outstanding.”</p>
+              </div>
+            </div>
+            <div class="video-review-info">
+              <h4>Priya Sharma</h4>
+              <p class="mono">LONG-TERM INVESTOR · VADODARA</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="video-review-card" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0">
+            <div class="video-thumb-container">
+              <img class="video-thumb" src="content/img/video-thumb-3.png" alt="Vikram Malhotra Video Review" loading="lazy">
+              <div class="video-play-btn">
+                <span class="video-play-ring"></span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="video-quote-overlay">
+                <p>“With Marfatia's institutional speed execution, I never miss critical market levels.”</p>
+              </div>
+            </div>
+            <div class="video-review-info">
+              <h4>Vikram Malhotra</h4>
+              <p class="mono">DERIVATIVES TRADER · MUMBAI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+      <div class="video-modal-content">
+        <button class="video-modal-close" id="videoModalClose" aria-label="Close video player">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="video-modal-body">
+          <div class="ratio ratio-16x9">
+            <iframe id="videoModalIframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <section class="team-section" id="team">
       <div class="section-head">
         <span class="eyebrow">Leadership</span>
         <h2 class="sec-title">The team <em>behind the desk.</em></h2>
         <p class="sec-sub">Three decades of market experience, organized into a team that ships fast and trades
           faster.</p>
       </div>
-      <!-- NOTE: dummy placeholder photos (i.pravatar.cc) — swap for real team headshots when available.
-           Compact card: photo fills the whole card, name/role sit in a scrim overlay at the bottom. -->
+     
       <div class="team-grid">
         <div class="team-card">
           <img src="content/img/user.png" alt="Managing Director" loading="lazy">
@@ -2156,7 +2273,7 @@
         <a href="#" class="btn btn-outline magnetic"><span>Meet Our Team →</span></a>
 
       </div>
-    </section>
+    </section> -->
 
     <!-- ============================================================
      SEC-15c — AWARDS &amp; ACHIEVEMENTS
@@ -2577,11 +2694,11 @@
         <img src="content/logo.png" alt="Marfatia Stock Broking">
         <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
           intelligence, automation and 30+ years of market trust.</p>
-        <address class="footer-address mono">
+        <address class="footer-address ">
           <i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat – 390005,
           India
         </address>
-        <div class="footer-emails mono">
+        <div class="footer-emails ">
           <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-at-fill"></i> compliance@marfatia.net</a>
           <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
         </div>
@@ -2657,7 +2774,7 @@
       <span class="mono">Member Code BSE: 3065</span>
       <span class="mono">SEBI Reg. No: INZ000215330</span>
       <span class="mono">PMS SEBI Reg. No: INP000005117</span>
-      <span class="mono">Research Analyst SEBI Reg. No: INH000002178</span>
+      <!-- <span class="mono">Research Analyst SEBI Reg. No: INH000002178</span> -->
       <span class="mono">Depository Participant: CDSL (DP ID: 12044400)</span>
     </div>
 

@@ -405,7 +405,14 @@ buildTicker($("#heroTickerTrack"), TICKER_DATA);
   }
   resize(); window.addEventListener("resize", resize);
 
-  const SYMS=["RELIANCE","TCS","HDFCBANK","INFY","ICICIBANK","SBIN","ITC","WIPRO","NIFTY","SENSEX","MTF","ALGO"];
+  const SYMS=[
+  "NIFTY 50",
+  "NIFTY BANK",
+  "NIFTY FINANCIAL SERVICES",
+  "NIFTY MIDCAP 100",
+  "NIFTY SMALLCAP 100",
+  "SENSEX"
+];
   const cols=[];
   const colCount = 26;
   for(let i=0;i<colCount;i++){
@@ -429,7 +436,7 @@ buildTicker($("#heroTickerTrack"), TICKER_DATA);
         if(yy<-20||yy>H+20) return;
         const alpha = 0.10 + glow*0.55;
         ctx.fillStyle = it.up ? `rgba(8,117,59,${alpha})` : `rgba(194,74,63,${alpha})`;
-        ctx.fillText(it.sym+" "+it.price, cx, yy);
+        ctx.fillText(it.sym, cx, yy);
       });
     });
     if(!reduceMotion) requestAnimationFrame(draw);
@@ -981,7 +988,7 @@ if(rundown){
     const progress=clamp(-r.top/total,0,1);
     const stage=clamp(progress*2.2,0,1);
     const rotY = -90 + stage*90;
-    const scale = 0.6 + stage*0.4;
+    const scale = 0.5 + stage*0.4;
     phone.style.transform = `rotateY(${rotY}deg) scale(${scale})`;
     screen.style.opacity = clamp((progress-0.4)*3,0,1);
   }
@@ -1313,6 +1320,56 @@ if(dqChips){
 })();
 
 /* ============================================================
+   SEC-14c2 — LINKEDIN FEED: PROFESSIONAL CONVERSATIONS
+   ============================================================ */
+(function(){
+  const grid = $("#linkedinGrid");
+  if(!grid) return;
+
+  const LINKEDIN_FEED = [
+    {
+      c: "We are thrilled to be recognized as one of Gujarat's most trusted wealth management & brokerage houses at the National Investment Summit! A big thank you to our 100,000+ clients and dedicated team. 🏆",
+      likes: 412,
+      comments: 18,
+      t: "3d ago"
+    },
+    {
+      c: "How is algorithmic trading changing retail investment in India? Our Managing Director shares insights on technology adoption, risk frameworks, and the road ahead. Read the article below. 📈",
+      likes: 289,
+      comments: 12,
+      t: "5d ago"
+    },
+    {
+      c: "Looking to build a career in fintech? We are hiring Senior Quant Developers and Portfolio Advisors at our Vadodara headquarters. Apply now and build the future of trading. 💼",
+      likes: 156,
+      comments: 24,
+      t: "1w ago"
+    }
+  ];
+
+  const cards = LINKEDIN_FEED.map(post => `
+    <div class="linkedin-card">
+      <div class="linkedin-card-header">
+        <div class="linkedin-card-avatar">M</div>
+        <div class="linkedin-card-meta">
+          <h4>Marfatia Stock Broking</h4>
+          <span>Company · Financial Services</span>
+        </div>
+      </div>
+      <div class="linkedin-card-body">
+        <p>${post.c}</p>
+      </div>
+      <div class="linkedin-card-footer">
+        <span><i class="bi bi-hand-thumbs-up-fill"></i> ${post.likes}</span>
+        <span>${post.comments} comments · ${post.t}</span>
+      </div>
+    </div>
+  `).join("");
+
+  grid.innerHTML = cards;
+})();
+
+/* ============================================================
    SEC-14d — YOUTUBE: live candlestick chart behind the hero + "up next" row
    (same trading-chart look as the hero float card, not a generic audio-style
    equalizer) — background texture for the video panels.
@@ -1509,6 +1566,50 @@ if(dqChips){
   input.addEventListener("keypress", e=>{ if(e.key==="Enter") handleSend(); });
 })();
 
+  /* ---------------- video review modal interactions ---------------- */
+  (function(){
+    const modal = $("#videoModal");
+    const iframe = $("#videoModalIframe");
+    const closeBtn = $("#videoModalClose");
+    const backdrop = $("#videoModalBackdrop");
+    const cards = $$(".video-review-card");
 
+    if(!modal || !iframe) return;
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const videoSrc = card.getAttribute("data-video-src");
+        if(videoSrc) {
+          const separator = videoSrc.includes("?") ? "&" : "?";
+          iframe.src = videoSrc + separator + "autoplay=1";
+          modal.classList.add("active");
+          modal.setAttribute("aria-hidden", "false");
+          if(closeBtn) closeBtn.focus();
+        }
+      });
+      // support enter key on focus
+      card.addEventListener("keydown", (e) => {
+        if(e.key === "Enter") {
+          card.click();
+        }
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      iframe.src = ""; // reset iframe to stop playback
+    }
+
+    if(closeBtn) closeBtn.addEventListener("click", closeModal);
+    if(backdrop) backdrop.addEventListener("click", closeModal);
+    
+    // close on Escape key press
+    window.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  })();
 
 })();
