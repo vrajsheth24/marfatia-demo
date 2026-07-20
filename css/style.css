@@ -51,9 +51,7 @@
 
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
-body {
-    zoom: calc(100vw / 1440);
-}
+
 body{
   font-family:var(--font-body); color:var(--ink); background:var(--paper);
   -webkit-font-smoothing:antialiased;
