@@ -27,12 +27,33 @@
   --shadow-md:0 16px 48px rgba(8,117,59,0.14);
   --font-disp:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --font-body:'Inter',-apple-system,sans-serif;
-  --font-mono:'JetBrains Mono',ui-monospace,'SF Mono',Consolas,monospace;
+  --font-mono:'Poppins',ui-monospace,'SF Mono',Consolas,monospace;
   --ease:cubic-bezier(.16,1,.3,1);
+}
+
+[data-theme="dark"] {
+  --paper: #090f0c;
+  --paper-raised: #121c17;
+  --paper-tint: #1b2a22;
+  --ink: #e2e8e4;
+  --ink-soft: #9db2a6;
+  --ink-faint: #687970;
+  --line: rgba(226, 232, 228, 0.12);
+  --line-strong: rgba(226, 232, 228, 0.24);
+  --green: #10b963;
+  --green-deep: #081a11;
+  --lime: #aee026;
+  --soft-gradient: linear-gradient(135deg, #090f0c 0%, #121c17 55%, #090f0c 100%);
+  --soft-gradient-2: linear-gradient(160deg, rgba(16, 185, 99, 0.05) 0%, rgba(174, 224, 38, 0.06) 100%);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.55);
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
+body {
+    zoom: calc(100vw / 1440);
+}
 body{
   font-family:var(--font-body); color:var(--ink); background:var(--paper);
   -webkit-font-smoothing:antialiased;
@@ -231,7 +252,7 @@ em{ font-style:normal; color:var(--green); }
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: #fff;
+  background: var(--paper-raised);
   border: 1px solid var(--line-strong);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -2077,10 +2098,10 @@ em{ font-style:normal; color:var(--green); }
   position: sticky;
   top: 80px;
   z-index: calc(10 + var(--index));
-  background: #ffffff;
+  background: var(--paper-raised);
   border-radius: 28px;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.07);
+  border: 1px solid var(--line);
   box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
   transform-origin: top center;
   transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease, box-shadow 0.4s ease;
@@ -3101,7 +3122,7 @@ em{ font-style:normal; color:var(--green); }
 }
 .pms-modal-content {
   position: relative;
-  background: #fff;
+  background: var(--paper-raised);
   border: 1px solid var(--line-strong);
   border-radius: 16px;
   width: 100%;
@@ -3186,7 +3207,7 @@ em{ font-style:normal; color:var(--green); }
 .form-group input:focus, .form-group select:focus {
   outline: none;
   border-color: var(--green);
-  background: #fff;
+  background: var(--paper-raised);
 }
 .form-checkbox {
   display: flex;
@@ -4081,5 +4102,116 @@ em{ font-style:normal; color:var(--green); }
     width: 20px;
     height: 20px;
   }
+}
+
+/* ============================================================
+   THEME TOGGLE BUTTON & DARK MODE OVERRIDES
+   ============================================================ */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-raised);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--green);
+  transform: scale(1.05);
+}
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.5s var(--ease), opacity 0.3s ease;
+  position: absolute;
+}
+/* Sun/Moon visibility transitions */
+.theme-toggle-btn .sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+.theme-toggle-btn .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="dark"] .strip-logo img{
+  filter:brightness(0) invert(1);
+}
+
+/* Scrolled header dark background */
+[data-theme="dark"] .strip-logo img, 
+[data-theme="dark"] .preloader-mark img,
+[data-theme="dark"] .footer-col--brand img {
+  filter:brightness(0) invert(1);
+}
+
+[data-theme="dark"] .strip.scrolled{
+    background: rgba(0, 0, 0, 0.9);  
+    backdrop-filter: blur(16px) saturate(160%);
+    box-shadow: 0 1px 0 var(--line-strong);
+}
+
+[data-theme="dark"] .btn-ghost,
+[data-theme="dark"] .btn-outline{
+  color: var(--green);
+  background: transparent;
+}
+
+
+
+/* Watermark outline text stroke adjustment */
+[data-theme="dark"] .bg-word {
+  -webkit-text-stroke-color: rgba(174, 224, 38, 0.08);
+}
+[data-theme="dark"] .bg-word--mid {
+  -webkit-text-stroke-color: rgba(174, 224, 38, 0.06);
+}
+
+/* Card overrides */
+[data-theme="dark"] .xsc-card {
+  border-color: var(--line-strong);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.25);
+}
+
+/* Dropdown menu background overrides */
+[data-theme="dark"] .login-dd-menu {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+[data-theme="dark"] .login-dd-menu a {
+  color: var(--ink-soft);
+}
+[data-theme="dark"] .login-dd-menu a:hover {
+  background: var(--paper-tint);
+  color: var(--ink);
+}
+
+/* Hero Section / Banner dark mode overrides */
+[data-theme="dark"] .hero {
+  background: linear-gradient(45deg, #09130d 0%, #0d1c14 60%, rgba(155,206,22,0.06) 100%) !important;
+}
+[data-theme="dark"] .hero-status {
+  background: rgba(18, 28, 23, 0.7) !important;
+}
+[data-theme="dark"] .hero-form-row {
+  background: rgba(18, 28, 23, 0.8) !important;
 }
 
