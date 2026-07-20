@@ -982,6 +982,7 @@ if(rundown){
 (function(){
   const section=$(".unfold-section"), phone=$("#unfoldPhone"), screen=$(".phone-screen");
   if(!section) return;
+  
   function onScroll(){
     const r=section.getBoundingClientRect();
     const total=r.height-window.innerHeight;
@@ -1450,12 +1451,13 @@ if(dqChips){
   const grid=$("#blogGrid");
   if(!grid) return;
   const POSTS=[
-    {tag:"Markets", title:"Why Banking Stocks Are Leading This Rally", excerpt:"A quick read on what's driving the sector and whether the move has legs.", date:"08 Jul", read:"4 min read"},
-    {tag:"Algo Trading", title:"Backtesting 101: Avoiding the Overfitting Trap", excerpt:"The most common mistake new algo traders make, and how to avoid it.", date:"07 Jul", read:"6 min read"},
-    {tag:"IPO", title:"How to Read a Draft Red Herring Prospectus", excerpt:"A plain-English walkthrough of the document every IPO applicant should skim.", date:"05 Jul", read:"5 min read"},
+    {tag:"Markets", title:"Why Banking Stocks Are Leading This Rally", excerpt:"A quick read on what's driving the sector and whether the move has legs.", date:"08 Jul", read:"4 min read", img:"content/img/video-thumb-1.png"},
+    {tag:"Algo Trading", title:"Backtesting 101: Avoiding the Overfitting Trap", excerpt:"The most common mistake new algo traders make, and how to avoid it.", date:"07 Jul", read:"6 min read", img:"content/img/video-thumb-2.png"},
+    {tag:"IPO", title:"How to Read a Draft Red Herring Prospectus", excerpt:"A plain-English walkthrough of the document every IPO applicant should skim.", date:"05 Jul", read:"5 min read", img:"content/img/video-thumb-3.png"},
   ];
   grid.innerHTML=POSTS.map(p=>`
     <article class="blog-card">
+      <div class="blog-img"><img src="${p.img}" alt="${p.title}" style="width:100%; border-radius:12px; margin-bottom:16px; aspect-ratio:16/9; object-fit:cover;"></div>
       <span class="blog-tag mono">${p.tag}</span>
       <h4>${p.title}</h4>
       <p>${p.excerpt}</p>
