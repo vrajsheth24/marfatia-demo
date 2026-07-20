@@ -37,8 +37,8 @@
     });
   }
   var libsReady = Promise.all([
-    window.THREE ? 0 : loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"),
-    window.html2canvas ? 0 : loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js")
+    window.THREE ? 0 : loadScript("/js/three.min.js"),
+    window.html2canvas ? 0 : loadScript("./js/html2canvas.min.js")
   ]);
 
   var overlay, renderer, scene, camera, vw = 0, vh = 0;
