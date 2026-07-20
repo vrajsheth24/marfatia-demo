@@ -209,8 +209,8 @@ em{ font-style:normal; color:var(--green); }
 .strip-link {
   font-family: var(--font-disp);
   font-weight: 600;
-  font-size: 14.5px;
-  padding: 8px 16px;
+  font-size: 14px;
+  padding: 8px 10px;
   border-radius: 100px;
   position: relative;
   color: var(--ink);
@@ -405,7 +405,7 @@ em{ font-style:normal; color:var(--green); }
 }
 
 /* Right side Login Dropdown */
-.strip-right { display:flex; align-items:center; gap:14px; }
+.strip-right { display:flex; align-items:center; gap:7px; }
 .login-dd { position:relative; }
 .login-dd-trigger svg { transition: transform 0.25s ease; }
 .login-dd:hover .login-dd-trigger svg,
@@ -3056,7 +3056,7 @@ em{ font-style:normal; color:var(--green); }
   padding: 0 !important;
 }
 .strip-row {
-  padding: 16px 24px;
+  padding: 16px 0px;
 }
 .header-top-bar {
   background: #061f12; /* dark forest green-black */
@@ -4231,3 +4231,60 @@ em{ font-style:normal; color:var(--green); }
 [data-theme="dark"] .book-card{
   background: #121212;
 }
+/* Live Pulse Button in Header */
+.live-pulse-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-color: var(--down) !important;
+  color: var(--down) !important;
+  background: rgba(194, 74, 63, 0.05);
+  overflow: hidden;
+  animation: live-pulse-bg 2s infinite alternate;
+}
+.live-pulse-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -150%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(194, 74, 63, 0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: live-shimmer 2.5s infinite;
+}
+.live-pulse-btn:hover {
+  background: #fff !important;
+}
+.live-pulse-btn .dot--live {
+  background: var(--down) !important;
+  animation: livepulse-red 1.5s infinite !important;
+}
+@keyframes livepulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(194, 74, 63, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(194, 74, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(194, 74, 63, 0); }
+}
+@keyframes live-pulse-bg {
+  0% { box-shadow: 0 0 4px rgba(194, 74, 63, 0.3); }
+  100% { box-shadow: 0 0 14px rgba(194, 74, 63, 0.7); }
+}
+@keyframes live-shimmer {
+  0% { left: -150%; }
+  50%, 100% { left: 150%; }
+}
+[data-theme="dark"] .live-pulse-btn {
+  color: #ff6b6b !important;
+  border-color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.1);
+}
+[data-theme="dark"] .live-pulse-btn::before {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255, 107, 107, 0.4) 50%, rgba(255,255,255,0) 100%);
+}
+[data-theme="dark"] .live-pulse-btn:hover {
+  background: #ff6b6b !important;
+  color: #000 !important;
+}
+[data-theme="dark"] .live-pulse-btn .dot--live {
+  background: #ff6b6b !important;
+}
+
