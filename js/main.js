@@ -714,7 +714,7 @@ $$(".ai-chip").forEach(chip=>{
         const rotY = localP * -178;
 
         // 2. translateZ to lift the page off the stack as it turns (peak depth in the middle)
-        const maxZ = 180; // Maximum Z lift in pixels
+        const maxZ = 0; // Maximum Z lift in pixels
         const transZ = Math.sin(localP * Math.PI) * maxZ;
 
         // 3. skewY to simulate paper bending/curl (peaks at 0.25 and 0.75 progress)

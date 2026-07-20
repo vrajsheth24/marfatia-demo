@@ -125,6 +125,8 @@
       capturing[i] = false;
       if (window.THREE) {
         if (textures[i]) textures[i].dispose();
+        textures[i] = null;
+        killMesh(i);
         textures[i] = new window.THREE.CanvasTexture(canvas);
         textures[i].anisotropy = 4;
       }
@@ -144,7 +146,7 @@
     var t;
     card.addEventListener("click", function () { clearTimeout(t); t = setTimeout(function () { capture(i); }, 380); });
   });
-  
+
   var themeObs = new MutationObserver(function () {
     var idx = 0;
     function captureNextTheme() {
@@ -178,7 +180,7 @@
 
   // ---- meshes -----------------------------------------------------
   var flights = {}; // i -> {group, geo, base, mF, mB, W, H}
-  
+
   var sharedAlphaMap = null, sharedAlphaW = 0, sharedAlphaH = 0;
   function getAlphaMap(W, H) {
     if (sharedAlphaMap && sharedAlphaW === W && sharedAlphaH === H) return sharedAlphaMap;
@@ -188,7 +190,7 @@
     ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = "#fff";
     ctx.beginPath();
-    if (ctx.roundRect) { ctx.roundRect(0, 0, W, H, 20); } 
+    if (ctx.roundRect) { ctx.roundRect(0, 0, W, H, 20); }
     else { ctx.rect(0, 0, W, H); } // fallback
     ctx.fill();
     sharedAlphaMap = new window.THREE.CanvasTexture(c);
@@ -278,7 +280,7 @@
         if (idx >= n) return;
         capture(idx);
         // stagger the heavy html2canvas workloads by 400ms to prevent main thread freezing
-        setTimeout(function() { captureNext(idx + 1); }, 400); 
+        setTimeout(function () { captureNext(idx + 1); }, 400);
       }
       setTimeout(function () { captureNext(0); }, 900);
     }
