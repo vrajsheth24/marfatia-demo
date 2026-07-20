@@ -144,7 +144,17 @@
     var t;
     card.addEventListener("click", function () { clearTimeout(t); t = setTimeout(function () { capture(i); }, 380); });
   });
-  var themeObs = new MutationObserver(function () { for (var i = 0; i < n; i++) capture(i); });
+  
+  var themeObs = new MutationObserver(function () {
+    var idx = 0;
+    function captureNextTheme() {
+      if (idx >= n) return;
+      capture(idx);
+      idx++;
+      setTimeout(captureNextTheme, 400);
+    }
+    captureNextTheme();
+  });
   themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
   // ---- scroll progress (same math as main.js) --------------------
@@ -264,7 +274,13 @@
     var captured = false;
     function captureAll() {
       if (captured) return; captured = true;
-      setTimeout(function () { for (var i = 0; i < n; i++) capture(i); }, 900);
+      function captureNext(idx) {
+        if (idx >= n) return;
+        capture(idx);
+        // stagger the heavy html2canvas workloads by 400ms to prevent main thread freezing
+        setTimeout(function() { captureNext(idx + 1); }, 400); 
+      }
+      setTimeout(function () { captureNext(0); }, 900);
     }
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (ents) {
