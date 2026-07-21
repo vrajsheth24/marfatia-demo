@@ -37,7 +37,7 @@
     });
   }
   var libsReady = Promise.all([
-    window.THREE ? 0 : loadScript("/js/three.min.js"),
+    window.THREE ? 0 : loadScript("./js/three.min.js"),
     window.html2canvas ? 0 : loadScript("./js/html2canvas.min.js")
   ]);
 
@@ -337,5 +337,7 @@
   libsReady.then(function () {
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
     else init();
+  }).catch(function (err) {
+    console.warn("[book-flip-three] Failed to load required libraries:", err);
   });
 })();

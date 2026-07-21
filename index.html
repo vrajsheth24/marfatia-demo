@@ -44,7 +44,10 @@
     <canvas class="cursor-trail" id="cursorTrail" aria-hidden="true"></canvas>
 
     <div class="preloader" id="preloader">
-      <div class="preloader-mark"><img src="content/logo.png" alt="Marfatia"></div>
+      <div class="preloader-mark">
+        <img class="logo-light" src="content/logo.png" alt="Marfatia">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia">
+      </div>
       <div class="preloader-bar"><span></span></div>
     </div>
 
@@ -65,7 +68,10 @@
         </div>
       </div>
       <div class="strip-row">
-        <a href="index.html" class="strip-logo"><img src="content/logo.png" alt="Marfatia Stock Broking"></a>
+        <a href="index.html" class="strip-logo">
+          <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+        </a>
 
         <nav class="strip-nav" id="stripNav">
           <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
@@ -699,17 +705,17 @@
         <div class="container">
 
 
-          <div class="section-head">
-            <!-- <div class="bg-word" style="overflow: hidden;" aria-hidden="true">PRODUCTS</div> -->
-            <span class="eyebrow">Our Products</span>
-            <h2 class="sec-title">Engineered for <em>modern traders.</em></h2>
-            <p class="sec-sub">Seven products, seven slides — slide through them and explore each one's subfeatures tab
-              by
-              tab.</p>
-          </div>
+
 
 
           <div class="algo-pin" id="algoPin">
+            <div class="section-head mb-4">
+              <!-- <div class="bg-word" style="overflow: hidden;" aria-hidden="true">PRODUCTS</div> -->
+              <span class="eyebrow">Our Products</span>
+              <h2 class="sec-title">Engineered for <em>modern traders.</em></h2>
+              <!-- <p class="sec-sub">Seven products, seven slides - slide through them and explore each one's subfeatures tab
+              by tab.</p> -->
+            </div>
             <div class="loom-visual loom-book" id="loomBook">
 
 
@@ -1323,7 +1329,7 @@
                       <div style="padding:2px 4px 8px;">
                         <span class="sp-badge mono">06 · MUTUAL FUND</span>
                       </div>
-                      <button class="suite-menu-btn active" data-feature="mf-f1">
+                      <!-- <button class="suite-menu-btn active" data-feature="mf-f1">
                         <div>
                           <h3>Systematic Wealth Planner</h3>
                           <p>Compound capital returns dynamically</p>
@@ -1332,8 +1338,8 @@
                           <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round"></path>
                         </svg>
-                      </button>
-                      <button class="suite-menu-btn" data-feature="mf-f2">
+                      </button> -->
+                      <button class="suite-menu-btn active" data-feature="mf-f2">
                         <div>
                           <h3>Expert Research</h3>
                           <p>Curated schemes, not catalogs</p>
@@ -1356,7 +1362,7 @@
                     </div>
 
                     <div class="suite-panels">
-                      <div id="mf-f1" class="suite-panel active">
+                      <!-- <div id="mf-f1" class="suite-panel active">
                         <div class="sp-info">
                           <span class="sp-badge mono">AUTO COMPOUNDING</span>
                           <h3>Compounding planner.</h3>
@@ -1384,9 +1390,9 @@
                             <span id="sipOutput" class="calc-out-val mono">₹8,14,500</span>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
 
-                      <div id="mf-f2" class="suite-panel">
+                      <div id="mf-f2" class="suite-panel active">
                         <div class="sp-info">
                           <span class="sp-badge mono">RESEARCH DESK</span>
                           <h3>Curated, not crowded.</h3>
@@ -2497,7 +2503,8 @@
 
       <div class="footer-grid">
         <div class="footer-col footer-col--brand">
-          <img src="content/logo.png" alt="Marfatia Stock Broking">
+          <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
           <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
             intelligence, automation and 30+ years of market trust.</p>
           <address class="footer-address ">
@@ -2675,8 +2682,8 @@
   <script src="js/main.js"></script>
   <script src="js/scrollfx.js"></script>
   <script src="js/enhance.js"></script>
-  <script src="js/book-flip-three.js" async defer></script>
- 
+  <script src="js/book-flip-three.js" defer async></script>
+
 </body>
 
 </html>

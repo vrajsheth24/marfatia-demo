@@ -35,7 +35,10 @@
     '  </div>' +
     '</div>' +
     '<div class="strip-row">' +
-    '<a href="index.html" class="strip-logo"><img src="content/logo.png" alt="Marfatia Stock Broking"></a>' +
+    '<a href="index.html" class="strip-logo">' +
+    '<img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">' +
+    '<img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">' +
+    '</a>' +
     '<nav class="strip-nav" id="stripNav">' +
     '<div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>' +
     '<div class="nav-item"><a class="strip-link" href="#">About Us</a></div>' +
@@ -152,7 +155,8 @@
     '</div></div>' +
     '<div class="footer-grid">' +
     '<div class="footer-col footer-col--brand">' +
-    '<img src="content/logo.png" alt="Marfatia Stock Broking">' +
+    '<img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">' +
+          '<img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">' +
     '<p>Marfatia Stock Broking Pvt. Ltd. \u2014 SEBI Registered Stock Broker. A trading platform built on real-time intelligence, automation and 30+ years of market trust.</p>' +
     '<address class="footer-address mono"><i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat \u2013 390005, India</address>' +
     '<div class="footer-emails mono"><a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-at-fill"></i> compliance@marfatia.net</a><a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a></div>' +
