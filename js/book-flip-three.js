@@ -65,8 +65,16 @@
   // ---- snapshots -------------------------------------------------
   var textures = new Array(n), capturing = new Array(n), backColors = new Array(n);
   function capture(i) {
-    if (capturing[i] || !window.html2canvas) return;
-    capturing[i] = true;
+    return new Promise(function(resolve){
+
+        if (capturing[i] || !window.html2canvas){
+            resolve();
+            return;
+        }
+
+        capturing[i] = true;
+      
+
     var card = cards[i];
     var rect = card.getBoundingClientRect();
     backColors[i] = getComputedStyle(card).backgroundColor;
@@ -130,6 +138,7 @@
         textures[i] = new window.THREE.CanvasTexture(canvas);
         textures[i].anisotropy = 4;
       }
+      resolve();
     }
     window.html2canvas(card, opts).then(function (canvas) {
       if (!isBlank(canvas)) return accept(canvas);
@@ -138,8 +147,10 @@
       return window.html2canvas(card, o2).then(function (c2) {
         if (!isBlank(c2)) return accept(c2);
         capturing[i] = false; // give up on this card: it will flip with the original CSS animation
+        resolve();
       });
-    }).catch(function () { capturing[i] = false; });
+    }).catch(function () { capturing[i] = false;resolve(); });
+    });
   }
   // Re-snapshot a card when its inner tabs / widgets are used
   cards.forEach(function (card, i) {
@@ -202,7 +213,7 @@
     var T = window.THREE, f = flights[i];
     if (f && (f.W !== W || f.H !== H)) { killMesh(i); f = null; }
     if (f) return f;
-    var geo = new T.PlaneGeometry(W, H, 72, 1);
+    var geo = new T.PlaneGeometry(W, H, 28, 1);
     var aMap = getAlphaMap(W, H);
     var mF = new T.MeshBasicMaterial({ map: textures[i] || null, color: textures[i] ? 0xffffff : 0xf3efe6, side: T.FrontSide, transparent: true, alphaMap: aMap, alphaTest: 0.1 });
     var mB = new T.MeshBasicMaterial({ color: new T.Color(backColors[i] || "#f3efe6"), side: T.BackSide, polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 2, transparent: true, alphaMap: aMap, alphaTest: 0.1 });
@@ -274,22 +285,44 @@
     // capture snapshots only once the section approaches the viewport, after
     // the reveal animations have had time to run (content is opacity:0 before)
     var captured = false;
-    function captureAll() {
-      if (captured) return; captured = true;
-      function captureNext(idx) {
-        if (idx >= n) return;
-        capture(idx);
-        // stagger the heavy html2canvas workloads by 400ms to prevent main thread freezing
-        setTimeout(function () { captureNext(idx + 1); }, 400);
-      }
-      setTimeout(function () { captureNext(0); }, 900);
+    // function captureAll() {
+    //   if (captured) return; captured = true;
+    //   function captureNext(idx) {
+    //     if (idx >= n) return;
+    //     capture(idx);
+    //     // stagger the heavy html2canvas workloads by 400ms to prevent main thread freezing
+    //     setTimeout(function () { captureNext(idx + 1); }, 400);
+    //   }
+    //   setTimeout(function () { captureNext(0); }, 900);
+    // }
+    async function captureAll() {
+
+    if (captured) return;
+
+    captured = true;
+
+    await new Promise(r=>setTimeout(r,900));
+
+    for(let i=0;i<n;i++){
+
+        await capture(i);
+
     }
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (ents) {
-        if (ents.some(function (e) { return e.isIntersecting; })) { captureAll(); io.disconnect(); }
-      }, { rootMargin: "120% 0px" });
-      io.observe(stage);
-    } else captureAll();
+
+    if(window.hideWebsiteLoader){
+
+        window.hideWebsiteLoader();
+
+    }
+
+}
+    // if ("IntersectionObserver" in window) {
+    //   var io = new IntersectionObserver(function (ents) {
+    //     if (ents.some(function (e) { return e.isIntersecting; })) { captureAll(); io.disconnect(); }
+    //   }, { rootMargin: "120% 0px" });
+    //   io.observe(stage);
+    // } else captureAll();
+    captureAll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", function () {
       updatePinOffset();

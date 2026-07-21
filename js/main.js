@@ -10,7 +10,12 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 window.addEventListener("load", ()=>{ setTimeout(()=>$("#preloader").classList.add("done"), 450); });
-$("#year").textContent = new Date().getFullYear();
+// window.addEventListener("load", ()=>{});
+
+// window.hideWebsiteLoader = function () {
+//     $("#preloader").classList.add("done");
+// };
+// $("#year").textContent = new Date().getFullYear();
 
 /* ---------------- scroll progress + clock ---------------- */
 window.addEventListener("scroll", ()=>{
