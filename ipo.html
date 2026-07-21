@@ -5,11 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Initial Public Offerings (IPO) — Marfatia Stock Broking</title>
-  <meta name="description" content="Apply for upcoming IPOs online. Fast, secure UPI ASBA-enabled IPO applications with real-time tracking at Marfatia.">
+  <meta name="description"
+    content="Apply for upcoming IPOs online. Fast, secure UPI ASBA-enabled IPO applications with real-time tracking at Marfatia.">
   <link rel="icon" href="content/fav.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/inner.css">
@@ -26,11 +29,12 @@
       overflow: hidden;
       z-index: 2;
     }
+
     .p-hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: 
+      background-image:
         radial-gradient(rgba(8, 117, 59, 0.08) 1px, transparent 1px),
         radial-gradient(rgba(155, 206, 22, 0.05) 1.5px, transparent 1.5px);
       background-size: 24px 24px;
@@ -39,10 +43,12 @@
       z-index: 1;
       pointer-events: none;
     }
+
     .p-hero-grid {
       position: relative;
       z-index: 2;
     }
+
     .top-banner-glow {
       position: absolute;
       top: 50%;
@@ -65,6 +71,7 @@
       pointer-events: none;
       z-index: 0;
     }
+
     .pms-orb-1 {
       width: 350px;
       height: 350px;
@@ -72,6 +79,7 @@
       top: 10%;
       left: -150px;
     }
+
     .pms-orb-2 {
       width: 400px;
       height: 400px;
@@ -90,15 +98,23 @@
       justify-content: center;
       margin-left: auto;
     }
+
     .seal-ring-svg {
       width: 100%;
       height: 100%;
       animation: seal-spin 26s linear infinite;
     }
+
     @keyframes seal-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .seal-core {
       position: absolute;
       width: 190px;
@@ -111,8 +127,9 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
     }
+
     .seal-core .seal-num {
       font-family: var(--font-disp);
       font-weight: 800;
@@ -121,6 +138,7 @@
       line-height: 1;
       margin-bottom: 6px;
     }
+
     .seal-core .seal-lbl-top {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -130,6 +148,7 @@
       margin-bottom: 2px;
       opacity: 0.9;
     }
+
     .seal-core .seal-lbl-bot {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -139,12 +158,14 @@
       font-weight: 600;
       opacity: 0.95;
     }
+
     @media(max-width:960px) {
       .hero-seal {
         margin: 40px auto 0;
         width: 280px;
         height: 280px;
       }
+
       .seal-core {
         width: 160px;
         height: 160px;
@@ -158,19 +179,23 @@
       gap: clamp(32px, 5vw, 64px);
       align-items: start;
     }
+
     @media(max-width:960px) {
       .pms-grid {
         grid-template-columns: 1fr;
         gap: 48px;
       }
+
       .pms-content {
         min-width: 0;
       }
     }
+
     .pms-sticky-rail {
       position: sticky;
       top: 118px;
     }
+
     @media(max-width:960px) {
       .pms-sticky-rail {
         position: static;
@@ -183,15 +208,18 @@
       flex-direction: column;
       gap: 56px;
     }
+
     .pms-content section {
       padding: 0;
       border-bottom: 1px solid var(--line);
       padding-bottom: 56px;
     }
+
     .pms-content section:last-child {
       border-bottom: none;
       padding-bottom: 0;
     }
+
     .pms-sec-kick {
       display: inline-block;
       font-family: var(--font-mono);
@@ -201,6 +229,7 @@
       color: var(--green);
       margin-bottom: 12px;
     }
+
     .pms-content h2 {
       font-family: var(--font-disp);
       font-size: clamp(24px, 3.5vw, 36px);
@@ -209,19 +238,23 @@
       margin: 0 0 16px;
       line-height: 1.15;
     }
+
     .pms-content h2 em {
       font-style: normal;
       color: var(--green);
     }
+
     .pms-content p {
       font-size: 15.5px;
       color: var(--ink-soft);
       line-height: 1.7;
       margin: 0 0 16px;
     }
+
     .pms-content p:last-child {
       margin-bottom: 0;
     }
+
     .pms-content p b {
       color: var(--ink);
     }
@@ -234,6 +267,7 @@
       overflow: hidden;
       margin-top: 28px;
     }
+
     .verify-table .verify-row {
       color: var(--ink);
       border-top: 1px solid var(--line);
@@ -246,9 +280,11 @@
       padding: 18px 22px;
       transition: background 0.3s;
     }
+
     .verify-table .verify-row:first-child {
       border-top: 0;
     }
+
     .verify-table .verify-row:hover {
       background: var(--paper-tint);
     }
@@ -257,17 +293,21 @@
     .sidebar-group {
       margin-bottom: 32px;
     }
+
     .sidebar-group:last-child {
       margin-bottom: 0;
     }
+
     .sidebar-group .sp-index {
       margin-bottom: 16px;
     }
+
     .ledger-row .ledger-check {
       background: var(--paper-tint);
       color: var(--green);
       transition: background 0.3s, color 0.3s;
     }
+
     .ledger-row:hover .ledger-check {
       background: var(--green);
       color: #fff;
@@ -280,6 +320,7 @@
       gap: 32px;
       align-items: start;
     }
+
     .pms-sec-sticky {
       position: sticky;
       top: 130px;
@@ -288,6 +329,7 @@
       align-items: flex-start;
       z-index: 10;
     }
+
     .pms-sec-num {
       font-family: var(--font-disp);
       font-size: 52px;
@@ -297,6 +339,7 @@
       -webkit-text-stroke: 1.5px var(--green);
       margin-bottom: 12px;
     }
+
     .pms-sec-kick-wrap {
       border-left: 2px solid var(--lime);
       padding-left: 10px;
@@ -304,6 +347,7 @@
       padding-top: 4px;
       padding-bottom: 4px;
     }
+
     .pms-sec-vertical-kick {
       writing-mode: vertical-rl;
       transform: rotate(180deg);
@@ -315,14 +359,17 @@
       white-space: nowrap;
       display: inline-block;
     }
+
     .pms-sec-main {
       min-width: 0;
     }
+
     @media(max-width: 768px) {
       .pms-sec-split {
         grid-template-columns: 1fr;
         gap: 16px;
       }
+
       .pms-sec-sticky {
         position: static;
         flex-direction: row;
@@ -331,10 +378,12 @@
         gap: 16px;
         margin-bottom: 16px;
       }
+
       .pms-sec-num {
         margin-bottom: 0;
         font-size: 36px;
       }
+
       .pms-sec-kick-wrap {
         border-left: none;
         border-bottom: 2px solid var(--lime);
@@ -342,6 +391,7 @@
         padding-bottom: 4px;
         margin-left: 0;
       }
+
       .pms-sec-vertical-kick {
         writing-mode: horizontal-tb;
         transform: none;
@@ -356,17 +406,39 @@
       gap: 20px;
       margin-top: 28px;
     }
+
     .journey-card-wrap {
       position: sticky;
       top: 140px;
       z-index: 10;
       transition: transform 0.2s var(--ease);
     }
-    .journey-card-wrap:nth-child(1) { top: 140px; z-index: 11; }
-    .journey-card-wrap:nth-child(2) { top: 195px; z-index: 12; }
-    .journey-card-wrap:nth-child(3) { top: 250px; z-index: 13; }
-    .journey-card-wrap:nth-child(4) { top: 305px; z-index: 14; }
-    .journey-card-wrap:nth-child(5) { top: 360px; z-index: 15; }
+
+    .journey-card-wrap:nth-child(1) {
+      top: 140px;
+      z-index: 11;
+    }
+
+    .journey-card-wrap:nth-child(2) {
+      top: 195px;
+      z-index: 12;
+    }
+
+    .journey-card-wrap:nth-child(3) {
+      top: 250px;
+      z-index: 13;
+    }
+
+    .journey-card-wrap:nth-child(4) {
+      top: 305px;
+      z-index: 14;
+    }
+
+    .journey-card-wrap:nth-child(5) {
+      top: 360px;
+      z-index: 15;
+    }
+
     .journey-card-shadow {
       position: absolute;
       inset: 0;
@@ -376,6 +448,7 @@
       z-index: 1;
       border-radius: 10px;
     }
+
     .journey-card {
       position: relative;
       background: #fff;
@@ -387,6 +460,7 @@
       z-index: 2;
       border-radius: 10px;
     }
+
     .journey-num-box {
       width: 56px;
       height: 56px;
@@ -400,6 +474,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
+
     .journey-content h3 {
       font-family: var(--font-disp);
       font-size: 18px;
@@ -407,12 +482,14 @@
       color: var(--ink);
       margin: 0 0 6px;
     }
+
     .journey-content p {
       font-size: 14px;
       color: var(--ink-soft);
       line-height: 1.5;
       margin: 0;
     }
+
     /* ── CUSTOM PMS COMPARISON TABLE ── */
     .pms-table-wrap {
       border: 1px solid var(--line-strong);
@@ -422,11 +499,13 @@
       box-shadow: var(--shadow-sm);
       margin-top: 28px;
     }
+
     .pms-comp-table {
       width: 100%;
       border-collapse: collapse;
       font-family: var(--font-sans);
     }
+
     .pms-comp-table th {
       background: #edf4ee;
       color: #5c7262;
@@ -439,6 +518,7 @@
       text-align: left;
       border-bottom: 1px solid var(--line-strong);
     }
+
     .pms-comp-table td {
       padding: 14px 24px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -447,26 +527,33 @@
       line-height: 1.5;
       vertical-align: middle;
     }
+
     .pms-comp-table tr:last-child td {
       border-bottom: none;
     }
+
     .pms-comp-table td:first-child {
       color: var(--ink);
       font-weight: 500;
       width: 25%;
     }
+
     .pms-comp-table td:nth-child(2) {
-      color: #122a1b; /* dark forest black-green */
+      color: #122a1b;
+      /* dark forest black-green */
       font-weight: 700;
       width: 45%;
     }
+
     .pms-comp-table td:nth-child(3) {
       color: var(--ink-soft);
       width: 30%;
     }
+
     .pms-comp-table tr:hover td {
       background: rgba(8, 117, 89, 0.02);
     }
+
     /* ── CUSTOM PMS QUOTE BAND ── */
     .pms-quote-band {
       position: relative;
@@ -477,6 +564,7 @@
       margin-top: 32px;
       overflow: hidden;
     }
+
     .pms-quote-band::before {
       content: "“";
       position: absolute;
@@ -488,16 +576,19 @@
       line-height: 1;
       pointer-events: none;
     }
+
     .pms-quote-band p {
       position: relative;
       z-index: 1;
       font-family: "Inter", serif;
       font-style: italic;
       font-size: 19px;
-      color: #0b2e17; /* deep rich forest green */
+      color: #0b2e17;
+      /* deep rich forest green */
       line-height: 1.6;
       margin: 0 0 12px 0 !important;
     }
+
     .pms-quote-author {
       position: relative;
       z-index: 1;
@@ -509,6 +600,7 @@
       font-weight: 700;
       margin: 0;
     }
+
     @media(max-width: 560px) {
       .journey-card {
         flex-direction: column;
@@ -668,8 +760,8 @@
 
       <div class="strip-right">
         <div class="login-dd" id="loginDd">
-          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10" height="6"
-              viewBox="0 0 10 6" fill="none">
+          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
+              height="6" viewBox="0 0 10 6" fill="none">
               <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg></button>
@@ -701,26 +793,30 @@
         <div>
           <span class="p-crumb"><a href="index.html">Home</a> / Services / <b>Initial Public Offering</b></span>
           <h1 class="p-hero-title" data-reveal>Initial Public <em>Offerings</em></h1>
-          <p class="p-hero-sub" data-reveal>Apply for upcoming public issues online in minutes. Enjoy a simplified UPI-linked application flow, direct allocation tracking, and instant refund status.</p>
-          
+          <p class="p-hero-sub" data-reveal>Apply for upcoming public issues online in minutes. Enjoy a simplified
+            UPI-linked application flow, direct allocation tracking, and instant refund status.</p>
+
           <div class="chipset" data-reveal style="margin-bottom: 24px;">
             <span class="chip">UPI ASBA Enabled</span>
             <span class="chip">Zero Application Fees</span>
             <span class="chip">Real-Time Status Tracking</span>
-    </div>
+          </div>
 
           <div class="p-hero-cta" data-reveal>
-            <a href="https://ipo.meon.co.in/marfatia" target="_blank" rel="noopener" class="btn btn-marfatia btn-lg"><span>Apply for Live IPOs</span></a>
+            <a href="https://ipo.meon.co.in/marfatia" target="_blank" rel="noopener"
+              class="btn btn-marfatia btn-lg"><span>Apply for Live IPOs</span></a>
             <a href="tel:02652351355" class="btn btn-outline btn-lg"><span>Call IPO Advisory Desk</span></a>
-    </div>
+          </div>
         </div>
 
         <!-- Right side: Trust Visual Seal (from pms-3) -->
         <div class="pms-trust-visual" data-reveal aria-hidden="true" style="max-width: 480px;">
-          <span class="pms-trust-kicker"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Registered. Disciplined. Direct.</span>
+          <span class="pms-trust-kicker"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Registered.
+            Disciplined. Direct.</span>
           <div class="pms-trust-stage">
             <div class="pms-trust-halo" aria-hidden="true"></div>
-            <div class="pms-trust-ring" data-pms-trust-ring data-ring-text="SEBI REGISTERED • APMI MEMBER • SINCE 1994 • " aria-hidden="true"></div>
+            <div class="pms-trust-ring" data-pms-trust-ring
+              data-ring-text="SEBI REGISTERED • APMI MEMBER • SINCE 1994 • " aria-hidden="true"></div>
             <div class="pms-trust-core">
               <span>Since</span>
               <strong>30<sup>+</sup></strong>
@@ -738,7 +834,8 @@
     </section>
 
     <!-- ── STATISTICS LINE STRIP ── -->
-    <section class="statline" data-reveal><div class="wrap statline-row">
+    <section class="statline" data-reveal>
+      <div class="wrap statline-row">
         <div class="statline-cell">
           <span class="statline-num">UPI</span>
           <span class="statline-lbl">Instant Bid Mandate</span>
@@ -755,7 +852,8 @@
           <span class="statline-num">Direct</span>
           <span class="statline-lbl">Demat Share Credits</span>
         </div>
-    </div></section>
+      </div>
+    </section>
 
     <!-- ── MAIN CONTENT GRID ── -->
     <section class="sec">
@@ -773,9 +871,14 @@
             </div>
             <div class="pms-sec-main">
               <h2 data-reveal>What is an Initial Public Offering (IPO)?</h2>
-              <p data-reveal>An Initial Public Offering (IPO) is the first time a private company invites the public to buy its shares. By offering shares on the stock exchanges, the company transitions from a private structure to a publicly traded corporation, raising equity capital to fund expansion, pay down debt, or provide exit liquidity to early founders.</p>
-              <p data-reveal>At Marfatia, we provide a completely paperless online bidding platform using the UPI block-mandate mechanism, ensuring your funds remain secure in your bank account until allotment is confirmed.</p>
-              
+              <p data-reveal>An Initial Public Offering (IPO) is the first time a private company invites the public to
+                buy its shares. By offering shares on the stock exchanges, the company transitions from a private
+                structure to a publicly traded corporation, raising equity capital to fund expansion, pay down debt, or
+                provide exit liquidity to early founders.</p>
+              <p data-reveal>At Marfatia, we provide a completely paperless online bidding platform using the UPI
+                block-mandate mechanism, ensuring your funds remain secure in your bank account until allotment is
+                confirmed.</p>
+
               <div class="pms-table-wrap" data-reveal>
                 <table class="pms-comp-table">
                   <thead>
@@ -790,7 +893,7 @@
                       <td>Application Size</td>
                       <td>Between ₹15,000 and ₹2,00,000</td>
                       <td>Exceeding ₹2,00,000</td>
-                      
+
                     </tr>
                     <tr>
                       <td>Allotment Basis</td>
@@ -823,10 +926,15 @@
             </div>
             <div class="pms-sec-main">
               <h2 data-reveal>Apply for the latest public <em>issues seamlessly.</em></h2>
-              <p data-reveal>Applying for an IPO doesn't require physical signatures or checking multiple websites. Our dedicated online IPO portal aggregates all current, upcoming, and closed IPOs in a single dashboard.</p>
-              <p data-reveal>You can place bids in less than 2 minutes by entering your demat details and UPI ID. Additionally, our Research team provides quick IPO notes detailing the financials, valuation, and listing gains outlook of each issue to help you decide whether to subscribe or avoid.</p>
+              <p data-reveal>Applying for an IPO doesn't require physical signatures or checking multiple websites. Our
+                dedicated online IPO portal aggregates all current, upcoming, and closed IPOs in a single dashboard.</p>
+              <p data-reveal>You can place bids in less than 2 minutes by entering your demat details and UPI ID.
+                Additionally, our Research team provides quick IPO notes detailing the financials, valuation, and
+                listing gains outlook of each issue to help you decide whether to subscribe or avoid.</p>
               <div class="pms-quote-band" data-reveal>
-                <p>"Under the ASBA (Applications Supported by Blocked Amount) framework, your application money is not debited by the broker. It remains safely blocked in your bank account, earning interest, until allotment."</p>
+                <p>"Under the ASBA (Applications Supported by Blocked Amount) framework, your application money is not
+                  debited by the broker. It remains safely blocked in your bank account, earning interest, until
+                  allotment."</p>
                 <div class="pms-quote-author">— SEBI ASBA INVESTOR CHARTER</div>
               </div>
             </div>
@@ -843,7 +951,7 @@
             <div class="pms-sec-main">
               <h2 data-reveal>Engineered for <em>retail and HNI bids</em></h2>
               <p>Track listings and manage your applications using our paperless UPI portal.</p>
-              
+
               <div class="bento" style="grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px;">
                 <div class="bento-cell" data-reveal>
                   <div class="bento-ico"><i class="bi bi-wallet2" style="font-size: 20px;"></i></div>
@@ -879,7 +987,7 @@
             </div>
             <div class="pms-sec-main">
               <h2 data-reveal>How to apply for an IPO — <em>four steps</em></h2>
-              
+
               <div class="journey-list">
                 <div class="journey-card-wrap">
                   <div class="journey-card-shadow" data-reveal></div>
@@ -920,7 +1028,8 @@
                     <div class="journey-num-box">04</div>
                     <div class="journey-content">
                       <h3>Allotment &amp; Listing</h3>
-                      <p>If allotted, shares credit to your demat; if not, the fund block releases back to your bank.</p>
+                      <p>If allotted, shares credit to your demat; if not, the fund block releases back to your bank.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -938,20 +1047,23 @@
             </div>
             <div class="pms-sec-main">
               <h2 data-reveal>SEBI retail allotment <em>safeguards.</em></h2>
-              <p data-reveal>SEBI enforces strict regulations to ensure retail individual applicants receive fair treatment in public distributions.</p>
-              
+              <p data-reveal>SEBI enforces strict regulations to ensure retail individual applicants receive fair
+                treatment in public distributions.</p>
+
               <div class="compliance-cards-grid" data-reveal>
                 <div class="compliance-card">
                   <div class="comp-card-badge positive">Allotment Rule</div>
                   <h3>Retail Proportionality</h3>
                   <div class="comp-card-val">Fair Allot <small>Lucky draw method</small></div>
-                  <p>In case of oversubscription, retail allotment is handled via computerized lottery to distribute 1 lot per applicant.</p>
+                  <p>In case of oversubscription, retail allotment is handled via computerized lottery to distribute 1
+                    lot per applicant.</p>
                 </div>
                 <div class="compliance-card">
                   <div class="comp-card-badge limit">ASBA block</div>
                   <h3>Capital Protection</h3>
                   <div class="comp-card-val">No Debit <small>Funds locked in bank</small></div>
-                  <p>Funds remain in your personal bank account. No capital is transferred to brokers during the bidding period.</p>
+                  <p>Funds remain in your personal bank account. No capital is transferred to brokers during the bidding
+                    period.</p>
                 </div>
                 <div class="compliance-card">
                   <div class="comp-card-badge positive">Refund Cycle</div>
@@ -963,17 +1075,18 @@
                   <div class="comp-card-badge positive">Demat Credit</div>
                   <h3>Direct Allocation</h3>
                   <div class="comp-card-val">Secure <small>Deposited in NSDL/CDSL</small></div>
-                  <p>Allotted shares are credited directly to your central demat account, ready to sell on listing day.</p>
+                  <p>Allotted shares are credited directly to your central demat account, ready to sell on listing day.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
-    
-</div><!-- /pms-content -->
+
+        </div><!-- /pms-content -->
 
         <!-- RIGHT: sticky links rail -->
         <aside class="pms-sticky-rail" aria-label="Sidebar navigation and quick links">
-          
+
           <!-- On This Page scroll spy index (uses TOC design) -->
           <!-- <div class="sidebar-group">
             <span class="sp-index">ON THIS PAGE</span>
@@ -989,34 +1102,40 @@
 
           <!-- Stamped Ledger Rows stacked links -->
           <div class="sidebar-group">
-            span class="sp-index">APPLY & ACCESS</span>
-            
-          <div class="sidebar-group">
-            <span class="sp-index">IPO CONSOLE</span>
-            <div class="ledgerlist">
-              <a class="ledger-row" href="https://ipo.meon.co.in/marfatia" target="_blank" rel="noopener">
-                <div class="ledger-check"><i class="bi bi-lightning-fill"></i></div>
-                <div class="ledger-txt"><b>Apply for Active IPOs</b><span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Launch paperless UPI portal</span></div>
-                <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
-              </a>
-              <a class="ledger-row" href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">
-                <div class="ledger-check"><i class="bi bi-journal-check"></i></div>
-                <div class="ledger-txt"><b>Allotment Status</b><span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Check allotment status register</span></div>
-                <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
-              </a>
+           <span class="sp-index">APPLY & ACCESS</span>
+
+            <div class="sidebar-group">
+              <span class="sp-index">IPO CONSOLE</span>
+              <div class="ledgerlist">
+                <a class="ledger-row" href="https://ipo.meon.co.in/marfatia" target="_blank" rel="noopener">
+                  <div class="ledger-check"><i class="bi bi-lightning-fill"></i></div>
+                  <div class="ledger-txt"><b>Apply for Active IPOs</b><span
+                      style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Launch paperless UPI
+                      portal</span></div>
+                  <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+                </a>
+                <a class="ledger-row" href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">
+                  <div class="ledger-check"><i class="bi bi-journal-check"></i></div>
+                  <div class="ledger-txt"><b>Allotment Status</b><span
+                      style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Check allotment
+                      status register</span></div>
+                  <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
+                </a>
+              </div>
             </div>
+
           </div>
-    
-          </div>
-          
+
           <div class="sidebar-group">
             <span class="sp-index">COMPLIANCE & DOCUMENTS</span>
             <div class="ledgerlist">
-              <a class="ledger-row" href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank" rel="noopener">
+              <a class="ledger-row" href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf"
+                target="_blank" rel="noopener">
                 <div class="ledger-check"><i class="bi bi-file-earmark-text-fill"></i></div>
                 <div class="ledger-txt">
                   <b>Disclosure Document</b>
-                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Latest Official · Oct 2024</span>
+                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Latest Official ·
+                    Oct 2024</span>
                 </div>
                 <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
               </a>
@@ -1024,7 +1143,8 @@
                 <div class="ledger-check"><i class="bi bi-bank2"></i></div>
                 <div class="ledger-txt">
                   <b>Investor Charter</b>
-                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">SEBI standards & procedures</span>
+                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">SEBI standards &
+                    procedures</span>
                 </div>
                 <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
               </a>
@@ -1032,7 +1152,8 @@
                 <div class="ledger-check"><i class="bi bi-shield-fill-check"></i></div>
                 <div class="ledger-txt">
                   <b>Investor Protection</b>
-                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Complaints & grievance ladder</span>
+                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Complaints &
+                    grievance ladder</span>
                 </div>
                 <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
               </a>
@@ -1040,7 +1161,8 @@
                 <div class="ledger-check"><i class="bi bi-balance-scale"></i></div>
                 <div class="ledger-txt">
                   <b>SEBI SCORES Portal</b>
-                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">File grievances with regulator</span>
+                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">File grievances
+                    with regulator</span>
                 </div>
                 <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
               </a>
@@ -1048,7 +1170,8 @@
                 <div class="ledger-check"><i class="bi bi-cpu-fill"></i></div>
                 <div class="ledger-txt">
                   <b>SMART ODR Portal</b>
-                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Online Dispute Resolution</span>
+                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Online Dispute
+                    Resolution</span>
                 </div>
                 <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
               </a>
@@ -1056,7 +1179,8 @@
                 <div class="ledger-check"><i class="bi bi-graph-up"></i></div>
                 <div class="ledger-txt">
                   <b>APMI Industry Data</b>
-                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Association of Portfolio Mgrs</span>
+                  <span style="display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;">Association of
+                    Portfolio Mgrs</span>
                 </div>
                 <span class="ledger-no"><i class="bi bi-arrow-right"></i></span>
               </a>
@@ -1069,13 +1193,15 @@
     </section>
 
     <!-- ── BOTTOM CTA BAND ── -->
-    <section class="ctaband" style="margin: 0 auto 80px; max-width: 1240px; border-radius: var(--radius-lg);" data-reveal>
+    <section class="ctaband" style="margin: 0 auto 80px; max-width: 1240px; border-radius: var(--radius-lg);"
+      data-reveal>
       <div class="wrap ctaband-inner">
         <div>
-          
-        <h2>Apply for upcoming IPOs <em>online in minutes.</em></h2>
-        <p style="opacity:.9;font-size:15px;margin-top:6px;">Submit paperless applications using your UPI ID. Zero fees, instant refunds.</p>
-    
+
+          <h2>Apply for upcoming IPOs <em>online in minutes.</em></h2>
+          <p style="opacity:.9;font-size:15px;margin-top:6px;">Submit paperless applications using your UPI ID. Zero
+            fees, instant refunds.</p>
+
         </div>
         <div class="ctaband-actions">
           <a href="tel:02652351355" class="btn btn-lime btn-lg"><span>📞 Call the PMS Desk</span></a>
@@ -1277,15 +1403,15 @@
       /* ── pms desk query terminal faq ── */
       var pmsDQ = {
         overview: [
-          {q: "PMS vs mutual funds — the real difference?", a: "Ownership and tailoring. In PMS, shares sit in your demat account and the portfolio is customised. A mutual fund gives you units of a common pool. Taxation in PMS is as if you traded directly — capital gains arise on each portfolio transaction in your name."},
-          {q: "Is ₹50 lakh the minimum forever?", a: "₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement."}
+          { q: "PMS vs mutual funds — the real difference?", a: "Ownership and tailoring. In PMS, shares sit in your demat account and the portfolio is customised. A mutual fund gives you units of a common pool. Taxation in PMS is as if you traded directly — capital gains arise on each portfolio transaction in your name." },
+          { q: "Is ₹50 lakh the minimum forever?", a: "₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement." }
         ],
         access: [
-          {q: "Can I see my holdings whenever I want?", a: "Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements. The securities are in your own demat, so depository statements show them too."}
+          { q: "Can I see my holdings whenever I want?", a: "Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements. The securities are in your own demat, so depository statements show them too." }
         ],
         safety: [
-          {q: "Who regulates this and where do I check?", a: "SEBI, under the Portfolio Managers Regulations 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory, and see standardised industry data on APMI."},
-          {q: "What if I have a complaint?", a: "Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed — the full grievance ladder with timelines is detailed on our Investor Protection page."}
+          { q: "Who regulates this and where do I check?", a: "SEBI, under the Portfolio Managers Regulations 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory, and see standardised industry data on APMI." },
+          { q: "What if I have a complaint?", a: "Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed — the full grievance ladder with timelines is detailed on our Investor Protection page." }
         ]
       };
 
