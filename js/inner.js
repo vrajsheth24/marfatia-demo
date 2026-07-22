@@ -159,7 +159,7 @@
           '<img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">' +
     '<p>Marfatia Stock Broking Pvt. Ltd. \u2014 SEBI Registered Stock Broker. A trading platform built on real-time intelligence, automation and 30+ years of market trust.</p>' +
     '<address class="footer-address mono"><i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat \u2013 390005, India</address>' +
-    '<div class="footer-emails mono"><a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-at-fill"></i> compliance@marfatia.net</a><a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a></div>' +
+    '<div class="footer-emails mono"><a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-fill"></i> compliance@marfatia.net</a><a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a></div>' +
     '<div class="footer-social">' +
     '<a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z"/></svg></a>' +
     '<a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>' +
