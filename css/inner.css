@@ -9,7 +9,7 @@
 .inner-main{background:var(--paper);}
 .inner-main h1,.inner-main h2,.inner-main h3,.inner-main h4{font-family:'Inter',var(--font-disp);}
 .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px);}
-.sec{position:relative;padding:clamp(64px,9vw,120px) 0;}
+.sec{position:relative;padding:clamp(64px,8vw,90px) 0;}
 .sec--tint{background:var(--paper-tint);}
 .sec--white{background:var(--paper-raised);}
 .sec--rule-top{border-top:1px solid var(--line);}
@@ -52,6 +52,7 @@
 
 /* ---------- GLASS CARD (membership / floating) ---------- */
 .glass{background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.8);box-shadow:var(--shadow-md);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--radius-lg);}
+[data-theme="dark"] .glass{background:rgba(28,46,36,.72);border-color:rgba(220,235,225,.15);}
 .member-card{position:relative;padding:30px 30px 26px;transform:rotate(-3deg);transition:transform .6s var(--ease);max-width:420px;}
 .member-card:hover{transform:rotate(0deg) translateY(-4px);}
 .member-card img{height:38px;margin-bottom:22px;}
@@ -62,7 +63,7 @@
 
 /* ---------- STAT / PROOF STRIP ---------- */
 .statline {
-  background: #fff;
+  background: var(--paper-raised);
   border-top: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line-strong);
 }
@@ -71,7 +72,7 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 .statline-cell {
-  background: #fff;
+  background: var(--paper-raised);
   padding: clamp(28px, 3.5vw, 48px) clamp(18px, 2vw, 20px);
   border-left: 1px solid var(--line);
   position: relative;
@@ -292,6 +293,7 @@
 
 /* ---------- FORMS ---------- */
 .formcard{background:rgba(255,255,255,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.85);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:clamp(28px,4vw,48px);}
+[data-theme="dark"] .formcard{background:rgba(28,46,36,.80);border-color:rgba(220,235,225,.18);}
 .f-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
 .f-grid .f-field--full{grid-column:1/-1;}
 @media(max-width:640px){.f-grid{grid-template-columns:1fr;}}
@@ -325,6 +327,7 @@
 
 /* ---------- MOBILE STICKY CTA BAR ---------- */
 .msticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;gap:10px;padding:10px;border-radius:18px;background:rgba(255,255,255,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow-md);transform:translateY(120%);transition:transform .5s var(--ease);}
+[data-theme="dark"] .msticky{background:rgba(19,32,26,.88);border-color:rgba(220,235,225,.18);}
 .msticky.show{transform:none;}
 .msticky .btn{flex:1;justify-content:center;font-size:13.5px;padding:12px 10px;}
 @media(max-width:760px){.msticky{display:flex;}}
@@ -626,6 +629,11 @@
   box-shadow: 0 10px 28px rgba(5, 46, 25, .055);
   transition: border-color .35s, background .35s, transform .35s var(--pms-ease);
 }
+[data-theme="dark"] .pms-trust-proof{
+  background: rgba(28, 46, 36, .80);
+  border-color: rgba(220, 235, 225, .15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+}
 
 .pms-trust-proof i {
   grid-row: 1 / span 2;
@@ -835,6 +843,10 @@
   box-shadow: var(--shadow-sm);
   transition: all 0.3s var(--ease);
 }
+[data-theme="dark"] .pms-sticky-rail .sidebar-group {
+  background: rgba(28, 46, 36, 0.85) !important;
+  border-color: var(--line-strong) !important;
+}
 .pms-sticky-rail .sidebar-group:hover {
   border-color: rgba(8, 117, 59, 0.25);
   box-shadow: var(--shadow-md);
@@ -883,7 +895,7 @@
   gap: 8px;
 }
 .pms-sticky-rail .ledger-row {
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--paper-raised);
   border: 1px solid var(--line);
   border-radius: 5px;
   padding: 8px 10px;
@@ -1063,15 +1075,174 @@
   display: none !important;
 }
 
-[data-theme="dark"] .pms-sticky-rail .sidebar-group{
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid var(--pms-accent);
-}
-
 [data-theme="dark"] .pms-sticky-rail .ledger-row {
   background: var(--paper-raised);
 }
   
 [data-theme="dark"] .pms-page .pms-trust-core{
   background: radial-gradient(circle at 50% 25%, rgb(16 185 99 / 25%), transparent 42%), linear-gradient(145deg, #000000, #000000);
+}
+
+/* ============================================================
+   DARK THEME — INNER PAGE GLOBAL FIXES
+   ============================================================ */
+
+/* Stat strip */
+[data-theme="dark"] .statline {
+  background: var(--paper-raised);
+}
+[data-theme="dark"] .statline-cell {
+  background: var(--paper-raised);
+}
+[data-theme="dark"] .statline-cell:hover {
+  background: var(--paper-tint);
+}
+
+/* Nav dropdown arrow tip */
+[data-theme="dark"] .nav-dropdown::after {
+  border-bottom-color: var(--paper-raised) !important;
+}
+[data-theme="dark"] .nav-dropdown {
+  background: var(--paper-raised) !important;
+  border-color: var(--line-strong) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4) !important;
+}
+
+/* P-hero breadcrumb on light hero pages */
+[data-theme="dark"] .p-crumb {
+  background: rgba(28,46,36,.6);
+  border-color: rgba(220,235,225,.15);
+  color: var(--ink-soft);
+}
+
+/* Dotted grid — adapt to dark paper */
+[data-theme="dark"] .dotgrid,
+[data-theme="dark"] .sec--dots::before {
+  background-image: radial-gradient(rgba(220,235,225,.07) 1px, transparent 1px);
+}
+
+/* Form inputs */
+[data-theme="dark"] .f-field input,
+[data-theme="dark"] .f-field textarea,
+[data-theme="dark"] .f-field select {
+  background: var(--paper-tint);
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+[data-theme="dark"] .f-field label {
+  color: var(--ink-faint);
+}
+
+/* Accordion */
+[data-theme="dark"] .acc {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+[data-theme="dark"] .acc-head {
+  color: var(--ink);
+}
+
+/* Table */
+[data-theme="dark"] .dtable th {
+  background: var(--paper-tint);
+}
+[data-theme="dark"] .dtable tr:hover td {
+  background: var(--paper-tint);
+}
+[data-theme="dark"] .table-wrap {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+
+/* Tab buttons */
+[data-theme="dark"] .tab-btn {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+  color: var(--ink-soft);
+}
+
+/* Vault items */
+[data-theme="dark"] .vault-item {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+
+/* Step flow */
+[data-theme="dark"] .step {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+
+/* Timeline dot background */
+[data-theme="dark"] .tl-item::before {
+  background: var(--paper-raised);
+}
+[data-theme="dark"] .tl-year {
+  background: var(--paper-tint);
+}
+
+/* Duo comparison panels */
+[data-theme="dark"] .duo-side {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+
+/* Legal TOC */
+[data-theme="dark"] .legal-toc {
+  border-color: var(--line-strong);
+}
+[data-theme="dark"] .legal-note {
+  background: var(--paper-tint);
+}
+
+/* Hero water text */
+[data-theme="dark"] .p-hero-water {
+  color: var(--ink-soft);
+  opacity: .03;
+}
+
+/* Chip set */
+[data-theme="dark"] .chip {
+  background: var(--paper-tint);
+}
+
+/* Member card on dark */
+[data-theme="dark"] .member-card {
+  background: var(--paper-raised);
+  border-color: var(--line-strong);
+}
+
+/* skeleton shimmer in dark */
+[data-theme="dark"] .skel::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
+}
+
+/* compliance cards */
+[data-theme="dark"] .compliance-card {
+  background: radial-gradient(circle 220px at var(--mouse-x) var(--mouse-y), rgba(16,185,99,0.07), transparent 80%), var(--paper-raised);
+  border-color: var(--line-strong);
+}
+
+/* p-hero light-mode gradient override for dark */
+[data-theme="dark"] .p-hero:not(.p-hero--dark) {
+  background: linear-gradient(180deg, rgba(16,185,99,0.06) 0%, rgba(28,46,36,0.4) 100%) !important;
+}
+[data-theme="dark"] .p-hero:not(.p-hero--dark) .p-hero-title {
+  color: var(--ink);
+}
+[data-theme="dark"] .p-hero:not(.p-hero--dark) .p-hero-sub {
+  color: var(--ink-soft);
+}
+
+/* floating ab chips on about page */
+[data-theme="dark"] .ab-float-chip {
+  background: rgba(28,46,36,.85) !important;
+  border-color: rgba(220,235,225,.15) !important;
+}
+[data-theme="dark"] .ab-float-chip b {
+  color: var(--ink) !important;
+}
+[data-theme="dark"] .ab-hero-track {
+  background: var(--paper-raised) !important;
+  border-color: var(--line-strong) !important;
 }
