@@ -99,7 +99,7 @@
     '    </div>' +
     '  </div>' +
     '</div>' +
-    '<div class="nav-item"><a class="strip-link" href="pricing.html">Pricing</a></div>' +
+    '<div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>' +
     '<div class="nav-item">' +
     '  <button class="strip-link" data-drawer="calculators">Calculators</button>' +
     '  <div class="nav-dropdown calculators-dropdown">' +
@@ -121,8 +121,8 @@
     '    </div>' +
     '  </div>' +
     '</div>' +
-    '<div class="nav-item"><a class="strip-link" href="partner-with-us.html">Partner With Us</a></div>' +
-    '<div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>' +
+    '<div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>' +
+    '<div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>' +
     '</nav>' +
     '<div class="strip-right">' +
     '<div class="login-dd" id="loginDd">' +
