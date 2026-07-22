@@ -1246,3 +1246,8 @@
   background: var(--paper-raised) !important;
   border-color: var(--line-strong) !important;
 }
+
+/* Hide dark theme toggle button on all inner pages */
+.theme-toggle-btn {
+  display: none !important;
+}
