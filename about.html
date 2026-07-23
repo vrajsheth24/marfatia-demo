@@ -269,6 +269,24 @@
     .ab-plat-tick-item b{ display:block; font-family:var(--font-mono); font-size:12px; color:#fff; }
     .ab-plat-tick-item span{ font-family:var(--font-mono); font-size:11px; color:var(--lime); }
     .ab-plat-status-row{ display:flex; align-items:center; justify-content:space-between; font-family:var(--font-mono); font-size:11.5px; color:rgba(220,235,225,0.8); margin-top:10px; }
+    
+    .plat-visual{ position:relative; }
+    .plat-orbit-chip{
+      position:absolute; font-family:var(--font-mono); font-size:11px; font-weight:600; color:#fff;
+      background:rgba(5,46,25,0.94); border:1px solid rgba(155,206,22,0.4);
+      box-shadow:0 12px 30px rgba(0,0,0,0.35), 0 0 20px rgba(155,206,22,0.2);
+      border-radius:100px; padding:8px 16px; display:inline-flex; align-items:center; gap:7px;
+      z-index:4; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transition:transform .3s var(--ease);
+    }
+    .plat-orbit-chip i{ color:var(--lime); font-size:13px; }
+    .plat-orbit-chip--1{ top:-16px; right:-12px; }
+    .plat-orbit-chip--2{ bottom:-16px; left:-12px; }
+    .plat-orbit-chip:hover{ transform:scale(1.06); border-color:var(--lime); }
+
+    .ab-plat-banner-img{
+      width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:16px;
+      border:1px solid rgba(255,255,255,0.12); display:block;
+    }
 
     /* ── NEW DESIGN 07: CORPORATE HQ & FOOTPRINT DECK ── */
     .ab-hq-deck{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px; }
@@ -680,7 +698,7 @@
 
         <div class="ab-hero-visual" data-reveal aria-hidden="true">
           <div class="ab-hero-photo">
-            <img src="content/img/gallery/head-office.png" alt="">
+            <img src="content/img/gallery/head-office.png" alt="Marfatia Stock Broking Glacier Complex Corporate Head Office Vadodara" loading="eager">
             <span class="ab-live-tag"><span class="dot dot--live"></span> Vadodara, Since 2002</span>
           </div>
           <div class="ab-float-chip ab-float-chip--1"><i class="bi bi-patch-check-fill"></i><div><b>SEBI Reg.</b><span>Verified</span></div></div>
@@ -1077,20 +1095,11 @@
               <span class="ab-ledger-badge"><span class="dot dot--live"></span> Online</span>
             </div>
             <div class="ab-plat-body">
+              <img src="content/img/platform-banner.png" alt="Marfatia High-Tech Trading Platform UI" class="ab-plat-banner-img" loading="lazy">
               <div class="ab-plat-ticker">
                 <div class="ab-plat-tick-item"><b>NIFTY 50</b><span>24,815.40 (+1.24%)</span></div>
                 <div class="ab-plat-tick-item"><b>SENSEX</b><span>81,320.10 (+0.95%)</span></div>
                 <div class="ab-plat-tick-item"><b>BANK NIFTY</b><span>52,140.20 (+1.10%)</span></div>
-              </div>
-              <div class="plat-chart">
-                <div class="plat-chart-bar" style="--h:42%; --d:0s;"></div>
-                <div class="plat-chart-bar" style="--h:68%; --d:.1s;"></div>
-                <div class="plat-chart-bar" style="--h:52%; --d:.2s;"></div>
-                <div class="plat-chart-bar" style="--h:88%; --d:.3s;"></div>
-                <div class="plat-chart-bar" style="--h:60%; --d:.4s;"></div>
-                <div class="plat-chart-bar" style="--h:96%; --d:.5s;"></div>
-                <div class="plat-chart-bar" style="--h:78%; --d:.6s;"></div>
-                <div class="plat-chart-line"></div>
               </div>
               <div class="ab-plat-status-row">
                 <span><i class="bi bi-cpu-fill" style="color:var(--lime);"></i> Risk Engine: <b>Active</b></span>
