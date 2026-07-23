@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,6 +17,111 @@
   <link rel="stylesheet" href="css/inner.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/pms-3.css">
+  <style>
+    /* ── SECTION 02: TYPES OF PMS REDESIGN ── */
+    .pms-types-deck {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px;
+    }
+    @media(max-width: 960px) { .pms-types-deck { grid-template-columns: 1fr; } }
+    
+    .pms-type-card {
+      position: relative; background: var(--pms-surface); border: 1px solid var(--pms-border);
+      border-radius: var(--pms-radius-large); padding: 32px 28px; display: flex; flex-direction: column;
+      justify-content: space-between; transition: transform .4s var(--pms-ease), box-shadow .4s var(--pms-ease), border-color .4s;
+      overflow: hidden;
+    }
+    .pms-type-card:hover {
+      transform: translateY(-8px); box-shadow: var(--pms-shadow); border-color: var(--pms-primary);
+    }
+    .pms-type-card--featured {
+      background: var(--pms-secondary); color: #fff; border-color: rgba(155,206,22,0.3);
+      box-shadow: 0 20px 50px rgba(5,46,25,0.25);
+    }
+    .pms-type-card--featured .pms-type-title { color: #fff; }
+    .pms-type-card--featured .pms-type-desc { color: rgba(220,235,225,0.85); }
+    .pms-type-ribbon {
+      position: absolute; top: 16px; right: 16px; font-family: var(--font-mono); font-size: 9.5px;
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--lime);
+      background: rgba(155,206,22,0.15); border: 1px solid rgba(155,206,22,0.35);
+      border-radius: 100px; padding: 4px 10px;
+    }
+    .pms-type-ico {
+      width: 50px; height: 50px; border-radius: 14px; background: var(--pms-surface-tint); color: var(--pms-primary);
+      display: grid; place-items: center; font-size: 22px; margin-bottom: 20px; transition: all .3s;
+    }
+    .pms-type-card--featured .pms-type-ico { background: rgba(155,206,22,0.18); color: var(--lime); }
+    .pms-type-card:hover .pms-type-ico { background: var(--pms-secondary); color: var(--pms-accent); transform: scale(1.08); }
+    .pms-type-title { font-family: var(--font-disp); font-size: 22px; font-weight: 800; color: var(--pms-text); margin: 0 0 12px; }
+    .pms-type-desc { font-size: 14.5px; line-height: 1.65; color: var(--pms-muted); margin: 0 0 22px; flex-grow: 1; }
+    .pms-type-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .pms-type-tag {
+      font-family: var(--font-mono); font-size: 11px; color: var(--pms-text); background: var(--pms-surface-tint);
+      border-radius: 6px; padding: 5px 10px; display: inline-flex; align-items: center; gap: 5px; font-weight: 500;
+    }
+    .pms-type-card--featured .pms-type-tag { background: rgba(220,235,225,0.1); color: var(--mono-ink); }
+    .pms-type-tag i { color: var(--pms-primary); font-size: 12px; }
+    .pms-type-card--featured .pms-type-tag i { color: var(--lime); }
+    .pms-type-footer { border-top: 1px solid var(--pms-border); padding-top: 16px; display: flex; align-items: center; justify-content: space-between; }
+    .pms-type-card--featured .pms-type-footer { border-top-color: rgba(220,235,225,0.15); }
+    .pms-type-cap { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--pms-primary); }
+    .pms-type-card--featured .pms-type-cap { color: var(--lime); }
+
+    /* ── SECTION 04: KEY FEATURES & WHO CAN INVEST REDESIGN ── */
+    .pms-hni-suite { margin-top: 36px; display: flex; flex-direction: column; gap: 28px; }
+    
+    /* Who Can Invest Banner */
+    .pms-who-banner {
+      background: var(--pms-secondary); color: var(--mono-ink); border-radius: var(--pms-radius-large);
+      padding: 38px 36px; border: 1px solid rgba(155,206,22,0.22); position: relative; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(5,46,25,0.3);
+    }
+    .pms-who-banner::after {
+      content: ""; position: absolute; width: 320px; height: 320px; border-radius: 50%;
+      top: -100px; right: -80px; background: radial-gradient(circle, rgba(155,206,22,0.2), transparent 70%);
+      pointer-events: none;
+    }
+    .pms-who-head { position: relative; z-index: 1; margin-bottom: 24px; }
+    .pms-who-tag {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--lime); background: rgba(155,206,22,0.15); border: 1px solid rgba(155,206,22,0.35);
+      border-radius: 100px; padding: 5px 14px; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 14px;
+    }
+    .pms-who-banner h3 { font-family: var(--font-disp); font-size: clamp(22px, 3vw, 30px); font-weight: 800; color: #fff; margin: 0 0 10px; }
+    .pms-who-banner p { font-size: 15px; line-height: 1.65; color: rgba(220,235,225,0.85); margin: 0; max-width: 720px; }
+
+    .pms-who-badges { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
+    .pms-who-badge {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: #fff;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(220,235,225,0.18);
+      border-radius: 100px; padding: 9px 18px; display: inline-flex; align-items: center; gap: 8px;
+      transition: background .3s, border-color .3s, transform .3s;
+    }
+    .pms-who-badge:hover { background: rgba(155,206,22,0.18); border-color: var(--lime); transform: translateY(-2px); }
+    .pms-who-badge i { color: var(--lime); font-size: 14px; }
+
+    /* Key Features Bento Grid */
+    .pms-feat-bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media(max-width: 960px) { .pms-feat-bento-grid { grid-template-columns: 1fr; } }
+    .pms-feat-bento {
+      position: relative; background: var(--pms-surface); border: 1px solid var(--pms-border);
+      border-radius: var(--pms-radius-large); padding: 30px 26px; display: flex; flex-direction: column;
+      justify-content: space-between; transition: transform .4s var(--pms-ease), box-shadow .4s var(--pms-ease), border-color .4s;
+    }
+    .pms-feat-bento:hover { transform: translateY(-6px); box-shadow: var(--pms-shadow); border-color: var(--pms-primary); }
+    .pms-feat-ico {
+      width: 46px; height: 46px; border-radius: 12px; background: var(--pms-surface-tint); color: var(--pms-primary);
+      display: grid; place-items: center; font-size: 20px; margin-bottom: 18px; transition: background .3s, color .3s;
+    }
+    .pms-feat-bento:hover .pms-feat-ico { background: var(--pms-secondary); color: var(--pms-accent); }
+    .pms-feat-bento h4 { font-family: var(--font-disp); font-size: 19px; font-weight: 700; color: var(--pms-text); margin: 0 0 10px; }
+    .pms-feat-bento p { font-size: 14px; line-height: 1.65; color: var(--pms-muted); margin: 0 0 20px; flex-grow: 1; }
+    .pms-feat-pill {
+      display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px;
+      font-weight: 600; color: var(--pms-primary); background: var(--pms-surface-tint);
+      border-radius: 100px; padding: 5px 12px; border: 1px solid rgba(8,117,59,0.15); width: fit-content;
+    }
+    .pms-feat-pill i { color: var(--pms-primary); }
+  </style>
 </head>
 
 <body>
@@ -214,15 +319,14 @@
       <div class="container pms-container">
         <div class="pms-hero-layout">
           <div class="pms-hero-copy">
-            <div class="pms-eyebrow" data-pms-hero="eyebrow"><span class="dot dot--live"></span> SEBI-registered portfolio management</div>
+            <div class="pms-eyebrow" data-pms-hero="eyebrow"><span class="dot dot--live"></span> SEBI Registered Portfolio Manager</div>
             <h1 class="pms-title pms-hero-title" id="pms-hero-title">
-              <span class="pms-title-mask"><span>Portfolio Management</span></span>
-              <span class="pms-title-mask"><span><em>Services.</em></span></span>
+              <span class="pms-title-mask"><span>Personalized Wealth</span></span>
+              <span class="pms-title-mask"><span><em>Management.</em></span></span>
             </h1>
-            <p class="pms-description pms-hero-description" data-pms-hero="description">A professionally managed portfolio of listed securities held in your own name - built and run by Marfatia's SEBI-registered portfolio desk in Vadodara, with the direct access only a 30-year Gujarat house can offer.</p>
+            <p class="pms-description pms-hero-description" data-pms-hero="description">Marfatia Stock Broking Private Limited is a SEBI Registered Portfolio Manager (PMS) offering customized portfolio management solutions designed around your financial goals, investment horizon, and risk profile. Our research-driven approach focuses on disciplined investing, prudent risk management, and long-term value creation.</p>
             <div class="pms-registration" data-pms-hero="registration">
-              <span><i class="bi bi-patch-check-fill" aria-hidden="true"></i> SEBI Reg. INP000005117</span>
-              <span><i class="bi bi-building-check" aria-hidden="true"></i> APMI member</span>
+              <span><i class="bi bi-patch-check-fill" aria-hidden="true"></i> SEBI Reg. No.: INP000005117</span>
             </div>
             <div class="pms-hero-actions" data-pms-hero="actions">
               <a href="tel:02652351355" class="btn btn-marfatia btn-lg pms-button" data-pms-static-button><span class="text-white">Talk to the PMS Desk</span></a>
@@ -230,22 +334,22 @@
             </div>
           </div>
 
-          <div class="pms-trust-visual" data-pms-hero="visual" role="img" aria-label="30 years of market trust, SEBI registered and APMI member">
-            <span class="pms-trust-kicker"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Registered. Disciplined. Direct.</span>
+          <div class="pms-trust-visual" data-pms-hero="visual" role="img" aria-label="20+ years of market experience, SEBI registered Portfolio Manager">
+            <span class="pms-trust-kicker"><i class="bi bi-patch-check-fill" aria-hidden="true"></i> Professional. Research-Driven. Transparent.</span>
             <div class="pms-trust-stage">
               <div class="pms-trust-halo" aria-hidden="true"></div>
-              <div class="pms-trust-ring" data-pms-trust-ring data-ring-text="SEBI REGISTERED • APMI MEMBER • SINCE 1994 • " aria-hidden="true"></div>
+              <div class="pms-trust-ring" data-pms-trust-ring data-ring-text="SEBI REGISTERED PORTFOLIO MANAGER • INP000005117 • " aria-hidden="true"></div>
               <div class="pms-trust-core">
                 <span>Since</span>
-                <strong>30<sup>+</sup></strong>
-                <b>Years of<br>market trust</b>
+                <strong>20<sup>+</sup></strong>
+                <b>Years of<br>capital market experience</b>
               </div>
               <span class="pms-trust-orbit-dot pms-trust-orbit-dot--one" aria-hidden="true"></span>
               <span class="pms-trust-orbit-dot pms-trust-orbit-dot--two" aria-hidden="true"></span>
             </div>
             <div class="pms-trust-proofs">
               <span class="pms-trust-proof"><i class="bi bi-shield-check" aria-hidden="true"></i><b>SEBI</b><small>INP000005117</small></span>
-              <span class="pms-trust-proof"><i class="bi bi-building-check" aria-hidden="true"></i><b>APMI</b><small>Member firm</small></span>
+              <span class="pms-trust-proof"><i class="bi bi-building-check" aria-hidden="true"></i><b>Min. Investment</b><small>₹50 lakh</small></span>
             </div>
           </div>
         </div>
@@ -258,7 +362,7 @@
           <div class="pms-fact"><span></span><strong>SEBI</strong><small>Registered PMS</small></div>
           <div class="pms-fact"><span></span><strong>Personalized</strong><small>Investment Strategies</small></div>
           <div class="pms-fact"><span></span><strong>Research</strong><small>Driven Portfolio Selection</small></div>
-          <div class="pms-fact"><span></span><strong>Direct</strong><small>Demat ownership</small></div>
+          <div class="pms-fact"><span></span><strong>Direct</strong><small>Ownership of Investments</small></div>
           <div class="pms-fact"><span></span><strong>Long-Term</strong><small>Wealth Creation</small></div>
         </div>
       </div>
@@ -277,27 +381,96 @@
             <div class="pms-section-head">
               <span class="pms-section-number" aria-hidden="true">01</span>
               <div class="pms-eyebrow" data-pms-reveal="up">Understand it</div>
-              <h2 class="pms-title" data-pms-reveal="up">What PMS is — <em>in one minute.</em></h2>
+              <h2 class="pms-title" data-pms-reveal="up">What is Portfolio Management <em>Services (PMS)?</em></h2>
             </div>
-            <p class="pms-description" data-pms-reveal="up">Under the SEBI (Portfolio Managers) Regulations, 2020, a portfolio manager invests directly on your behalf. No pooled units — the portfolio is yours, the strategy is tailored, and the manager is personally answerable to you.</p>
-            <p class="pms-description" data-pms-reveal="up">PMS is designed to provide total end-to-end customised and personalised services to HNI and institutional clients, enhancing wealth and returns through expert active fund management.</p>
+            <p class="pms-description" data-pms-reveal="up">Portfolio Management Services (PMS) is a professional investment management service where investments are managed in line with an agreed strategy and the client's investment objectives.</p>
+            <p class="pms-description" data-pms-reveal="up">Unlike pooled investment products, securities are held in the client's own name, providing greater transparency, direct ownership, and portfolio customization.</p>
             <aside class="pms-ownership-note" data-pms-reveal="left">
               <i class="bi bi-person-vcard" aria-hidden="true"></i>
-              <p><strong>You own the securities.</strong> Stocks are bought in your demat account, so you always see exactly what you own.</p>
+              <p><strong>You own the securities.</strong> Securities are held in the client's own name, ensuring direct ownership and transparency.</p>
             </aside>
           </div>
 
-          <div class="pms-comparison" aria-label="PMS and mutual fund comparison">
-            <div class="pms-comparison-head">
-              <span>At a glance</span><span>PMS</span><span>Mutual Fund</span>
+          <div class="pms-comparison" aria-label="PMS key benefits">
+            <div class="pms-comparison-head" style="grid-template-columns:1fr;">
+              <span>Why Choose Marfatia PMS? — Key Benefits</span>
             </div>
-            <div class="pms-comparison-line" aria-hidden="true"><i></i></div>
-            <div class="pms-comparison-row" data-pms-reveal="right"><strong>You own</strong><span>Stocks in your demat</span><span>Units of a pool</span></div>
-            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Tailoring</strong><span>Customised to you</span><span>Same for all unit-holders</span></div>
-            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Minimum</strong><span>₹50 lakh (SEBI)</span><span>From ₹100–₹500</span></div>
-            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Taxation</strong><span>Direct equity, per transaction</span><span>On redemption of units</span></div>
-            <div class="pms-comparison-row" data-pms-reveal="right"><strong>Best for</strong><span>HNIs seeking direct ownership</span><span>Every wallet size</span></div>
+            <!-- <div class="pms-comparison-line" aria-hidden="true"><i></i></div> -->
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Personalized investment strategies</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Professional portfolio management</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Direct ownership of investments</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Research-driven investment decisions</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Transparent portfolio reporting</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Long-term investment approach</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Continuous portfolio monitoring</strong></div>
+            <div class="pms-comparison-row" data-pms-reveal="right" style="grid-template-columns:26px 1fr; min-height:auto; padding:13px 18px; border-bottom:0;"><i class="bi bi-check-circle-fill" style="color:var(--pms-accent,var(--green));font-size:15px;" aria-hidden="true"></i><strong style="font-size:14.5px;">Dedicated client support</strong></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02: TYPES OF PMS (Strategy Matrix Deck) ── -->
+    <section class="pms-section pms-why" id="pms-types">
+      <div class="pms-decor pms-decor--market-line" aria-hidden="true"></div>
+      <div class="container pms-container">
+        <div class="pms-way-heading">
+          <div class="pms-section-head">
+            <span class="pms-section-number" aria-hidden="true">02</span>
+            <div class="pms-eyebrow" data-pms-reveal="up">Types of PMS</div>
+            <h2 class="pms-title" data-pms-reveal="up">Portfolio Management Services <em>in accordance with SEBI regulations.</em></h2>
+          </div>
+        </div>
+
+        <div class="pms-types-deck" data-pms-reveal="up">
+          <article class="pms-type-card pms-type-card--featured">
+            <span class="pms-type-ribbon">Most Popular for HNIs</span>
+            <div>
+              <div class="pms-type-ico"><i class="bi bi-sliders"></i></div>
+              <h3 class="pms-type-title">Discretionary PMS</h3>
+              <p class="pms-type-desc">Complete portfolio management where investment decisions and strategy execution are handled independently by Marfatia's experienced Portfolio Manager as per the agreed mandate.</p>
+              <div class="pms-type-tags">
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Active Stock Selection</span>
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Dynamic Rebalancing</span>
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Managed Risk</span>
+              </div>
+            </div>
+            <div class="pms-type-footer">
+              <span class="pms-type-cap">SEBI Minimum: ₹50 Lakhs</span>
+              <i class="bi bi-shield-check" style="color:var(--lime); font-size:18px;"></i>
+            </div>
+          </article>
+
+          <article class="pms-type-card">
+            <div>
+              <div class="pms-type-ico"><i class="bi bi-check2-square"></i></div>
+              <h3 class="pms-type-title">Non-Discretionary PMS</h3>
+              <p class="pms-type-desc">The Portfolio Manager suggests researched investment ideas and allocations, while actual order execution is carried out only after explicit client confirmation.</p>
+              <div class="pms-type-tags">
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Expert Recommendations</span>
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Client Approval Required</span>
+              </div>
+            </div>
+            <div class="pms-type-footer">
+              <span class="pms-type-cap">SEBI Minimum: ₹50 Lakhs</span>
+              <i class="bi bi-shield-check" style="color:var(--pms-primary); font-size:18px;"></i>
+            </div>
+          </article>
+
+          <article class="pms-type-card">
+            <div>
+              <div class="pms-type-ico"><i class="bi bi-chat-square-text"></i></div>
+              <h3 class="pms-type-title">Advisory PMS</h3>
+              <p class="pms-type-desc">High-conviction institutional research advice, asset allocation insights, and portfolio guidance, while trade execution remains entirely under your direct control.</p>
+              <div class="pms-type-tags">
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Research Advisory</span>
+                <span class="pms-type-tag"><i class="bi bi-check-lg"></i> Self-Execution Control</span>
+              </div>
+            </div>
+            <div class="pms-type-footer">
+              <span class="pms-type-cap">SEBI Minimum: ₹50 Lakhs</span>
+              <i class="bi bi-shield-check" style="color:var(--pms-primary); font-size:18px;"></i>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -308,14 +481,13 @@
         <div class="pms-why-layout">
           <div class="pms-section-copy pms-why-copy">
             <div class="pms-section-head">
-              <span class="pms-section-number" aria-hidden="true">02</span>
-              <div class="pms-eyebrow" data-pms-reveal="up">Why PMS</div>
-              <h2 class="pms-title" data-pms-reveal="up">Professional investing needs more than <em>occasional attention.</em></h2>
+              <span class="pms-section-number" aria-hidden="true">03</span>
+              <div class="pms-eyebrow" data-pms-reveal="up">Our Investment Philosophy</div>
+              <h2 class="pms-title" data-pms-reveal="up">Built on discipline, research, <em>and long-term value creation.</em></h2>
             </div>
-            <p class="pms-description" data-pms-reveal="up">Efficient investment management requires time, knowledge, understanding, expertise and constant monitoring of developments in the micro and macro economic environment.</p>
-            <p class="pms-description" data-pms-reveal="up">That is difficult for investors involved in their own business, profession and other activities. An experienced fund manager considers your financial goal and the market environment to form the right investment strategy.</p>
-            <p class="pms-description" data-pms-reveal="up">Our fund manager's experience and skill set — together with strong research backup — are applied to help the portfolio pursue your long-term financial goals.</p>
-            <blockquote class="pms-research-quote" data-pms-reveal="left">“Research is a critical thrust area upon which the foundation of our strategy of presenting newer and quality investment ideas stands.”</blockquote>
+            <p class="pms-description" data-pms-reveal="up">Our investment process is built on discipline, research, and long-term value creation. We focus on fundamental research, quality business selection, and a long-term investment perspective.</p>
+            <p class="pms-description" data-pms-reveal="up">Prudent risk management and diversification, where appropriate, are combined with regular portfolio reviews and transparent communication throughout.</p>
+            <blockquote class="pms-research-quote" data-pms-reveal="left">“With over two decades of experience, Marfatia combines investment expertise, technology, and regulatory compliance to deliver personalized portfolio management.”</blockquote>
           </div>
 
           <div class="pms-process" data-pms-process>
@@ -323,59 +495,84 @@
             <article class="pms-process-stage is-active" data-pms-process-stage>
               <span class="pms-process-number"></span>
               <i class="bi bi-search" aria-hidden="true"></i>
-              <div><h3>Research</h3><p>Build original insight from company, sector and market evidence.</p></div>
-            </article>
-            <article class="pms-process-stage" data-pms-process-stage>
-              <span class="pms-process-number"></span>
-              <i class="bi bi-check2-square" aria-hidden="true"></i>
-              <div><h3>Selection</h3><p>Convert conviction into carefully considered portfolio positions.</p></div>
+              <div><h3>Fundamental research</h3><p>Quality business selection grounded in research evidence.</p></div>
             </article>
             <article class="pms-process-stage" data-pms-process-stage>
               <span class="pms-process-number"></span>
               <i class="bi bi-binoculars" aria-hidden="true"></i>
-              <div><h3>Monitoring</h3><p>Track businesses and the micro and macro environment continuously.</p></div>
+              <div><h3>Long-term perspective</h3><p>Diversification where appropriate, for sustained value creation.</p></div>
             </article>
             <article class="pms-process-stage" data-pms-process-stage>
               <span class="pms-process-number"></span>
               <i class="bi bi-shield-check" aria-hidden="true"></i>
-              <div><h3>Risk review</h3><p>Review position, portfolio and market risk through a long-term lens.</p></div>
+              <div><h3>Prudent risk management</h3><p>Regular portfolio reviews to manage risk continuously.</p></div>
+            </article>
+            <article class="pms-process-stage" data-pms-process-stage>
+              <span class="pms-process-number"></span>
+              <i class="bi bi-chat-square-text" aria-hidden="true"></i>
+              <div><h3>Transparent communication</h3><p>Clear, technology-enabled reporting at every step.</p></div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ── 04: KEY FEATURES & WHO CAN INVEST (Dual-Deck HNI Suite) ── -->
     <section class="pms-section pms-way" id="pms-how">
       <div class="pms-decor pms-decor--plus" aria-hidden="true">+ &nbsp; + &nbsp; +</div>
       <div class="container pms-container">
-        <div class="pms-way-heading">
-          <div class="pms-section-head">
-            <span class="pms-section-number" aria-hidden="true">03</span>
-            <div class="pms-eyebrow" data-pms-reveal="up">The Marfatia Way</div>
-            <h2 class="pms-title" data-pms-reveal="up">Bottom-up picking, <em>long-term horizon.</em></h2>
-          </div>
-          <div class="pms-way-manifesto" data-pms-reveal="right">
-            <span>Our investment discipline</span>
-            <strong>Research → Conviction → Ownership</strong>
-            <p>A focused service shaped by direct access, platform-wide insight and transparent reporting.</p>
-          </div>
+        <div class="pms-section-head" style="margin-bottom: 32px;">
+          <span class="pms-section-number" aria-hidden="true">04</span>
+          <div class="pms-eyebrow" data-pms-reveal="up">Key Features &amp; Eligibility</div>
+          <h2 class="pms-title" data-pms-reveal="up">Customized strategies, <em>direct ownership.</em></h2>
         </div>
-        <div class="pms-way-grid" data-pms-way-grid>
-          <article class="pms-way-card pms-way-card--lead">
-            <div class="pms-way-card-top"><span></span><span class="pms-way-icon" aria-hidden="true"><i class="bi bi-person-check"></i><span class="pms-way-icon-dot"></span></span></div>
-            <div class="pms-way-card-copy"><h3>A named desk,<br>not a call centre.</h3><p>Your portfolio is overseen by a dedicated Principal Officer with MD-level access — the kind of direct relationship only a Gujarat-rooted house offers.</p></div>
-            <small>Direct access · Human accountability</small>
-          </article>
-          <article class="pms-way-card">
-            <div class="pms-way-card-top"><span></span><span class="pms-way-icon" aria-hidden="true"><i class="bi bi-search"></i><span class="pms-way-icon-dot"></span></span></div>
-            <div class="pms-way-card-copy"><h3>Full-platform research.</h3><p>Insight drawn from equity, F&amp;O, commodity, currency, IPOs and mutual funds — informed by three decades in Gujarat's markets.</p></div>
-            <small>Primary insight · Wider market lens</small>
-          </article>
-          <article class="pms-way-card pms-way-card--accent">
-            <div class="pms-way-card-top"><span></span><span class="pms-way-icon" aria-hidden="true"><i class="bi bi-bar-chart-line"></i><span class="pms-way-icon-dot"></span></span></div>
-            <div class="pms-way-card-copy"><h3>Transparent by regulation and habit.</h3><p>Monthly APMI reporting plus clear visibility of holdings and transactions through the dedicated client portal.</p></div>
-            <small>Visible holdings · Standardised reporting</small>
-          </article>
+
+        <div class="pms-hni-suite" data-pms-reveal="up">
+          <!-- Banner: Who Can Invest -->
+          <div class="pms-who-banner">
+            <div class="pms-who-head">
+              <span class="pms-who-tag"><i class="bi bi-award-fill"></i> Investor Eligibility Framework</span>
+              <h3>Who Can Invest in Marfatia PMS?</h3>
+              <p>Tailored wealth management solutions designed for wealth preservation, disciplined capital appreciation, and long-term equity compounding under SEBI regulations.</p>
+            </div>
+            <div class="pms-who-badges">
+              <span class="pms-who-badge"><i class="bi bi-person-check-fill"></i> High-Net-Worth Individuals (HNIs) &amp; UHNIs</span>
+              <span class="pms-who-badge"><i class="bi bi-building"></i> Business Owners &amp; Family Offices</span>
+              <span class="pms-who-badge"><i class="bi bi-briefcase-fill"></i> Corporate Executives &amp; Professionals</span>
+              <span class="pms-who-badge"><i class="bi bi-globe2"></i> Non-Resident Indians (NRIs - FEMA Compliant)</span>
+              <span class="pms-who-badge"><i class="bi bi-bank"></i> Companies, Trusts &amp; Foundations</span>
+            </div>
+          </div>
+
+          <!-- Bento Deck: Key Features -->
+          <div class="pms-feat-bento-grid">
+            <div class="pms-feat-bento">
+              <div>
+                <div class="pms-feat-ico"><i class="bi bi-person-vcard-fill"></i></div>
+                <h4>Direct Ownership of Securities</h4>
+                <p>Unlike pooled mutual funds, all stocks and securities are held directly in your individual Demat Account under your own name for 100% transparency.</p>
+              </div>
+              <span class="pms-feat-pill"><i class="bi bi-shield-check"></i> Zero Pool Risk</span>
+            </div>
+
+            <div class="pms-feat-bento">
+              <div>
+                <div class="pms-feat-ico"><i class="bi bi-graph-up-arrow"></i></div>
+                <h4>Periodic Portfolio Reviews &amp; Tech Portal</h4>
+                <p>Access real-time 24/7 digital portfolio tracking, performance ledgers, and scheduled strategic fund manager reviews.</p>
+              </div>
+              <span class="pms-feat-pill"><i class="bi bi-cpu-fill"></i> Digital Backoffice Vault</span>
+            </div>
+
+            <div class="pms-feat-bento" style="background:var(--pms-surface-tint); border-color:rgba(8,117,59,0.2);">
+              <div>
+                <div class="pms-feat-ico" style="background:var(--pms-primary); color:#fff;"><i class="bi bi-cash-stack"></i></div>
+                <h4>SEBI Minimum Investment: ₹50 Lakh</h4>
+                <p>Regulated minimum initial portfolio investment threshold per client as mandated under SEBI (Portfolio Managers) Regulations, 2020.</p>
+              </div>
+              <span class="pms-feat-pill" style="background:var(--pms-primary); color:var(--lime); border-color:transparent;"><i class="bi bi-patch-check-fill" style="color:var(--lime);"></i> SEBI Regulated</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -385,18 +582,18 @@
       <div class="container pms-container">
         <div class="pms-journey-heading">
           <div class="pms-section-head">
-            <span class="pms-section-number" aria-hidden="true">04</span>
-            <div class="pms-eyebrow" data-pms-reveal="up">Your journey</div>
-            <h2 class="pms-title" data-pms-reveal="up">Getting started — <em>five clear steps.</em></h2>
+            <span class="pms-section-number" aria-hidden="true">05</span>
+            <div class="pms-eyebrow" data-pms-reveal="up">Why Marfatia?</div>
+            <h2 class="pms-title" data-pms-reveal="up">Our <em>strengths.</em></h2>
           </div>
-          <p class="pms-description" data-pms-reveal="right">A guided path from the first suitability conversation to transparent portfolio reporting.</p>
+          <p class="pms-description" data-pms-reveal="right">With over two decades of experience, Marfatia combines investment expertise, technology, and regulatory compliance to deliver personalized portfolio management.</p>
         </div>
         <ol class="pms-journey-steps" data-pms-journey>
-          <li data-step="01"><span><i class="bi bi-chat-dots" aria-hidden="true"></i><b>01</b></span><small>Discover</small><h3>Conversation &amp; suitability</h3><p>Goals, horizon and risk appetite with the PMS desk — no forms first, just a proper talk.</p></li>
-          <li data-step="02"><span><i class="bi bi-file-earmark-text" aria-hidden="true"></i><b>02</b></span><small>Understand</small><h3>Read the Disclosure Document</h3><p>Fees, risks and approach in writing. Take your time and ask anything.</p></li>
-          <li data-step="03"><span><i class="bi bi-person-vcard" aria-hidden="true"></i><b>03</b></span><small>Formalise</small><h3>Agreements &amp; KYC</h3><p>PMS agreement plus a demat account in your name — open one online in about 10 minutes.</p></li>
-          <li data-step="04"><span><i class="bi bi-wallet2" aria-hidden="true"></i><b>04</b></span><small>Activate</small><h3>Fund the portfolio</h3><p>₹50 lakh minimum, as cash or approved securities.</p></li>
-          <li data-step="05"><span><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><b>05</b></span><small>Stay informed</small><h3>Reviews &amp; reporting</h3><p>Portal access from day one and scheduled reviews with the desk.</p></li>
+          <li data-step="01"><span><i class="bi bi-patch-check" aria-hidden="true"></i><b>01</b></span><small>Registered</small><h3>SEBI Registered Portfolio Manager</h3><p>Operating under the SEBI (Portfolio Managers) Regulations, 2020, ensuring transparency, accountability, and investor protection.</p></li>
+          <li data-step="02"><span><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><b>02</b></span><small>Experienced</small><h3>20+ years of capital market experience</h3><p>Research-driven investment approach backed by experienced investment professionals.</p></li>
+          <li data-step="03"><span><i class="bi bi-eye" aria-hidden="true"></i><b>03</b></span><small>Transparent</small><h3>Transparent investment process</h3><p>A robust compliance framework governs every stage of portfolio management.</p></li>
+          <li data-step="04"><span><i class="bi bi-cpu" aria-hidden="true"></i><b>04</b></span><small>Technology-Driven</small><h3>Digital portfolio reporting</h3><p>Online portfolio access, secure data management, and efficient operational processes.</p></li>
+          <li data-step="05"><span><i class="bi bi-people" aria-hidden="true"></i><b>05</b></span><small>Client-Centric</small><h3>Long-term client relationships</h3><p>Dedicated client servicing built on transparent transaction reporting.</p></li>
         </ol>
       </div>
     </section>
@@ -407,19 +604,19 @@
         <div class="pms-rights-layout">
           <div class="pms-rights-intro">
             <div class="pms-section-head">
-              <span class="pms-section-number" aria-hidden="true">05</span>
-              <div class="pms-eyebrow" data-pms-reveal="up">Know your rights</div>
-              <h2 class="pms-title" data-pms-reveal="up">SEBI's investor protections, <em>built in.</em></h2>
-              <p class="pms-description" data-pms-reveal="up">Clear structural safeguards help protect high-net-worth investors before and throughout a portfolio management agreement.</p>
+              <span class="pms-section-number" aria-hidden="true">06</span>
+              <div class="pms-eyebrow" data-pms-reveal="up">Regulatory Framework</div>
+              <h2 class="pms-title" data-pms-reveal="up">Regulated by SEBI, <em>built for investor protection.</em></h2>
+              <p class="pms-description" data-pms-reveal="up">Marfatia Stock Broking Private Limited is registered with the Securities and Exchange Board of India (SEBI) as a Portfolio Manager. Our PMS operations are governed by the SEBI (Portfolio Managers) Regulations, 2020, ensuring transparency, accountability, and investor protection.</p>
             </div>
-            <div class="pms-rights-seal" data-pms-reveal="scale"><i class="bi bi-shield-check" aria-hidden="true"></i><span>Regulated framework</span><strong>Know the limits.<br>Own the decision.</strong></div>
-            <p class="pms-compliance-note" data-pms-reveal="up">Exact fee models are detailed in your signed agreement and the Disclosure Document available from the Compliance Officer.</p>
+            <div class="pms-rights-seal" data-pms-reveal="scale"><i class="bi bi-shield-check" aria-hidden="true"></i><span>SEBI Registration No.</span><strong>INP000005117</strong></div>
+            <p class="pms-compliance-note" data-pms-reveal="up">Investors should carefully read the Disclosure Document, Portfolio Management Agreement, and related documents before investing.</p>
           </div>
           <div class="pms-rights-ledger" data-pms-rights-ledger>
-            <article><span>01</span><strong>₹0</strong><div><h3>Upfront distributor commission</h3><p>Prohibited entirely under the regulatory framework.</p></div><i class="bi bi-slash-circle" aria-hidden="true"></i></article>
-            <article><span>02</span><strong>0.5%</strong><div><h3>Annual operating expense</h3><p>Maximum yearly cap based on average AUM.</p></div><i class="bi bi-file-earmark-check" aria-hidden="true"></i></article>
-            <article><span>03</span><strong>3 · 2 · 1%</strong><div><h3>Exit-load limits</h3><p>Maximum for years one, two and three; nil thereafter.</p></div><i class="bi bi-graph-down-arrow" aria-hidden="true"></i></article>
-            <article><span>04</span><strong>Direct</strong><div><h3>Onboarding option</h3><p>No distributor fees when choosing direct onboarding.</p></div><i class="bi bi-person-check" aria-hidden="true"></i></article>
+            <article><span>01</span><strong>₹0</strong><div><h3>Guaranteed returns</h3><p>Portfolio Management Services do not assure or guarantee returns or capital protection.</p></div><i class="bi bi-slash-circle" aria-hidden="true"></i></article>
+            <article><span>02</span><strong>Own Name</strong><div><h3>Who owns the investments</h3><p>Securities are held in the client's own name, ensuring direct ownership and transparency.</p></div><i class="bi bi-file-earmark-check" aria-hidden="true"></i></article>
+            <article><span>03</span><strong>Market-Linked</strong><div><h3>Investment performance</h3><p>Performance depends on market conditions; past performance is not indicative of future results.</p></div><i class="bi bi-graph-down-arrow" aria-hidden="true"></i></article>
+            <article><span>04</span><strong>₹50 Lakh</strong><div><h3>Minimum investment</h3><p>As prescribed by SEBI, per client, for entry into Portfolio Management Services.</p></div><i class="bi bi-person-check" aria-hidden="true"></i></article>
           </div>
         </div>
       </div>
@@ -429,31 +626,30 @@
       <div class="container pms-container">
         <div class="pms-faq-layout">
           <div class="pms-section-head">
-            <span class="pms-section-number" aria-hidden="true">06</span>
+            <span class="pms-section-number" aria-hidden="true">07</span>
             <div class="pms-eyebrow" data-pms-reveal="up">Straight answers</div>
-            <h2 class="pms-title" data-pms-reveal="up">Questions investors <em>actually ask.</em></h2>
-            <p class="pms-description" data-pms-reveal="up">Clear answers about ownership, minimums, reporting and investor safeguards.</p>
+            <h2 class="pms-title" data-pms-reveal="up">Frequently Asked <em>Questions.</em></h2>
           </div>
           <div class="pms-accordion" data-pms-stagger>
             <article class="pms-accordion-item is-open">
-              <h3><button type="button" aria-expanded="true"><span>PMS vs mutual funds — the real difference?</span><i aria-hidden="true"></i></button></h3>
-              <div class="pms-accordion-panel"><div><p>Ownership and tailoring. In PMS the shares sit in your demat account and the portfolio can be customised; a mutual fund gives you units of a common pool. Taxation in PMS is as if you traded directly — capital gains arise on each portfolio transaction in your name.</p></div></div>
+              <h3><button type="button" aria-expanded="true"><span>What is the minimum investment for PMS?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>As prescribed by SEBI, the minimum investment amount is ₹50 lakh per client.</p></div></div>
             </article>
             <article class="pms-accordion-item">
-              <h3><button type="button" aria-expanded="false"><span>Is ₹50 lakh the minimum forever?</span><i aria-hidden="true"></i></button></h3>
-              <div class="pms-accordion-panel"><div><p>₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement.</p></div></div>
+              <h3><button type="button" aria-expanded="false"><span>Who owns the investments under PMS?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>Securities are held in the client's own name, ensuring direct ownership and transparency.</p></div></div>
             </article>
             <article class="pms-accordion-item">
-              <h3><button type="button" aria-expanded="false"><span>Can I see my holdings whenever I want?</span><i aria-hidden="true"></i></button></h3>
-              <div class="pms-accordion-panel"><div><p>Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements. The securities are in your own demat, so depository statements show them too.</p></div></div>
+              <h3><button type="button" aria-expanded="false"><span>Does PMS guarantee returns?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>No. Investment performance depends on market conditions and other factors.</p></div></div>
             </article>
             <article class="pms-accordion-item">
-              <h3><button type="button" aria-expanded="false"><span>Who regulates this and where do I check?</span><i aria-hidden="true"></i></button></h3>
-              <div class="pms-accordion-panel"><div><p>SEBI, under the Portfolio Managers Regulations, 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory, and see standardised industry data on APMI.</p></div></div>
+              <h3><button type="button" aria-expanded="false"><span>What types of PMS are available?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>Discretionary, Non-Discretionary, and Advisory Portfolio Management Services.</p></div></div>
             </article>
             <article class="pms-accordion-item">
-              <h3><button type="button" aria-expanded="false"><span>What if I have a complaint?</span><i aria-hidden="true"></i></button></h3>
-              <div class="pms-accordion-panel"><div><p>Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed. The full grievance ladder is detailed on our <a href="#">Investor Protection</a> page.</p></div></div>
+              <h3><button type="button" aria-expanded="false"><span>Why choose a SEBI Registered Portfolio Manager?</span><i aria-hidden="true"></i></button></h3>
+              <div class="pms-accordion-panel"><div><p>A SEBI-registered Portfolio Manager operates within a regulated framework designed to promote transparency, compliance, and investor protection.</p></div></div>
             </article>
           </div>
         </div>
@@ -596,6 +792,15 @@
         </div>
       </div>
     </section> -->
+
+    <section class="pms-section" style="padding-top:0;">
+      <div class="container pms-container">
+        <aside class="pms-ownership-note" data-pms-reveal="up" style="max-width:100%;">
+          <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+          <p><strong>Important Risk Disclosure.</strong> Investments in securities are subject to market risks. Portfolio Management Services do not assure or guarantee returns or capital protection, and past performance is not indicative of future results. Investors should carefully read the Disclosure Document, Portfolio Management Agreement, and related documents before investing.</p>
+        </aside>
+      </div>
+    </section>
 
     <section class="pms-section pms-final" aria-labelledby="pms-final-title">
       <div class="pms-decor pms-decor--final-chart" aria-hidden="true"></div>

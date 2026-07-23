@@ -61,6 +61,11 @@
     .story-photo:hover img{ transform:scale(1.04); }
     @media(max-width:900px){ .story-photo{ position:static; } }
 
+    /* ── VISION / MISSION background fx ── */
+    .vm-section{ position:relative; overflow:hidden; }
+    .vm-bg-fx{ position:absolute; top:-40%; left:50%; transform:translateX(-50%); width:900px; height:900px; border-radius:50%; background:radial-gradient(circle, rgba(8,117,59,.07), rgba(155,206,22,.03) 45%, transparent 70%); pointer-events:none; z-index:0; }
+    .vm-section .wrap{ position:relative; z-index:1; }
+
     /* ── MISSION / VISION DUO — custom ribbon cards ── */
     .mv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
     @media(max-width:760px){ .mv-grid{ grid-template-columns:1fr; } }
@@ -110,6 +115,33 @@
     .reg-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
     @media(max-width:860px){ .reg-grid{ grid-template-columns:1fr; } }
 
+    /* ── SEAL WALL: unique wax-seal / verification stamp motif ── */
+    .seal-section{ position:relative; overflow:hidden; }
+    .seal-watermark{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:min(60vw,640px); color:rgba(155,206,22,.035); pointer-events:none; z-index:0; line-height:1; }
+    .seal-grid-fx{ position:absolute; inset:0; background-image:linear-gradient(rgba(155,206,22,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(155,206,22,.06) 1px, transparent 1px); background-size:42px 42px; z-index:0; pointer-events:none; mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%); -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%); }
+    .seal-scanbeam{ position:absolute; left:0; right:0; height:140px; background:linear-gradient(180deg, transparent, rgba(155,206,22,.09), transparent); z-index:0; pointer-events:none; animation:seal-scan 9s ease-in-out infinite; }
+    @keyframes seal-scan{ 0%{ top:-140px; } 50%{ top:100%; } 100%{ top:-140px; } }
+    @media(prefers-reduced-motion: reduce){ .seal-scanbeam{ animation:none; display:none; } }
+    .seal-wall{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); gap:28px 20px; }
+    @media(max-width:980px){ .seal-wall{ grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:700px){ .seal-wall{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:420px){ .seal-wall{ grid-template-columns:1fr; } }
+    .seal{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px; }
+    .seal-disc{ position:relative; width:118px; height:118px; border-radius:50%; display:grid; place-items:center; margin-bottom:14px; cursor:default; }
+    .seal-disc::before{ content:""; position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 35% 30%, rgba(155,206,22,.18), rgba(8,117,59,.06) 60%, transparent 72%); border:1.5px dashed rgba(155,206,22,.4); transition:border-color .4s var(--ease), transform .5s var(--ease); }
+    .seal-disc::after{ content:""; position:absolute; inset:10px; border-radius:50%; background:linear-gradient(155deg, rgba(155,206,22,.14), rgba(255,255,255,.02)); border:1px solid rgba(220,235,225,.16); box-shadow:inset 0 2px 10px rgba(0,0,0,.25); transition:transform .45s var(--ease), box-shadow .45s var(--ease); }
+    .seal-ring{ position:absolute; inset:0; width:100%; height:100%; animation:seal-spin 16s linear infinite; z-index:1; }
+    .seal-ring text{ font-family:var(--font-mono); font-size:6.6px; letter-spacing:.05em; fill:var(--lime); text-transform:uppercase; }
+    @keyframes seal-spin{ to{ transform:rotate(360deg); } }
+    .seal-ico{ position:relative; z-index:2; font-size:26px; color:var(--lime); transition:transform .45s var(--ease), color .3s; }
+    .seal:hover .seal-disc::before{ border-color:var(--lime); transform:scale(1.06); }
+    .seal:hover .seal-disc::after{ transform:scale(.94); box-shadow:inset 0 2px 16px rgba(0,0,0,.35), 0 0 22px rgba(155,206,22,.35); }
+    .seal:hover .seal-ico{ transform:scale(1.15); color:#fff; }
+    .seal:hover .seal-ring{ animation-duration:4s; }
+    .seal b{ font-family:var(--font-disp); font-size:14.5px; font-weight:700; color:var(--mono-ink); }
+    .seal span{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; color:rgba(220,235,225,.55); word-break:break-word; padding:0 6px; }
+    @media(prefers-reduced-motion: reduce){ .seal-ring{ animation:none; } }
+
     /* ── PRESENCE GALLERY ── */
     .gal-grid{ columns:3 260px; column-gap:16px; }
     .gal-tile{ position:relative; }
@@ -117,7 +149,316 @@
     .gal-tile:hover img{ transform:scale(1.06); }
     .gal-tile-frame{ overflow:hidden; border-radius:var(--radius-md); }
 
-    /* ── STAT COUNTER STRIP (reuses .statline) ── */
+    /* ── ABOUT SECTION background fx ── */
+    .ab-about-sec{ position:relative; overflow:hidden; }
+    .ab-bg-fx{ position:absolute; top:-120px; right:-160px; width:480px; height:480px; border-radius:50%; background:radial-gradient(circle, rgba(155,206,22,.10), rgba(8,117,59,.03) 55%, transparent 75%); filter:blur(10px); pointer-events:none; z-index:0; }
+
+    /* ── REDESIGNED 01: REGULATORY IDENTITY LEDGER (5 BOXES IN ONE ROW) ── */
+    .ab-center-head{ text-align:center; max-width:820px; margin:0 auto 40px; }
+    .ab-center-head .eyebrow{ display:inline-block; margin-bottom:12px; }
+    .ab-center-head .sec-title{ font-size:clamp(26px, 3.5vw, 36px); margin-bottom:16px; }
+    .ab-center-head .lead{ font-size:16px; line-height:1.7; color:var(--ink-soft); }
+
+    .ab-ledger-grid-row{
+      display:grid; grid-template-columns:repeat(5, 1fr); gap:16px;
+    }
+    @media(max-width:1100px){ .ab-ledger-grid-row{ grid-template-columns:repeat(3, 1fr); } }
+    @media(max-width:700px){ .ab-ledger-grid-row{ grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:480px){ .ab-ledger-grid-row{ grid-template-columns:1fr; } }
+
+    .ab-ledger-card{
+      position:relative; background:var(--paper-raised); border:1px solid var(--line);
+      border-radius:var(--radius-md); padding:20px 18px;
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+      overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; min-height:150px;
+    }
+    .ab-ledger-card::before{
+      content:""; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg, var(--green), var(--lime));
+      opacity:0; transition:opacity .4s var(--ease);
+    }
+    .ab-ledger-card:hover{
+      transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:rgba(8,117,59,0.35);
+    }
+    .ab-ledger-card:hover::before{ opacity:1; }
+    .ab-ledger-card--interactive{ cursor:pointer; }
+    .ab-ledger-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .ab-ledger-top i{
+      width:34px; height:34px; border-radius:9px; background:var(--paper-tint); color:var(--green);
+      display:grid; place-items:center; font-size:16px; transition:background .3s, color .3s;
+    }
+    .ab-ledger-card:hover .ab-ledger-top i{ background:var(--green-deep); color:var(--lime); }
+    .ab-ledger-badge{
+      font-family:var(--font-mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase;
+      color:var(--green); background:var(--paper-tint); border:1px solid rgba(8,117,59,0.15);
+      border-radius:100px; padding:3px 8px; display:inline-flex; align-items:center; gap:5px;
+    }
+    .ab-ledger-copy-btn{
+      font-family:var(--font-mono); font-size:10px; color:var(--ink-faint);
+      display:inline-flex; align-items:center; gap:4px; transition:color .3s;
+    }
+    .ab-ledger-card:hover .ab-ledger-copy-btn{ color:var(--green); }
+    .ab-ledger-label{ font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); display:block; margin-bottom:6px; }
+    .ab-ledger-val{ font-family:var(--font-disp); font-size:14.5px; font-weight:700; color:var(--ink); line-height:1.3; margin:0; word-break:break-word; }
+    .ab-ledger-val.mono{ font-family:var(--font-mono); font-size:12.5px; letter-spacing:.03em; color:var(--green); }
+
+    /* ── NEW DESIGN 02: REGULATORY REGISTRATIONS IDENTITY HUB ── */
+    .ab-reg-hub-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
+    @media(max-width:1024px){ .ab-reg-hub-grid{ grid-template-columns:repeat(3, 1fr); } }
+    @media(max-width:768px){ .ab-reg-hub-grid{ grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:480px){ .ab-reg-hub-grid{ grid-template-columns:1fr; } }
+    .ab-reg-card{
+      position:relative; background:rgba(255,255,255,0.04); border:1px solid rgba(220,235,225,0.14);
+      border-radius:var(--radius-lg); padding:26px 22px; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s, background .4s;
+      overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; cursor:pointer;
+    }
+    .ab-reg-card:hover{
+      transform:translateY(-6px); border-color:var(--lime); background:rgba(255,255,255,0.08);
+      box-shadow:0 16px 40px rgba(0,0,0,0.35), 0 0 25px rgba(155,206,22,0.15);
+    }
+    .ab-reg-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+    .ab-reg-ico{
+      width:44px; height:44px; border-radius:12px; background:rgba(155,206,22,0.12); color:var(--lime);
+      display:grid; place-items:center; font-size:20px; border:1px solid rgba(155,206,22,0.25);
+      transition:transform .35s var(--ease), background .3s;
+    }
+    .ab-reg-card:hover .ab-reg-ico{ transform:scale(1.1); background:var(--lime); color:var(--green-deep); }
+    .ab-reg-badge{
+      font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+      color:var(--lime); background:rgba(155,206,22,0.1); border:1px solid rgba(155,206,22,0.3);
+      border-radius:100px; padding:4px 10px; display:inline-flex; align-items:center; gap:5px;
+    }
+    .ab-reg-card h4{ font-family:var(--font-disp); font-size:17px; font-weight:700; color:#fff; margin:0 0 8px; }
+    .ab-reg-num{ font-family:var(--font-mono); font-size:12.5px; color:var(--mono-ink); letter-spacing:.04em; opacity:.85; word-break:break-word; }
+    .ab-reg-copy{ font-family:var(--font-mono); font-size:10.5px; color:rgba(220,235,225,0.5); display:inline-flex; align-items:center; gap:5px; margin-top:14px; transition:color .3s; }
+    .ab-reg-card:hover .ab-reg-copy{ color:var(--lime); }
+
+    /* ── NEW DESIGN 04: PLATFORM TERMINAL CONSOLE ── */
+    .ab-plat-wrap{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center; }
+    @media(max-width:960px){ .ab-plat-wrap{ grid-template-columns:1fr; } }
+    .ab-plat-features{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px; }
+    @media(max-width:540px){ .ab-plat-features{ grid-template-columns:1fr; } }
+    .ab-plat-feat{
+      background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-md);
+      padding:16px 18px; display:flex; align-items:center; gap:12px; transition:all .3s var(--ease);
+    }
+    .ab-plat-feat:hover{ border-color:var(--green); transform:translateX(4px); background:var(--paper-tint); }
+    .ab-plat-feat i{
+      width:36px; height:36px; border-radius:10px; background:var(--green-deep); color:var(--lime);
+      display:grid; place-items:center; font-size:16px; flex:0 0 auto;
+    }
+    .ab-plat-feat span{ font-size:13.5px; font-weight:600; color:var(--ink); line-height:1.3; }
+
+    .ab-plat-terminal{
+      position:relative; background:var(--mono-bg); border-radius:var(--radius-lg); border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 30px 80px rgba(5,46,25,0.35); overflow:hidden;
+    }
+    .ab-plat-topbar{
+      background:rgba(255,255,255,0.05); padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.08);
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .ab-plat-dots{ display:flex; gap:6px; }
+    .ab-plat-dots span{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.2); }
+    .ab-plat-dots span:nth-child(1){ background:#FF5F56; }
+    .ab-plat-dots span:nth-child(2){ background:#FFBD2E; }
+    .ab-plat-dots span:nth-child(3){ background:#27C93F; }
+    .ab-plat-title{ font-family:var(--font-mono); font-size:11px; color:rgba(220,235,225,0.6); letter-spacing:.08em; }
+    .ab-plat-body{ padding:24px; }
+    .ab-plat-ticker{ display:flex; gap:16px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(220,235,225,0.08); }
+    .ab-plat-tick-item b{ display:block; font-family:var(--font-mono); font-size:12px; color:#fff; }
+    .ab-plat-tick-item span{ font-family:var(--font-mono); font-size:11px; color:var(--lime); }
+    .ab-plat-status-row{ display:flex; align-items:center; justify-content:space-between; font-family:var(--font-mono); font-size:11.5px; color:rgba(220,235,225,0.8); margin-top:10px; }
+
+    /* ── NEW DESIGN 07: CORPORATE HQ & FOOTPRINT DECK ── */
+    .ab-hq-deck{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px; }
+    @media(max-width:860px){ .ab-hq-deck{ grid-template-columns:1fr; } }
+    .ab-hq-card{
+      position:relative; background:var(--green-deep); color:var(--mono-ink);
+      border-radius:var(--radius-lg); padding:36px 32px; border:1px solid rgba(155,206,22,0.22);
+      box-shadow:0 20px 50px rgba(5,46,25,0.25); overflow:hidden; display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .ab-hq-card::after{
+      content:""; position:absolute; width:260px; height:260px; border-radius:50%;
+      bottom:-90px; right:-90px; background:radial-gradient(circle, rgba(155,206,22,0.18), transparent 70%);
+      pointer-events:none;
+    }
+    .ab-hq-badge{
+      font-family:var(--font-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--lime); background:rgba(155,206,22,0.12); border:1px solid rgba(155,206,22,0.3);
+      border-radius:100px; padding:5px 14px; display:inline-flex; align-items:center; gap:6px; margin-bottom:18px;
+    }
+    .ab-hq-card h3{ font-family:var(--font-disp); font-size:clamp(22px,3vw,30px); font-weight:800; color:#fff; margin:0 0 12px; }
+    .ab-hq-card p{ font-size:14.5px; line-height:1.65; color:rgba(220,235,225,0.85); margin:0 0 24px; }
+    .ab-hq-city-pills{ display:flex; flex-wrap:wrap; gap:8px; }
+    .ab-hq-city{
+      font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--green-deep);
+      background:var(--lime); border-radius:100px; padding:6px 14px; display:inline-flex; align-items:center; gap:6px;
+    }
+
+    /* ── REDESIGNED 03: CAPITAL MARKETS SERVICE MATRIX & EXPLORER ── */
+    .ab-svc-explorer{ position:relative; }
+    .ab-svc-tabs{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px; margin-bottom:32px;
+    }
+    .ab-svc-tab{
+      background:var(--paper-raised); border:1px solid var(--line); border-radius:100px;
+      padding:10px 20px; font-size:13.5px; font-weight:600; color:var(--ink-soft);
+      cursor:pointer; transition:all .3s var(--ease); display:inline-flex; align-items:center; gap:8px;
+    }
+    .ab-svc-tab:hover{ border-color:var(--green); color:var(--green); transform:translateY(-2px); }
+    .ab-svc-tab.active{
+      background:var(--green-deep); color:#fff; border-color:var(--green-deep); box-shadow:0 6px 20px rgba(5,46,25,0.22);
+    }
+    .ab-svc-tab.active i{ color:var(--lime); }
+    .ab-svc-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; }
+    @media(max-width:960px){ .ab-svc-grid{ grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:600px){ .ab-svc-grid{ grid-template-columns:1fr; } }
+    .ab-svc-card{
+      position:relative; background:var(--paper-raised); border:1px solid var(--line);
+      border-radius:var(--radius-lg); padding:28px 24px; display:flex; flex-direction:column;
+      justify-content:space-between; transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s, opacity .4s;
+      overflow:hidden;
+    }
+    .ab-svc-card::after{
+      content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(155,206,22,0.06), transparent 60%);
+      opacity:0; transition:opacity .4s; pointer-events:none;
+    }
+    .ab-svc-card:hover{
+      transform:translateY(-8px); box-shadow:var(--shadow-md); border-color:var(--green);
+    }
+    .ab-svc-card:hover::after{ opacity:1; }
+    .ab-svc-card-head{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:18px; }
+    .ab-svc-ico{
+      width:48px; height:48px; border-radius:14px; background:var(--paper-tint); color:var(--green);
+      display:grid; place-items:center; font-size:22px; transition:all .35s var(--ease);
+    }
+    .ab-svc-card:hover .ab-svc-ico{ background:var(--green-deep); color:var(--lime); transform:scale(1.08); }
+    .ab-svc-tag{
+      font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.06em;
+      text-transform:uppercase; color:var(--green); background:rgba(8,117,59,0.08); border-radius:100px;
+      padding:4px 11px; border:1px solid rgba(8,117,59,0.15);
+    }
+    .ab-svc-card h3{ font-family:var(--font-disp); font-size:18px; font-weight:700; color:var(--ink); margin:0 0 10px; }
+    .ab-svc-card p{ font-size:14px; line-height:1.6; color:var(--ink-soft); margin:0 0 20px; flex-grow:1; }
+    .ab-svc-footer{ display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:14px; }
+    .ab-svc-action{ font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--green); display:inline-flex; align-items:center; gap:6px; }
+    .ab-svc-action i{ transition:transform .3s; }
+    .ab-svc-card:hover .ab-svc-action i{ transform:translateX(4px); }
+
+    /* ── REDESIGNED 05: CORE VALUES PRISM WALL ── */
+    .ab-values-wall{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+    @media(max-width:960px){ .ab-values-wall{ grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:560px){ .ab-values-wall{ grid-template-columns:1fr; } }
+    .ab-val-prism{
+      position:relative; background:var(--paper-raised); border:1px solid var(--line);
+      border-radius:var(--radius-lg); padding:32px 26px; overflow:hidden;
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+    }
+    .ab-val-prism::before{
+      content:attr(data-num); position:absolute; top:-10px; right:14px;
+      font-family:var(--font-disp); font-size:96px; font-weight:900; line-height:1;
+      color:rgba(8,117,59,0.05); pointer-events:none; transition:color .4s, transform .4s;
+    }
+    .ab-val-prism:hover{ transform:translateY(-8px); box-shadow:var(--shadow-md); border-color:var(--green); }
+    .ab-val-prism:hover::before{ color:rgba(155,206,22,0.14); transform:scale(1.08) translateY(4px); }
+    .ab-val-ico{
+      position:relative; width:52px; height:52px; border-radius:16px; background:var(--green-deep);
+      color:var(--lime); display:grid; place-items:center; font-size:24px; margin-bottom:20px;
+      box-shadow:0 8px 24px rgba(5,46,25,0.18); transition:transform .4s var(--ease);
+    }
+    .ab-val-prism:hover .ab-val-ico{ transform:scale(1.1) rotate(-4deg); }
+    .ab-val-prism h4{ font-family:var(--font-disp); font-size:19px; font-weight:700; color:var(--ink); margin:0 0 10px; }
+    .ab-val-prism p{ font-size:14.5px; line-height:1.65; color:var(--ink-soft); margin:0 0 18px; }
+    .ab-val-pill{
+      display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:10px;
+      font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--green);
+      background:var(--paper-tint); padding:4px 10px; border-radius:100px;
+    }
+    .ab-val-line{
+      position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--green), var(--lime));
+      transform:scaleX(0); transform-origin:left; transition:transform .45s var(--ease);
+    }
+    .ab-val-prism:hover .ab-val-line{ transform:scaleX(1); }
+
+    /* ── REDESIGNED 08: WHY CHOOSE MARFATIA BENTO DECK ── */
+    .ab-bento-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+    @media(max-width:960px){ .ab-bento-grid{ grid-template-columns:repeat(2, 1fr); } }
+    @media(max-width:600px){ .ab-bento-grid{ grid-template-columns:1fr; } }
+    .ab-bento-hero{
+      grid-column:span 2; background:var(--green-deep); color:var(--mono-ink);
+      border-radius:var(--radius-lg); padding:38px 34px; position:relative; overflow:hidden;
+      display:flex; flex-direction:column; justify-content:space-between;
+      border:1px solid rgba(155,206,22,0.25); box-shadow:0 20px 50px rgba(5,46,25,0.3);
+    }
+    @media(max-width:960px){ .ab-bento-hero{ grid-column:span 2; } }
+    @media(max-width:600px){ .ab-bento-hero{ grid-column:span 1; } }
+    .ab-bento-hero::after{
+      content:""; position:absolute; width:300px; height:300px; border-radius:50%;
+      top:-100px; right:-80px; background:radial-gradient(circle, rgba(155,206,22,0.22), transparent 70%);
+      pointer-events:none;
+    }
+    .ab-bento-hero-top{ position:relative; z-index:1; }
+    .ab-bento-hero-tag{
+      display:inline-flex; align-items:center; gap:7px; background:rgba(155,206,22,0.15);
+      border:1px solid rgba(155,206,22,0.35); border-radius:100px; padding:6px 14px;
+      font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--lime);
+      margin-bottom:18px;
+    }
+    .ab-bento-hero h3{ font-family:var(--font-disp); font-size:clamp(24px,3vw,34px); font-weight:800; color:#fff; line-height:1.25; margin:0 0 14px; position:relative; z-index:1; }
+    .ab-bento-hero p{ font-size:15px; line-height:1.65; color:rgba(220,235,225,0.85); margin:0; max-width:640px; position:relative; z-index:1; }
+    .ab-bento-hero-stats{ display:flex; flex-wrap:wrap; gap:16px 28px; margin-top:28px; padding-top:22px; border-top:1px solid rgba(220,235,225,0.15); position:relative; z-index:1; }
+    .ab-bento-stat-item b{ display:block; font-family:var(--font-disp); font-size:22px; font-weight:800; color:var(--lime); line-height:1.1; }
+    .ab-bento-stat-item span{ font-family:var(--font-mono); font-size:10.5px; color:rgba(220,235,225,0.7); letter-spacing:.05em; text-transform:uppercase; }
+
+    .ab-bento-card{
+      position:relative; background:var(--paper-raised); border:1px solid var(--line);
+      border-radius:var(--radius-lg); padding:28px 24px; transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+      display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .ab-bento-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:var(--green); }
+    .ab-bento-ico{
+      width:44px; height:44px; border-radius:12px; background:var(--paper-tint); color:var(--green);
+      display:grid; place-items:center; font-size:20px; margin-bottom:16px; transition:background .3s, color .3s;
+    }
+    .ab-bento-card:hover .ab-bento-ico{ background:var(--green-deep); color:var(--lime); }
+    .ab-bento-card h4{ font-family:var(--font-disp); font-size:17px; font-weight:700; color:var(--ink); margin:0 0 8px; }
+    .ab-bento-card p{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:0; }
+    .ab-bento-pulse{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:10px; color:var(--green); margin-top:14px; font-weight:600; }
+
+    /* ── REDESIGNED 09: VISION & MISSION HORIZON ── */
+    .ab-vm-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    @media(max-width:800px){ .ab-vm-grid{ grid-template-columns:1fr; } }
+    .ab-vm-capsule{
+      position:relative; background:var(--paper-raised); border:1px solid var(--line);
+      border-radius:var(--radius-lg); padding:38px 32px; overflow:hidden;
+      transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+    }
+    .ab-vm-capsule:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:var(--green); }
+    .ab-vm-radar{
+      position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%;
+      border:1px dashed rgba(8,117,59,0.15); pointer-events:none;
+      animation:ab-radar-spin 25s linear infinite;
+    }
+    @keyframes ab-radar-spin{ to{ transform:rotate(360deg); } }
+    .ab-vm-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; position:relative; z-index:1; }
+    .ab-vm-badge{
+      font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--green); background:var(--paper-tint); border:1px solid rgba(8,117,59,0.18);
+      border-radius:100px; padding:5px 13px; font-weight:600;
+    }
+    .ab-vm-ico-box{
+      width:48px; height:48px; border-radius:14px; background:var(--green-deep); color:var(--lime);
+      display:grid; place-items:center; font-size:22px; box-shadow:0 6px 18px rgba(5,46,25,0.2);
+    }
+    .ab-vm-capsule h3{ font-family:var(--font-disp); font-size:24px; font-weight:700; color:var(--ink); margin:0 0 12px; position:relative; z-index:1; }
+    .ab-vm-capsule p{ font-size:15px; line-height:1.7; color:var(--ink-soft); margin:0 0 24px; position:relative; z-index:1; }
+    .ab-vm-tags{ display:flex; flex-wrap:wrap; gap:8px; position:relative; z-index:1; }
+    .ab-vm-tag{
+      font-family:var(--font-mono); font-size:11px; color:var(--ink); background:var(--paper-tint);
+      border-radius:8px; padding:6px 12px; display:inline-flex; align-items:center; gap:6px; font-weight:500;
+    }
+    .ab-vm-tag i{ color:var(--green); font-size:12px; }
   </style>
 </head>
 
@@ -317,18 +658,18 @@
     <section class="p-hero">
       <div class="ab-orb ab-orb-1"></div>
       <div class="ab-orb ab-orb-2"></div>
-      <div class="p-hero-water">1994</div>
+      <div class="p-hero-water">2002</div>
       <div class="wrap p-hero-grid">
         <div>
           <span class="p-crumb"><a href="index.html">Home</a> / <b>About Us</b></span>
-          <h1 class="p-hero-title" data-reveal>Your future, in hands <br> <em>you can trust.</em></h1>
-          <p class="p-hero-sub" data-reveal>Marfatia Stock Broking has spent three decades turning that promise into results for investors across Gujarat — as a broking house, a portfolio manager, and a research desk that still answers the phone itself.</p>
+          <h1 class="p-hero-title" data-reveal>Empowering Investors. <br> <em>Building Trust.</em></h1>
+          <p class="p-hero-sub" data-reveal>Established in 2002, Marfatia Stock Broking Private Limited (MSBPL) is a technology-driven financial services company committed to delivering transparent, reliable, and client-focused capital market solutions. With over two decades of experience, we have built lasting relationships by combining regulatory compliance, professional expertise, and continuous innovation.</p>
 
           <div class="chipset" data-reveal style="margin-bottom:24px;">
-            <span class="chip">Est. 1994</span>
+            <span class="chip">Est. 2002</span>
             <span class="chip">SEBI Registered</span>
             <span class="chip">Vadodara HQ</span>
-            <span class="chip">NSE · BSE · MCX · NCDEX</span>
+            <span class="chip">NSE · BSE · CDSL</span>
           </div>
 
           <div class="p-hero-cta" data-reveal>
@@ -340,14 +681,14 @@
         <div class="ab-hero-visual" data-reveal aria-hidden="true">
           <div class="ab-hero-photo">
             <img src="content/img/gallery/head-office.png" alt="">
-            <span class="ab-live-tag"><span class="dot dot--live"></span> Vadodara, Live Since 1994</span>
+            <span class="ab-live-tag"><span class="dot dot--live"></span> Vadodara, Since 2002</span>
           </div>
           <div class="ab-float-chip ab-float-chip--1"><i class="bi bi-patch-check-fill"></i><div><b>SEBI Reg.</b><span>Verified</span></div></div>
-          <div class="ab-float-chip ab-float-chip--2"><i class="bi bi-people-fill"></i><div><b>Family-Run</b><span>3 Decades</span></div></div>
+          <div class="ab-float-chip ab-float-chip--2"><i class="bi bi-people-fill"></i><div><b>6,500 sq.ft.</b><span>Corporate HQ</span></div></div>
           <div class="ab-hero-track">
-            <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint);">'94</span>
+            <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint);">'02</span>
             <div class="ab-hero-track-bar"><div class="ab-hero-track-fill"></div></div>
-            <b>30<sup>+</sup> yrs</b>
+            <b>20<sup>+</sup> yrs</b>
           </div>
         </div>
       </div>
@@ -357,242 +698,665 @@
     <section class="statline" data-reveal>
       <div class="wrap statline-row">
         <div class="statline-cell">
-          <span class="statline-num"><span data-count="1994">0</span></span>
-          <span class="statline-lbl">Founded In</span>
+          <span class="statline-num"><span data-count="2002">0</span></span>
+          <span class="statline-lbl">Incorporated In</span>
         </div>
         <div class="statline-cell">
-          <span class="statline-num"><span data-count="30">0</span><small>+</small></span>
-          <span class="statline-lbl">Years in Markets</span>
+          <span class="statline-num"><span data-count="20">0</span><small>+</small></span>
+          <span class="statline-lbl">Years of Experience</span>
         </div>
         <div class="statline-cell">
-          <span class="statline-num"><span data-count="8">0</span></span>
-          <span class="statline-lbl">Product Lines</span>
+          <span class="statline-num"><span data-count="6">0</span></span>
+          <span class="statline-lbl">Branches in Gujarat</span>
         </div>
         <div class="statline-cell">
-          <span class="statline-num"><span data-count="5000">0</span><small>+</small></span>
-          <span class="statline-lbl">Clients Served</span>
+          <span class="statline-num"><span data-count="6500">0</span></span>
+          <span class="statline-lbl">Sq. Ft. Office</span>
         </div>
         <div class="statline-cell">
-          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">Family-Run</span>
-          <span class="statline-lbl">Gujarat Owned &amp; Operated</span>
+          <span class="statline-num" style="font-size:clamp(20px,2.5vw,24px); line-height:1.2; font-family:var(--font-disp); margin-top:8px; display:block;">SEBI Regulated</span>
+          <span class="statline-lbl">Broker · PMS · DP</span>
         </div>
       </div>
     </section>
 
-    <!-- ── 01: OUR STORY / TIMELINE ── -->
-    <section class="sec">
-      <div class="wrap story-wrap">
-        <div class="story-photo" data-reveal>
-          <img src="content/img/gallery/head-office.png" alt="Marfatia Stock Broking head office, Vadodara" loading="lazy">
-        </div>
-        <div>
-          <span class="eyebrow" data-reveal>Our Story</span>
-          <h2 class="sec-title" data-reveal style="margin-bottom:24px;">Built stone by stone, <em>not overnight.</em></h2>
-          <div class="tl">
-            <div class="tl-item" data-reveal>
-              <span class="tl-year">1994</span>
-              <h3>Doors open in Vadodara</h3>
-              <p>Marfatia acquires membership of the Vadodara Stock Exchange and starts business with five clients from a single office — built on a simple promise: answer the phone, know the client, mean what you say.</p>
-            </div>
-            <div class="tl-item" data-reveal>
-              <span class="tl-year">2005</span>
-              <h3>NSE membership</h3>
-              <p>NSE membership is acquired under Marfatia Stock Broking Ltd. in January 2005, with operations beginning that April — extending the desk beyond Vadodara Stock Exchange into cash, F&amp;O and currency segments.</p>
-            </div>
-            <div class="tl-item" data-reveal>
-              <span class="tl-year">2016</span>
-              <h3>Portfolio Management Services launch</h3>
-              <p>A SEBI-registered PMS desk (INP000005117) opens for HNI and institutional clients wanting direct, customised equity portfolios.</p>
-            </div>
-            <div class="tl-item" data-reveal>
-              <span class="tl-year">Recent</span>
-              <h3>Research Analyst registration &amp; digital platform</h3>
-              <p>A dedicated Research Analyst desk (INH000002178) and a modern trading &amp; back-office platform bring three decades of market memory online.</p>
-            </div>
-            <div class="tl-item" data-reveal>
-              <span class="tl-year">Today</span>
-              <h3>Full-service, still local</h3>
-              <p>Broking, DP, PMS, MTF, SLB, IPO, Bonds, Insurance and Mutual Funds — served by a Vadodara-based team that still knows most clients by name.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 02: MISSION / VISION ── -->
-    <section class="sec sec--tint sec--rule-top">
+    <!-- ── 01: ABOUT MARFATIA (Centered Text & 5-Box Row) ── -->
+    <section class="sec ab-about-sec">
+      <div class="ab-bg-fx" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="eyerow" data-reveal>
-          <div>
-            <span class="eyebrow">What Drives Us</span>
-            <h2 class="sec-title">Mission &amp; <em>vision.</em></h2>
-          </div>
-          <p class="sec-sub" style="max-width:420px;margin-top:0;">"Put your future in the hands of people you can trust." That line has guided us since 1994.</p>
+        <div class="ab-center-head" data-reveal>
+          <span class="eyebrow">About Us</span>
+          <h2 class="sec-title">About Marfatia Stock Broking <em>Private Limited.</em></h2>
+          <p class="lead">Our objective is to make investing and trading simple, secure, and accessible through modern technology and comprehensive financial services.</p>
         </div>
-        <div class="mv-grid">
-          <div class="mv-card" data-reveal>
-            <div class="mv-ico"><i class="bi bi-bullseye"></i></div>
-            <h3>Our Mission</h3>
-            <p>To give every investor — from a first-time trader to an HNI portfolio client — honest research, direct market access and personal accountability, without the noise of a call-centre broker.</p>
+
+        <div class="ab-ledger-grid-row" data-reveal>
+          <div class="ab-ledger-card">
+            <div class="ab-ledger-top">
+              <i class="bi bi-building-check"></i>
+              <span class="ab-ledger-badge"><span class="dot dot--live"></span> Entity</span>
+            </div>
+            <div class="ab-ledger-body">
+              <span class="ab-ledger-label">Corporate Name</span>
+              <h3 class="ab-ledger-val">Marfatia Stock Broking Pvt Ltd</h3>
+            </div>
           </div>
-          <div class="mv-card" data-reveal>
-            <div class="mv-ico"><i class="bi bi-binoculars"></i></div>
-            <h3>Our Vision</h3>
-            <p>To remain Gujarat's most trusted independent broking house — proving that a local, family-run team can match any national platform on technology while staying reachable on a first-name basis.</p>
+
+          <div class="ab-ledger-card">
+            <div class="ab-ledger-top">
+              <i class="bi bi-calendar2-check"></i>
+              <span class="ab-ledger-badge">Est. 2002</span>
+            </div>
+            <div class="ab-ledger-body">
+              <span class="ab-ledger-label">Incorporated On</span>
+              <h3 class="ab-ledger-val">03 October 2002</h3>
+            </div>
+          </div>
+
+          <div class="ab-ledger-card ab-ledger-card--interactive" onclick="copyLedgerId('U67120GJ2002PTC041373', this)" title="Click to copy CIN">
+            <div class="ab-ledger-top">
+              <i class="bi bi-file-earmark-code"></i>
+              <span class="ab-ledger-copy-btn"><i class="bi bi-copy"></i> Copy</span>
+            </div>
+            <div class="ab-ledger-body">
+              <span class="ab-ledger-label">CIN No.</span>
+              <h3 class="ab-ledger-val mono">U67120GJ2002PTC041373</h3>
+            </div>
+          </div>
+
+          <div class="ab-ledger-card ab-ledger-card--interactive" onclick="copyLedgerId('24AADCM6730B1ZY', this)" title="Click to copy GSTIN">
+            <div class="ab-ledger-top">
+              <i class="bi bi-receipt"></i>
+              <span class="ab-ledger-copy-btn"><i class="bi bi-copy"></i> Copy</span>
+            </div>
+            <div class="ab-ledger-body">
+              <span class="ab-ledger-label">GSTIN</span>
+              <h3 class="ab-ledger-val mono">24AADCM6730B1ZY</h3>
+            </div>
+          </div>
+
+          <div class="ab-ledger-card ab-ledger-card--interactive" onclick="copyLedgerId('8945005ZUWZL7ILT9V25', this)" title="Click to copy LEI">
+            <div class="ab-ledger-top">
+              <i class="bi bi-fingerprint"></i>
+              <span class="ab-ledger-copy-btn"><i class="bi bi-copy"></i> Copy</span>
+            </div>
+            <div class="ab-ledger-body">
+              <span class="ab-ledger-label">LEI Holder</span>
+              <h3 class="ab-ledger-val mono">8945005ZUWZL7ILT9V25</h3>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── 03: VALUES (flip cards) ── -->
+    <!-- ── 02: REGULATORY REGISTRATIONS (New Identity Hub Design) ── -->
+    <section class="sec darkband seal-section">
+      <div class="seal-watermark" aria-hidden="true"><i class="bi bi-patch-check-fill"></i></div>
+      <div class="seal-scanbeam" aria-hidden="true"></div>
+      <div class="seal-grid-fx" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:44px; text-align:center;">
+          <span class="eyebrow">Regulatory Framework</span>
+          <h2 class="sec-title">Registered, audited, <em>accountable.</em></h2>
+          <p class="sec-sub" style="color:var(--mono-ink); opacity:.75; margin-left:auto; margin-right:auto;">Marfatia operates under strict regulatory oversight from SEBI, CDSL, NSE, and BSE. Click any badge to copy registration details.</p>
+        </div>
+
+        <div class="ab-reg-hub-grid" data-reveal>
+          <div class="ab-reg-card" onclick="copyLedgerId('INZ000215330', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-graph-up-arrow"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-shield-check"></i> SEBI Reg.</span>
+            </div>
+            <div>
+              <h4>Stock Broker</h4>
+              <div class="ab-reg-num">INZ000215330</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('INP000005117', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-briefcase-fill"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-patch-check"></i> SEBI PMS</span>
+            </div>
+            <div>
+              <h4>Portfolio Manager</h4>
+              <div class="ab-reg-num">INP000005117</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('IN-DP-CDSL-227-2016', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-safe2-fill"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-check2-circle"></i> CDSL DP</span>
+            </div>
+            <div>
+              <h4>Depository Participant</h4>
+              <div class="ab-reg-num">DP ID: 12044400</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('11925', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-building-fill-check"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-lightning-charge"></i> NSE Member</span>
+            </div>
+            <div>
+              <h4>NSE Trading Member</h4>
+              <div class="ab-reg-num">Member Code: 11925</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('3065', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-building-fill-check"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-lightning-charge"></i> BSE Member</span>
+            </div>
+            <div>
+              <h4>BSE Trading Member</h4>
+              <div class="ab-reg-num">Member Code: 3065</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('ANMI Member', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-people-fill"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-award"></i> Assoc. Member</span>
+            </div>
+            <div>
+              <h4>ANMI Association</h4>
+              <div class="ab-reg-num">NSE Members of India</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Verified</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('8945005ZUWZL7ILT9V25', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-fingerprint"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-globe2"></i> Global LEI</span>
+            </div>
+            <div>
+              <h4>LEI Holder</h4>
+              <div class="ab-reg-num">8945005ZUWZL7ILT9V25</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+
+          <div class="ab-reg-card" onclick="copyLedgerId('INH000002178', this)">
+            <div class="ab-reg-top">
+              <div class="ab-reg-ico"><i class="bi bi-journal-check"></i></div>
+              <span class="ab-reg-badge"><i class="bi bi-bar-chart"></i> Research</span>
+            </div>
+            <div>
+              <h4>Research Analyst</h4>
+              <div class="ab-reg-num">INH000002178</div>
+            </div>
+            <div class="ab-reg-copy"><i class="bi bi-copy"></i> Click to Copy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03: OUR SERVICES (Capital Markets Service Matrix) ── -->
     <section class="sec">
       <div class="wrap">
-        <div class="section-head" data-reveal style="margin-bottom:40px;">
+        <div class="section-head" data-reveal style="margin-bottom:32px;">
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="sec-title">Capital market <em>solutions.</em></h2>
+          <p class="sec-sub">An integrated ecosystem of high-speed trading, portfolio management, depository custody, and financial market services.</p>
+        </div>
+
+        <div class="ab-svc-explorer" data-reveal>
+          <div class="ab-svc-tabs">
+            <button class="ab-svc-tab active" data-filter="all"><i class="bi bi-grid-fill"></i> All Solutions</button>
+            <button class="ab-svc-tab" data-filter="trading"><i class="bi bi-graph-up-arrow"></i> Trading &amp; F&amp;O</button>
+            <button class="ab-svc-tab" data-filter="wealth"><i class="bi bi-briefcase-fill"></i> Wealth &amp; PMS</button>
+            <button class="ab-svc-tab" data-filter="custody"><i class="bi bi-safe2-fill"></i> Demat &amp; Digital</button>
+          </div>
+
+          <div class="ab-svc-grid">
+            <div class="ab-svc-card" data-cat="trading">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-cash-stack"></i></div>
+                  <span class="ab-svc-tag">NSE &amp; BSE Direct</span>
+                </div>
+                <h3>Equity Trading</h3>
+                <p>High-speed execution across NSE &amp; BSE for cash delivery and intraday stock investments with transparent pricing.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Spot &amp; Intraday <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="trading">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-graph-up-arrow"></i></div>
+                  <span class="ab-svc-tag">High Liquidity</span>
+                </div>
+                <h3>Equity Derivatives (F&amp;O)</h3>
+                <p>Trade index and stock futures &amp; options with real-time risk margin calculators and advanced order types.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Futures &amp; Options <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="wealth">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-briefcase-fill"></i></div>
+                  <span class="ab-svc-tag">Expert Managed</span>
+                </div>
+                <h3>Portfolio Management (PMS)</h3>
+                <p>SEBI registered discretionary portfolio management services built for high-net-worth investors seeking disciplined alpha.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">SEBI Reg. PMS <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="wealth">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-percent"></i></div>
+                  <span class="ab-svc-tag">Up to 4x Leverage</span>
+                </div>
+                <h3>Margin Trading Facility (MTF)</h3>
+                <p>Leverage your portfolio with up to 4x margin funding on 900+ eligible equity stocks at competitive interest rates.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Instant Funding <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="custody">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-safe2-fill"></i></div>
+                  <span class="ab-svc-tag">CDSL Participant</span>
+                </div>
+                <h3>Demat &amp; Depository Services</h3>
+                <p>Direct CDSL Depository Participant services providing bank-grade digital custody of shares, bonds, and mutual funds.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Digital Custody <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="trading">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-cpu-fill"></i></div>
+                  <span class="ab-svc-tag">Low-Latency API</span>
+                </div>
+                <h3>Algorithmic Trading</h3>
+                <p>Automated strategy execution and rule-based algorithmic trading infrastructure designed for precision execution.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Algo Suite <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="wealth">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-arrow-left-right"></i></div>
+                  <span class="ab-svc-tag">Passive Yield</span>
+                </div>
+                <h3>Securities Lending &amp; Borrowing (SLBM)</h3>
+                <p>Earn extra yield on long-term idle equity portfolios by lending securities through exchange-guaranteed clearing mechanisms.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">SLB Mechanism <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="custody">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-gem"></i></div>
+                  <span class="ab-svc-tag">Digital Gold</span>
+                </div>
+                <h3>Electronic Gold Receipts (EGR)</h3>
+                <p>Convert and trade physical vault-backed gold digitally on stock exchanges with complete transparency and purity security.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Trade EGR <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+
+            <div class="ab-svc-card" data-cat="trading">
+              <div>
+                <div class="ab-svc-card-head">
+                  <div class="ab-svc-ico"><i class="bi bi-currency-exchange"></i></div>
+                  <span class="ab-svc-tag">MCX &amp; FX</span>
+                </div>
+                <h3>Commodity &amp; Currency Market</h3>
+                <p>Hedge and trade in gold, silver, crude oil, and major currency pairs via direct exchange market access.</p>
+              </div>
+              <div class="ab-svc-footer">
+                <span class="ab-svc-action">Commodities &amp; FX <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sec-sub" data-reveal style="margin-top:20px; font-size:12.5px; opacity:.7;">*Market access applicable as per SEBI regulations and exchange memberships.</p>
+      </div>
+    </section>
+
+    <!-- ── 04: TECHNOLOGY-DRIVEN PLATFORM (Terminal Showcase Design) ── -->
+    <section class="sec sec--tint sec--rule-top plat-section">
+      <div class="plat-bg-fx" aria-hidden="true"></div>
+      <div class="wrap ab-plat-wrap">
+        <div class="plat-copy">
+          <span class="eyebrow" data-reveal>Our Tech Platform</span>
+          <h2 class="sec-title" data-reveal>Technology-driven <em>trading ecosystem.</em></h2>
+          <p class="sec-sub" data-reveal style="margin-bottom:24px;">Our infrastructure delivers high-speed order execution, bank-grade encryption, and seamless digital access for active traders and investors.</p>
+          
+          <div class="ab-plat-features" data-reveal>
+            <div class="ab-plat-feat"><i class="bi bi-shield-lock-fill"></i><span>256-Bit Bank Grade Encryption</span></div>
+            <div class="ab-plat-feat"><i class="bi bi-lightning-charge-fill"></i><span>Ultra Low-Latency Order Routing</span></div>
+            <div class="ab-plat-feat"><i class="bi bi-diagram-3-fill"></i><span>Unified Demat &amp; Trading Platform</span></div>
+            <div class="ab-plat-feat"><i class="bi bi-cpu-fill"></i><span>AI &amp; Algo Automated Risk Engine</span></div>
+            <div class="ab-plat-feat"><i class="bi bi-phone-vibrate"></i><span>Paperless Instant eKYC Account</span></div>
+            <div class="ab-plat-feat"><i class="bi bi-pie-chart-fill"></i><span>Real-Time Portfolio &amp; PnL Sync</span></div>
+          </div>
+        </div>
+
+        <div class="plat-visual" data-reveal aria-hidden="true">
+          <div class="ab-plat-terminal">
+            <div class="ab-plat-topbar">
+              <div class="ab-plat-dots"><span></span><span></span><span></span></div>
+              <span class="ab-plat-title">marfatia.net · Live Trading Feed</span>
+              <span class="ab-ledger-badge"><span class="dot dot--live"></span> Online</span>
+            </div>
+            <div class="ab-plat-body">
+              <div class="ab-plat-ticker">
+                <div class="ab-plat-tick-item"><b>NIFTY 50</b><span>24,815.40 (+1.24%)</span></div>
+                <div class="ab-plat-tick-item"><b>SENSEX</b><span>81,320.10 (+0.95%)</span></div>
+                <div class="ab-plat-tick-item"><b>BANK NIFTY</b><span>52,140.20 (+1.10%)</span></div>
+              </div>
+              <div class="plat-chart">
+                <div class="plat-chart-bar" style="--h:42%; --d:0s;"></div>
+                <div class="plat-chart-bar" style="--h:68%; --d:.1s;"></div>
+                <div class="plat-chart-bar" style="--h:52%; --d:.2s;"></div>
+                <div class="plat-chart-bar" style="--h:88%; --d:.3s;"></div>
+                <div class="plat-chart-bar" style="--h:60%; --d:.4s;"></div>
+                <div class="plat-chart-bar" style="--h:96%; --d:.5s;"></div>
+                <div class="plat-chart-bar" style="--h:78%; --d:.6s;"></div>
+                <div class="plat-chart-line"></div>
+              </div>
+              <div class="ab-plat-status-row">
+                <span><i class="bi bi-cpu-fill" style="color:var(--lime);"></i> Risk Engine: <b>Active</b></span>
+                <span><i class="bi bi-wifi" style="color:var(--lime);"></i> Exchange Ping: <b>&lt;4ms</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="plat-orbit-chip plat-orbit-chip--1"><i class="bi bi-shield-check"></i> Encrypted Session</div>
+          <div class="plat-orbit-chip plat-orbit-chip--2"><i class="bi bi-lightning-charge-fill"></i> Direct Market Access</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05: CORE VALUES (Holographic Value Prism Wall) ── -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:36px;">
           <span class="eyebrow">What We Stand For</span>
-          <h2 class="sec-title">Values you can <em>hold us to.</em></h2>
-          <p class="sec-sub">Hover a card to see how each value shows up in daily practice.</p>
+          <h2 class="sec-title">Our core <em>values.</em></h2>
+          <p class="sec-sub">Our business is guided by six foundational pillars that strengthen long-term client relationships.</p>
         </div>
-        <div class="value-grid">
-          <div class="value-card" data-reveal>
-            <div class="value-card-inner">
-              <div class="value-face value-face--front"><i class="bi bi-shield-check"></i><h4>Integrity</h4></div>
-              <div class="value-face value-face--back"><span>In Practice</span><p>Every recommendation is disclosed, every fee is written down — nothing you have to ask for twice.</p></div>
-            </div>
+        <div class="ab-values-wall" data-reveal>
+          <div class="ab-val-prism" data-num="01">
+            <div class="ab-val-ico"><i class="bi bi-shield-check"></i></div>
+            <h4>Integrity</h4>
+            <p>Honest, transparent, and ethical business practices with zero compromise on compliance.</p>
+            <span class="ab-val-pill"><i class="bi bi-patch-check-fill"></i> 100% Ethical</span>
+            <div class="ab-val-line"></div>
           </div>
-          <div class="value-card" data-reveal>
-            <div class="value-card-inner">
-              <div class="value-face value-face--front"><i class="bi bi-eye"></i><h4>Transparency</h4></div>
-              <div class="value-face value-face--back"><span>In Practice</span><p>Holdings, ledgers and portfolio reports are visible to you in real time — never a black box.</p></div>
-            </div>
+
+          <div class="ab-val-prism" data-num="02">
+            <div class="ab-val-ico"><i class="bi bi-people"></i></div>
+            <h4>Client First</h4>
+            <p>Putting client financial security and goals at the absolute center of every service we deliver.</p>
+            <span class="ab-val-pill"><i class="bi bi-heart-fill"></i> Client Centric</span>
+            <div class="ab-val-line"></div>
           </div>
-          <div class="value-card" data-reveal>
-            <div class="value-card-inner">
-              <div class="value-face value-face--front"><i class="bi bi-graph-up-arrow"></i><h4>Research-Led</h4></div>
-              <div class="value-face value-face--back"><span>In Practice</span><p>Calls are backed by our SEBI-registered Research Analyst desk, not tips picked off a forum.</p></div>
-            </div>
+
+          <div class="ab-val-prism" data-num="03">
+            <div class="ab-val-ico"><i class="bi bi-award"></i></div>
+            <h4>Professionalism</h4>
+            <p>Knowledgeable, certified support paired with dependable institutional-grade execution.</p>
+            <span class="ab-val-pill"><i class="bi bi-building-check"></i> SEBI Audited</span>
+            <div class="ab-val-line"></div>
           </div>
-          <div class="value-card" data-reveal>
-            <div class="value-card-inner">
-              <div class="value-face value-face--front"><i class="bi bi-people"></i><h4>Client-First</h4></div>
-              <div class="value-face value-face--back"><span>In Practice</span><p>A named desk answers your call — not a rotating queue of unfamiliar voices.</p></div>
-            </div>
+
+          <div class="ab-val-prism" data-num="04">
+            <div class="ab-val-ico"><i class="bi bi-lightbulb"></i></div>
+            <h4>Innovation</h4>
+            <p>Continuous technological enhancement to provide faster, safer, and smarter capital market access.</p>
+            <span class="ab-val-pill"><i class="bi bi-cpu-fill"></i> Tech Driven</span>
+            <div class="ab-val-line"></div>
+          </div>
+
+          <div class="ab-val-prism" data-num="05">
+            <div class="ab-val-ico"><i class="bi bi-hand-thumbs-up"></i></div>
+            <h4>Trust &amp; Safety</h4>
+            <p>Built over 20+ years through consistency, strict compliance, and unyielding accountability.</p>
+            <span class="ab-val-pill"><i class="bi bi-shield-lock-fill"></i> 20+ Yrs Trust</span>
+            <div class="ab-val-line"></div>
+          </div>
+
+          <div class="ab-val-prism" data-num="06">
+            <div class="ab-val-ico"><i class="bi bi-graph-up-arrow"></i></div>
+            <h4>Value Creation</h4>
+            <p>Empowering informed investment decisions to help build and preserve generational wealth.</p>
+            <span class="ab-val-pill"><i class="bi bi-bar-chart-line-fill"></i> Alpha Focus</span>
+            <div class="ab-val-line"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── 04: LEADERSHIP ── -->
+    <!-- ── 06: LEADERSHIP ── -->
     <section class="sec sec--tint sec--rule-top">
       <div class="wrap">
         <div class="section-head" data-reveal style="margin-bottom:40px;">
           <span class="eyebrow">Leadership</span>
-          <h2 class="sec-title">The desk <em>behind the decisions.</em></h2>
-          <p class="sec-sub">Key Managerial Personnel accountable for every client relationship, filing and trade.</p>
+          <h2 class="sec-title">Led by experienced <em>professionals.</em></h2>
+          <p class="sec-sub">Marfatia Stock Broking Private Limited is led by experienced professionals focused on responsible growth, governance, and innovation.</p>
         </div>
-        <div class="leader-grid">
+        <div class="leader-grid" style="grid-template-columns:repeat(2,1fr); max-width:760px; margin:0 auto;">
           <div class="leader-card" data-reveal>
             <div class="leader-photo">
-              <img src="content/img/user.png" alt="Chief Executive Officer" loading="lazy">
+              <img src="content/img/user.png" alt="Ms. Shreya Nishil Marfatia" loading="lazy">
               <div class="leader-social">
                 <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                 <a href="mailto:customercare@marfatia.net" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
               </div>
             </div>
             <div class="leader-body">
-              <span>Chief Executive Officer</span>
-              <h4>Shreya Marfatia</h4>
+              <span>Designated Director</span>
+              <h4>Ms. Shreya Nishil Marfatia</h4>
+              <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:10px 0 0;">Leads strategic growth initiatives with a strong focus on technology, operational excellence, and customer-centric services.</p>
             </div>
           </div>
           <div class="leader-card" data-reveal>
             <div class="leader-photo">
-              <img src="content/img/user.png" alt="Compliance Officer" loading="lazy">
-              <div class="leader-social">
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="mailto:compliance@marfatia.net" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
-              </div>
-            </div>
-            <div class="leader-body">
-              <span>Compliance Officer</span>
-              <h4>Chintan Majumundar</h4>
-            </div>
-          </div>
-          <div class="leader-card" data-reveal>
-            <div class="leader-photo">
-              <img src="content/img/user.png" alt="Head of Customer Care" loading="lazy">
-              <div class="leader-social">
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                <a href="mailto:kyc@marfatia.net" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
-              </div>
-            </div>
-            <div class="leader-body">
-              <span>Head of Customer Care</span>
-              <h4>Mahesh Vasava</h4>
-            </div>
-          </div>
-          <div class="leader-card" data-reveal>
-            <div class="leader-photo">
-              <img src="content/img/user.png" alt="Customer Care" loading="lazy">
+              <img src="content/img/user.png" alt="Mrs. Manjri Surendra Marfatia" loading="lazy">
               <div class="leader-social">
                 <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                 <a href="mailto:customercare@marfatia.net" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
               </div>
             </div>
             <div class="leader-body">
-              <span>Customer Care</span>
-              <h4>Ashita</h4>
+              <span>Designated Director</span>
+              <h4>Mrs. Manjri Surendra Marfatia</h4>
+              <p style="font-size:13.5px; line-height:1.6; color:var(--ink-soft); margin:10px 0 0;">Brings expertise in governance, business development, and organizational growth while maintaining high professional and ethical standards.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── 05: LIFE AT MARFATIA (GALLERY) ── -->
-    <!-- <section class="sec">
+    <!-- ── 07: HQ / MODERN WORKPLACE / GROWTH (Corporate Footprint Deck) ── -->
+    <section class="sec">
       <div class="wrap">
-        <div class="section-head" data-reveal style="margin-bottom:32px;">
-          <span class="eyebrow">Our Presence</span>
-          <h2 class="sec-title">Life at <em>Marfatia.</em></h2>
+        <div class="section-head" data-reveal style="margin-bottom:36px; text-align:center;">
+          <span class="eyebrow">Corporate Headquarters</span>
+          <h2 class="sec-title">A modern workplace, <em>growing with confidence.</em></h2>
+          <p class="sec-sub" style="margin-left:auto; margin-right:auto;">308–311, 3rd Floor, Glacier Complex, Jetalpur Road, Vadodara – 390007, Gujarat, India.</p>
         </div>
-        <div class="gal-grid" data-reveal>
-          <div class="gal-tile">
-            <div class="gal-tile-frame"><img src="content/img/gallery/team.png" alt="Team picnic at a farm house" loading="lazy"></div>
-            <div class="gal-cap">Picnic at a Farm House</div>
+
+        <div class="ab-hq-deck" data-reveal>
+          <div class="ab-hq-card">
+            <div>
+              <span class="ab-hq-badge"><i class="bi bi-building"></i> Flagship Headquarters</span>
+              <h3>6,500 <small style="font-size:18px; font-weight:500;">sq. ft.</small> Modern Workspace</h3>
+              <p>Equipped with state-of-the-art trading desks, high-capacity client meeting suites, secure data servers, and AI-assisted operational tools supporting our statewide network.</p>
+            </div>
+            <div class="ab-bento-hero-stats" style="margin-top:0; padding-top:18px; border-top:1px solid rgba(220,235,225,0.15);">
+              <div class="ab-bento-stat-item"><b>Vadodara</b><span>HQ Location</span></div>
+              <div class="ab-bento-stat-item"><b>6,500 sq.ft.</b><span>Floor Space</span></div>
+              <div class="ab-bento-stat-item"><b>AI Trading Desk</b><span>Tech Enabled</span></div>
+            </div>
           </div>
-          <div class="gal-tile">
-            <div class="gal-tile-frame"><img src="content/img/gallery/conference.png" alt="NSE partner meet" loading="lazy"></div>
-            <div class="gal-cap">NSE Partner Meet</div>
-          </div>
-          <div class="gal-tile">
-            <div class="gal-tile-frame"><img src="content/img/gallery/workshop.png" alt="CSR programme" loading="lazy"></div>
-            <div class="gal-cap">CSR Programme</div>
-          </div>
-          <div class="gal-tile">
-            <div class="gal-tile-frame"><img src="content/img/gallery/media.png" alt="Independence Day celebrations" loading="lazy"></div>
-            <div class="gal-cap">Independence Day Celebrations</div>
-          </div>
-          <div class="gal-tile">
-            <div class="gal-tile-frame"><img src="content/img/gallery/festival.png" alt="Team outing at Ninai waterfall" loading="lazy"></div>
-            <div class="gal-cap">Team Outing, Ninai Waterfall</div>
+
+          <div class="ab-hq-card" style="background:var(--paper-raised); color:var(--ink); border-color:var(--line);">
+            <div>
+              <span class="ab-hq-badge" style="background:var(--paper-tint); border-color:rgba(8,117,59,0.2); color:var(--green);"><i class="bi bi-geo-alt-fill"></i> Statewide Network</span>
+              <h3 style="color:var(--ink);">6 Branches Across Gujarat</h3>
+              <p style="color:var(--ink-soft);">From our Vadodara foundation, we have expanded to six branches across key economic hubs in Gujarat to deliver accessible, personalized financial services.</p>
+            </div>
+            <div>
+              <span class="ab-ledger-label" style="margin-bottom:10px;">Branch Locations</span>
+              <div class="ab-hq-city-pills">
+                <span class="ab-hq-city"><i class="bi bi-pin-map-fill"></i> Vadodara (HQ)</span>
+                <span class="ab-hq-city"><i class="bi bi-geo-alt"></i> Ahmedabad</span>
+                <span class="ab-hq-city"><i class="bi bi-geo-alt"></i> Surat</span>
+                <span class="ab-hq-city"><i class="bi bi-geo-alt"></i> Rajkot</span>
+                <span class="ab-hq-city"><i class="bi bi-geo-alt"></i> Bhavnagar</span>
+                <span class="ab-hq-city"><i class="bi bi-geo-alt"></i> Anand</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
-    <!-- ── 06: REGISTRATIONS & MEMBERSHIPS (dark band) ── -->
-    <section class="sec darkband">
-      <div class="wrap reg-grid">
-        <div data-reveal>
-          <span class="eyebrow">Regulatory Standing</span>
-          <h2 class="sec-title">Registered, audited, <em>accountable.</em></h2>
-          <p class="sec-sub" style="color:var(--mono-ink); opacity:.75;">Every registration below is verifiable directly on the regulator's own website — we'd rather you check than take our word for it.</p>
+    <!-- ── 08: WHY CHOOSE MARFATIA (Bento Advantage Deck) ── -->
+    <section class="sec sec--rule-top why-section">
+      <div class="why-bg-fx" aria-hidden="true">
+        <div class="why-beam why-beam--1"></div>
+        <div class="why-beam why-beam--2"></div>
+      </div>
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:40px; text-align:center;">
+          <span class="eyebrow">Why Choose Marfatia?</span>
+          <h2 class="sec-title">Reasons investors <em>trust us.</em></h2>
+          <p class="sec-sub" style="margin-left:auto; margin-right:auto;">Built on regulatory compliance, direct exchange connectivity, and dedicated local support.</p>
         </div>
-        <div class="verify-table" data-reveal>
-          <div class="verify-row"><span>Stock Broker — SEBI Reg.</span><span class="verify-tick">INZ000215330 ✓</span></div>
-          <div class="verify-row"><span>Portfolio Manager — SEBI Reg.</span><span class="verify-tick">INP000005117 ✓</span></div>
-          <div class="verify-row"><span>Research Analyst — SEBI Reg.</span><span class="verify-tick">INH000002178 ✓</span></div>
-          <div class="verify-row"><span>Depository Participant — CDSL</span><span class="verify-tick">DP ID 12044400 ✓</span></div>
-          <div class="verify-row"><span>Member Code — NSE</span><span class="verify-tick">11925 ✓</span></div>
-          <div class="verify-row"><span>Member Code — BSE</span><span class="verify-tick">3065 ✓</span></div>
+
+        <div class="ab-bento-grid" data-reveal>
+          <div class="ab-bento-hero">
+            <div class="ab-bento-hero-top">
+              <span class="ab-bento-hero-tag"><i class="bi bi-award-fill"></i> 20+ Years Legacy</span>
+              <h3>Over two decades of trusted capital market services across Gujarat.</h3>
+              <p>Founded in 2002, Marfatia Stock Broking combines SEBI regulated framework with modern algorithmic technology, operating out of a 6,500 sq. ft. Vadodara headquarters with 6 state branches.</p>
+            </div>
+            <div class="ab-bento-hero-stats">
+              <div class="ab-bento-stat-item"><b>2002</b><span>Established</span></div>
+              <div class="ab-bento-stat-item"><b>SEBI Reg.</b><span>Audited Broker</span></div>
+              <div class="ab-bento-stat-item"><b>CDSL</b><span>DP Participant</span></div>
+              <div class="ab-bento-stat-item"><b>6 Branches</b><span>Gujarat Reach</span></div>
+            </div>
+          </div>
+
+          <div class="ab-bento-card">
+            <div>
+              <div class="ab-bento-ico"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h4>Direct Exchange Pipe</h4>
+              <p>Trading memberships with NSE &amp; BSE providing high-speed order routing with minimal latency.</p>
+            </div>
+            <span class="ab-bento-pulse"><i class="bi bi-circle-fill" style="font-size:7px; color:var(--lime);"></i> NSE &amp; BSE Direct</span>
+          </div>
+
+          <div class="ab-bento-card">
+            <div>
+              <div class="ab-bento-ico"><i class="bi bi-safe2-fill"></i></div>
+              <h4>CDSL Digital Custody</h4>
+              <p>Direct Depository Participant with CDSL ensuring bank-grade safety for your securities.</p>
+            </div>
+            <span class="ab-bento-pulse"><i class="bi bi-shield-check"></i> DP ID 12044400</span>
+          </div>
+
+          <div class="ab-bento-card">
+            <div>
+              <div class="ab-bento-ico"><i class="bi bi-grid-fill"></i></div>
+              <h4>360° Capital Suite</h4>
+              <p>Equity, F&amp;O, PMS, SLBM, MTF, Algo Trading &amp; Mutual Funds all integrated under one roof.</p>
+            </div>
+            <span class="ab-bento-pulse"><i class="bi bi-check2-all"></i> All-in-One Account</span>
+          </div>
+
+          <div class="ab-bento-card">
+            <div>
+              <div class="ab-bento-ico"><i class="bi bi-headset"></i></div>
+              <h4>Dedicated Desk Support</h4>
+              <p>Personalized helpdesk support from our Vadodara office, avoiding robotic call center delays.</p>
+            </div>
+            <span class="ab-bento-pulse"><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 09: VISION & MISSION (Strategic Horizon Capsules) ── -->
+    <section class="sec vm-section">
+      <div class="vm-bg-fx" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-head" data-reveal style="margin-bottom:36px; text-align:center;">
+          <span class="eyebrow">What Drives Us</span>
+          <h2 class="sec-title">Vision &amp; <em>mission.</em></h2>
+          <p class="sec-sub" style="margin-left:auto; margin-right:auto;">Our strategic mandate for technology-driven investor empowerment.</p>
+        </div>
+
+        <div class="ab-vm-grid" data-reveal>
+          <div class="ab-vm-capsule">
+            <div class="ab-vm-radar"></div>
+            <div class="ab-vm-header">
+              <span class="ab-vm-badge">HORIZON 2030</span>
+              <div class="ab-vm-ico-box"><i class="bi bi-binoculars-fill"></i></div>
+            </div>
+            <h3>Our Vision</h3>
+            <p>To be a premier, technology-driven financial services institution that empowers investors through continuous innovation, ethical governance, and responsible long-term capital growth.</p>
+            <div class="ab-vm-tags">
+              <span class="ab-vm-tag"><i class="bi bi-check-lg"></i> FinTech Innovation</span>
+              <span class="ab-vm-tag"><i class="bi bi-check-lg"></i> Responsible Growth</span>
+              <span class="ab-vm-tag"><i class="bi bi-check-lg"></i> Investor Empowerment</span>
+            </div>
+          </div>
+
+          <div class="ab-vm-capsule">
+            <div class="ab-vm-radar"></div>
+            <div class="ab-vm-header">
+              <span class="ab-vm-badge">CORE COMMITMENT</span>
+              <div class="ab-vm-ico-box"><i class="bi bi-bullseye"></i></div>
+            </div>
+            <h3>Our Mission</h3>
+            <p>To deliver secure, transparent, and ultra-efficient financial market services while cultivating enduring client relationships through regulatory compliance, cutting-edge tools, and client-first principles.</p>
+            <div class="ab-vm-tags">
+              <span class="ab-vm-tag"><i class="bi bi-check-lg"></i> SEBI Regulated</span>
+              <span class="ab-vm-tag"><i class="bi bi-check-lg"></i> Transparent Execution</span>
+              <span class="ab-vm-tag"><i class="bi bi-check-lg"></i> Unyielding Integrity</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -757,7 +1521,40 @@
         if (prog) prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
       }, { passive: true });
 
+      // Service Explorer Category Filtering
+      var tabs = document.querySelectorAll('.ab-svc-tab');
+      var cards = document.querySelectorAll('.ab-svc-card');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var cat = tab.getAttribute('data-filter');
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          cards.forEach(function(card) {
+            if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+              card.style.display = 'flex';
+              card.style.opacity = '1';
+            } else {
+              card.style.display = 'none';
+              card.style.opacity = '0';
+            }
+          });
+        });
+      });
     })();
+
+    // Copy Corporate Identity Ledger IDs to Clipboard
+    function copyLedgerId(text, el) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+          var btn = el.querySelector('.ab-ledger-copy-btn');
+          if (btn) {
+            var orig = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check-lg" style="color:var(--green);"></i> Copied!';
+            setTimeout(function() { btn.innerHTML = orig; }, 2200);
+          }
+        });
+      }
+    }
   </script>
 </body>
 
