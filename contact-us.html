@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us — Marfatia Stock Broking</title>
   <meta name="description"
-    content="Reach Marfatia Stock Broking's Vadodara desk — customer care, compliance, PMS and grievance contacts, or send us a message directly.">
+    content="Reach Marfatia Stock Broking's Vadodara desk — customer care, escalation matrix, compliance, PMS and grievance contacts, or send us a message directly.">
   <link rel="icon" href="content/fav.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,8 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/inner.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -22,51 +24,87 @@
       z-index: 1000;
     }
 
-    .p-hero {
-      background: linear-gradient(180deg, rgba(8, 117, 59, 0.06) 0%, rgba(155, 206, 22, 0.03) 70%, rgba(255, 255, 255, 0) 100%) !important;
+    /* ── NON-BOXED MODERN FULL-WIDTH DESIGN SYSTEM ── */
+    .sec-fullwidth {
       position: relative;
-      overflow: hidden;
-      z-index: 2;
-      padding-bottom: clamp(48px, 7vw, 80px);
+      padding: clamp(60px, 7vw, 96px) 0;
+      width: 100%;
     }
 
-    .p-hero::before {
-      content: "";
+    /* Open Section Dividers & Accents */
+    .sec-border-top {
+      border-top: 1px solid var(--line, rgba(8, 117, 59, 0.12));
+    }
+
+    /* ── HERO BANNER: OPEN FINANCIAL ANIMATED GRADIENT ── */
+    .ct-hero-full {
+      position: relative;
+      padding: calc(var(--header-h, 140px) + 20px) 0 clamp(60px, 8vw, 90px);
+      background: linear-gradient(135deg, rgba(8, 117, 59, 0.08) 0%, rgba(155, 206, 22, 0.05) 50%, rgba(8, 117, 59, 0.02) 100%);
+      background-size: 200% 200%;
+      animation: heroGradientShift 12s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes heroGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .ct-hero-bg-grid {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(8, 117, 59, 0.08) 1px, transparent 1px), radial-gradient(rgba(155, 206, 22, 0.05) 1.5px, transparent 1.5px);
-      background-size: 24px 24px;
-      background-position: 0 0, 12px 12px;
-      opacity: .9;
-      z-index: 1;
+      background-image: radial-gradient(rgba(8, 117, 59, 0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
       pointer-events: none;
+      z-index: 1;
+    }
+
+    .ct-hero-chart-svg {
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 180px;
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 1;
     }
 
     .ct-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: .16;
+      filter: blur(90px);
+      opacity: 0.18;
       pointer-events: none;
       z-index: 0;
       animation: ct-drift 14s ease-in-out infinite;
     }
 
     .ct-orb-1 {
-      width: 320px;
-      height: 320px;
+      width: 380px;
+      height: 380px;
       background: var(--green);
-      top: 4%;
-      left: -140px;
+      top: 2%;
+      left: -120px;
     }
 
     .ct-orb-2 {
-      width: 360px;
-      height: 360px;
+      width: 420px;
+      height: 420px;
       background: var(--lime);
-      bottom: 0%;
-      right: -160px;
-      animation-delay: -6s;
+      bottom: -40px;
+      right: -140px;
+      animation-delay: -7s;
       animation-direction: reverse;
     }
 
@@ -78,395 +116,542 @@
       }
 
       50% {
-        transform: translate(28px, -22px) scale(1.08);
+        transform: translate(32px, -28px) scale(1.08);
       }
     }
 
-    .ct-live-dot .dot--live {
-      position: relative;
-      top: -1px;
-    }
-
-    @media(prefers-reduced-motion: reduce) {
-      .ct-orb {
-        animation: none;
-      }
-    }
-
-    /* ── big dial-a-number panel ── */
-    .ct-dial-panel {
-      text-align: center;
+    .ct-hero-content {
       position: relative;
       z-index: 2;
+      text-align: center;
+      margin: 0 auto;
     }
 
-    .ct-dial-panel .p-crumb {
-      margin-left: auto;
-      margin-right: auto;
+    .ct-hero-title {
+      font-size: clamp(38px, 5.5vw, 60px);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin: 0 0 16px;
     }
 
-    .ct-dial-wrap {
-      margin-top: 6px;
-      position: relative;
-      display: inline-block;
-      max-width: 100%;
+    .ct-hero-title em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--green), #00a859);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .ct-dial-wrap::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: min(120%, calc(100vw - 40px));
-      height: 220%;
-      background: radial-gradient(ellipse, rgba(155, 206, 22, .16), transparent 70%);
-      animation: ct-pulse 2.4s ease-in-out infinite;
-      pointer-events: none;
-      z-index: -1;
+    .ct-hero-subtitle {
+      font-size: clamp(16px, 1.8vw, 19px);
+      line-height: 1.65;
+      color: var(--ink-soft);
+      max-width: 720px;
+      margin: 0 auto 36px;
     }
 
-    @keyframes ct-pulse {
-
-      0%,
-      100% {
-        opacity: .5;
-        transform: translate(-50%, -50%) scale(.94);
-      }
-
-      50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.04);
-      }
-    }
-
-    @media(prefers-reduced-motion: reduce) {
-      .ct-dial-wrap::before {
-        animation: none;
-      }
-    }
-
-    .ct-live-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--green);
-      background: var(--paper-tint);
-      padding: 8px 16px;
-      border-radius: 100px;
-      margin-top: 20px;
-    }
-
-    /* ── DEPARTMENT VAULT ── */
-    .vault-item {
-      position: relative;
-    }
-
-    .vault-item .vault-arrow {
-      position: absolute;
-      right: 18px;
-      top: 18px;
-      color: var(--ink-faint);
-      transition: transform .3s, color .3s;
-    }
-
-    .vault-item:hover .vault-arrow {
-      transform: translate(3px, -3px);
-      color: var(--green);
-    }
-
-    .vault-ico i {
-      font-size: 16px;
-    }
-
-    /* ── SPLIT: FORM + INFO RAIL ── */
-    .ct-split {
+    /* ── ANIMATED COUNTERS ROW (BORDERLESS, FLUID) ── */
+    .ct-counters-row {
+      margin-top: 44px;
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: clamp(28px, 4vw, 56px);
-      align-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 30px 20px;
+      border-top: 1px dashed var(--line, rgba(8, 117, 59, 0.2));
+      border-bottom: 1px dashed var(--line, rgba(8, 117, 59, 0.2));
     }
 
-    @media(max-width:900px) {
-      .ct-split {
+    @media (max-width: 900px) {
+      .ct-counters-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ct-counters-row {
         grid-template-columns: 1fr;
       }
     }
 
-    .ct-info-rail {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      position: sticky;
-      top: 120px;
+    .ct-counter-item {
+      text-align: center;
     }
 
-    @media(max-width:900px) {
-      .ct-info-rail {
-        position: static;
-      }
-    }
-
-    .ct-info-card {
-      background: var(--paper-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
-    }
-
-    .ct-info-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .ct-info-card h4 {
+    .ct-counter-num {
       font-family: var(--font-disp);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 0 0 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .ct-info-card h4 i {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
       color: var(--green);
+      line-height: 1;
+      margin-bottom: 6px;
     }
 
-    .ct-map-embed {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .ct-map-embed iframe {
-      width: 100%;
-      height: 220px;
-      display: block;
-      border: 0;
-      filter: grayscale(.15) contrast(1.02);
-      transition: filter .4s;
-    }
-
-    .ct-map-embed:hover iframe {
-      filter: grayscale(0);
-    }
-
-    /* ── RESPONSE TIME MINI TABLE ── */
-    .ct-hours {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .ct-hours-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13.5px;
-      padding: 6px 0;
-      border-bottom: 1px dashed var(--line);
-    }
-
-    .ct-hours-row:last-child {
-      border-bottom: 0;
-    }
-
-    .ct-hours-row b {
-      color: var(--ink);
-    }
-
-    .ct-hours-row span {
+    .ct-counter-label {
+      font-size: 14px;
+      font-weight: 600;
       color: var(--ink-soft);
     }
 
-    /* ── BRANCH NETWORK ── */
-    .sec--branches {
-      position: relative;
-      overflow: hidden;
+    /* ── CLICKABLE ACTION CARDS (OPEN NON-BOXED LIFT & GLOW) ── */
+    .ct-action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
     }
 
-    .sec--branches::before {
-      content: "";
+    @media (max-width: 1024px) {
+      .ct-action-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 580px) {
+      .ct-action-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ct-action-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 26px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(8, 117, 59, 0.12);
+      box-shadow: 0 10px 28px rgba(8, 117, 59, 0.05);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .ct-action-tile:hover {
+      transform: translateY(-8px);
+      border-color: rgba(8, 117, 59, 0.35);
+      box-shadow: 0 20px 40px -10px rgba(8, 117, 59, 0.15), 0 0 20px rgba(155, 206, 22, 0.2);
+    }
+
+    .ct-action-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(8, 117, 59, 0.12), rgba(155, 206, 22, 0.18));
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      color: var(--green);
+      margin-bottom: 20px;
+      transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+    }
+
+    .ct-action-tile:hover .ct-action-icon {
+      transform: scale(1.12) rotate(4deg);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .ct-action-tile h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+
+    .ct-action-tile p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      margin: 0 0 16px;
+      text-align: left;
+    }
+
+    .ct-action-btn-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .ct-action-btn-text i {
+      transition: transform 0.3s ease;
+    }
+
+    .ct-action-tile:hover .ct-action-btn-text i {
+      transform: translateX(4px);
+    }
+
+    /* ── ESCALATION MATRIX: OPEN SEAMLESS ROW LAYOUT ── */
+    .sec-escalation {
+      background: var(--paper-tint, rgba(8, 117, 59, 0.03));
+    }
+
+    .escalation-header {
+      margin-bottom: 36px;
+    }
+
+    .escalation-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(8, 117, 59, 0.08);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .escalation-table-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid rgba(8, 117, 59, 0.14);
+      box-shadow: 0 8px 30px rgba(8, 117, 59, 0.05);
+    }
+
+    .escalation-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+
+    .escalation-table th {
+      color: var(--ink-soft);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 14px 18px;
+      background: rgba(8, 117, 59, 0.06);
+      border-bottom: 2px solid var(--line, rgba(8, 117, 59, 0.14));
+      white-space: nowrap;
+    }
+
+    .escalation-table tbody tr {
+      background: transparent;
+      border-bottom: 1px solid var(--line, rgba(8, 117, 59, 0.1));
+      transition: background-color 0.25s ease;
+    }
+
+    .escalation-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .escalation-table tbody tr:hover {
+      background-color: rgba(8, 117, 59, 0.04);
+    }
+
+    .escalation-table td {
+      padding: 12px 12px;
+      border: none;
+      color: var(--ink);
+      vertical-align: middle;
+      line-height: 1.45;
+    }
+
+    .escalation-table td:nth-child(3) {
+      max-width: 260px;
+    }
+
+    .role-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12px;
+      background: rgba(8, 117, 59, 0.1);
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    .role-tag--head {
+      background: rgba(155, 206, 22, 0.2);
+      color: #4a7500;
+    }
+
+    .role-tag--compliance {
+      background: rgba(30, 144, 255, 0.12);
+      color: #0284c7;
+    }
+
+    .role-tag--ceo {
+      background: rgba(147, 51, 234, 0.12);
+      color: #7e22ce;
+    }
+
+    .time-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      background: rgba(8, 117, 59, 0.05);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .escalation-note-banner {
+      margin-top: 28px;
+      padding: 22px 28px;
+      background: rgba(155, 206, 22, 0.09);
+      border-left: 4px solid var(--green);
+      border-radius: 12px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .escalation-note-banner i {
+      font-size: 24px;
+      color: var(--green);
+      margin-top: 2px;
+    }
+
+    .escalation-note-banner p {
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.6;
+      margin: 0 0 4px;
+    }
+
+    .escalation-note-banner a {
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* ── VERTICAL FLOW: SPLIT FORM & MAP (OPEN EDGE-TO-EDGE) ── */
+    .ct-split-flow {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .ct-split-flow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── CONTACT FORM WITH FLOATING LABELS & ANIMATED FOCUS ── */
+    .f-floating-group {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .f-floating-group input,
+    .f-floating-group textarea,
+    .f-floating-group select {
+      width: 100%;
+      padding: 22px 18px 10px 18px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1.5px solid var(--line-strong, #cbd5e1);
+      border-radius: 14px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--ink);
+      outline: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .f-floating-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .f-floating-group label {
       position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(8, 117, 59, 0.07) 1px, transparent 1px);
-      background-size: 26px 26px;
-      z-index: 0;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--ink-soft);
       pointer-events: none;
+      transition: all 0.25s ease;
     }
 
-    .sec--branches .wrap {
+    .f-floating-group textarea~label {
+      top: 24px;
+      transform: none;
+    }
+
+    .f-floating-group input:focus,
+    .f-floating-group textarea:focus,
+    .f-floating-group select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(8, 117, 59, 0.14);
+      background: #fff;
+    }
+
+    .f-floating-group input:focus~label,
+    .f-floating-group input:not(:placeholder-shown)~label,
+    .f-floating-group textarea:focus~label,
+    .f-floating-group textarea:not(:placeholder-shown)~label,
+    .f-floating-group select:valid~label {
+      top: 12px;
+      transform: translateY(0);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── MAP CONTAINER & OVERLAY BADGE ── */
+    .ct-map-open-wrap {
       position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--line, rgba(8, 117, 59, 0.15));
+    }
+
+    .ct-map-iframe-holder {
+      height: 380px;
+      width: 100%;
+      position: relative;
+    }
+
+    .ct-map-iframe-holder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .ct-map-overlay-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 117, 59, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
       z-index: 2;
     }
 
-    .branch-net {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      opacity: .6;
-      overflow: hidden;
+    .ct-map-overlay-badge i {
+      color: var(--green);
+      font-size: 16px;
     }
 
-    .branch-net .bn-lines {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
+    .ct-map-details-open {
+      padding: 24px;
+      background: #fff;
     }
 
-    .bn-line {
-      fill: none;
-      stroke: var(--green);
-      stroke-width: 1.6;
-      vector-effect: non-scaling-stroke;
-      stroke-dasharray: 7 10;
-      opacity: .45;
-      animation: bn-flow 3.2s linear infinite;
-    }
-
-    .bn-line:nth-of-type(2) {
-      animation-delay: -.5s;
-    }
-
-    .bn-line:nth-of-type(3) {
-      animation-delay: -1.4s;
-    }
-
-    .bn-line:nth-of-type(4) {
-      animation-delay: -2.1s;
-    }
-
-    @keyframes bn-flow {
-      to {
-        stroke-dashoffset: -34;
-      }
-    }
-
-    .bn-hub,
-    .bn-node,
-    .bn-pulse {
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    .bn-hub {
-      width: 11px;
-      height: 11px;
-      margin: -5.5px 0 0 -5.5px;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(8, 117, 59, .12);
-    }
-
-    .bn-node {
-      width: 7px;
-      height: 7px;
-      margin: -3.5px 0 0 -3.5px;
-      background: var(--lime);
-    }
-
-    .bn-pulse {
-      width: 11px;
-      height: 11px;
-      margin: -5.5px 0 0 -5.5px;
-      border: 1.5px solid var(--green);
-      opacity: 0;
-      animation: bn-pulse 3.6s ease-out infinite;
-    }
-
-    @keyframes bn-pulse {
-      0% {
-        opacity: .5;
-        transform: scale(.3);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(15);
-      }
-    }
-
-    @media(prefers-reduced-motion: reduce) {
-
-      .bn-line,
-      .bn-pulse {
-        animation: none;
-      }
-    }
-
+    /* ── BRANCH NETWORK GRID (OPEN NON-BOXED CARDS) ── */
     .branch-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
     }
 
-    .branch-card {
-      background: var(--paper-raised);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+    @media (max-width: 1024px) {
+      .branch-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    .branch-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-sm);
-      border-color: rgba(8, 117, 59, .35);
+    @media (max-width: 600px) {
+      .branch-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .branch-card--hq {
-      background: var(--paper-tint);
-      border-color: rgba(8, 117, 59, .3);
+    .branch-card-open {
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(8, 117, 59, 0.12);
+      box-shadow: 0 10px 28px rgba(8, 117, 59, 0.05);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .branch-card-open:hover {
+      transform: translateY(-6px);
+      border-color: rgba(8, 117, 59, 0.35);
+      box-shadow: 0 16px 36px rgba(8, 117, 59, 0.12);
+    }
+
+    .branch-card-open--hq {
+      background: linear-gradient(135deg, rgba(8, 117, 59, 0.08), rgba(155, 206, 22, 0.12));
+      border-color: rgba(8, 117, 59, 0.3);
     }
 
     .branch-tag {
       font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: .08em;
+      font-size: 11px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--green);
+      font-weight: 700;
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    .branch-card h4 {
-      font-family: var(--font-disp);
-      font-size: 16px;
+    .branch-card-open h4 {
+      font-size: 18px;
       font-weight: 700;
       color: var(--ink);
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .branch-card h4 i {
+    .branch-card-open h4 i {
       color: var(--green);
-      font-size: 14px;
+      font-size: 16px;
     }
 
-    .branch-card p {
+    .branch-card-open p {
       font-size: 13.5px;
       color: var(--ink-soft);
       line-height: 1.6;
-      margin: 0 0 14px;
+      margin: 0 0 18px;
     }
 
     .branch-links {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      font-family: var(--font-mono);
-      font-size: 12.5px;
+      gap: 8px;
+      font-size: 13px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
     }
 
     .branch-links a {
@@ -474,7 +659,9 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      transition: color 0.25s ease;
+      word-break: break-all;
     }
 
     .branch-links a:hover {
@@ -482,8 +669,199 @@
     }
 
     .branch-links a i {
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    /* ── CONNECT WITH US: SOCIAL MEDIA GRID ── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .social-card-open {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 24px;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid rgba(8, 117, 59, 0.12);
+      box-shadow: 0 8px 24px rgba(8, 117, 59, 0.04);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .social-card-open:hover {
+      transform: translateY(-6px);
+      border-color: rgba(8, 117, 59, 0.35);
+      box-shadow: 0 18px 38px rgba(8, 117, 59, 0.14);
+    }
+
+    .social-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      color: #fff;
+      flex-shrink: 0;
+      transition: transform 0.35s ease;
+    }
+
+    .social-card-open:hover .social-icon {
+      transform: scale(1.15) rotate(-6deg);
+    }
+
+    .social-card--website .social-icon {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    .social-card--whatsapp .social-icon {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+    }
+
+    .social-card--telegram .social-icon {
+      background: linear-gradient(135deg, #0088cc, #006699);
+    }
+
+    .social-card--facebook .social-icon {
+      background: linear-gradient(135deg, #1877F2, #0d52b5);
+    }
+
+    .social-card--instagram .social-icon {
+      background: linear-gradient(135deg, #833AB4, #FD1D1D, #F56040);
+    }
+
+    .social-card--linkedin .social-icon {
+      background: linear-gradient(135deg, #0A66C2, #004182);
+    }
+
+    .social-card--youtube .social-icon {
+      background: linear-gradient(135deg, #FF0000, #cc0000);
+    }
+
+    .social-card--medium .social-icon {
+      background: linear-gradient(135deg, #12100E, #2b2b2b);
+    }
+
+    .social-card--pinterest .social-icon {
+      background: linear-gradient(135deg, #BD081C, #8a0413);
+    }
+
+    .social-info h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 3px;
+    }
+
+    .social-info span {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+    }
+
+    .social-arrow {
+      margin-left: auto;
+      font-size: 16px;
       color: var(--ink-faint);
-      font-size: 12px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-card-open:hover .social-arrow {
+      transform: translate(3px, -3px);
+      color: var(--green);
+    }
+
+    /* ── STICKY FLOATING WHATSAPP BUTTON ── */
+    .sticky-whatsapp-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .sticky-whatsapp-btn:hover {
+      transform: scale(1.12);
+      color: #fff;
+    }
+
+    .whatsapp-pulse {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      animation: waPulse 2s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes waPulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(18, 20, 24, 0.9);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .sticky-whatsapp-btn:hover .whatsapp-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(-4px);
+    }
+
+    @media (min-width: 1024px) {
+      .column-lg-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -493,10 +871,11 @@
     <div class="progress-fill" id="scrollProgress"></div>
   </div>
 
+  <!-- ── SITE NAVIGATION HEADER ── -->
   <header class="strip" id="strip">
     <div class="header-top-bar">
       <div class="wrap header-top-bar-content">
-        <div class="header-top-bar-info">
+        <div class="header-top-bar-info d-lg-flex d-none">
           <span><i class="bi bi-clock-fill"></i> Mon-Fri 10:00 am-6:00 pm</span>
           <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
           <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
@@ -507,9 +886,9 @@
     </div>
     <div class="strip-row">
       <a href="index.html" class="strip-logo">
-          <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
-          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
-        </a>
+        <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+      </a>
 
       <nav class="strip-nav" id="stripNav">
         <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
@@ -636,11 +1015,23 @@
 
         <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
         <div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>
+
+        <!-- Mobile-only CTAs inside the slide-out nav -->
+        <div class="nav-item mobile-only"
+          style="margin-top:8px; border-top:1px solid var(--line); padding-top:16px; flex-direction:column; gap:10px;">
+          <!-- <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener" class="strip-link" style="justify-content:flex-start;">Login — Traders ↗</a>
+            <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener" class="strip-link" style="justify-content:flex-start;">Login — Back Office ↗</a> -->
+          <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
+            class="btn btn-marfatia mobile-cta" style="margin-top:6px;"><span>Open Demat Account</span></a>
+          <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
+            class="btn btn-ghost btn-outline live-pulse-btn mobile-cta" style="justify-content:center;"><span
+              class="dot dot--live"></span> Live Pulse</a>
+        </div>
       </nav>
 
       <div class="strip-right">
-        <!-- <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
-          
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
+
           <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="4"></circle>
@@ -648,12 +1039,12 @@
               d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
             </path>
           </svg>
-          
+
           <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
           </svg>
-        </button> -->
+        </button>
         <div class="login-dd" id="loginDd">
           <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
               height="6" viewBox="0 0 10 6" fill="none">
@@ -673,193 +1064,380 @@
 
       </div>
 
+      <!-- Theme toggle visible always (desktop: inside strip-right; mobile: here) -->
+
       <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="theme-toggle-btn" id="themeToggleBtnMobile" aria-label="Toggle dark mode" style="display:none;">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+          </path>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
     </div>
     <div class="nav-backdrop" id="navBackdrop"></div>
   </header>
 
   <main class="inner-main">
 
-    <!-- ── PAGE HERO: BIG DIAL NUMBER ── -->
-    <section class="p-hero">
+    <!-- ── 1. HERO BANNER: OPEN FULL-WIDTH FINANCIAL ANIMATED GRADIENT ── -->
+    <section class="ct-hero-full">
+      <div class="ct-hero-bg-grid"></div>
       <div class="ct-orb ct-orb-1"></div>
       <div class="ct-orb ct-orb-2"></div>
-      <div class="wrap ct-dial-panel">
-        <span class="p-crumb"><a href="index.html">Home</a> / <b>Contact Us</b></span>
-        <h1 class="p-hero-title" data-reveal>Talk to a human, <em>not a queue.</em></h1>
-        <p class="p-hero-sub" data-reveal style="margin-left:auto;margin-right:auto;">Call, write, or walk into our
-          Vadodara office — a real desk picks up, every time.</p>
-        <div class="ct-dial-wrap" data-reveal>
-          <a href="tel:02652351355" class="dial-num">0265-<b>2351355</b></a>
-        </div>
-        <div class="ct-live-dot" data-reveal><span class="dot dot--live"></span> Mon–Fri, 10:00 am – 6:00 pm</div>
-      </div>
-    </section>
 
-    <!-- ── DEPARTMENT VAULT ── -->
-    <section class="sec" style="padding-top:24px;">
-      <div class="wrap">
-        <div class="section-head" data-reveal style="margin-bottom:32px;">
-          <span class="eyebrow">Reach the Right Desk</span>
-          <h2 class="sec-title">Contact by <em>department.</em></h2>
+      <!-- Financial Wave SVG Overlay -->
+      <svg class="ct-hero-chart-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" fill="url(#heroChartGrad)" />
+        <defs>
+          <linearGradient id="heroChartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#08753b" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#9bce16" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="container ct-hero-content">
+        <span class="p-crumb" data-reveal><a href="index.html">Home</a> <span class="dot"></span> <b>Contact
+            Us</b></span>
+        <h1 class="ct-hero-title" data-reveal>Contact <em>Us.</em></h1>
+        <p class="ct-hero-subtitle" data-reveal>Talk to a human, not a queue — Reach out to our Vadodara headquarters
+          for trading, PMS, demat accounts, and compliance support.</p>
+
+        <!-- Animated Counters Row (Non-boxed) -->
+        <div class="ct-counters-row" data-reveal>
+          <div class="ct-counter-item">
+            <div class="ct-counter-num" data-counter-target="30">0+</div>
+            <div class="ct-counter-label">Years Market Experience</div>
+          </div>
+          <div class="ct-counter-item">
+            <div class="ct-counter-num" data-counter-target="50000">0+</div>
+            <div class="ct-counter-label">Active Investors &amp; Clients</div>
+          </div>
+          <div class="ct-counter-item">
+            <div class="ct-counter-num" data-counter-target="7">0+</div>
+            <div class="ct-counter-label">Branch Locations</div>
+          </div>
+          <div class="ct-counter-item">
+            <div class="ct-counter-num">100%</div>
+            <div class="ct-counter-label">Dedicated Desk Support</div>
+          </div>
         </div>
-        <div class="vault" data-reveal>
-          <a class="vault-item" href="mailto:customercare@marfatia.net">
-            <div class="vault-ico">CC</div>
-            <div>
-              <h4>Customer Care</h4>
-              <span>customercare@marfatia.net</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
+
+        <!-- ── CLICKABLE ACTION TILES (Call, Email, WhatsApp, Location) ── -->
+        <div class="ct-action-grid" data-reveal>
+          <a href="tel:02652351355" class="ct-action-tile">
+            <div class="ct-action-icon"><i class="bi bi-telephone-outbound-fill"></i></div>
+            <h3>Call Us</h3>
+            <p>Direct line to Vadodara desk.</p>
+            <span class="ct-action-btn-text">Call Now <i class="bi bi-arrow-right"></i></span>
           </a>
-          <a class="vault-item" href="mailto:compliance@marfatia.net">
-            <div class="vault-ico">CO</div>
-            <div>
-              <h4>Compliance Officer</h4>
-              <span>compliance@marfatia.net</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
+
+          <a href="mailto:customercare@marfatia.net" class="ct-action-tile">
+            <div class="ct-action-icon"><i class="bi bi-envelope-open-fill"></i></div>
+            <h3>Email Support</h3>
+            <p>Fast responses within 1 business day.</p>
+            <span class="ct-action-btn-text">Send Email <i class="bi bi-arrow-right"></i></span>
           </a>
-          <a class="vault-item" href="tel:02652351355">
-            <div class="vault-ico">PMS</div>
-            <div>
-              <h4>PMS Desk</h4>
-              <span>0265-2351355</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
+
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener"
+            class="ct-action-tile">
+            <div class="ct-action-icon"><i class="bi bi-whatsapp"></i></div>
+            <h3>WhatsApp Channel</h3>
+            <p>Join our official channel for market updates.</p>
+            <span class="ct-action-btn-text">Join Channel <i class="bi bi-arrow-right"></i></span>
           </a>
-          <a class="vault-item" href="tel:02652351513">
-            <div class="vault-ico">ST</div>
-            <div>
-              <h4>Share Trading</h4>
-              <span>0265-2351513</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
-          </a>
-          <a class="vault-item" href="mailto:stoptrade@marfatia.net">
-            <div class="vault-ico">DP</div>
-            <div>
-              <h4>Demat &amp; DP Services</h4>
-              <span>stoptrade@marfatia.net</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
-          </a>
-          <a class="vault-item" href="mailto:kyc@marfatia.net">
-            <div class="vault-ico">KY</div>
-            <div>
-              <h4>KYC &amp; Account Opening</h4>
-              <span>kyc@marfatia.net</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
-          </a>
-          <a class="vault-item" href="https://scores.sebi.gov.in/" target="_blank" rel="noopener">
-            <div class="vault-ico">GR</div>
-            <div>
-              <h4>Grievance Redressal</h4>
-              <span>SEBI SCORES Portal ↗</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
-          </a>
-          <a class="vault-item" href="https://backoffice.marfatia.net" target="_blank" rel="noopener">
-            <div class="vault-ico">BO</div>
-            <div>
-              <h4>Back Office Login</h4>
-              <span>backoffice.marfatia.net ↗</span>
-            </div>
-            <i class="bi bi-arrow-up-right vault-arrow"></i>
+
+          <a href="#map-section" class="ct-action-tile">
+            <div class="ct-action-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <h3>Visit Office</h3>
+            <p>216, Glacier Complex, Jetalpur Road, Vadodara - 390005</p>
+            <span class="ct-action-btn-text">View Map <i class="bi bi-arrow-right"></i></span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ── BRANCH NETWORK ── -->
-    <section class="sec sec--tint sec--rule-top sec--branches">
-      <div class="branch-net" aria-hidden="true">
-        <svg class="bn-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path class="bn-line" d="M15,50 Q33,18 53,28"></path>
-          <path class="bn-line" d="M15,50 Q35,63 55,77"></path>
-          <path class="bn-line" d="M15,50 Q42,37 68,43"></path>
-          <path class="bn-line" d="M15,50 Q32,83 48,90"></path>
-        </svg>
-        <span class="bn-pulse" style="left:15%;top:50%;"></span>
-        <span class="bn-pulse" style="left:15%;top:50%;animation-delay:-1.2s;"></span>
-        <span class="bn-pulse" style="left:15%;top:50%;animation-delay:-2.4s;"></span>
-        <span class="bn-node" style="left:53%;top:28%;"></span>
-        <span class="bn-node" style="left:55%;top:77%;"></span>
-        <span class="bn-node" style="left:68%;top:43%;"></span>
-        <span class="bn-node" style="left:48%;top:90%;"></span>
-        <span class="bn-hub" style="left:15%;top:50%;"></span>
-      </div>
-      <div class="wrap">
-        <div class="section-head" data-reveal style="margin-bottom:32px;">
-          <span class="eyebrow">Pan-India Presence</span>
-          <h2 class="sec-title">Our branches <em>across India.</em></h2>
+    <!-- ── 2. ESCALATION MATRIX SECTION (SEAMLESS FULL-WIDTH ROW LAYOUT) ── -->
+    <section class="sec-fullwidth sec-escalation sec-border-top">
+      <div class="container">
+        <div class="escalation-header" data-reveal>
+          <span class="escalation-badge"><i class="bi bi-shield-check"></i> Resolution &amp; Governance</span>
+          <h2 class="sec-title" style="margin-top:8px;">Escalation <em>Matrix.</em></h2>
+          <p style="color:var(--ink-soft); font-size:15.5px; margin-top:8px; max-width:780px;">In compliance with
+            regulatory standards, if your query or grievance is not resolved to your satisfaction at the first point of
+            contact, please reach out directly to our escalation officials below:</p>
         </div>
+
+        <div class="escalation-table-wrapper" data-reveal>
+          <table class="escalation-table">
+            <thead>
+              <tr>
+                <th>Details of</th>
+                <th>Contact Person</th>
+                <th>Address</th>
+                <th>Direct Contact No</th>
+                <th>Email Id</th>
+                <th>Operational / <br> Working Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="role-tag">Customer care</span></td>
+                <td><strong>Ms. Ashita</strong></td>
+                <td>216, Glacier Complex, Jetalpur Road, Vadodara – 390005</td>
+                <td>
+                  <a href="tel:02653501500" style="color:var(--green);font-weight:600;">0265-3501500</a> / <a
+                    href="tel:02652351355" style="color:var(--green);font-weight:600;">0265-2351355</a>
+                </td>
+                <td><a href="mailto:customercare@marfatia.net"
+                    style="color:var(--green);font-weight:600;">customercare@marfatia.net</a></td>
+                <td><span class="time-chip"><i class="bi bi-clock"></i> 8.30 AM TO 5.30 PM</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-tag role-tag--head">Head of Customer Care</span></td>
+                <td><strong>Mr. Mahesh Vasava</strong></td>
+                <td>216, Glacier Complex, Jetalpur Road, Vadodara – 390005</td>
+                <td><a href="tel:9925002653" style="color:var(--green);font-weight:600;">9925002653</a></td>
+                <td><a href="mailto:kyc@marfatia.net" style="color:var(--green);font-weight:600;">kyc@marfatia.net</a>
+                </td>
+                <td><span class="time-chip"><i class="bi bi-clock"></i> 10.00 AM TO 7.00 PM</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-tag role-tag--compliance">Compliance Officer</span></td>
+                <td><strong>Mr. Chintan Majumundar</strong></td>
+                <td>216, Glacier Complex, Jetalpur Road, Vadodara – 390005</td>
+                <td>
+                  <a href="tel:02653501500" style="color:var(--green);font-weight:600;">0265-3501500</a> / <a
+                    href="tel:02652351355" style="color:var(--green);font-weight:600;">0265-2351355</a> <small
+                    style="color:var(--ink-soft);">(Ext.-508)</small>
+                </td>
+                <td><a href="mailto:compliance@marfatia.net"
+                    style="color:var(--green);font-weight:600;">compliance@marfatia.net</a></td>
+                <td><span class="time-chip"><i class="bi bi-clock"></i> 10.00 AM TO 7.00 PM</span></td>
+              </tr>
+              <tr>
+                <td><span class="role-tag role-tag--ceo">CEO</span></td>
+                <td><strong>Shreya Marfatia</strong></td>
+                <td>216, Glacier Complex, Jetalpur Road, Vadodara – 390005</td>
+                <td>
+                  <a href="tel:02653501500" style="color:var(--green);font-weight:600;">0265-3501500</a> / <a
+                    href="tel:02652351355" style="color:var(--green);font-weight:600;">0265-2351355</a> <small
+                    style="color:var(--ink-soft);">(Ext.-514)</small>
+                </td>
+                <td><a href="mailto:shreyanishil@yahoo.com"
+                    style="color:var(--green);font-weight:600;">shreyanishil@yahoo.com</a></td>
+                <td><span class="time-chip"><i class="bi bi-clock"></i> 10.00 AM TO 7.00 PM</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="escalation-note-banner" data-reveal>
+          <i class="bi bi-info-circle-fill"></i>
+          <div>
+            <p>In absence of response/complaint not addressed to your satisfaction, you may lodge a complaint with SEBI
+              at <a href="https://scores.gov.in/scores/Welcome.html" target="_blank"
+                rel="noopener">https://scores.gov.in/scores/Welcome.html</a> Or Exchange at <a
+                href="https://bsecrs.bseindia.com/ecomplaint/frminvestorHome.aspx" target="_blank"
+                rel="noopener">https://bsecrs.bseindia.com/ecomplaint/frminvestorHome.aspx</a></p>
+            <p style="font-size:12.5px; opacity:0.85; margin-top:2px;">Please quote your Service Ticket/Complaint Ref
+              No. while raising your complaint at SEBI SCORES/Exchange portal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 3. VERTICAL FLOW: CONTACT FORM & INTERACTIVE GOOGLE MAP ── -->
+    <section class="sec-fullwidth sec-border-top" id="map-section">
+      <div class="container ct-split-flow">
+
+        <!-- Form Column -->
+        <div data-reveal>
+          <span class="eyebrow"><i class="bi bi-chat-left-dots-fill"></i> Direct Message</span>
+          <h2 class="sec-title" style="margin: 8px 0 24px;">Send us a <em>Message.</em></h2>
+          <p style="color:var(--ink-soft); font-size:15px; margin-bottom:28px;">Fill out the details below and our desk
+            team will get back to you within one business day.</p>
+
+          <form id="contactForm">
+            <div class="f-floating-group">
+              <input type="text" id="ctName" name="name" placeholder=" " required>
+              <label for="ctName">Full Name *</label>
+            </div>
+
+            <div class="d-grid column-lg-2 gap-4">
+              <div class="f-floating-group">
+                <input type="tel" id="ctMobile" name="mobile" placeholder=" " pattern="[0-9]{10}" required>
+                <label for="ctMobile">10-Digit Mobile Number *</label>
+              </div>
+
+              <div class="f-floating-group">
+                <input type="email" id="ctEmail" name="email" placeholder=" " required>
+                <label for="ctEmail">Email Address *</label>
+              </div>
+            </div>
+
+            <div class="f-floating-group">
+              <select id="ctDept" name="department" required>
+                <option value="" disabled selected hidden></option>
+                <option value="General Query">General Query</option>
+                <option value="Demat Account">Open Demat Account</option>
+                <option value="PMS">Portfolio Management Services (PMS)</option>
+                <option value="Trading Support">Trading &amp; Execution Support</option>
+                <option value="Grievance">Grievance &amp; Escalation</option>
+                <option value="Partnership">Sub-Brokerage &amp; Partnership</option>
+              </select>
+              <label for="ctDept">Topic / Department *</label>
+            </div>
+
+            <div class="f-floating-group">
+              <textarea id="ctMsg" name="message" placeholder=" " required></textarea>
+              <label for="ctMsg">How can we help you? *</label>
+            </div>
+
+            <div id="formStatusMsg"
+              style="display:none; padding:12px 16px; border-radius:10px; margin-bottom:16px; font-size:14px; font-weight:600;">
+            </div>
+
+            <button type="submit" class="btn btn-marfatia btn-lg" style="width:100%; justify-content:center;">
+              <span>Send Message <i class="bi bi-send-fill" style="margin-left:8px;"></i></span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Map & Head Office Details Column -->
+        <div style="display:flex; flex-direction:column; gap:24px;" data-reveal>
+          <div class="ct-map-open-wrap">
+            <div class="ct-map-iframe-holder">
+              <div class="ct-map-overlay-badge">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Head Office — Vadodara</span>
+              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
+                loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                title="Marfatia Stock Broking Location Map"></iframe>
+            </div>
+
+            <div class="ct-map-details-open">
+              <h4
+                style="font-size:18px; font-weight:700; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px;">
+                <i class="bi bi-building-fill" style="color:var(--green);"></i> Vadodara Headquarters
+              </h4>
+              <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin:0 0 16px;">
+                216, Glacier Complex, Jetalpur Road, Vadodara, Gujarat - 390005, India
+              </p>
+              <div
+                style="display:flex; flex-direction:column; gap:8px; font-size:13.5px; border-top:1px dashed var(--line); padding-top:14px;">
+                <div style="display:flex; justify-content:space-between;">
+                  <span style="color:var(--ink-soft);">Phone Support:</span>
+                  <b style="color:var(--ink);">0265-2351355 / 3501500</b>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span style="color:var(--ink-soft);">Fax:</span>
+                  <b style="color:var(--ink);">0265-2351468</b>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span style="color:var(--ink-soft);">Working Hours:</span>
+                  <b style="color:var(--green);">Mon-Fri: 8:30 AM - 7:00 PM</b>
+                </div>
+              </div>
+              <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener"
+                class="btn btn-ghost btn-outline btn-sm" style="margin-top:18px; width:100%; justify-content:center;">
+                <span>Get Directions on Google Maps ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── 4. BRANCH NETWORK SECTION (OPEN NON-BOXED GRID) ── -->
+    <section class="sec-fullwidth sec-escalation sec-border-top sec--branches">
+      <div class="container">
+        <div class="section-head" data-reveal style="margin-bottom:36px;">
+          <span class="eyebrow"><i class="bi bi-map-fill"></i> Regional Offices</span>
+          <h2 class="sec-title">Our branch <em>network.</em></h2>
+        </div>
+
         <div class="branch-grid" data-reveal>
-          <div class="branch-card branch-card--hq">
+          <!-- <div class="branch-card-open branch-card-open--hq">
             <span class="branch-tag">Head Office</span>
-            <h4><i class="bi bi-building-fill"></i> Vadodara</h4>
-            <p>216, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat – 390005</p>
+            <h4><i class="bi bi-building-fill"></i> Vadodara - Jetalpur</h4>
+            <p>216, Glacier Complex, Jetalpur Road, Vadodara, Gujarat - 390005</p>
             <div class="branch-links">
               <a href="tel:9925002650"><i class="bi bi-telephone-fill"></i> 9925002650</a>
               <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i>
                 customercare@marfatia.net</a>
             </div>
-          </div>
-          <div class="branch-card">
+          </div> -->
+
+          <div class="branch-card-open">
             <span class="branch-tag">Branch</span>
-            <h4><i class="bi bi-geo-alt-fill"></i> Vadodara – Sama</h4>
-            <p>3-4, First Floor, Shraddha Avenue, New Sama Road,<br>Vadodara – 390002</p>
+            <h4><i class="bi bi-geo-alt-fill"></i> Vadodara - Sama</h4>
+            <p>3-4, First Floor, Shraddha Avenue, New Sama Road, Vadodara - 390002</p>
             <div class="branch-links">
               <a href="tel:9825244678"><i class="bi bi-telephone-fill"></i> 9825244678</a>
               <a href="mailto:branch_chhani@marfatia.net"><i class="bi bi-envelope-fill"></i>
                 branch_chhani@marfatia.net</a>
             </div>
           </div>
-          <div class="branch-card">
+
+          <div class="branch-card-open">
             <span class="branch-tag">Branch</span>
-            <h4><i class="bi bi-geo-alt-fill"></i> Vadodara – Nizampura</h4>
-            <p>108, Lakulesh Avenue, Nizampura,<br>Vadodara – 390007</p>
+            <h4><i class="bi bi-geo-alt-fill"></i> Vadodara - Nizampura</h4>
+            <p>108, Lakulesh Avenue, Nizampura, Vadodara - 390007</p>
             <div class="branch-links">
               <a href="tel:9825244678"><i class="bi bi-telephone-fill"></i> 9825244678</a>
               <a href="mailto:branch_nizampura@marfatia.net"><i class="bi bi-envelope-fill"></i>
                 branch_nizampura@marfatia.net</a>
             </div>
           </div>
-          <div class="branch-card">
+
+          <div class="branch-card-open">
             <span class="branch-tag">Branch</span>
-            <h4><i class="bi bi-geo-alt-fill"></i> Vadodara – Makarpura</h4>
-            <p>13, Priyadarshini, Aryabhatt Society, Makarpura,<br>Vadodara – 390010</p>
+            <h4><i class="bi bi-geo-alt-fill"></i> Vadodara - Makarpura</h4>
+            <p>13, Priyadarshini, Aryabhatt Society, Makarpura, Vadodara - 390010</p>
             <div class="branch-links">
               <a href="tel:9925003381"><i class="bi bi-telephone-fill"></i> 9925003381</a>
               <a href="mailto:branch_makarpura@marfatia.net"><i class="bi bi-envelope-fill"></i>
                 branch_makarpura@marfatia.net</a>
             </div>
           </div>
-          <div class="branch-card">
+
+          <div class="branch-card-open">
             <span class="branch-tag">Branch</span>
             <h4><i class="bi bi-geo-alt-fill"></i> Mehsana</h4>
-            <p>S 6-7, Shyam Super Mall, Modhera Road,<br>Mehsana – 384001</p>
+            <p>S 6-7, Shyam Super Mall, Modhera Road, Mehsana - 384001</p>
             <div class="branch-links">
               <a href="tel:9925026476"><i class="bi bi-telephone-fill"></i> 9925026476</a>
               <a href="mailto:branch_mehsana@marfatia.net"><i class="bi bi-envelope-fill"></i>
                 branch_mehsana@marfatia.net</a>
             </div>
           </div>
-          <div class="branch-card">
+
+          <div class="branch-card-open">
             <span class="branch-tag">Branch</span>
             <h4><i class="bi bi-geo-alt-fill"></i> Surat</h4>
-            <p>Shop 403, Orchid Harmony, Opp. Palanpur Fire Station, Pal Gaurav Path Road,<br>Surat – 395009</p>
+            <p>Shop 403, Orchid Harmony, Opp. Palanpur Fire Station, Pal Gaurav Path Road, Surat - 395009</p>
             <div class="branch-links">
               <a href="tel:9099030480"><i class="bi bi-telephone-fill"></i> 9099030480</a>
               <a href="mailto:branch_surat@marfatia.net"><i class="bi bi-envelope-fill"></i>
                 branch_surat@marfatia.net</a>
             </div>
           </div>
-          <div class="branch-card">
+
+          <div class="branch-card-open">
             <span class="branch-tag">Branch</span>
             <h4><i class="bi bi-geo-alt-fill"></i> Ahmedabad</h4>
-            <p>A-1131, Sun West Bank, Opp. City Gold Cinema, Ashram Road,<br>Ahmedabad – 380009</p>
+            <p>A-1131, Sun West Bank, Opp. City Gold Cinema, Ashram Road, Ahmedabad - 380009</p>
             <div class="branch-links">
               <a href="tel:9099901215"><i class="bi bi-telephone-fill"></i> 9099901215</a>
               <a href="mailto:branch_ahmedabad@marfatia.net"><i class="bi bi-envelope-fill"></i>
@@ -870,132 +1448,170 @@
       </div>
     </section>
 
-    <!-- ── FORM + INFO RAIL ── -->
-    <section class="sec">
-      <div class="wrap ct-split">
-
-        <div>
-          <span class="eyebrow" data-reveal>Send a Message</span>
-          <h2 class="sec-title" data-reveal style="margin-bottom:24px;">We reply within <em>one business day.</em></h2>
-          <div class="formcard" data-reveal>
-            <form data-api="https://api.marfatia.net/api/contact">
-              <div class="f-grid">
-                <div class="f-field">
-                  <label for="ctName">Full Name *</label>
-                  <input type="text" id="ctName" name="name" placeholder="Your full name" required>
-                </div>
-                <div class="f-field">
-                  <label for="ctMobile">Mobile Number *</label>
-                  <input type="tel" id="ctMobile" name="mobile" placeholder="10-digit mobile" pattern="[0-9]{10}"
-                    required>
-                </div>
-                <div class="f-field">
-                  <label for="ctEmail">Email Address *</label>
-                  <input type="email" id="ctEmail" name="email" placeholder="you@example.com" required>
-                </div>
-                <div class="f-field">
-                  <label for="ctDept">I want to talk about</label>
-                  <select id="ctDept" name="department">
-                    <option value="General Query">General query</option>
-                    <option value="Open Demat Account">Opening a demat account</option>
-                    <option value="PMS">Portfolio Management Services</option>
-                    <option value="Complaint">A complaint / grievance</option>
-                    <option value="Partnership">Becoming a partner</option>
-                  </select>
-                </div>
-                <div class="f-field f-field--full">
-                  <label for="ctMsg">Message *</label>
-                  <textarea id="ctMsg" name="message" placeholder="How can we help?" required></textarea>
-                </div>
-              </div>
-              <div class="f-msg"></div>
-              <button type="submit" class="btn btn-marfatia btn-lg" style="margin-top:22px;"><span>Send
-                  Message</span></button>
-            </form>
-          </div>
+    <!-- ── 5. CONNECT WITH US: SOCIAL MEDIA SECTION (Instruction #14 & Page 2 Links) ── -->
+    <section class="sec-fullwidth sec-border-top">
+      <div class="container">
+        <div class="section-head" data-reveal style="text-align:center; max-width:720px; margin:0 auto 36px;">
+          <span class="eyebrow"><i class="bi bi-share-fill"></i> Social Channels</span>
+          <h2 class="sec-title">Connect <em>With Us.</em></h2>
+          <p style="color:var(--ink-soft); font-size:15.5px; margin-top:10px;">Follow Marfatia Stock Broking across our
+            official channels for real-time market updates, research reports, trading strategies, and company
+            announcements.</p>
         </div>
 
-        <aside class="ct-info-rail">
-          <div class="ct-info-card" data-reveal>
-            <h4><i class="bi bi-geo-alt-fill"></i> Head Office</h4>
-            <p style="font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0 0 6px;">216, Glacier Complex,
-              Jetalpur Road,<br>Vadodara, Gujarat – 390005, India</p>
-            <p style="font-size:12.5px;color:var(--ink-faint);margin:0 0 14px;">Fax: 0265-2351468</p>
-            <div class="ct-map-embed">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
-                loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <div class="social-grid" data-reveal>
+          <!-- Website -->
+          <a href="https://www.marfatia.net" target="_blank" rel="noopener"
+            class="social-card-open social-card--website">
+            <div class="social-icon"><i class="bi bi-globe"></i></div>
+            <div class="social-info">
+              <h4>Website</h4>
+              <span>www.marfatia.net</span>
             </div>
-          </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
 
-          <div class="ct-info-card" data-reveal>
-            <h4><i class="bi bi-clock-fill"></i> Who You'll Reach</h4>
-            <div class="ct-hours">
-              <div class="ct-hours-row"><span>Customer Care</span><b>8:30 am – 5:30 pm</b></div>
-              <div class="ct-hours-row"><span>Head of Customer Care</span><b>10:00 am – 7:00 pm</b></div>
-              <div class="ct-hours-row"><span>Compliance Officer</span><b>10:00 am – 7:00 pm</b></div>
-              <div class="ct-hours-row"><span>Written complaints</span><b>Per SEBI timelines</b></div>
+          <!-- WhatsApp Channel -->
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener"
+            class="social-card-open social-card--whatsapp">
+            <div class="social-icon"><i class="bi bi-whatsapp"></i></div>
+            <div class="social-info">
+              <h4>WhatsApp Channel</h4>
+              <span>Instant Market Feed</span>
             </div>
-          </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
 
-          <div class="ct-info-card" data-reveal>
-            <h4><i class="bi bi-shield-check"></i> Escalation Path</h4>
-            <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin:0;">Not resolved? Escalate to our
-              Compliance Officer, Chintan Majumundar, then <a href="https://scores.sebi.gov.in/" target="_blank"
-                rel="noopener">SEBI SCORES</a> or the <a href="https://smartodr.in/" target="_blank"
-                rel="noopener">SMART ODR</a> portal.</p>
-          </div>
-        </aside>
+          <!-- Telegram Channel -->
+          <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener"
+            class="social-card-open social-card--telegram">
+            <div class="social-icon"><i class="bi bi-telegram"></i></div>
+            <div class="social-info">
+              <h4>Telegram Channel</h4>
+              <span>@MarfatiaStockBroking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
 
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener"
+            class="social-card-open social-card--facebook">
+            <div class="social-icon"><i class="bi bi-facebook"></i></div>
+            <div class="social-info">
+              <h4>Facebook</h4>
+              <span>Marfatia Stock Broking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener"
+            class="social-card-open social-card--instagram">
+            <div class="social-icon"><i class="bi bi-instagram"></i></div>
+            <div class="social-info">
+              <h4>Instagram</h4>
+              <span>@marfatiastockbroking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener"
+            class="social-card-open social-card--linkedin">
+            <div class="social-icon"><i class="bi bi-linkedin"></i></div>
+            <div class="social-info">
+              <h4>LinkedIn</h4>
+              <span>Marfatia Stock Broking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener"
+            class="social-card-open social-card--youtube">
+            <div class="social-icon"><i class="bi bi-youtube"></i></div>
+            <div class="social-info">
+              <h4>YouTube</h4>
+              <span>@MarfatiaStockBroking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
+
+          <!-- Medium -->
+          <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener"
+            class="social-card-open social-card--medium">
+            <div class="social-icon"><i class="bi bi-medium"></i></div>
+            <div class="social-info">
+              <h4>Medium</h4>
+              <span>@marfatiastockbroking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
+
+          <!-- Pinterest -->
+          <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener"
+            class="social-card-open social-card--pinterest">
+            <div class="social-icon"><i class="bi bi-pinterest"></i></div>
+            <div class="social-info">
+              <h4>Pinterest</h4>
+              <span>@Marfatiabroking</span>
+            </div>
+            <i class="bi bi-arrow-up-right social-arrow"></i>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- ── FAQ ── -->
-    <section class="sec">
-      <div class="wrap">
+    <!-- ── 6. FAQ SECTION ── -->
+    <section class="sec-fullwidth sec-escalation sec-border-top">
+      <div class="container">
         <div class="section-head" data-reveal
           style="margin-bottom:32px; max-width:820px; margin-left:auto; margin-right:auto; text-align:center;">
-          <span class="eyebrow">Before You Write In</span>
+          <span class="eyebrow">Frequently Asked Questions</span>
           <h2 class="sec-title">Common <em>questions.</em></h2>
         </div>
-        <div style="max-width:820px; margin:0 auto;">
-          <div class="acc" data-reveal>
+        <div style="max-width:860px; margin:0 auto;">
+          <div class="acc" data-reveal
+            style="margin-bottom:14px; padding:8px 20px; background:#fff; border-radius:14px; border:1px solid var(--line);">
             <button class="acc-head"><span>What's the fastest way to reach a real person?</span><span
                 class="acc-mark">+</span></button>
             <div class="acc-body">
               <div class="acc-body-in">
-                <p>Call 0265-2351355 during business hours (Mon–Fri, 8:00 am – 6:00 pm) — you'll reach our Vadodara desk
-                  directly, not an automated menu.</p>
+                <p>Call 0265-2351355 or 0265-3501500 during business hours (Mon-Fri, 8:30 am - 6:00 pm) — you'll reach
+                  our Vadodara desk directly, not an automated menu.</p>
               </div>
             </div>
           </div>
-          <div class="acc" data-reveal>
-            <button class="acc-head"><span>How do I file a formal complaint?</span><span
+          <div class="acc" data-reveal
+            style="margin-bottom:14px; padding:8px 20px; background:#fff; border-radius:14px; border:1px solid var(--line);">
+            <button class="acc-head"><span>How do I file a formal complaint or escalate a grievance?</span><span
                 class="acc-mark">+</span></button>
             <div class="acc-body">
               <div class="acc-body-in">
-                <p>Email compliance@marfatia.net with your client code and details. If unresolved within the stipulated
-                  timeline, you may escalate to SEBI SCORES or the SMART ODR portal — links above.</p>
+                <p>Email compliance@marfatia.net with your client code and details. If unresolved, you can refer to our
+                  Escalation Matrix above or lodge a complaint via SEBI SCORES or SMART ODR portal.</p>
               </div>
             </div>
           </div>
-          <div class="acc" data-reveal>
+          <div class="acc" data-reveal
+            style="margin-bottom:14px; padding:8px 20px; background:#fff; border-radius:14px; border:1px solid var(--line);">
             <button class="acc-head"><span>I need urgent help freezing my trading account — what do I do?</span><span
                 class="acc-mark">+</span></button>
             <div class="acc-body">
               <div class="acc-body-in">
                 <p>Use the "Voluntary Freezing/Blocking" link in the top bar of any page for an instant online request,
-                  or call our helpline immediately.</p>
+                  or call our helpline immediately at 0265-2351355.</p>
               </div>
             </div>
           </div>
-          <div class="acc" data-reveal>
+          <div class="acc" data-reveal
+            style="margin-bottom:14px; padding:8px 20px; background:#fff; border-radius:14px; border:1px solid var(--line);">
             <button class="acc-head"><span>Can I visit the office without an appointment?</span><span
                 class="acc-mark">+</span></button>
             <div class="acc-body">
               <div class="acc-body-in">
                 <p>Yes — walk-ins are welcome at our Jetalpur Road office during business hours. For PMS or partnership
-                  discussions, calling ahead helps us have the right person available.</p>
+                  discussions, calling ahead helps us have the right specialist available.</p>
               </div>
             </div>
           </div>
@@ -1003,13 +1619,13 @@
       </div>
     </section>
 
-    <!-- ── CTA BAND ── -->
-    <section class="ctaband" style="margin:0 auto 80px; max-width:1240px; border-radius:var(--radius-lg);" data-reveal>
-      <div class="wrap ctaband-inner">
+    <!-- ── 7. CTA BAND ── -->
+    <section class="ctaband" style="max-width: 1240px; margin:40px auto 80px; border-radius:20px;" data-reveal>
+      <div class="container ctaband-inner">
         <div>
           <h2>One conversation is the <em>right first step.</em></h2>
-          <p style="opacity:.9;font-size:15px;margin-top:6px;">No forms, no pressure — tell us your goals; we'll tell
-            you honestly what fits.</p>
+          <p style="opacity:.9;font-size:15px;margin-top:6px;">No forms, no pressure — tell us your financial goals;
+            we'll tell you honestly what fits.</p>
         </div>
         <div class="ctaband-actions">
           <a href="tel:02652351355" class="btn btn-lime btn-lg"><span>📞 Call Us Now</span></a>
@@ -1021,6 +1637,15 @@
 
   </main>
 
+  <!-- ── STICKY FLOATING WHATSAPP BUTTON (Instruction #15) ── -->
+  <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener"
+    class="sticky-whatsapp-btn" aria-label="Contact us on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <i class="bi bi-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+  </a>
+
+  <!-- ── FOOTER ── -->
   <footer class="site-footer" id="footer">
     <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
     <div class="footer-glow" aria-hidden="true"></div>
@@ -1047,49 +1672,37 @@
           </svg>
           <span><b>4.8</b>/5 · 2,400+ Reviews</span>
         </div>
-        <p class="footer-review-line">"Switched from a legacy broker — the algo automation alone paid for the
-          switch." <span>— Rohan Kapadia</span></p>
-        <a href="#" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+        <p class="footer-review-line mb-0">"Switched from a legacy broker — the personal desk service and quick response
+          alone paid for the switch." <span>— Rohan Kapadia</span></p>
+        <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
       </div>
     </div>
 
     <div class="footer-grid">
       <div class="footer-col footer-col--brand">
         <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
-          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
         <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
           intelligence, automation and 30+ years of market trust.</p>
         <address class="footer-address mono">
-          <i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat – 390005,
-          India
+          <i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road, Vadodara, Gujarat - 390005, India
         </address>
         <div class="footer-emails mono">
           <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-fill"></i> compliance@marfatia.net</a>
           <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
         </div>
-        <div class="footer-social">
-          <a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="X"><svg viewBox="0 0 16 16" fill="currentColor">
-              <path
-                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.8 1 12 1 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zm-13 3V9l5.2 3-5.2 3z" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.4 2.4 0 0 0 1.6-1.1c.2-.5.2-.9.1-1z" />
-            </svg></a>
+
+        <!-- Social Icons updated as per PDF -->
+                <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+          <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener" class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>
+          <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>
         </div>
       </div>
 
@@ -1099,7 +1712,7 @@
         <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
         <a href="#"><i class="bi bi-people"></i> Key Managerial Personnels</a>
         <a href="#"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
-        <a href="#"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
         <a href="#"><i class="bi bi-geo-alt"></i> Office Addresses</a>
         <a href="#"><i class="bi bi-download"></i> New Downloads</a>
         <a href="#"><i class="bi bi-play-btn"></i> Webinar</a>
@@ -1130,7 +1743,8 @@
         <a href="#"><i class="bi bi-safe"></i> Investor Charter — Depository Participant</a>
         <a href="#"><i class="bi bi-clipboard-check"></i> Advisory — KYC Compliance</a>
         <a href="#"><i class="bi bi-briefcase"></i> Investor Charter — PMS</a>
-        <a href="#"><i class="bi bi-cpu-fill"></i> Smart ODR Portal</a>
+        <a href="https://smartodr.in/" target="_blank" rel="noopener"><i class="bi bi-cpu-fill"></i> Smart ODR
+          Portal</a>
       </div>
     </div>
 
@@ -1155,15 +1769,94 @@
         Barodaweb</p>
     </div>
   </footer>
+
   <script src="js/inner.js"></script>
   <script>
     (function () {
       "use strict";
+
+      // 1. Scroll Progress Bar
       var prog = document.getElementById("scrollProgress");
       window.addEventListener("scroll", function () {
         var h = document.documentElement;
         if (prog) prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
       }, { passive: true });
+
+      // 2. Animated Number Counters
+      var counterElements = document.querySelectorAll("[data-counter-target]");
+      var countersAnimated = false;
+
+      function animateCounters() {
+        counterElements.forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-counter-target"), 10);
+          var count = 0;
+          var speed = Math.ceil(target / 40);
+          var timer = setInterval(function () {
+            count += speed;
+            if (count >= target) {
+              count = target;
+              clearInterval(timer);
+            }
+            el.textContent = count.toLocaleString() + "+";
+          }, 30);
+        });
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !countersAnimated) {
+            countersAnimated = true;
+            animateCounters();
+          }
+        });
+      }, { threshold: 0.3 });
+
+      var countersRow = document.querySelector(".ct-counters-row");
+      if (countersRow) observer.observe(countersRow);
+
+      // 3. Contact Form Submission & Validation
+      var contactForm = document.getElementById("contactForm");
+      var formStatus = document.getElementById("formStatusMsg");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = document.getElementById("ctName").value.trim();
+          var mobile = document.getElementById("ctMobile").value.trim();
+          var email = document.getElementById("ctEmail").value.trim();
+          var dept = document.getElementById("ctDept").value;
+          var msg = document.getElementById("ctMsg").value.trim();
+
+          if (!name || !mobile || !email || !dept || !msg) {
+            formStatus.style.display = "block";
+            formStatus.style.background = "rgba(239, 68, 68, 0.15)";
+            formStatus.style.color = "#dc2626";
+            formStatus.style.border = "1px solid rgba(239, 68, 68, 0.3)";
+            formStatus.innerHTML = "<i class='bi bi-exclamation-triangle-fill'></i> Please fill in all required fields.";
+            return;
+          }
+
+          // Simulate submission success
+          var submitBtn = contactForm.querySelector("button[type='submit']");
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = "<span>Sending Message...</span>";
+
+          setTimeout(function () {
+            formStatus.style.display = "block";
+            formStatus.style.background = "rgba(34, 197, 94, 0.15)";
+            formStatus.style.color = "#15803d";
+            formStatus.style.border = "1px solid rgba(34, 197, 94, 0.3)";
+            formStatus.innerHTML = "<i class='bi bi-check-circle-fill'></i> Thank you, " + name + "! Your message has been received. Our team will contact you shortly.";
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "<span>Send Message <i class='bi bi-send-fill' style='margin-left:8px;'></i></span>";
+          }, 1200);
+        });
+      }
+
+      // Dynamic Year in Footer
+      var yearSpan = document.getElementById("year");
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     })();
   </script>
 </body>

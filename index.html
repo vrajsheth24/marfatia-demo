@@ -20,15 +20,11 @@
   <link rel="icon" href="content/fav.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -215,7 +211,7 @@
 
         <div class="strip-right">
           <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
-            
+
             <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="4"></circle>
@@ -223,7 +219,7 @@
                 d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
               </path>
             </svg>
-            
+
             <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
@@ -390,76 +386,6 @@
         <div class="hero-scroll-cue"><span></span> Scroll to explore</div>
       </section>
 
-      <!-- ============================================================
-     SEC-03 — CREDENTIALS: THE STAMP LINE
-     ============================================================ -->
-      <!-- <section class="stampline" id="stampline">
-      <div class="stamp" data-stamp>
-        <svg viewBox="0 0 100 100" class="stamp-ring">
-          <circle cx="50" cy="50" r="44" /><text x="50" y="46" text-anchor="middle">SEBI</text><text x="50" y="60"
-            text-anchor="middle" class="stamp-sm">REGISTERED</text>
-        </svg>
-        <span class="stamp-caption mono">SEBI Registered Broker</span>
-      </div>
-      <div class="stamp" data-stamp>
-        <svg viewBox="0 0 100 100" class="stamp-ring">
-          <circle cx="50" cy="50" r="44" /><text x="50" y="46" text-anchor="middle">NSE</text><text x="50" y="60"
-            text-anchor="middle" class="stamp-sm">MEMBER</text>
-        </svg>
-        <span class="stamp-caption mono">NSE · BSE · MCX</span>
-      </div>
-      <div class="stamp" data-stamp>
-        <svg viewBox="0 0 100 100" class="stamp-ring">
-          <circle cx="50" cy="50" r="44" /><text x="50" y="46" text-anchor="middle">1992</text><text x="50" y="60"
-            text-anchor="middle" class="stamp-sm">FOUNDED</text>
-        </svg>
-        <span class="stamp-caption mono">33 Years in Markets</span>
-      </div>
-      <div class="stamp" data-stamp>
-        <svg viewBox="0 0 100 100" class="stamp-ring">
-          <circle cx="50" cy="50" r="44" /><text x="50" y="46" text-anchor="middle">61K+</text><text x="50" y="60"
-            text-anchor="middle" class="stamp-sm">CLIENTS</text>
-        </svg>
-        <span class="stamp-caption mono">Active Investor Base</span>
-      </div>
-      <div class="stamp" data-stamp>
-        <svg viewBox="0 0 100 100" class="stamp-ring">
-          <circle cx="50" cy="50" r="44" /><text x="50" y="46" text-anchor="middle">₹301Cr</text><text x="50" y="60"
-            text-anchor="middle" class="stamp-sm">DAILY VOL</text>
-        </svg>
-        <span class="stamp-caption mono">Avg. Daily Turnover</span>
-      </div>
-    </section> -->
-
-      <!-- ============================================================
-     SEC-04 + SEC-05 — DASHBOARD: THE FLOOR WALL + AI MARGIN NOTE
-     ============================================================ -->
-      <!-- <section class="floorwall-section" id="dashboard">
-  <div class="section-head section-head--left">
-    <span class="eyebrow">Live Now</span>
-    <h2 class="sec-title">The market, <em>rendered live.</em></h2>
-  </div>
-
-  <div class="floorwall-wrap">
-    <div class="floorwall" id="floorWall"></div>
-
-    <aside class="margin-rail" id="marginRail">
-      <div class="margin-head mono">MARFATIA AI <span class="dot dot--live"></span></div>
-      <div class="margin-notes" id="marginNotes"></div>
-      <button class="margin-expand" id="marginExpand">Ask about this →</button>
-
-      <div class="margin-chat" id="marginChat">
-        <div class="ai-bubble ai-bubble--bot">I track 4,200+ instruments in real time. What would you like to know?</div>
-        <div class="ai-suggestions">
-          <button class="ai-chip" data-reply="RELIANCE is trading with strong momentum — RSI 61, above 20-day EMA.">How is RELIANCE performing?</button>
-          <button class="ai-chip" data-reply="IT and Banking show relative strength this week; Metals are consolidating.">Which sectors are trending?</button>
-          <button class="ai-chip" data-reply="Retail Algo Trading is free — automated, rule-based execution, 24/5.">What is Retail Algo Trading?</button>
-        </div>
-        <div class="ai-chat" id="aiChat"></div>
-      </div>
-    </aside>
-  </div>
-</section> -->
       <section class="prod-account" id="trading-account">
         <div class="container">
           <div class="chapter-num chapter-num--left" aria-hidden="true">01</div>
@@ -479,12 +405,13 @@
             </svg>
           </div>
           <div>
-            <span class="eyebrow">Trading &amp; Demat</span>
-            <h2 class="sec-title">One account. <em>Every market.</em></h2>
-            <p class="sec-sub">A single Trading &amp; Demat account for equity, F&amp;O, currency and commodity — opened
-              online in minutes, no paperwork.</p>
+            <span class="eyebrow">INVEST & TRADE</span>
+            <h2 class="sec-title">One account. <em>Every Opportunity.</em></h2>
+            <p class="sec-sub">Open a Trading & Demat Account with Marfatia Stock Broking Private Limited to access
+              Equity, Derivatives, Currency, Commodity and other investment solutions through a secure and seamless
+              digital experience.</p>
           </div>
-          <div class="d-grid gap-5 gap-lg-0 pt-3 acct-grid">
+          <div class="d-grid gap-3 gap-lg-5 pt-3 acct-grid">
             <div class="prod-account-text">
               <div class="acct-features-grid">
                 <div class="acct-feat-card">
@@ -492,8 +419,8 @@
                     <i class="bi bi-lightning-charge-fill"></i>
                   </div>
                   <div class="acct-feat-info">
-                    <h4>10-Min Onboarding</h4>
-                    <p>100% digital e-KYC using Aadhaar & DigiLocker integration.</p>
+                    <h4>Simple Digital Account Opening</h4>
+                    <p>Complete your account opening process online with a smooth and guided onboarding experience.</p>
                   </div>
                 </div>
                 <div class="acct-feat-card">
@@ -501,8 +428,9 @@
                     <i class="bi bi-currency-rupee"></i>
                   </div>
                   <div class="acct-feat-info">
-                    <h4>Transparent Pricing</h4>
-                    <p>Flat ₹20/order for Intraday & F&O, zero brokerage on Equity delivery.</p>
+                    <h4>Transparent Brokerage</h4>
+                    <p>Competitive brokerage plans with clear pricing designed to support different trading and
+                      investing needs.</p>
                   </div>
                 </div>
                 <div class="acct-feat-card">
@@ -510,8 +438,9 @@
                     <i class="bi bi-shield-lock-fill"></i>
                   </div>
                   <div class="acct-feat-info">
-                    <h4>Maximum Security</h4>
-                    <p>State-of-the-art encryption protecting your ledger, holdings, and payouts.</p>
+                    <h4>Secure Investment Experience</h4>
+                    <p>Robust technology, secure authentication and reliable infrastructure to help safeguard your
+                      account.</p>
                   </div>
                 </div>
                 <div class="acct-feat-card">
@@ -519,8 +448,9 @@
                     <i class="bi bi-arrow-repeat"></i>
                   </div>
                   <div class="acct-feat-info">
-                    <h4>Unified Ledger</h4>
-                    <p>One margin for Equity, Derivatives, Commodity, and Currency trading.</p>
+                    <h4>Multiple Market Access</h4>
+                    <p>Access Equity, Derivatives, Currency and Commodity segments through a single integrated account.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -528,7 +458,7 @@
             <div class="prod-account-visual tilt-card">
               <div class="acct-card-top mono">
                 <span class="acct-chip" aria-hidden="true"></span>
-                <span class="acct-id">CLIENT ID ···· 4207</span>
+                <span class="acct-id">CLIENT ID ···· XXXX</span>
                 <span class="acct-live"><span class="dot dot--live"></span>ACTIVE</span>
               </div>
               <div class="acct-icon"><svg viewBox="0 0 48 48" fill="none">
@@ -538,193 +468,21 @@
                   <path d="M22 27h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                 </svg></div>
               <div class="acct-checklist">
-                <div class="acct-row"><span class="acct-check">✓</span>Equity &amp; Derivatives segment</div>
-                <div class="acct-row"><span class="acct-check">✓</span>Currency &amp; Commodity segment</div>
-                <div class="acct-row"><span class="acct-check">✓</span>Free Retail Algo Trading included</div>
-                <div class="acct-row"><span class="acct-check">✓</span>Paperless e-KYC, ready in 10 minutes</div>
+                <div class="acct-row"><span class="acct-check">✓</span>Equity Trading</div>
+                <div class="acct-row"><span class="acct-check">✓</span>Equity Derivatives</div>
+                <div class="acct-row"><span class="acct-check">✓</span>Currency Derivatives</div>
+                <div class="acct-row"><span class="acct-check">✓</span>Commodity Derivatives</div>
+                <div class="acct-row"><span class="acct-check">✓</span>Depository (CDSL) Services</div>
+                <div class="acct-row"><span class="acct-check">✓</span>Margin Trading Facility (MTF)*</div>
               </div>
+              <div class="acct-disclaimer"><small>Available subject to eligibility and applicable terms &
+                  conditions.</small></div>
             </div>
           </div>
         </div>
 
       </section>
 
-      <!-- ============================================================
-     SEC-06 — PRODUCTS: OUR PRODUCTS GRID (merged from marfatia-1)
-     ============================================================ -->
-      <!-- <section class="prodgrid-section" id="products">
-      <div class="bg-word" aria-hidden="true">PRODUCTS</div>
-      <div class="section-head">
-        <span class="eyebrow">Our Products</span>
-        <h2 class="sec-title">Engineered for <em>modern traders.</em></h2>
-        <p class="sec-sub">Seven purpose-built tools — automated execution, leveraged access, and research — designed around how modern traders actually work.</p>
-      </div>
-
-      <div class="prodgrid">
-        <a href="#" class="product-card product-card--hero">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <rect x="8" y="8" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2" />
-                <rect x="13" y="13" width="6" height="6" stroke="currentColor" stroke-width="2" />
-                <path d="M12 3v5M20 3v5M12 24v5M20 24v5M3 12h5M3 20h5M24 12h5M24 20h5" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" />
-              </svg></div>
-            <span class="badge badge--free">FREE INTEGRATION</span>
-          </div>
-          <div class="product-card-body">
-            <h3>Algo Trading</h3>
-            <p>Automate your trading strategies with rule-based execution, real-time market monitoring, and faster order placement—without manual intervention.</p>
-          </div>
-          <div class="product-card-footer">
-            <span class="p-link">View More →</span>
-          </div>
-        </a>
-
-        <div class="product-card product-card--accent">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <path d="M6 24 L14 16 L19 21 L26 8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <path d="M20 8h6v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg></div>
-            <span class="badge badge--leverage">4X LEVERAGE</span>
-          </div>
-          <div class="product-card-body">
-            <h3>Equity derivatives trading</h3>
-            <p>Trade futures and options with advanced charting, live market data, risk management tools, and seamless execution across multiple exchanges.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">View More →</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <path d="M16 4c4 3 6 8 5 14l-5 4-5-4c-1-6 1-11 5-14z" stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-                <circle cx="16" cy="12" r="2" fill="currentColor" />
-                <path d="M11 18l-4 6M21 18l4 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>PMS</h3>
-           <p>Grow your wealth with professionally managed portfolios tailored to your investment objectives, risk profile, and long-term financial goals.</p>
-          </div>
-         <div class="product-card-footer">
-            <a href="#" class="p-link">View More →</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <path d="M3 16h5l3-7 5 14 3-7h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>MTF</h3>
-            <p>Increase your buying power with Margin Trading Facility, allowing you to purchase eligible stocks by paying only a fraction of their value.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">View More →</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <ellipse cx="16" cy="8" rx="9" ry="4" stroke="currentColor" stroke-width="2" />
-                <path d="M7 8v8c0 2.2 4 4 9 4s9-1.8 9-4V8" stroke="currentColor" stroke-width="2" />
-                <path d="M7 16v8c0 2.2 4 4 9 4s9-1.8 9-4v-8" stroke="currentColor" stroke-width="2" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>SLBM</h3>
-            <p>Earn additional income by lending your idle securities or borrow stocks efficiently for short-selling and settlement requirements.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">View More →</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="2" />
-                <path d="M16 5 A11 11 0 0 1 27 16 L16 16 Z" fill="currentColor" opacity=".18" />
-                <path d="M16 16 L16 5" stroke="currentColor" stroke-width="2" />
-                <path d="M16 16 L27 16" stroke="currentColor" stroke-width="2" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>Mutual Fund</h3>
-            <p>Invest in a wide range of mutual fund schemes with paperless transactions, expert research, and systematic investment options.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">View More →</a>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <path d="M8 12h16l3 6-11 8-11-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                <path d="M8 12l6 6h4l6-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>IPO</h3>
-           <p>Apply for upcoming IPOs online through a simple and secure platform with UPI support, real-time application tracking, and instant confirmations.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">View More →</a>
-          </div>
-        </div>
-
-
-        comment below two tabs
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="2" />
-                <path d="M5 16h22M16 5c3.5 3.5 3.5 18.5 0 22M16 5c-3.5 3.5-3.5 18.5 0 22" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>Currency Futures</h3>
-            <p>Access USD-INR, EUR-INR trading pairs with razor-thin execution spreads and flexible margin
-              requirements.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">Currency Spreads →</a>
-            <span class="p-spec mono">USD/INR LIVE</span>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-card-top">
-            <div class="p-icon"><svg viewBox="0 0 32 32" fill="none">
-                <circle cx="16" cy="12" r="7" stroke="currentColor" stroke-width="2" />
-                <path d="M11.5 17.5 9 27l7-4 7 4-2.5-9.5" stroke="currentColor" stroke-width="2"
-                  stroke-linejoin="round" />
-              </svg></div>
-          </div>
-          <div class="product-card-body">
-            <h3>Corporate Desk</h3>
-            <p>Access customized treasury hedging solutions, block trading corridors, and private wealth management
-              accounts.</p>
-          </div>
-          <div class="product-card-footer">
-            <a href="#" class="p-link">Corporate Support →</a>
-            <span class="p-spec mono">TREASURY HELP</span>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
       <!-- ============================================================
      SEC-07 — OUR PRODUCTS CAROUSEL — 7 slides, each with subfeature tabs
@@ -1640,22 +1398,21 @@
           <div class="unfold-pin" id="unfoldPin">
             <div class="unfold-text">
               <span class="eyebrow">Mobile Trading</span>
-              <h2 class="sec-title">Your market, <em>in your pocket.</em></h2>
-              <p>Real-time charts, one-tap orders and live notifications — engineered for speed on any screen.</p>
+              <h2 class="sec-title">Trade Smarter, <em>Anywhere. Anytime.</em></h2>
+              <p>Stay connected to the markets with the Marfatia mobile trading app. Track markets, manage your
+                portfolio, place orders and monitor your investments through a secure and intuitive experience.</p>
               <ul class="app-feats">
-                <li>Live streaming quotes with advanced multi-chart layouts</li>
-                <li>One-tap orders, GTT &amp; instant trade confirmations</li>
-                <!-- <li>Track your algo strategies and P&amp;L on the go</li>
-              <li>Biometric login with instant fund transfer via UPI</li> -->
+                <li>Monitor live market movements and personalized watchlists</li>
+                <li>Place, modify and track orders with a seamless trading experience</li>
               </ul>
               <div class="app-stats">
-                <div><span id="appDownloads">0</span><small>Downloads</small></div>
-                <div><span>4.7</span><small>App Rating</small></div>
-                <div><span>99.9%</span><small>Uptime</small></div>
+                <div><span>20+ Years</span><small>Industry Experience</small></div>
+                <div><span>Multi-Segment</span><small>Market Access</small></div>
+                <div><span>Secure</span><small>Trading Platform</small></div>
               </div>
               <div class="app-buttons">
-                <a href="#" class="btn btn-outline magnetic"><span>Get it on Play Store</span></a>
-                <a href="#" class="btn btn-outline magnetic"><span>Download on App Store</span></a>
+                <a href="#" class="btn btn-outline magnetic"><span>Download on Google Play</span></a>
+                <a href="#" class="btn btn-outline magnetic"><span>Download on the App Store</span></a>
               </div>
             </div>
             <div class="unfold-stage" id="unfoldStage">
@@ -1668,10 +1425,12 @@
                     <polyline
                       points="0,60 20,55 40,58 60,42 80,45 100,28 120,32 140,18 160,20 180,8 200,14 220,6 240,10 260,2" />
                   </svg>
-                  <div class="phone-notif"><span class="pn-icon">₹</span>
-                    <div><b>Order Filled</b><small>RELIANCE · 50 qty @ ₹2,940</small></div>
+                  <div class="phone-notif"><span class="pn-icon"><i class="bi bi-pie-chart-fill"></i></span>
+                    <div><b>Portfolio Updated</b><small>Your investments are synced with the latest market activity.</small></div>
                   </div>
                   <div class="phone-holdings">
+                    <div class="ph-title">Watchlist</div>
+                    <div class="ph-row"><span>RELIANCE</span><b class="up">+1.8%</b></div>
                     <div class="ph-row"><span>TCS</span><b class="up">+2.1%</b></div>
                     <div class="ph-row"><span>INFY</span><b class="up">+1.4%</b></div>
                     <div class="ph-row"><span>HDFCBANK</span><b class="down">-0.3%</b></div>
@@ -1686,20 +1445,17 @@
 
 
       <!-- ============================================================
-     SEC-07b — EXPERIENCE SUITE: DYNAMIC OPERATIONS HUB (merged from marfatia-1)
+     SEC-07b — EXPERIENCE SUITE: DYNAMIC OPERATIONS HUB
      ============================================================ -->
       <section class="suite-section" id="suite">
-        <div class="bg-word" aria-hidden="true">EXPERIENCE</div>
+        <div class="bg-word" aria-hidden="true">INVESTING</div>
         <div class="section-head">
-          <span class="eyebrow">Experience Suite</span>
-          <h2 class="sec-title">Dynamic operations <em>hub.</em></h2>
-          <p class="sec-sub">Interactive tool environments demonstrating how Marfatia rethinks traditional portfolio
-            execution mechanisms.</p>
+          <span class="eyebrow">SMART INVESTING SOLUTIONS</span>
+          <h2 class="sec-title">Power your investments <em>with confidence.</em></h2>
+          <p class="sec-sub">Explore value-added investment solutions designed to provide greater flexibility, efficient capital utilization and seamless access across multiple market segments.</p>
         </div>
 
         <div class="xsuite-stack" id="xsuite">
-
-          <!-- Card 01: MTF -->
           <div class="xsc-card" data-card="0" style="--index:1; --accent:#08753b; --accent2:#12b85a;">
             <div class="xsc-bg-art">
               <svg class="xsc-art-svg" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice">
@@ -1719,31 +1475,52 @@
             </div>
             <div class="xsc-inner">
               <div class="xsc-left">
-                <span class="xsc-tag">Margin Funding</span>
-                <h3 class="xsc-title">Trade bigger.<br><em>Risk smarter.</em></h3>
-                <p class="xsc-desc">Unlock up to 4× your capital through MTF — Marfatia's proprietary margin funding
-                  system. Hold quality positions for the long term without liquidating your portfolio.</p>
-                <!-- <ul class="xsc-features">
-                <li><span class="feat-icon">⚡</span><span>Intraday + overnight positions</span></li>
-                <li><span class="feat-icon">🔒</span><span>Collateral-backed funding — no surprises</span></li>
-                <li><span class="feat-icon">📈</span><span>Maximize return on invested capital</span></li>
-              </ul> -->
+                <span class="xsc-tag">MARGIN TRADING FACILITY (MTF)</span>
+                <h3 class="xsc-title">Enhance buying power.<br><em>Invest with flexibility.</em></h3>
+                <p class="xsc-desc">Margin Trading Facility (MTF) enables eligible investors to purchase approved securities by contributing a portion of the required funds, subject to applicable regulations, eligibility criteria and terms.</p>
                 <div class="xsc-stat-row">
-                  <div class="xsc-stat"><span class="stat-val">4×</span><span class="stat-lbl">Max Leverage</span></div>
-                  <div class="xsc-stat"><span class="stat-val">0.04%</span><span class="stat-lbl">Daily Interest</span>
-                  </div>
-                  <div class="xsc-stat"><span class="stat-val">T+0</span><span class="stat-lbl">Instant
-                      Activation</span>
-                  </div>
+                  <div class="xsc-stat"><span class="stat-val">Flexible Funding</span><span class="stat-lbl">Approved Securities</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Competitive Interest</span><span class="stat-lbl">As Applicable</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Quick Activation</span><span class="stat-lbl">Subject to Eligibility</span></div>
                 </div>
               </div>
               <div class="xsc-right">
-                <img src="content/img/xsc-mtf.png" alt="MTF Margin Funding Dashboard" class="xsc-img" />
+                <div class="xsc-mockup-card">
+                  <div class="xsc-mock-title">Illustrative Buying Power</div>
+                  <div class="mtf-buying-bar">
+                    <div class="mtf-cap-box">
+                      <div class="mtf-pct">25%</div>
+                      <div class="mtf-lbl">Investor Contribution</div>
+                    </div>
+                    <div class="mtf-funded-box">
+                      <div class="mtf-pct">75%</div>
+                      <div class="mtf-lbl">Funded through MTF*</div>
+                    </div>
+                  </div>
+                  <div class="mtf-stats-grid">
+                    <div class="mtf-stat-item">
+                      <div class="mtf-icon-box"><i class="bi bi-shield-check"></i></div>
+                      <div class="mtf-stat-title">Flexible Funding</div>
+                      <div class="mtf-stat-sub">Approved Securities</div>
+                    </div>
+                    <div class="mtf-stat-item">
+                      <div class="mtf-icon-box"><i class="bi bi-percent"></i></div>
+                      <div class="mtf-stat-title">Competitive Interest</div>
+                      <div class="mtf-stat-sub">As Applicable</div>
+                    </div>
+                    <div class="mtf-stat-item">
+                      <div class="mtf-icon-box"><i class="bi bi-lightning-charge"></i></div>
+                      <div class="mtf-stat-title">Quick Activation</div>
+                      <div class="mtf-stat-sub">Subject to Eligibility</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="xsc-disclaimer">Margin Trading Facility (MTF) is available only for eligible clients and approved securities, subject to SEBI, Exchange and company policies. Investments in the securities market are subject to market risks. Please read all related documents carefully before investing.</div>
           </div>
 
-          <!-- Card 02: Portfolio Optimizer -->
+          <!-- Card 02: PMS (Portfolio Management Services) -->
           <div class="xsc-card" data-card="1" style="--index:2;">
             <div class="xsc-bg-art">
               <svg class="xsc-art-svg" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice">
@@ -1754,39 +1531,50 @@
                   </radialGradient>
                 </defs>
                 <rect width="900" height="520" fill="url(#g2)" />
-                <polygon points="720,60 840,280 600,280" fill="none" stroke="rgba(59,130,246,0.12)"
-                  stroke-width="1.5" />
+                <polygon points="720,60 840,280 600,280" fill="none" stroke="rgba(59,130,246,0.12)" stroke-width="1.5" />
                 <polygon points="720,100 810,260 630,260" fill="none" stroke="rgba(59,130,246,0.10)" stroke-width="1" />
-                <circle cx="720" cy="200" r="120" fill="none" stroke="rgba(59,130,246,0.08)" stroke-width="1"
-                  stroke-dasharray="6,6" />
+                <circle cx="720" cy="200" r="120" fill="none" stroke="rgba(59,130,246,0.08)" stroke-width="1" stroke-dasharray="6,6" />
               </svg>
             </div>
             <div class="xsc-inner">
               <div class="xsc-left">
-                <span class="xsc-tag">Portfolio Optimizer</span>
-                <h3 class="xsc-title">Balance every<br><em>allocation precisely.</em></h3>
-                <p class="xsc-desc">Dynamically rebalance across Equities, Gold, and Bonds with real-time risk scoring.
-                  Marfatia's optimizer adapts your weights to market conditions and your risk appetite.</p>
-                <!-- <ul class="xsc-features">
-                <li><span class="feat-icon">⚖️</span><span>Multi-asset weight distribution engine</span></li>
-                <li><span class="feat-icon">📊</span><span>Live portfolio risk tier classification</span></li>
-                <li><span class="feat-icon">🔄</span><span>Automatic rebalancing alerts</span></li>
-              </ul> -->
+                <span class="xsc-tag">PORTFOLIO MANAGEMENT SERVICES</span>
+                <h3 class="xsc-title">Professional portfolio management.<br><em>Aligned with your investment objectives.</em></h3>
+                <p class="xsc-desc">Portfolio Management Services (PMS) provide professionally managed investment strategies designed to align with individual financial objectives, risk profile and investment horizon through a structured investment approach.</p>
                 <div class="xsc-stat-row">
-                  <div class="xsc-stat"><span class="stat-val">3</span><span class="stat-lbl">Asset Classes</span></div>
-                  <div class="xsc-stat"><span class="stat-val">Live</span><span class="stat-lbl">Risk Scoring</span>
-                  </div>
-                  <div class="xsc-stat"><span class="stat-val">Smart</span><span class="stat-lbl">Rebalancing</span>
-                  </div>
+                  <div class="xsc-stat"><span class="stat-val">Professional Management</span><span class="stat-lbl">Experienced Investment Approach</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Research Driven</span><span class="stat-lbl">Informed Investment Decisions</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Portfolio Monitoring</span><span class="stat-lbl">Regular Review &amp; Reporting</span></div>
                 </div>
               </div>
               <div class="xsc-right">
-                <img src="content/img/xsc-portfolio.png" alt="Portfolio Allocation Dashboard" class="xsc-img" />
+                <div class="xsc-mockup-card">
+                  <div class="xsc-mock-title" style="font-size: 17px;">Illustrative Portfolio Allocation</div>
+                  <div class="pms-donut-wrap">
+                    <svg viewBox="0 0 36 36" style="width:100%; height:100%; transform: rotate(-90deg);">
+                      <!-- Equity 60% (#08753b) -->
+                      <circle cx="18" cy="18" r="14" fill="none" stroke="#08753b" stroke-width="7" stroke-dasharray="60 40" stroke-dashoffset="0" />
+                      <!-- Debt 25% (#10b981) -->
+                      <circle cx="18" cy="18" r="14" fill="none" stroke="#10b981" stroke-width="7" stroke-dasharray="25 75" stroke-dashoffset="-60" />
+                      <!-- Cash 15% (#a7f3d0) -->
+                      <circle cx="18" cy="18" r="14" fill="none" stroke="#a7f3d0" stroke-width="7" stroke-dasharray="15 85" stroke-dashoffset="-85" />
+                    </svg>
+                    <div class="pms-donut-center">
+                      <span style="text-align: center; line-height: 1.2;">Illustrative<br>Allocation</span>
+                    </div>
+                  </div>
+                  <div class="pms-legend-row">
+                    <span><span class="pms-dot" style="background:#08753b;"></span> Equity 60%</span>
+                    <span><span class="pms-dot" style="background:#10b981;"></span> Debt Instruments 25%</span>
+                    <span><span class="pms-dot" style="background:#a7f3d0;"></span> Cash &amp; Equivalents 15%</span>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="xsc-disclaimer">The allocation shown is for illustration purposes only and does not represent any recommended investment strategy or actual portfolio allocation. Portfolio composition may vary based on client objectives, risk profile and applicable regulations.</div>
           </div>
 
-          <!-- Card 03: SIP Wealth Planner -->
+          <!-- Card 03: Systematic Investment Plan (SIP) -->
           <div class="xsc-card" data-card="2" style="--index:3;">
             <div class="xsc-bg-art">
               <svg class="xsc-art-svg" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice">
@@ -1797,39 +1585,67 @@
                   </radialGradient>
                 </defs>
                 <rect width="900" height="520" fill="url(#g3)" />
-                <path d="M480,480 Q580,350 660,280 Q740,200 840,120" fill="none" stroke="rgba(167,139,250,0.18)"
-                  stroke-width="2" />
-                <path d="M480,480 Q580,350 660,280 Q740,200 840,120" fill="none" stroke="rgba(167,139,250,0.08)"
-                  stroke-width="20" />
+                <path d="M480,480 Q580,350 660,280 Q740,200 840,120" fill="none" stroke="rgba(167,139,250,0.18)" stroke-width="2" />
+                <path d="M480,480 Q580,350 660,280 Q740,200 840,120" fill="none" stroke="rgba(167,139,250,0.08)" stroke-width="20" />
                 <circle cx="840" cy="120" r="6" fill="rgba(167,139,250,0.4)" />
               </svg>
             </div>
             <div class="xsc-inner">
               <div class="xsc-left">
-                <span class="xsc-tag">Wealth Planner</span>
-                <h3 class="xsc-title">Compound every<br><em>rupee over time.</em></h3>
-                <p class="xsc-desc">Project your SIP wealth trajectory with Marfatia's compound curve engine. See
-                  exactly
-                  how your monthly investment grows into generational wealth across any time horizon.</p>
-                <!-- <ul class="xsc-features">
-                <li><span class="feat-icon">🌱</span><span>Real-time compound growth projection</span></li>
-                <li><span class="feat-icon">📅</span><span>1 to 30-year wealth horizon modeling</span></li>
-                <li><span class="feat-icon">💰</span><span>Adjustable return rate scenarios</span></li>
-              </ul> -->
+                <span class="xsc-tag">SYSTEMATIC INVESTMENT PLAN (SIP)</span>
+                <h3 class="xsc-title">Build wealth with<br><em>disciplined investing.</em></h3>
+                <p class="xsc-desc">A Systematic Investment Plan (SIP) allows investors to invest a fixed amount at regular intervals in eligible mutual fund schemes, helping build long-term investment discipline through a structured approach.</p>
                 <div class="xsc-stat-row">
-                  <div class="xsc-stat"><span class="stat-val">₹2.59L</span><span class="stat-lbl">@₹10K / 10yr</span>
-                  </div>
-                  <div class="xsc-stat"><span class="stat-val">14%</span><span class="stat-lbl">Avg. Market
-                      Return</span>
-                  </div>
-                  <div class="xsc-stat"><span class="stat-val">Monthly</span><span class="stat-lbl">SIP Cadence</span>
-                  </div>
+                  <div class="xsc-stat"><span class="stat-val">Flexible Investment</span><span class="stat-lbl">Choose Your SIP Amount</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Regular Investing</span><span class="stat-lbl">Monthly Contributions</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Long-Term Approach</span><span class="stat-lbl">Goal-Oriented Investing</span></div>
                 </div>
               </div>
               <div class="xsc-right">
-                <img src="content/img/xsc-sip.png" alt="SIP Wealth Growth Chart" class="xsc-img" />
+                <div class="xsc-mockup-card">
+                  <div class="xsc-mock-title" style="font-size: 17px;">Illustrative Investment Growth</div>
+                  <div style="position:relative; width:100%; height:170px;">
+                    <svg viewBox="0 0 320 180" style="width:100%; height:100%; overflow:visible;">
+                      <defs>
+                        <linearGradient id="sipGradFill" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#08753b" stop-opacity="0.25" />
+                          <stop offset="100%" stop-color="#08753b" stop-opacity="0.02" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Y Grid Lines -->
+                      <line x1="45" y1="20" x2="310" y2="20" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                      <line x1="45" y1="55" x2="310" y2="55" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                      <line x1="45" y1="90" x2="310" y2="90" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                      <line x1="45" y1="125" x2="310" y2="125" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+                      <line x1="45" y1="160" x2="310" y2="160" stroke="rgba(0,0,0,0.06)" stroke-width="1" />
+
+                      <!-- Y Axis Labels -->
+                      <text x="40" y="24" text-anchor="end" font-size="10" font-weight="600" fill="#64748b">3.5Cr</text>
+                      <text x="40" y="59" text-anchor="end" font-size="10" font-weight="600" fill="#64748b">2Cr</text>
+                      <text x="40" y="94" text-anchor="end" font-size="10" font-weight="600" fill="#64748b">1Cr</text>
+                      <text x="40" y="129" text-anchor="end" font-size="10" font-weight="600" fill="#64748b">50L</text>
+                      <text x="40" y="164" text-anchor="end" font-size="10" font-weight="600" fill="#64748b">0</text>
+
+                      <!-- Area Fill -->
+                      <path d="M45,160 Q120,150 200,100 T295,20 L295,160 Z" fill="url(#sipGradFill)" />
+                      <!-- Growth Curve -->
+                      <path d="M45,160 Q120,150 200,100 T295,20" fill="none" stroke="#08753b" stroke-width="3.5" stroke-linecap="round" />
+                      <!-- Top Point Dot & Label -->
+                      <circle cx="295" cy="20" r="5" fill="#08753b" />
+
+                      <!-- X Axis Labels -->
+                      <text x="75" y="176" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">Yr 1</text>
+                      <text x="130" y="176" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">Yr 5</text>
+                      <text x="185" y="176" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">Yr 10</text>
+                      <text x="240" y="176" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">Yr 20</text>
+                      <text x="295" y="176" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">Yr 30</text>
+                    </svg>
+                  </div>
+                  <div style="font-size: 11px; font-weight: 600; color: #64748b; text-align: center; margin-top: 4px;">Illustrative Value Over Time</div>
+                </div>
               </div>
             </div>
+            <div class="xsc-disclaimer">The chart is for illustration purposes only and does not represent actual or guaranteed returns. Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.</div>
           </div>
 
           <!-- Card 04: IPO Tracker -->
@@ -1843,8 +1659,7 @@
                   </radialGradient>
                 </defs>
                 <rect width="900" height="520" fill="url(#g4)" />
-                <rect x="590" y="80" width="260" height="320" rx="14" fill="none" stroke="rgba(249,115,22,0.10)"
-                  stroke-width="1.5" />
+                <rect x="590" y="80" width="260" height="320" rx="14" fill="none" stroke="rgba(249,115,22,0.10)" stroke-width="1.5" />
                 <line x1="590" y1="160" x2="850" y2="160" stroke="rgba(249,115,22,0.07)" stroke-width="1" />
                 <line x1="590" y1="240" x2="850" y2="240" stroke="rgba(249,115,22,0.07)" stroke-width="1" />
                 <line x1="590" y1="320" x2="850" y2="320" stroke="rgba(249,115,22,0.07)" stroke-width="1" />
@@ -1852,31 +1667,48 @@
             </div>
             <div class="xsc-inner">
               <div class="xsc-left">
-                <span class="xsc-tag">IPO Tracker</span>
-                <h3 class="xsc-title">Never miss<br><em>a listing moment.</em></h3>
-                <p class="xsc-desc">Track live IPO subscription status, Grey Market Premiums, and projected listing
-                  gains.
-                  Marfatia's IPO dashboard keeps you informed at every stage of the offer cycle.</p>
-                <!-- <ul class="xsc-features">
-                <li><span class="feat-icon">🎯</span><span>Live GMP + subscription ratio tracking</span></li>
-                <li><span class="feat-icon">📋</span><span>Bidding, allotment & listing timeline</span></li>
-                <li><span class="feat-icon">🔔</span><span>Instant IPO open/close alerts</span></li>
-              </ul> -->
+                <span class="xsc-tag">IPO INVESTING</span>
+                <h3 class="xsc-title">Stay updated with<br><em>every IPO opportunity.</em></h3>
+                <p class="xsc-desc">Explore current, upcoming and recently listed Initial Public Offerings (IPOs). Access important issue details, key dates and application status through a simplified IPO experience.</p>
                 <div class="xsc-stat-row">
-                  <div class="xsc-stat"><span class="stat-val">68×</span><span class="stat-lbl">Tata Tech Sub.</span>
-                  </div>
-                  <div class="xsc-stat"><span class="stat-val">+78%</span><span class="stat-lbl">Est. GMP</span></div>
-                  <div class="xsc-stat"><span class="stat-val">Live</span><span class="stat-lbl">Status Board</span>
-                  </div>
+                  <div class="xsc-stat"><span class="stat-val">Current IPOs</span><span class="stat-lbl">Open for Application</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Upcoming IPOs</span><span class="stat-lbl">Issue Calendar</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Application Status</span><span class="stat-lbl">Track Your Applications</span></div>
                 </div>
               </div>
               <div class="xsc-right">
-                <img src="content/img/xsc-ipo.png" alt="IPO Tracker Dashboard" class="xsc-img" />
+                <div class="xsc-mockup-card">
+                  <div class="xsc-mock-title" style="font-size: 17px; margin-bottom: 2px;">IPO List (Dynamic Data)</div>
+                  <div class="ipo-mock-list">
+                    <div class="ipo-mock-row">
+                      <span class="ipo-co-name">ABC Limited</span>
+                      <span class="ipo-badge open">OPEN</span>
+                    </div>
+                    <div class="ipo-mock-row">
+                      <span class="ipo-co-name">XYZ Industries</span>
+                      <span class="ipo-badge allotment">ALLOTMENT</span>
+                    </div>
+                    <div class="ipo-mock-row">
+                      <span class="ipo-co-name">PQR Technologies</span>
+                      <span class="ipo-badge closed">CLOSED</span>
+                    </div>
+                  </div>
+                  <div class="ipo-timeline">
+                    <div class="timeline-step"><span class="t-dot"></span> Open</div>
+                    <span>&rarr;</span>
+                    <div class="timeline-step"><span class="t-dot"></span> Apply</div>
+                    <span>&rarr;</span>
+                    <div class="timeline-step"><span class="t-dot"></span> Allotment</div>
+                    <span>&rarr;</span>
+                    <div class="timeline-step"><span class="t-dot inactive"></span> Listing</div>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="xsc-disclaimer">IPO availability, issue details and application status are subject to exchange and registrar updates. Investments in the securities market are subject to market risks. Please read all offer-related documents carefully before investing.</div>
           </div>
 
-          <!-- Card 05: Options Strategy -->
+          <!-- Card 05: Options Trading -->
           <div class="xsc-card" data-card="4" style="--index:5;">
             <div class="xsc-bg-art">
               <svg class="xsc-art-svg" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice">
@@ -1887,47 +1719,78 @@
                   </radialGradient>
                 </defs>
                 <rect width="900" height="520" fill="url(#g5)" />
-                <path d="M480,380 L560,200 L640,260 L720,160 L800,280 L880,200" fill="none"
-                  stroke="rgba(34,211,238,0.18)" stroke-width="2" />
+                <path d="M480,380 L560,200 L640,260 L720,160 L800,280 L880,200" fill="none" stroke="rgba(34,211,238,0.18)" stroke-width="2" />
                 <circle cx="560" cy="200" r="4" fill="rgba(34,211,238,0.5)" />
                 <circle cx="720" cy="160" r="4" fill="rgba(34,211,238,0.5)" />
-                <line x1="480" y1="310" x2="880" y2="310" stroke="rgba(34,211,238,0.08)" stroke-width="1"
-                  stroke-dasharray="6,4" />
+                <line x1="480" y1="310" x2="880" y2="310" stroke="rgba(34,211,238,0.08)" stroke-width="1" stroke-dasharray="6,4" />
               </svg>
             </div>
             <div class="xsc-inner">
               <div class="xsc-left">
-                <span class="xsc-tag">Options Payoff</span>
-                <h3 class="xsc-title">Map your risk<br><em>before you trade.</em></h3>
-                <p class="xsc-desc">Visualize profit-loss boundaries for Bull Spread, Bear Spread, and Straddle
-                  strategies
-                  in one glance. Make informed options decisions with Marfatia's payoff matrix engine.</p>
-                <!-- <ul class="xsc-features">
-                <li><span class="feat-icon">🎲</span><span>Bull Spread, Bear Spread, Straddle models</span></li>
-                <li><span class="feat-icon">🧮</span><span>Real-time max profit / max loss calculation</span></li>
-                <li><span class="feat-icon">🔍</span><span>Strike price sensitivity analysis</span></li>
-              </ul> -->
+                <span class="xsc-tag">OPTIONS TRADING</span>
+                <h3 class="xsc-title">Understand your strategy<br><em>before you trade.</em></h3>
+                <p class="xsc-desc">Visualize the risk and reward profile of different options strategies to better understand potential outcomes before placing trades. Designed to support informed decision-making through educational insights.</p>
                 <div class="xsc-stat-row">
-                  <div class="xsc-stat">
-                    <span class="stat-val">25+</span>
-                    <span class="stat-lbl">Strategies</span>
-                  </div>
-
-                  <div class="xsc-stat">
-                    <span class="stat-val">Live</span>
-                    <span class="stat-lbl">P&L Analysis</span>
-                  </div>
-
-                  <div class="xsc-stat">
-                    <span class="stat-val">100%</span>
-                    <span class="stat-lbl">Risk Visualization</span>
-                  </div>
+                  <div class="xsc-stat"><span class="stat-val">Multiple Strategies</span><span class="stat-lbl">Compare Common Setups</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Risk Analysis</span><span class="stat-lbl">Visual Payoff Charts</span></div>
+                  <div class="xsc-stat"><span class="stat-val">Strategy Insights</span><span class="stat-lbl">Educational Support</span></div>
                 </div>
               </div>
               <div class="xsc-right">
-                <img src="content/img/xsc-options.png" alt="Options Strategy Payoff Chart" class="xsc-img" />
+                <div class="xsc-mockup-card">
+                  <div class="opt-profit-heading">Potential Profit Zone</div>
+                  <div style="position:relative; width:100%; height:160px; margin: 4px 0;">
+                    <svg viewBox="0 0 300 150" style="width:100%; height:100%;">
+                      <defs>
+                        <linearGradient id="profitGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#08753b" stop-opacity="0.25" />
+                          <stop offset="100%" stop-color="#08753b" stop-opacity="0" />
+                        </linearGradient>
+                        <linearGradient id="lossGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#ef4444" stop-opacity="0.0" />
+                          <stop offset="100%" stop-color="#ef4444" stop-opacity="0.15" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Y Axis Axis Line -->
+                      <line x1="40" y1="10" x2="40" y2="130" stroke="#94a3b8" stroke-width="1.5" />
+                      <!-- X Axis Line -->
+                      <line x1="40" y1="130" x2="290" y2="130" stroke="#94a3b8" stroke-width="1.5" />
+                      <!-- Zero Dashed Line -->
+                      <line x1="40" y1="75" x2="290" y2="75" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,4" />
+
+                      <!-- Profit Polygon Fill -->
+                      <polygon points="140,75 190,20 290,20 290,75" fill="url(#profitGrad)" />
+                      <!-- Loss Polygon Fill -->
+                      <polygon points="40,110 100,110 140,75 40,75" fill="url(#lossGrad)" />
+
+                      <!-- Payoff Line -->
+                      <path d="M40,110 L100,110 L190,20 L290,20" fill="none" stroke="#08753b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                      <!-- Y Axis Title -->
+                      <text x="18" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#64748b" transform="rotate(-90 18 70)">P&amp;L</text>
+
+                      <!-- X Ticks & Labels -->
+                      <line x1="80" y1="130" x2="80" y2="134" stroke="#94a3b8" stroke-width="1" />
+                      <line x1="165" y1="130" x2="165" y2="134" stroke="#94a3b8" stroke-width="1" />
+                      <line x1="250" y1="130" x2="250" y2="134" stroke="#94a3b8" stroke-width="1" />
+
+                      <text x="80" y="146" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">23000</text>
+                      <text x="165" y="146" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">24500</text>
+                      <text x="250" y="146" text-anchor="middle" font-size="10" font-weight="600" fill="#64748b">26000</text>
+                    </svg>
+
+                    <!-- Strategy Legend inside card -->
+                    <div class="opt-legend-list">
+                      <div><span class="pms-dot" style="background:#08753b;"></span> Bull Call Spread</div>
+                      <div><span class="pms-dot" style="background:#64748b;"></span> Bear Put Spread</div>
+                      <div><span class="pms-dot" style="background:#8b5cf6;"></span> Long Straddle</div>
+                    </div>
+                  </div>
+                  <div class="opt-loss-heading">Potential Loss Zone</div>
+                </div>
               </div>
             </div>
+            <div class="xsc-disclaimer">The payoff chart is for educational and illustrative purposes only. It does not represent actual returns, trading recommendations or guaranteed outcomes. Options trading involves significant risks and may not be suitable for all investors.</div>
           </div>
 
         </div>
@@ -2003,11 +1866,6 @@
           </div>
         </div>
       </section>
-
-
-
-
-
 
 
 
@@ -2533,9 +2391,9 @@
             </svg>
             <span><b>4.8</b>/5 · 2,400+ Reviews</span>
           </div>
-          <p class="footer-review-line">"Switched from a legacy broker — the algo automation alone paid for the
+          <p class="footer-review-line mb-0">"Switched from a legacy broker — the algo automation alone paid for the
             switch." <span>— Rohan Kapadia</span></p>
-          <a href="#" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+          <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
         </div>
       </div>
 
@@ -2553,30 +2411,17 @@
             <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-fill"></i> compliance@marfatia.net</a>
             <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
           </div>
-          <div class="footer-social">
-            <a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z" />
-              </svg></a>
-            <a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-              </svg></a>
-            <a href="#" class="footer-social-ico" aria-label="X"><svg viewBox="0 0 16 16" fill="currentColor">
-                <path
-                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-              </svg></a>
-            <a href="#" class="footer-social-ico" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.8 1 12 1 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zm-13 3V9l5.2 3-5.2 3z" />
-              </svg></a>
-            <a href="#" class="footer-social-ico" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.4 2.4 0 0 0 1.6-1.1c.2-.5.2-.9.1-1z" />
-              </svg></a>
-          </div>
+                  <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+          <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener" class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>
+          <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>
+        </div>
         </div>
 
         <div class="footer-col">

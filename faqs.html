@@ -1,80 +1,964 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQs — Marfatia Stock Broking</title>
-  <meta name="description" content="Answers to what clients and partners actually ask Marfatia Stock Broking — pricing & brokerage, PMS, the partner program, calculators and support, all searchable in one place.">
+  <meta name="description"
+    content="Answers to what clients and partners actually ask Marfatia Stock Broking — pricing & brokerage, PMS, the partner program, calculators and support, all searchable in one place.">
   <link rel="icon" href="content/fav.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/inner.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- ── SEO SCHEMA.ORG JSON-LD FOR FAQPAGE ── -->
+  <script type="application/ld+json" id="faqSchemaJson">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is equity delivery really free, with no minimum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — zero brokerage on equity delivery trades on both NSE and BSE, regardless of order size. You still pay the statutory charges (STT, transaction charges, stamp duty, GST) — those go to the government and exchanges, not to us."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my contract note show more than just brokerage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every trade in India carries statutory charges set by the government (STT, stamp duty), the exchanges (transaction charges) and the regulator (SEBI turnover fee), plus GST on top of brokerage and some of those charges. These are identical across every broker — we just show them clearly instead of burying them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a minimum brokerage per order?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Intraday and F&O futures are capped at whichever is lower between 0.03% and ₹20 — so small orders can cost less than ₹20, never more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does PMS follow this same pricing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — Portfolio Management Services has its own fee structure (management and performance fees), capped and regulated separately under SEBI's PMS Regulations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "PMS vs mutual funds — the real difference?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ownership and tailoring. In PMS the shares sit in your demat account and the portfolio can be customised; a mutual fund gives you units of a common pool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is ₹50 lakh the minimum forever?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I see my holdings whenever I want?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who regulates this and where do I check?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEBI, under the Portfolio Managers Regulations 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I have a complaint about my PMS account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a SEBI registration to become a partner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — as a channel partner you operate under Marfatia Stock Broking's own SEBI, NSE and BSE registrations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How and when do I get paid?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your share is credited directly to your bank account under the standard 70-30 ratio sharing (70% to you, 30% to Marfatia)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does registration actually cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "₹6,900 one-time for Equity, plus a refundable deposit of ₹50,000 by cheque or ₹1 lakh in shares."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I offer clients through this partnership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Equity, Currency, Mutual Funds, IPO and Portfolio Management Services — plus free trading and demat accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between simple and compound interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simple interest is calculated only on the original principal. Compound interest is calculated on principal plus accrued interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which compounding frequency gives the highest returns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "More frequent compounding (monthly > quarterly > half-yearly > yearly) results in a marginally higher effective return."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this calculator accurate for FDs, RDs or bonds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It gives a close approximation for fixed-rate products like FDs and bonds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this account for tax on interest income?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — the figures shown are pre-tax. Interest income is generally taxable as per your income slab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the fastest way to reach a real person?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Call 0265-2351355 during business hours (Mon–Fri, 8:00 am – 6:00 pm) — you'll reach our Vadodara desk directly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I file a formal complaint?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Email compliance@marfatia.net with your client code and details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I need urgent help freezing my trading account — what do I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the 'Voluntary Freezing/Blocking' link in the top bar of any page for an instant online request, or call our helpline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I visit the office without an appointment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — walk-ins are welcome at our Jetalpur Road office during business hours."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
-    #scrollProgress{ z-index:1000; }
-    .sec{ overflow-x:hidden; }
-
-    .p-hero{
-      background:linear-gradient(180deg, rgba(8,117,59,0.06) 0%, rgba(155,206,22,0.03) 70%, rgba(255,255,255,0) 100%) !important;
-      position:relative; overflow:hidden; z-index:2; padding-bottom:clamp(48px,7vw,80px);
+    #scrollProgress {
+      z-index: 1000;
     }
-    .p-hero::before{
-      content:""; position:absolute; inset:0;
-      background-image:radial-gradient(rgba(8,117,59,0.08) 1px, transparent 1px), radial-gradient(rgba(155,206,22,0.05) 1.5px, transparent 1.5px);
-      background-size:24px 24px; background-position:0 0, 12px 12px; opacity:.9; z-index:1; pointer-events:none;
+
+    .sec {
+      overflow-x: hidden;
     }
-    .fq-orb{ position:absolute; border-radius:50%; filter:blur(80px); opacity:.16; pointer-events:none; z-index:0; animation:fq-drift 14s ease-in-out infinite; }
-    .fq-orb-1{ width:320px; height:320px; background:var(--green); top:4%; left:-140px; }
-    .fq-orb-2{ width:360px; height:360px; background:var(--lime); bottom:0%; right:-160px; animation-delay:-6s; animation-direction:reverse; }
-    @keyframes fq-drift{ 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(28px,-22px) scale(1.08); } }
-    @media(prefers-reduced-motion: reduce){ .fq-orb{ animation:none; } }
 
-    /* ── HERO: live search ── */
-    .fq-hero-panel{ text-align:center; position:relative; z-index:2; max-width:760px; margin:0 auto; }
-    .fq-search-wrap{ position:relative; margin:28px auto 0; max-width:560px; }
-    .fq-search-wrap::before{
-      content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-      width:min(130%, calc(100vw - 40px)); height:220%;
-      background:radial-gradient(ellipse, rgba(155,206,22,.16), transparent 70%);
-      animation:fq-pulse 2.6s ease-in-out infinite; pointer-events:none; z-index:-1;
+    /* ── HERO BANNER: ANIMATED GRADIENT & DOT GRID ── */
+    .p-hero {
+      background: linear-gradient(135deg, rgba(8, 117, 59, 0.08) 0%, rgba(155, 206, 22, 0.05) 50%, rgba(8, 117, 59, 0.02) 100%) !important;
+      background-size: 200% 200%;
+      animation: heroGradientShift 12s ease infinite;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+      padding: calc(var(--header-h, 140px) + 10px) 0 clamp(48px, 6vw, 72px);
     }
-    @keyframes fq-pulse{ 0%,100%{ opacity:.5; transform:translate(-50%,-50%) scale(.96); } 50%{ opacity:1; transform:translate(-50%,-50%) scale(1.02); } }
-    @media(prefers-reduced-motion: reduce){ .fq-search-wrap::before{ animation:none; } }
-    .fq-search{ position:relative; display:flex; align-items:center; gap:12px; background:var(--paper-raised); border:1px solid var(--line); border-radius:100px; padding:8px 8px 8px 24px; box-shadow:var(--shadow-md); }
-    .fq-search i{ color:var(--ink-faint); font-size:17px; flex:0 0 auto; }
-    .fq-search input{ flex:1; border:0; background:transparent; outline:0; font-family:var(--font-body); font-size:15.5px; color:var(--ink); padding:12px 0; min-width:0; }
-    .fq-search input::placeholder{ color:var(--ink-faint); }
-    .fq-search-count{ flex:0 0 auto; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--green); background:var(--paper-tint); padding:8px 16px; border-radius:100px; white-space:nowrap; }
-    @media(max-width:480px){ .fq-search{ padding:8px; flex-wrap:wrap; } .fq-search-count{ margin-left:32px; } }
 
-    /* ── category chips (sliding pill) ── */
-    .fq-cats{ position:relative; display:flex; justify-content:center; flex-wrap:wrap; gap:4px; background:var(--paper-tint); border:1px solid var(--line); border-radius:100px; padding:6px; margin:24px auto 0; max-width:100%; width:fit-content; }
-    .fq-cats-pill{ position:absolute; top:6px; left:6px; height:calc(100% - 12px); width:60px; background:var(--green-deep); border-radius:100px; transition:left .4s var(--ease), width .4s var(--ease); z-index:0; box-shadow:0 6px 16px rgba(8,117,59,.25); }
-    .fq-cat-btn{ position:relative; z-index:1; display:inline-flex; align-items:center; gap:6px; padding:10px 18px; border-radius:100px; border:0; background:transparent; font-family:var(--font-disp); font-weight:700; font-size:13px; color:var(--ink-soft); cursor:pointer; transition:color .3s; white-space:nowrap; }
-    .fq-cat-btn.active{ color:var(--lime); }
-    @media(max-width:600px){ .fq-cat-btn{ padding:9px 14px; font-size:12px; } }
+    @keyframes heroGradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
 
-    /* ── FAQ groups ── */
-    .fq-group{ max-width:820px; margin:0 auto; }
-    .fq-group-head{ display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
-    .fq-group-head h3{ font-family:var(--font-disp); font-size:19px; font-weight:700; color:var(--ink); margin:0; }
-    .fq-group-link{ margin-left:auto; font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em; color:var(--green); text-decoration:none; display:inline-flex; align-items:center; gap:5px; }
-    .fq-group-link:hover{ text-decoration:underline; }
-    .fq-group + .fq-group{ margin-top:56px; }
-    .fq-item.is-hidden{ display:none; }
-    .fq-group.is-hidden{ display:none; }
-    .fq-empty{ display:none; text-align:center; padding:60px 20px; color:var(--ink-soft); }
-    .fq-empty.show{ display:block; }
-    .fq-empty i{ font-size:32px; color:var(--ink-faint); display:block; margin-bottom:14px; }
+      50% {
+        background-position: 100% 50%;
+      }
 
-    /* ── ambient dot texture reused from house style ── */
-    .sec--dots{ position:relative; }
-    .sec--dots::before{ content:""; position:absolute; inset:0; background-image:radial-gradient(rgba(8,117,59,0.06) 1px, transparent 1px); background-size:26px 26px; z-index:0; pointer-events:none; }
-    .sec--dots .wrap{ position:relative; z-index:1; }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .p-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(8, 117, 59, 0.08) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity: .85;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ct-hero-chart-svg {
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 160px;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .fq-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: .18;
+      pointer-events: none;
+      z-index: 0;
+      animation: fq-drift 14s ease-in-out infinite;
+    }
+
+    .fq-orb-1 {
+      width: 360px;
+      height: 360px;
+      background: var(--green);
+      top: 4%;
+      left: -120px;
+    }
+
+    .fq-orb-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--lime);
+      bottom: 0%;
+      right: -140px;
+      animation-delay: -6s;
+      animation-direction: reverse;
+    }
+
+    @keyframes fq-drift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(28px, -22px) scale(1.08);
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      .fq-orb {
+        animation: none;
+      }
+    }
+
+    /* ── HERO: SEARCH & LIVE FILTER ── */
+    .fq-hero-panel {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .fq-search-wrap {
+      position: relative;
+      margin: 28px auto 0;
+      max-width: 620px;
+    }
+
+    .fq-search-wrap::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: min(130%, calc(100vw - 40px));
+      height: 220%;
+      background: radial-gradient(ellipse, rgba(155, 206, 22, .18), transparent 70%);
+      animation: fq-pulse 3s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes fq-pulse {
+
+      0%,
+      100% {
+        opacity: .5;
+        transform: translate(-50%, -50%) scale(.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.02);
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      .fq-search-wrap::before {
+        animation: none;
+      }
+    }
+
+    .fq-search {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 6px 8px 6px 22px;
+      box-shadow: 0 10px 30px rgba(8, 117, 59, 0.08), var(--shadow-sm);
+      transition: box-shadow .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .fq-search:focus-within {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(8, 117, 59, 0.14), 0 16px 36px rgba(8, 117, 59, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .fq-search i.bi-search {
+      color: var(--green);
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .fq-search input {
+      flex: 1;
+      border: 0;
+      background: transparent;
+      outline: 0;
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--ink);
+      padding: 12px 0;
+      min-width: 0;
+    }
+
+    .fq-search input::placeholder {
+      color: var(--ink-faint);
+    }
+
+    .fq-search-clear {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--paper-tint);
+      color: var(--ink-soft);
+      border: 0;
+      cursor: pointer;
+      transition: all .2s;
+      font-size: 14px;
+      margin-right: 4px;
+    }
+
+    .fq-search-clear.show {
+      display: flex;
+    }
+
+    .fq-search-clear:hover {
+      background: var(--line-strong);
+      color: var(--ink);
+      transform: scale(1.1);
+    }
+
+    .fq-search-count {
+      flex: 0 0 auto;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--green);
+      background: var(--paper-tint);
+      padding: 8px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+      border: 1px solid rgba(8, 117, 59, 0.12);
+    }
+
+    @media(max-width:480px) {
+      .fq-search {
+        padding: 6px 12px;
+        flex-wrap: wrap;
+      }
+
+      .fq-search-count {
+        margin-left: auto;
+      }
+    }
+
+    /* ── CATEGORY FILTER PILLS ── */
+    .fq-filter-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .fq-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-family: var(--font-disp);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all .25s var(--ease);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .fq-pill i {
+      font-size: 13px;
+      opacity: .8;
+      color: var(--green);
+    }
+
+    .fq-pill-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--paper-tint);
+      color: var(--green);
+      padding: 2px 7px;
+      border-radius: 20px;
+      transition: all .25s;
+    }
+
+    .fq-pill:hover {
+      border-color: var(--green);
+      color: var(--green);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(8, 117, 59, 0.1);
+    }
+
+    .fq-pill.active {
+      background: var(--green-deep);
+      color: #ffffff;
+      border-color: var(--green-deep);
+      box-shadow: 0 6px 20px rgba(5, 46, 25, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .fq-pill.active i {
+      color: var(--lime);
+      opacity: 1;
+    }
+
+    .fq-pill.active .fq-pill-count {
+      background: var(--lime);
+      color: var(--green-deep);
+    }
+
+    /* ── FAQ LIST & CARDS ── */
+    .fq-list {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .fq-group-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 8px 0 6px;
+      flex-wrap: wrap;
+    }
+
+    .fq-group-head:not(:first-child) {
+      margin-top: 40px;
+    }
+
+    .fq-group-head h3 {
+      font-family: var(--font-disp);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .fq-group-link {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--green);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: transform .2s ease;
+    }
+
+    .fq-group-link:hover {
+      text-decoration: underline;
+      transform: translateX(3px);
+    }
+
+    .fq-item.is-hidden {
+      display: none;
+    }
+
+    .fq-group-head.is-hidden {
+      display: none;
+    }
+
+    .fq-empty {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--ink-soft);
+      background: var(--paper-raised);
+      border: 1px dashed var(--line);
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    .fq-empty.show {
+      display: block;
+    }
+
+    .fq-empty i {
+      font-size: 38px;
+      color: var(--ink-faint);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .fq-empty-btn {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-deep);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .fq-empty-btn:hover {
+      background: var(--green);
+    }
+
+    /* ── FAQ CARD ── */
+    .fq-card {
+      position: relative;
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(15, 30, 22, .05);
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+      scroll-margin-top: 140px;
+    }
+
+    .fq-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(8, 117, 59, .12);
+      border-color: rgba(8, 117, 59, .22);
+    }
+
+    .fq-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--green), var(--lime));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .35s var(--ease);
+    }
+
+    .fq-card.is-open {
+      border-color: rgba(8, 117, 59, .3);
+      box-shadow: 0 16px 38px rgba(8, 117, 59, .14);
+    }
+
+    .fq-card.is-open::before {
+      transform: scaleY(1);
+    }
+
+    .fq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: 100%;
+      text-align: left;
+      padding: 22px 26px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-family: var(--font-disp);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .fq-q:hover {
+      color: var(--green);
+    }
+
+    .fq-q mark {
+      background: rgba(155, 206, 22, .45);
+      color: inherit;
+      border-radius: 4px;
+      padding: 1px 4px;
+    }
+
+    .fq-mark {
+      position: relative;
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--paper-tint);
+      transition: transform .3s var(--ease), background .3s, border-color .3s;
+    }
+
+    .fq-mark::before,
+    .fq-mark::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: var(--green);
+      transform: translate(-50%, -50%);
+      transition: transform .3s var(--ease), background .3s;
+    }
+
+    .fq-mark::before {
+      width: 12px;
+      height: 2px;
+    }
+
+    .fq-mark::after {
+      width: 2px;
+      height: 12px;
+    }
+
+    .fq-card.is-open .fq-mark {
+      background: var(--green-deep);
+      border-color: var(--green-deep);
+    }
+
+    .fq-card.is-open .fq-mark::before,
+    .fq-card.is-open .fq-mark::after {
+      background: var(--lime);
+    }
+
+    .fq-card.is-open .fq-mark::after {
+      transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+    }
+
+    .fq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s var(--ease), opacity .35s var(--ease);
+      opacity: 0;
+    }
+
+    .fq-card.is-open .fq-a {
+      opacity: 1;
+    }
+
+    .fq-a-in {
+      padding: 0 26px 24px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .fq-a-in mark {
+      background: rgba(155, 206, 22, .45);
+      color: inherit;
+      border-radius: 4px;
+      padding: 1px 4px;
+    }
+
+    .fq-a-in p {
+      margin: 0 0 12px;
+    }
+
+    .fq-a-in p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── CARD ACTIONS: FEEDBACK & COPY LINK ── */
+    .fq-card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+
+    .fq-feedback {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    .fq-feedback span {
+      font-size: 13px;
+    }
+
+    .fq-feedback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--paper-tint);
+      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      transition: all .2s var(--ease);
+      cursor: pointer;
+    }
+
+    .fq-feedback-btn:hover {
+      background: rgba(8, 117, 59, 0.1);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .fq-feedback-btn.active-yes {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .fq-feedback-btn.active-no {
+      background: var(--down);
+      color: #fff;
+      border-color: var(--down);
+    }
+
+    .fq-feedback-btn i {
+      font-size: 12px;
+    }
+
+    .fq-copylink-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: all .2s var(--ease);
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .fq-copylink-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+      background: var(--paper-tint);
+    }
+
+    /* ── STICKY HELP WIDGET ── */
+    .fq-sticky-help {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green-deep);
+      color: #fff;
+      border-radius: 100px;
+      padding: 12px 20px 12px 14px;
+      text-decoration: none;
+      box-shadow: 0 14px 34px rgba(5, 46, 25, .32);
+      border: 1px solid rgba(155, 206, 22, .35);
+      font-family: var(--font-disp);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), opacity .4s var(--ease);
+      opacity: 0;
+      transform: translateY(16px) scale(.95);
+      pointer-events: none;
+    }
+
+    .fq-sticky-help.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .fq-sticky-help:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 20px 44px rgba(5, 46, 25, .4);
+    }
+
+    .fq-sticky-help i {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--green-deep);
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      flex: 0 0 auto;
+    }
+
+    @media(max-width:600px) {
+      .fq-sticky-help {
+        right: 14px;
+        bottom: 14px;
+        padding: 10px 16px 10px 10px;
+        font-size: 13px;
+      }
+
+      .fq-sticky-help span {
+        display: none;
+      }
+
+      .fq-sticky-help i {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    /* ── TOAST NOTIFICATION ── */
+    .fq-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      background: var(--green-deep);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-family: var(--font-disp);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 14px 36px rgba(5, 46, 25, 0.35);
+      border: 1px solid var(--lime);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all .35s var(--ease);
+    }
+
+    .fq-toast i {
+      color: var(--lime);
+      font-size: 18px;
+    }
+
+    .fq-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    /* ── AMBIENT DOT TEXTURE ── */
+    .sec--dots {
+      position: relative;
+    }
+
+    .sec--dots::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(8, 117, 59, 0.06) 1px, transparent 1px);
+      background-size: 26px 26px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .sec--dots .wrap {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 
@@ -84,372 +968,241 @@
   </div>
 
   <header class="strip" id="strip">
-      <div class="header-top-bar">
-        <div class="wrap header-top-bar-content">
-          <div class="header-top-bar-info">
-            <span><i class="bi bi-clock-fill"></i> Mon-Fri 10:00 am-6:00 pm</span>
-            <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
-            <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
-          </div>
-          <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
-            Client</a>
+    <div class="header-top-bar">
+      <div class="wrap header-top-bar-content">
+        <div class="header-top-bar-info">
+          <span><i class="bi bi-clock-fill"></i> Mon-Fri 10:00 am-6:00 pm</span>
+          <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
+          <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
         </div>
+        <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
+          Client</a>
       </div>
-      <div class="strip-row">
-        <a href="index.html" class="strip-logo">
-          <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
-          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
-        </a>
+    </div>
+    <div class="strip-row">
+      <a href="index.html" class="strip-logo">
+        <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+      </a>
 
-        <nav class="strip-nav" id="stripNav">
-          <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
-          <div class="nav-item"><a class="strip-link" href="#">About Us</a></div>
+      <nav class="strip-nav" id="stripNav">
+        <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
+        <div class="nav-item"><a class="strip-link" href="#">About Us</a></div>
 
-          <div class="nav-item">
-            <button class="strip-link" data-drawer="services">Services</button>
-            <div class="nav-dropdown services-grid-dropdown">
-              <div class="dropdown-column">
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-safe"></i></div>
-                  <div class="dd-text">
-                    <h4>DP</h4>
-                    <p>Secure custody of stocks &amp; securities</p>
-                  </div>
-                </a>
-                <a href="pms.html" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-briefcase"></i></div>
-                  <div class="dd-text">
-                    <h4>PMS</h4>
-                    <p>Expert-managed portfolios</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-percent"></i></div>
-                  <div class="dd-text">
-                    <h4>MTF</h4>
-                    <p>Up to 4x leverage to buy stocks</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-arrow-left-right"></i></div>
-                  <div class="dd-text">
-                    <h4>SLB</h4>
-                    <p>Lend idle stocks to earn extra yield</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-gem"></i></div>
-                  <div class="dd-text">
-                    <h4>EGR</h4>
-                    <p>Trade physical gold digitally</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-cash-stack"></i></div>
-                  <div class="dd-text">
-                    <h4>Cash cm</h4>
-                    <p>Delivery &amp; intraday share trading</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-graph-up-arrow"></i></div>
-                  <div class="dd-text">
-                    <h4>FO Derivative</h4>
-                    <p>Trade options &amp; index futures</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-layers"></i></div>
-                  <div class="dd-text">
-                    <h4>ETF</h4>
-                    <p>Diversification via market baskets</p>
-                  </div>
-                </a>
-              </div>
-              <div class="dropdown-column">
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-lightning"></i></div>
-                  <div class="dd-text">
-                    <h4>IPO</h4>
-                    <p>Apply for upcoming public issues</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-bank"></i></div>
-                  <div class="dd-text">
-                    <h4>Bond</h4>
-                    <p>Safe fixed-income investments</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-shield-check"></i></div>
-                  <div class="dd-text">
-                    <h4>Insurance</h4>
-                    <p>Protect health, life &amp; assets</p>
-                  </div>
-                </a>
-                <a href="#" class="dd-item">
-                  <div class="dd-icon"><i class="bi bi-pie-chart"></i></div>
-                  <div class="dd-text">
-                    <h4>MF</h4>
-                    <p>Top mutual funds for every budget</p>
-                  </div>
-                </a>
-              </div>
+        <div class="nav-item">
+          <button class="strip-link" data-drawer="services">Services</button>
+          <div class="nav-dropdown services-grid-dropdown">
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-safe"></i></div>
+                <div class="dd-text">
+                  <h4>DP</h4>
+                  <p>Secure custody of stocks &amp; securities</p>
+                </div>
+              </a>
+              <a href="pms.html" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-briefcase"></i></div>
+                <div class="dd-text">
+                  <h4>PMS</h4>
+                  <p>Expert-managed portfolios</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-percent"></i></div>
+                <div class="dd-text">
+                  <h4>MTF</h4>
+                  <p>Up to 4x leverage to buy stocks</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-arrow-left-right"></i></div>
+                <div class="dd-text">
+                  <h4>SLB</h4>
+                  <p>Lend idle stocks to earn extra yield</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-gem"></i></div>
+                <div class="dd-text">
+                  <h4>EGR</h4>
+                  <p>Trade physical gold digitally</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-cash-stack"></i></div>
+                <div class="dd-text">
+                  <h4>Cash cm</h4>
+                  <p>Delivery &amp; intraday share trading</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div class="dd-text">
+                  <h4>FO Derivative</h4>
+                  <p>Trade options &amp; index futures</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-layers"></i></div>
+                <div class="dd-text">
+                  <h4>ETF</h4>
+                  <p>Diversification via market baskets</p>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-lightning"></i></div>
+                <div class="dd-text">
+                  <h4>IPO</h4>
+                  <p>Apply for upcoming public issues</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-bank"></i></div>
+                <div class="dd-text">
+                  <h4>Bond</h4>
+                  <p>Safe fixed-income investments</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-shield-check"></i></div>
+                <div class="dd-text">
+                  <h4>Insurance</h4>
+                  <p>Protect health, life &amp; assets</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-pie-chart"></i></div>
+                <div class="dd-text">
+                  <h4>MF</h4>
+                  <p>Top mutual funds for every budget</p>
+                </div>
+              </a>
             </div>
           </div>
-
-          <div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>
-          <div class="nav-item"><a class="strip-link" href="#">FAQs</a></div>
-
-          <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
-          <div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>
-        </nav>
-
-        <div class="strip-right">
-          <!-- <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
-            
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path
-                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
-              </path>
-            </svg>
-            
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-            </svg>
-          </button> -->
-          <div class="login-dd" id="loginDd">
-            <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
-                height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg></button>
-            <div class="login-dd-menu" id="loginDdMenu">
-              <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Traders ↗</a>
-              <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener">Back Office ↗</a>
-              <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Client ↗</a>
-            </div>
-          </div>
-          <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
-            class="btn btn-marfatia"><span>Open Demat Account</span></a>
-          <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
-            class="btn btn-ghost btn-outline live-pulse-btn"><span class="dot dot--live"></span> Live Pulse</a>
-
         </div>
 
-        <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>
+        <div class="nav-item"><a class="strip-link" href="faqs.html">FAQs</a></div>
+
+        <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
+      </nav>
+
+      <div class="strip-right">
+        <div class="login-dd" id="loginDd">
+          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
+              height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="login-dd-menu" id="loginDdMenu">
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Traders ↗</a>
+            <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener">Back Office ↗</a>
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Client ↗</a>
+          </div>
+        </div>
+        <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
+          class="btn btn-marfatia"><span>Open Demat Account</span></a>
+        <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
+          class="btn btn-ghost btn-outline live-pulse-btn"><span class="dot dot--live"></span> Live Pulse</a>
+
       </div>
-      <div class="nav-backdrop" id="navBackdrop"></div>
-    </header>
+
+      <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </header>
 
   <main class="inner-main">
 
-    <!-- ── PAGE HERO: LIVE SEARCH ── -->
+    <!-- ── PAGE HERO: LIVE SEARCH & COMPONENT FILTER ── -->
     <section class="p-hero">
+      <svg class="ct-hero-chart-svg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,90 Q300,20 600,70 T1200,30 L1200,120 L0,120 Z" fill="url(#heroGraphGradient)"></path>
+        <defs>
+          <linearGradient id="heroGraphGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#08753b" stop-opacity="0.3"></stop>
+            <stop offset="100%" stop-color="#9bce16" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div class="fq-orb fq-orb-1"></div>
       <div class="fq-orb fq-orb-2"></div>
       <div class="wrap fq-hero-panel">
-        <span class="p-crumb"><a href="index.html">Home</a> / <b>FAQs</b></span>
+        <span class="p-crumb"><a href="index.html">Home</a> <span class="dot"></span> <b>FAQs</b></span>
         <h1 class="p-hero-title" data-reveal>Most questions, <em>answered already.</em></h1>
-        <p class="p-hero-sub" data-reveal>Search or browse by topic — pricing, PMS, the partner program, calculators and support. Can't find it here? Our desk answers in one call.</p>
+        <p class="p-hero-sub" data-reveal>Search or browse by topic — pricing, PMS, the partner program, calculators and
+          support. Can't find it here? Our desk answers in one call.</p>
 
         <div class="fq-search-wrap" data-reveal>
           <div class="fq-search">
             <i class="bi bi-search"></i>
-            <input type="text" id="fqSearchInput" placeholder="Search FAQs — e.g. &quot;brokerage&quot;, &quot;PMS minimum&quot;, &quot;complaint&quot;..." autocomplete="off">
+            <input type="text" id="fqSearchInput"
+              placeholder="Search FAQs — e.g. &quot;brokerage&quot;, &quot;PMS minimum&quot;, &quot;complaint&quot;..."
+              autocomplete="off">
+            <button class="fq-search-clear" id="fqSearchClear" title="Clear search" aria-label="Clear search"><i
+                class="bi bi-x-lg"></i></button>
             <span class="fq-search-count" id="fqSearchCount">21 answers</span>
           </div>
         </div>
 
-        <div class="fq-cats" id="fqCats" data-reveal>
-          <span class="fq-cats-pill" id="fqCatsPill" aria-hidden="true"></span>
-          <button class="fq-cat-btn active" data-cat="all" type="button">All</button>
-          <button class="fq-cat-btn" data-cat="pricing" type="button">Pricing</button>
-          <button class="fq-cat-btn" data-cat="pms" type="button">PMS</button>
-          <button class="fq-cat-btn" data-cat="partner" type="button">Partner</button>
-          <button class="fq-cat-btn" data-cat="calculators" type="button">Calculators</button>
-          <button class="fq-cat-btn" data-cat="support" type="button">Support</button>
+        <!-- ── DYNAMIC CATEGORY FILTER PILLS CONTAINER ── -->
+        <div class="fq-filter-pills" id="fqFilterPills" data-reveal>
+          <!-- Dynamically populated from FAQ_DATA component -->
         </div>
+
       </div>
     </section>
 
-    <!-- ── STAT STRIP ── -->
-    <!-- <section class="statline" data-reveal>
-      <div class="wrap statline-row">
-        <div class="statline-cell">
-          <span class="statline-num"><span data-count="21">0</span></span>
-          <span class="statline-lbl">Answers, Searchable</span>
-        </div>
-        <div class="statline-cell">
-          <span class="statline-num"><span data-count="5">0</span></span>
-          <span class="statline-lbl">Topics Covered</span>
-        </div>
-        <div class="statline-cell">
-          <span class="statline-num"><span data-count="1">0</span><small>bd</small></span>
-          <span class="statline-lbl">Reply Time, If You Still Write In</span>
-        </div>
-        <div class="statline-cell">
-          <span class="statline-num"><span data-count="30">0</span><small>+</small></span>
-          <span class="statline-lbl">Years Answering These</span>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- ── FAQ CONTENT ── -->
+    <!-- ── FAQ CONTENT COMPONENT: DYNAMIC RENDER CONTAINER ── -->
     <section class="sec sec--dots" id="fqContent">
       <div class="wrap">
+        <div class="fq-list" id="fqList">
+          <!-- Dynamically populated from FAQ_DATA component -->
 
-        <div class="fq-group" data-group="pricing">
-          <div class="fq-group-head">
-            <span class="vault-ico" style="width:34px;height:34px;font-size:13px;"><i class="bi bi-tags-fill"></i></span>
-            <h3>Pricing &amp; Brokerage</h3>
-            <a class="fq-group-link" href="#">Full pricing breakdown <i class="bi bi-arrow-right"></i></a>
+          <!-- ── EMPTY STATE ── -->
+          <div class="fq-empty" id="fqEmpty">
+            <i class="bi bi-search"></i>
+            <p style="font-size:16px; font-weight:600; color:var(--ink);">No matches found for your search.</p>
+            <p style="margin-top:6px; font-size:14px;">Try searching for terms like <i>"brokerage"</i>, <i>"PMS"</i>,
+              <i>"partner"</i>, or <i>"complaint"</i>.</p>
+            <button class="fq-empty-btn" id="fqEmptyReset"><i class="bi bi-arrow-counterclockwise"></i> Clear Search &amp;
+              Filters</button>
           </div>
 
-          <div class="acc fq-item" data-cat="pricing" data-reveal>
-            <button class="acc-head"><span>Is equity delivery really free, with no minimum?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Yes — zero brokerage on equity delivery trades on both NSE and BSE, regardless of order size. You still pay the statutory charges (STT, transaction charges, stamp duty, GST) — those go to the government and exchanges, not to us.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pricing" data-reveal>
-            <button class="acc-head"><span>Why does my contract note show more than just brokerage?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Every trade in India carries statutory charges set by the government (STT, stamp duty), the exchanges (transaction charges) and the regulator (SEBI turnover fee), plus GST on top of brokerage and some of those charges. These are identical across every broker — we just show them clearly instead of burying them.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pricing" data-reveal>
-            <button class="acc-head"><span>Is there a minimum brokerage per order?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>No. Intraday and F&amp;O futures are capped at whichever is lower between 0.03% and ₹20 — so small orders can cost less than ₹20, never more.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pricing" data-reveal>
-            <button class="acc-head"><span>Does PMS follow this same pricing?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>No — Portfolio Management Services has its own fee structure (management and performance fees), capped and regulated separately under SEBI's PMS Regulations. See our <a href="pms.html">PMS page</a> for those details.</p></div></div>
-          </div>
         </div>
-
-        <div class="fq-group" data-group="pms">
-          <div class="fq-group-head">
-            <span class="vault-ico" style="width:34px;height:34px;font-size:13px;"><i class="bi bi-briefcase-fill"></i></span>
-            <h3>Portfolio Management (PMS)</h3>
-            <a class="fq-group-link" href="pms.html">Explore PMS <i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="acc fq-item" data-cat="pms" data-reveal>
-            <button class="acc-head"><span>PMS vs mutual funds — the real difference?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Ownership and tailoring. In PMS the shares sit in your demat account and the portfolio can be customised; a mutual fund gives you units of a common pool. Taxation in PMS is as if you traded directly — capital gains arise on each portfolio transaction in your name.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pms" data-reveal>
-            <button class="acc-head"><span>Is ₹50 lakh the minimum forever?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pms" data-reveal>
-            <button class="acc-head"><span>Can I see my holdings whenever I want?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements. The securities are in your own demat, so depository statements show them too.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pms" data-reveal>
-            <button class="acc-head"><span>Who regulates this and where do I check?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>SEBI, under the Portfolio Managers Regulations 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory, and see standardised industry data on APMI.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="pms" data-reveal>
-            <button class="acc-head"><span>What if I have a complaint about my PMS account?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed — the full grievance ladder with timelines is detailed on our PMS page.</p></div></div>
-          </div>
-        </div>
-
-        <div class="fq-group" data-group="partner">
-          <div class="fq-group-head">
-            <span class="vault-ico" style="width:34px;height:34px;font-size:13px;"><i class="bi bi-people-fill"></i></span>
-            <h3>Partner Program</h3>
-            <a class="fq-group-link" href="#">Become a partner <i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="acc fq-item" data-cat="partner" data-reveal>
-            <button class="acc-head"><span>Do I need a SEBI registration to become a partner?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>No — as a channel partner you operate under Marfatia Stock Broking's own SEBI, NSE and BSE registrations. Our compliance team handles the empanelment paperwork with you.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="partner" data-reveal>
-            <button class="acc-head"><span>How and when do I get paid?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Your share is credited directly to your bank account under the standard 70-30 ratio sharing (70% to you, 30% to Marfatia) — this ratio can be adjusted as per individual requirement. We bank with HDFC, SBI, ICICI, BOB and other major banks for fund pay-in and pay-out.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="partner" data-reveal>
-            <button class="acc-head"><span>What does registration actually cost?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>₹6,900 one-time for Equity (₹2,300 each for BSE, NSE and NSE F&amp;O), plus a refundable deposit of ₹50,000 by cheque or ₹1 lakh in shares — returned without interest if you close your franchise. AMC is nil for your first 6 months, then ₹250 + tax per year.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="partner" data-reveal>
-            <button class="acc-head"><span>What can I offer clients through this partnership?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Equity, Currency, Mutual Funds, IPO and Portfolio Management Services — plus free trading and demat accounts, margin funding, and both online and offline trading via ODIN and our mobile app.</p></div></div>
-          </div>
-        </div>
-
-        <div class="fq-group" data-group="calculators">
-          <div class="fq-group-head">
-            <span class="vault-ico" style="width:34px;height:34px;font-size:13px;"><i class="bi bi-calculator-fill"></i></span>
-            <h3>Calculators &amp; Tools</h3>
-            <a class="fq-group-link" href="calculator-interest.html">Try the calculators <i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="acc fq-item" data-cat="calculators" data-reveal>
-            <button class="acc-head"><span>What's the difference between simple and compound interest?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Simple interest is calculated only on the original principal for the entire tenure. Compound interest is calculated on the principal plus any interest already added, so your money earns interest on interest — the more frequent the compounding, the faster it grows.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="calculators" data-reveal>
-            <button class="acc-head"><span>Which compounding frequency gives the highest returns?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>For the same nominal rate, more frequent compounding (monthly &gt; quarterly &gt; half-yearly &gt; yearly) results in a marginally higher effective return, since interest is added back to principal sooner.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="calculators" data-reveal>
-            <button class="acc-head"><span>Is this calculator accurate for FDs, RDs or bonds?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>It gives a close approximation for fixed-rate products like FDs and bonds. RDs and SIPs involve periodic instalments rather than a single lump sum — use our dedicated RD/SIP calculators for those.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="calculators" data-reveal>
-            <button class="acc-head"><span>Does this account for tax on interest income?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>No — the figures shown are pre-tax. Interest income is generally taxable as per your income slab, and TDS may apply depending on the product and amount. Speak to your tax advisor for your specific situation.</p></div></div>
-          </div>
-        </div>
-
-        <div class="fq-group" data-group="support">
-          <div class="fq-group-head">
-            <span class="vault-ico" style="width:34px;height:34px;font-size:13px;"><i class="bi bi-headset"></i></span>
-            <h3>Support &amp; Grievances</h3>
-            <a class="fq-group-link" href="#">Talk to us <i class="bi bi-arrow-right"></i></a>
-          </div>
-
-          <div class="acc fq-item" data-cat="support" data-reveal>
-            <button class="acc-head"><span>What's the fastest way to reach a real person?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Call 0265-2351355 during business hours (Mon–Fri, 8:00 am – 6:00 pm) — you'll reach our Vadodara desk directly, not an automated menu.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="support" data-reveal>
-            <button class="acc-head"><span>How do I file a formal complaint?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Email compliance@marfatia.net with your client code and details. If unresolved within the stipulated timeline, you may escalate to SEBI SCORES or the SMART ODR portal.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="support" data-reveal>
-            <button class="acc-head"><span>I need urgent help freezing my trading account — what do I do?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Use the "Voluntary Freezing/Blocking" link in the top bar of any page for an instant online request, or call our helpline immediately.</p></div></div>
-          </div>
-          <div class="acc fq-item" data-cat="support" data-reveal>
-            <button class="acc-head"><span>Can I visit the office without an appointment?</span><span class="acc-mark">+</span></button>
-            <div class="acc-body"><div class="acc-body-in"><p>Yes — walk-ins are welcome at our Jetalpur Road office during business hours. For PMS or partnership discussions, calling ahead helps us have the right person available.</p></div></div>
-          </div>
-        </div>
-
-        <div class="fq-empty" id="fqEmpty">
-          <i class="bi bi-search"></i>
-          <p>No matches for that search. Try a different word, or <a href="#">ask us directly</a>.</p>
-        </div>
-
       </div>
     </section>
 
+    <!-- ── STICKY: STILL NEED HELP? ── -->
+    <a href="tel:02652351355" class="fq-sticky-help" id="fqStickyHelp">
+      <i class="bi bi-headset"></i>
+      <span>Still Need Help? Call Us</span>
+    </a>
+
+    <!-- ── TOAST NOTIFICATION ── -->
+    <div class="fq-toast" id="fqToast">
+      <i class="bi bi-check-circle-fill"></i>
+      <span>Direct link copied to clipboard!</span>
+    </div>
+
     <!-- ── CTA BAND ── -->
-    <section class="ctaband" style="margin:0 auto 80px; max-width:1240px; border-radius:var(--radius-lg);" data-reveal>
+    <section class="ctaband"
+      style="margin:40px auto 80px; max-width:1240px; border-radius:var(--radius-lg); position:relative; overflow:hidden;"
+      data-reveal>
       <div class="wrap ctaband-inner">
         <div>
-          <h2>Still stuck? <em>Skip the search.</em></h2>
-          <p style="opacity:.9;font-size:15px;margin-top:6px;">One call gets you a straight answer from someone who actually works here.</p>
+          <h2 style="font-family:var(--font-disp); font-size:clamp(26px, 3.5vw, 38px); font-weight:800; color:#fff;">Still
+            stuck? <em>Skip the search.</em></h2>
+          <p style="opacity:.9;font-size:15.5px;margin-top:8px; color:rgba(255,255,255,0.9);">One call gets you a straight
+            answer from someone who actually works here at our Vadodara desk.</p>
         </div>
         <div class="ctaband-actions">
           <a href="tel:02652351355" class="btn btn-lime btn-lg"><span>📞 Call Us Now</span></a>
-          <a href="#" class="btn btn-ghostlight btn-lg"><span>Contact Us ↗</span></a>
+          <a href="contact-us.html" class="btn btn-ghostlight btn-lg"><span>Contact Us ↗</span></a>
         </div>
       </div>
     </section>
@@ -482,16 +1235,16 @@
           </svg>
           <span><b>4.8</b>/5 · 2,400+ Reviews</span>
         </div>
-        <p class="footer-review-line">"Switched from a legacy broker — the algo automation alone paid for the
+        <p class="footer-review-line mb-0">"Switched from a legacy broker — the algo automation alone paid for the
           switch." <span>— Rohan Kapadia</span></p>
-        <a href="#" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+        <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
       </div>
     </div>
 
     <div class="footer-grid">
       <div class="footer-col footer-col--brand">
         <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
-          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
         <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
           intelligence, automation and 30+ years of market trust.</p>
         <address class="footer-address mono">
@@ -502,29 +1255,16 @@
           <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-fill"></i> compliance@marfatia.net</a>
           <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
         </div>
-        <div class="footer-social">
-          <a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="X"><svg viewBox="0 0 16 16" fill="currentColor">
-              <path
-                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.8 1 12 1 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zm-13 3V9l5.2 3-5.2 3z" />
-            </svg></a>
-          <a href="#" class="footer-social-ico" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.4 2.4 0 0 0 1.6-1.1c.2-.5.2-.9.1-1z" />
-            </svg></a>
+                <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+          <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener" class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>
+          <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>
         </div>
       </div>
 
@@ -534,7 +1274,7 @@
         <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
         <a href="#"><i class="bi bi-people"></i> Key Managerial Personnels</a>
         <a href="#"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
-        <a href="#"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
         <a href="#"><i class="bi bi-geo-alt"></i> Office Addresses</a>
         <a href="#"><i class="bi bi-download"></i> New Downloads</a>
         <a href="#"><i class="bi bi-play-btn"></i> Webinar</a>
@@ -590,10 +1330,256 @@
         Barodaweb</p>
     </div>
   </footer>
+
   <script src="js/inner.js"></script>
   <script>
     (function () {
       "use strict";
+
+      // ── ON-PAGE STRUCTURED FAQ COMPONENT DATA ──
+      const FAQ_DATA = [
+        {
+          id: "pricing",
+          title: "Pricing & Brokerage",
+          icon: "bi-tags-fill",
+          linkText: "Full pricing breakdown",
+          linkUrl: "#",
+          items: [
+            {
+              id: "fq-pricing-1",
+              question: "Is equity delivery really free, with no minimum?",
+              answer: "Yes — zero brokerage on equity delivery trades on both NSE and BSE, regardless of order size. You still pay the statutory charges (STT, transaction charges, stamp duty, GST) — those go to the government and exchanges, not to us.",
+              likes: 18
+            },
+            {
+              id: "fq-pricing-2",
+              question: "Why does my contract note show more than just brokerage?",
+              answer: "Every trade in India carries statutory charges set by the government (STT, stamp duty), the exchanges (transaction charges) and the regulator (SEBI turnover fee), plus GST on top of brokerage and some of those charges. These are identical across every broker — we just show them clearly instead of burying them.",
+              likes: 12
+            },
+            {
+              id: "fq-pricing-3",
+              question: "Is there a minimum brokerage per order?",
+              answer: "No. Intraday and F&O futures are capped at whichever is lower between 0.03% and ₹20 — so small orders can cost less than ₹20, never more.",
+              likes: 15
+            },
+            {
+              id: "fq-pricing-4",
+              question: "Does PMS follow this same pricing?",
+              answer: "No — Portfolio Management Services has its own fee structure (management and performance fees), capped and regulated separately under SEBI's PMS Regulations. See our <a href=\"pms.html\">PMS page</a> for those details.",
+              likes: 9
+            }
+          ]
+        },
+        {
+          id: "pms",
+          title: "Portfolio Management (PMS)",
+          icon: "bi-briefcase-fill",
+          linkText: "Explore PMS",
+          linkUrl: "pms.html",
+          items: [
+            {
+              id: "fq-pms-1",
+              question: "PMS vs mutual funds — the real difference?",
+              answer: "Ownership and tailoring. In PMS the shares sit in your demat account and the portfolio can be customised; a mutual fund gives you units of a common pool. Taxation in PMS is as if you traded directly — capital gains arise on each portfolio transaction in your name.",
+              likes: 24
+            },
+            {
+              id: "fq-pms-2",
+              question: "Is ₹50 lakh the minimum forever?",
+              answer: "₹50 lakh is SEBI's minimum for entering PMS. Keeping the portfolio at or above that level, top-ups and partial withdrawals are handled as per your agreement.",
+              likes: 19
+            },
+            {
+              id: "fq-pms-3",
+              question: "Can I see my holdings whenever I want?",
+              answer: "Yes — every holding and transaction is visible on the PMS client portal, plus periodic statements. The securities are in your own demat, so depository statements show them too.",
+              likes: 16
+            },
+            {
+              id: "fq-pms-4",
+              question: "Who regulates this and where do I check?",
+              answer: "SEBI, under the Portfolio Managers Regulations 2020. Verify registration INP000005117 on SEBI's portfolio-manager directory, and see standardised industry data on APMI.",
+              likes: 11
+            },
+            {
+              id: "fq-pms-5",
+              question: "What if I have a complaint about my PMS account?",
+              answer: "Start with our Compliance Officer; escalate to SEBI SCORES and the SMART ODR portal if needed — the full grievance ladder with timelines is detailed on our PMS page.",
+              likes: 8
+            }
+          ]
+        },
+        {
+          id: "partner",
+          title: "Partner Program",
+          icon: "bi-people-fill",
+          linkText: "Become a partner",
+          linkUrl: "#",
+          items: [
+            {
+              id: "fq-partner-1",
+              question: "Do I need a SEBI registration to become a partner?",
+              answer: "No — as a channel partner you operate under Marfatia Stock Broking's own SEBI, NSE and BSE registrations. Our compliance team handles the empanelment paperwork with you.",
+              likes: 13
+            },
+            {
+              id: "fq-partner-2",
+              question: "How and when do I get paid?",
+              answer: "Your share is credited directly to your bank account under the standard 70-30 ratio sharing (70% to you, 30% to Marfatia) — this ratio can be adjusted as per individual requirement. We bank with HDFC, SBI, ICICI, BOB and other major banks for fund pay-in and pay-out.",
+              likes: 21
+            },
+            {
+              id: "fq-partner-3",
+              question: "What does registration actually cost?",
+              answer: "₹6,900 one-time for Equity (₹2,300 each for BSE, NSE and NSE F&O), plus a refundable deposit of ₹50,000 by cheque or ₹1 lakh in shares — returned without interest if you close your franchise. AMC is nil for your first 6 months, then ₹250 + tax per year.",
+              likes: 17
+            },
+            {
+              id: "fq-partner-4",
+              question: "What can I offer clients through this partnership?",
+              answer: "Equity, Currency, Mutual Funds, IPO and Portfolio Management Services — plus free trading and demat accounts, margin funding, and both online and offline trading via ODIN and our mobile app.",
+              likes: 15
+            }
+          ]
+        },
+        {
+          id: "calculators",
+          title: "Calculators & Tools",
+          icon: "bi-calculator-fill",
+          linkText: "Try the calculators",
+          linkUrl: "calculator-interest.html",
+          items: [
+            {
+              id: "fq-calc-1",
+              question: "What's the difference between simple and compound interest?",
+              answer: "Simple interest is calculated only on the original principal for the entire tenure. Compound interest is calculated on the principal plus any interest already added, so your money earns interest on interest — the more frequent the compounding, the faster it grows.",
+              likes: 20
+            },
+            {
+              id: "fq-calc-2",
+              question: "Which compounding frequency gives the highest returns?",
+              answer: "For the same nominal rate, more frequent compounding (monthly > quarterly > half-yearly > yearly) results in a marginally higher effective return, since interest is added back to principal sooner.",
+              likes: 12
+            },
+            {
+              id: "fq-calc-3",
+              question: "Is this calculator accurate for FDs, RDs or bonds?",
+              answer: "It gives a close approximation for fixed-rate products like FDs and bonds. RDs and SIPs involve periodic instalments rather than a single lump sum — use our dedicated RD/SIP calculators for those.",
+              likes: 10
+            },
+            {
+              id: "fq-calc-4",
+              question: "Does this account for tax on interest income?",
+              answer: "No — the figures shown are pre-tax. Interest income is generally taxable as per your income slab, and TDS may apply depending on the product and amount. Speak to your tax advisor for your specific situation.",
+              likes: 14
+            }
+          ]
+        },
+        {
+          id: "support",
+          title: "Support & Grievances",
+          icon: "bi-headset",
+          linkText: "Talk to us",
+          linkUrl: "contact-us.html",
+          items: [
+            {
+              id: "fq-support-1",
+              question: "What's the fastest way to reach a real person?",
+              answer: "Call 0265-2351355 during business hours (Mon–Fri, 8:00 am – 6:00 pm) — you'll reach our Vadodara desk directly, not an automated menu.",
+              likes: 29
+            },
+            {
+              id: "fq-support-2",
+              question: "How do I file a formal complaint?",
+              answer: "Email compliance@marfatia.net with your client code and details. If unresolved within the stipulated timeline, you may escalate to SEBI SCORES or the SMART ODR portal.",
+              likes: 16
+            },
+            {
+              id: "fq-support-3",
+              question: "I need urgent help freezing my trading account — what do I do?",
+              answer: "Use the \"Voluntary Freezing/Blocking\" link in the top bar of any page for an instant online request, or call our helpline immediately.",
+              likes: 22
+            },
+            {
+              id: "fq-support-4",
+              question: "Can I visit the office without an appointment?",
+              answer: "Yes — walk-ins are welcome at our Jetalpur Road office during business hours. For PMS or partnership discussions, calling ahead helps us have the right person available.",
+              likes: 17
+            }
+          ]
+        }
+      ];
+
+      // Helper function to calculate totals
+      function getTotalFaqCount() {
+        return FAQ_DATA.reduce(function (sum, group) { return sum + group.items.length; }, 0);
+      }
+
+      // ── RENDER DYNAMIC CATEGORY PILLS ──
+      function renderCategoryPills() {
+        var pillsContainer = document.getElementById("fqFilterPills");
+        if (!pillsContainer) return;
+
+        var totalCount = getTotalFaqCount();
+        var html = '<button class="fq-pill active" data-filter="all"><i class="bi bi-grid-fill"></i> All <span class="fq-pill-count">' + totalCount + '</span></button>';
+
+        FAQ_DATA.forEach(function (group) {
+          html += '<button class="fq-pill" data-filter="' + group.id + '"><i class="bi ' + group.icon + '"></i> ' + group.title + ' <span class="fq-pill-count">' + group.items.length + '</span></button>';
+        });
+
+        pillsContainer.innerHTML = html;
+      }
+
+      // ── RENDER DYNAMIC FAQ LIST COMPONENT ──
+      function renderFaqListComponent() {
+        var fqList = document.getElementById("fqList");
+        var emptyEl = document.getElementById("fqEmpty");
+        if (!fqList) return;
+
+        var html = "";
+
+        FAQ_DATA.forEach(function (group) {
+          html += '<div class="fq-group-head" data-group="' + group.id + '" data-reveal>';
+          html += '  <span class="vault-ico" style="width:34px;height:34px;font-size:13px;"><i class="bi ' + group.icon + '"></i></span>';
+          html += '  <h3>' + group.title + '</h3>';
+          html += '  <a class="fq-group-link" href="' + group.linkUrl + '">' + group.linkText + ' <i class="bi bi-arrow-right"></i></a>';
+          html += '</div>';
+
+          group.items.forEach(function (item) {
+            html += '<div class="fq-card fq-item" id="' + item.id + '" data-cat="' + group.id + '" data-reveal>';
+            html += '  <button class="fq-q"><span>' + item.question + '</span><span class="fq-mark"></span></button>';
+            html += '  <div class="fq-a">';
+            html += '    <div class="fq-a-in">';
+            html += '      <p>' + item.answer + '</p>';
+            html += '      <div class="fq-card-actions">';
+            html += '        <div class="fq-feedback">';
+            html += '          <span>Was this helpful?</span>';
+            html += '          <button class="fq-feedback-btn" data-type="yes"><i class="bi bi-hand-thumbs-up-fill"></i> <span>Yes</span> <small class="fq-thumb-count">' + item.likes + '</small></button>';
+            html += '          <button class="fq-feedback-btn" data-type="no"><i class="bi bi-hand-thumbs-down-fill"></i> <span>No</span></button>';
+            html += '        </div>';
+            // html += '        <button class="fq-copylink-btn" title="Copy direct link to this FAQ"><i class="bi bi-link-45deg"></i> <span>Copy Link</span></button>';
+            html += '      </div>';
+            html += '    </div>';
+            html += '  </div>';
+            html += '</div>';
+          });
+        });
+
+        // Retain existing empty state node
+        if (emptyEl) {
+          fqList.innerHTML = html;
+          fqList.appendChild(emptyEl);
+        } else {
+          fqList.innerHTML = html;
+        }
+      }
+
+      // Initialize component rendering
+      renderCategoryPills();
+      renderFaqListComponent();
+
+      // ── Scroll progress fill ──
       var prog = document.getElementById("scrollProgress");
       window.addEventListener("scroll", function () {
         var h = document.documentElement;
@@ -602,66 +1588,271 @@
 
       function $(s, c) { return (c || document).querySelector(s); }
       function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+      function escapeRegExp(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 
-      /* ── category chips: sliding pill ── */
-      var cats = $("#fqCats"), pill = $("#fqCatsPill");
-      var catBtns = $$(".fq-cat-btn", cats);
-      var activeCat = "all";
+      // ── Set current footer year ──
+      var yr = document.getElementById("year");
+      if (yr) yr.textContent = new Date().getFullYear();
 
-      function movePill(btn) {
-        if (!pill || !btn) return;
-        pill.style.left = btn.offsetLeft + "px";
-        pill.style.width = btn.offsetWidth + "px";
+      // ── Accordion Card Logic ──
+      var cards = $$(".fq-card");
+
+      function closeCard(card) {
+        var body = $(".fq-a", card);
+        if (!body) return;
+        card.classList.remove("is-open");
+        body.style.maxHeight = "0px";
+        var q = $(".fq-q", card);
+        if (q) q.setAttribute("aria-expanded", "false");
       }
 
-      /* ── live search + category filter, combined ── */
-      var input = $("#fqSearchInput"), countEl = $("#fqSearchCount"), emptyEl = $("#fqEmpty");
+      function openCard(card) {
+        var body = $(".fq-a", card);
+        if (!body) return;
+        card.classList.add("is-open");
+        body.style.maxHeight = body.scrollHeight + 30 + "px";
+        var q = $(".fq-q", card);
+        if (q) q.setAttribute("aria-expanded", "true");
+      }
+
+      function bindAccordionEvents() {
+        cards = $$(".fq-card");
+        cards.forEach(function (card) {
+          var q = $(".fq-q", card);
+          if (!q) return;
+          q.setAttribute("aria-expanded", "false");
+          q.addEventListener("click", function () {
+            var isOpen = card.classList.contains("is-open");
+            cards.forEach(function (c) { if (c !== card) closeCard(c); });
+            if (isOpen) { closeCard(card); } else { openCard(card); }
+          });
+        });
+      }
+      bindAccordionEvents();
+
+      // Recalculate max-height on window resize
+      window.addEventListener("resize", function () {
+        var openCard_ = $(".fq-card.is-open");
+        if (openCard_) {
+          var body = $(".fq-a", openCard_);
+          if (body) body.style.maxHeight = body.scrollHeight + 30 + "px";
+        }
+      });
+
+      // ── Category Filter Pills & Search Engine ──
+      var input = $("#fqSearchInput");
+      var clearBtn = $("#fqSearchClear");
+      var countEl = $("#fqSearchCount");
+      var emptyEl = $("#fqEmpty");
+      var emptyResetBtn = $("#fqEmptyReset");
       var items = $$(".fq-item");
-      var groups = $$(".fq-group");
+      var groupHeads = $$(".fq-group-head");
+      var pills = $$(".fq-pill");
+      var activeCategory = "all";
+
+      function clearHighlights(root) {
+        $$("mark[data-fq-hl]", root).forEach(function (m) {
+          var parent = m.parentNode;
+          parent.replaceChild(document.createTextNode(m.textContent), m);
+          parent.normalize();
+        });
+      }
+
+      function highlightText(node, tokens) {
+        if (node.nodeType === 3) {
+          var text = node.nodeValue;
+          var re = new RegExp("(" + tokens.map(escapeRegExp).join("|") + ")", "ig");
+          if (!re.test(text)) return;
+          var frag = document.createDocumentFragment();
+          var lastIndex = 0;
+          text.replace(re, function (match, p1, offset) {
+            frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+            var mark = document.createElement("mark");
+            mark.setAttribute("data-fq-hl", "1");
+            mark.textContent = match;
+            frag.appendChild(mark);
+            lastIndex = offset + match.length;
+          });
+          frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+          node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1 && node.tagName !== "MARK" && !node.classList.contains("fq-card-actions")) {
+          Array.prototype.slice.call(node.childNodes).forEach(function (child) { highlightText(child, tokens); });
+        }
+      }
 
       function applyFilter() {
-        var q = (input.value || "").trim().toLowerCase();
-        var tokens = q.split(/\s+/).filter(Boolean);
+        items = $$(".fq-item");
+        groupHeads = $$(".fq-group-head");
+        pills = $$(".fq-pill");
+
+        var query = (input ? input.value : "").trim().toLowerCase();
+        var tokens = query.split(/\s+/).filter(Boolean);
+
+        // Toggle clear search button visibility
+        if (clearBtn) clearBtn.classList.toggle("show", query.length > 0);
+
         var visibleTotal = 0;
 
-        groups.forEach(function (group) {
-          var groupItems = $$(".fq-item", group);
-          var groupVisible = 0;
+        items.forEach(function (item) {
+          clearHighlights(item);
 
-          groupItems.forEach(function (item) {
-            var matchesCat = activeCat === "all" || item.getAttribute("data-cat") === activeCat;
-            var text = item.textContent.toLowerCase();
-            var matchesQuery = tokens.length === 0 || tokens.every(function (t) { return text.indexOf(t) !== -1; });
-            var show = matchesCat && matchesQuery;
-            item.classList.toggle("is-hidden", !show);
-            if (show) groupVisible++;
-          });
+          var itemCat = item.getAttribute("data-cat");
+          var categoryMatches = (activeCategory === "all" || itemCat === activeCategory);
 
-          group.classList.toggle("is-hidden", groupVisible === 0);
-          visibleTotal += groupVisible;
+          var text = item.textContent.toLowerCase();
+          var queryMatches = tokens.length === 0 || tokens.every(function (t) { return text.indexOf(t) !== -1; });
+
+          var isVisible = categoryMatches && queryMatches;
+          item.classList.toggle("is-hidden", !isVisible);
+
+          if (isVisible) {
+            visibleTotal++;
+            if (tokens.length > 0) {
+              highlightText($(".fq-q span", item), tokens);
+              highlightText($(".fq-a-in p", item), tokens);
+
+              // Auto-expand accordions matching search text
+              openCard(item);
+            }
+          }
         });
 
-        countEl.textContent = visibleTotal + (visibleTotal === 1 ? " answer" : " answers");
-        emptyEl.classList.toggle("show", visibleTotal === 0);
-      }
+        // Hide empty group headings
+        groupHeads.forEach(function (head) {
+          var groupCat = head.getAttribute("data-group");
+          var categoryMatches = (activeCategory === "all" || groupCat === activeCategory);
 
-      if (cats) {
-        catBtns.forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            activeCat = btn.getAttribute("data-cat");
-            catBtns.forEach(function (b) { b.classList.toggle("active", b === btn); });
-            movePill(btn);
-            applyFilter();
-          });
+          var el = head.nextElementSibling;
+          var anyVisible = false;
+          while (el && !el.classList.contains("fq-group-head") && el.id !== "fqEmpty") {
+            if (el.classList.contains("fq-item") && !el.classList.contains("is-hidden")) {
+              anyVisible = true;
+              break;
+            }
+            el = el.nextElementSibling;
+          }
+
+          head.classList.toggle("is-hidden", !categoryMatches || !anyVisible);
         });
-        window.addEventListener("load", function () { movePill($(".fq-cat-btn.active", cats)); });
-        window.addEventListener("resize", function () { movePill($(".fq-cat-btn.active", cats)); });
-        movePill($(".fq-cat-btn.active", cats));
+
+        if (countEl) {
+          countEl.textContent = visibleTotal + (visibleTotal === 1 ? " answer" : " answers");
+        }
+        if (emptyEl) {
+          emptyEl.classList.toggle("show", visibleTotal === 0);
+        }
       }
 
+      // Input listener
       if (input) {
         input.addEventListener("input", applyFilter);
       }
+
+      // Clear search button
+      if (clearBtn) {
+        clearBtn.addEventListener("click", function () {
+          input.value = "";
+          applyFilter();
+          input.focus();
+        });
+      }
+
+      // Reset button in empty state
+      if (emptyResetBtn) {
+        emptyResetBtn.addEventListener("click", function () {
+          if (input) input.value = "";
+          activeCategory = "all";
+          $$(".fq-pill").forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-filter") === "all"); });
+          applyFilter();
+        });
+      }
+
+      // Category Pill click listeners
+      $$(".fq-pill").forEach(function (pill) {
+        pill.addEventListener("click", function () {
+          $$(".fq-pill").forEach(function (p) { p.classList.remove("active"); });
+          pill.classList.add("active");
+          activeCategory = pill.getAttribute("data-filter");
+          applyFilter();
+        });
+      });
+
+      // ── Feedback Buttons Micro-Interactions ──
+      $$(".fq-feedback-btn").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var type = btn.getAttribute("data-type");
+          var parent = btn.closest(".fq-feedback");
+          var siblings = $$(".fq-feedback-btn", parent);
+
+          siblings.forEach(function (b) {
+            b.classList.remove("active-yes", "active-no");
+          });
+
+          if (type === "yes") {
+            btn.classList.add("active-yes");
+            var countSmall = $(".fq-thumb-count", btn);
+            if (countSmall && !btn.hasAttribute("data-voted")) {
+              var count = parseInt(countSmall.textContent, 10) || 0;
+              countSmall.textContent = count + 1;
+              btn.setAttribute("data-voted", "true");
+            }
+          } else {
+            btn.classList.add("active-no");
+          }
+        });
+      });
+
+      // ── Copy Direct Link & Toast Notification ──
+      var toast = $("#fqToast");
+      function showToast(msg) {
+        if (!toast) return;
+        if (msg) $("span", toast).textContent = msg;
+        toast.classList.add("show");
+        setTimeout(function () { toast.classList.remove("show"); }, 3000);
+      }
+
+      $$(".fq-copylink-btn").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var card = btn.closest(".fq-card");
+          if (!card || !card.id) return;
+
+          var url = window.location.protocol + "//" + window.location.host + window.location.pathname + "#" + card.id;
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(function () {
+              showToast("Direct link copied to clipboard!");
+            }).catch(function () {
+              showToast("Link: " + url);
+            });
+          } else {
+            showToast("Direct link: #" + card.id);
+          }
+        });
+      });
+
+      // ── Deep Linking via URL Hash ──
+      if (window.location.hash) {
+        var targetCard = $(window.location.hash);
+        if (targetCard && targetCard.classList.contains("fq-card")) {
+          setTimeout(function () {
+            openCard(targetCard);
+            targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          }, 300);
+        }
+      }
+
+      // ── Sticky "Still Need Help?" button ──
+      var stickyHelp = $("#fqStickyHelp");
+      if (stickyHelp) {
+        var heroEl = $(".p-hero");
+        window.addEventListener("scroll", function () {
+          var threshold = heroEl ? heroEl.offsetHeight : 350;
+          stickyHelp.classList.toggle("show", window.scrollY > threshold);
+        }, { passive: true });
+      }
+
     })();
   </script>
 </body>

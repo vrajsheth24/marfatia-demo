@@ -796,7 +796,7 @@ em{ font-style:normal; color:var(--green); }
    SEC-08a — TRADING ACCOUNT
    ============================================================ */
 .prod-account{ padding:80px 5vw; background:var(--paper);  overflow:hidden; }
-.prod-account-text{ max-width:480px; position:relative; z-index:1; }
+.prod-account-text{ position:relative; z-index:1; }
 .prod-account-text .sec-sub{ margin-bottom:30px; }
 .prod-account-visual{ position:relative; z-index:1; background:var(--paper-raised); border:1px solid var(--line-strong); border-radius:var(--radius-lg); padding:36px; box-shadow:var(--shadow-sm); }
 .acct-icon{ width:44px; height:44px; color:var(--green); margin-bottom:20px; }
@@ -941,7 +941,7 @@ em{ font-style:normal; color:var(--green); }
 .unfold-section::before{ content:''; position:absolute; inset:0; background:url('../content/img/mesh.png') center/cover no-repeat; opacity:.8; pointer-events:none; }
 .unfold-spacer{ height:80vh; }
 .unfold-pin{ position:sticky; top:0; height:100vh; display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:0; gap:20px; color:var(--ink); }
-.unfold-text{ max-width:460px; }
+/* .unfold-text{ max-width:460px; } */
 .unfold-text h2{ font-family:var(--font-disp); font-size:clamp(30px,4vw,44px); font-weight:800; margin:16px 0; }
 .unfold-text p{ color:var(--ink-soft); line-height:1.6; margin-bottom:28px; }
 .app-stats{ display:flex; gap:34px; margin-bottom:28px; }
@@ -1883,22 +1883,145 @@ em{ font-style:normal; color:var(--green); }
 @media (max-width:900px){ .awards-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:600px){ .awards-grid{ grid-template-columns:1fr; } }
 
-/* ---------- Footer: Google Map + Reviews — one compact row, not a big block ---------- */
-.footer-locate{ max-width:1320px; margin:0 auto 46px; display:flex; align-items:stretch; gap:16px; background:var(--paper-raised); border:1px solid var(--line-strong); border-radius:var(--radius-md); padding:14px; }
-.footer-map-compact{ position:relative; flex:0 0 200px; height:120px; border-radius:10px; overflow:hidden; display:block; filter:grayscale(.15); }
-.footer-map-compact iframe{ width:100%; height:100%; border:0; display:block; pointer-events:none; }
-.footer-map-tag{ position:absolute; left:8px; bottom:8px; font-size:9.5px; color:#fff; background:rgba(13,33,24,.75); padding:4px 9px; border-radius:100px; transition:background .2s; }
-.footer-map-compact:hover .footer-map-tag{ background:var(--green); }
-.footer-reviews-compact{ flex:1; min-width:0; display:flex; align-items:center; gap:20px; padding:0 4px; }
-.footer-reviews-compact .google-badge{ margin:0; flex-shrink:0; padding:8px 14px; }
-.footer-review-line{ flex:1; min-width:0; font-size:12.5px; color:var(--ink-soft); line-height:1.5; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.footer-review-line span{ color:var(--ink-faint); font-family:var(--font-mono); font-size:11px; margin-left:4px; }
-.footer-reviews-compact > .btn{ flex-shrink:0; }
-@media (max-width:900px){
-  .footer-locate{ flex-direction:column; padding:16px; }
-  .footer-map-compact{ flex:none; width:100%; height:140px; }
-  .footer-reviews-compact{ flex-wrap:wrap; }
-  .footer-review-line{ white-space:normal; order:3; width:100%; }
+/* ---------- Footer: Google Map + Reviews — Premium Modern Card Bar ---------- */
+.footer-locate {
+  max-width: 1320px;
+  margin: 0 auto 46px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--paper-raised, #ffffff);
+  border: 1px solid rgba(0, 80, 40, 0.12);
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 30px rgba(0, 30, 15, 0.04);
+  transition: all 0.35s ease;
+}
+
+.footer-locate:hover {
+  border-color: rgba(5, 110, 59, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 40, 20, 0.08);
+}
+
+.footer-map-compact {
+  position: relative;
+  flex: 0 0 190px;
+  height: 95px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.footer-map-compact iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+.footer-map-compact:hover iframe {
+  transform: scale(1.08);
+}
+
+.footer-map-tag {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(8, 30, 18, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 4px 10px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.footer-map-compact:hover .footer-map-tag {
+  background: #056e3b;
+  color: #ffffff;
+}
+
+.footer-reviews-compact {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-reviews-compact .google-badge {
+  margin: 0;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 110, 55, 0.05);
+  border: 1px solid rgba(0, 110, 55, 0.14);
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.footer-review-line {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin: 0;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer-review-line span {
+  color: #056e3b;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.footer-reviews-compact > .btn {
+  flex-shrink: 0;
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .footer-locate {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 14px;
+  }
+  .footer-map-compact {
+    flex: none;
+    width: 100%;
+    height: 120px;
+  }
+  .footer-reviews-compact {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-review-line {
+    order: 3;
+    width: 100%;
+    flex: none;
+    -webkit-line-clamp: 3;
+  }
 }
 @media (max-width:640px){
   .whatsapp-strip, .social-feed-section, .youtube-section, .blog-section, .gallery-section, .team-section, .awards-section{ padding-top:70px; padding-bottom:70px; }
@@ -2381,16 +2504,833 @@ em{ font-style:normal; color:var(--green); }
 .payoff-badges { display: flex; gap: 14px; flex-wrap: wrap; }
 .payoff-badges span { font-size: 12px; font-family: var(--font-mono, monospace); font-weight: 700; }
 
+/* ---------- Experience Suite High-Tech Dashboard App Cards ---------- */
+.dash-card {
+  width: 100%;
+  max-width: 380px;
+  background: #0b1712;
+  border: 1px solid rgba(18,184,90,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35), 0 0 20px rgba(18,184,90,0.08);
+  display: flex;
+  flex-direction: column;
+  color: #e2e8f0;
+}
+.dash-topbar {
+  background: #10221a;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.dash-dots {
+  display: flex;
+  gap: 6px;
+}
+.dash-dots span {
+  width: 9px; height: 9px; border-radius: 50%;
+}
+.dash-dots span:nth-child(1) { background: #ff5f56; }
+.dash-dots span:nth-child(2) { background: #ffbd2e; }
+.dash-dots span:nth-child(3) { background: #27c93f; }
+
+.dash-title {
+  font-family: var(--font-disp, sans-serif);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.01em;
+}
+.dash-badge {
+  font-size: 9.5px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.dash-badge.live {
+  display: inline-flex; align-items: center; gap: 4px;
+}
+
+.dash-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.dash-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  width: 100%;
+}
+
+/* MTF Card */
+.mtf-visual-box { display: flex; flex-direction: column; gap: 12px; }
+.mtf-split-bar {
+  display: flex; height: 36px; border-radius: 8px; overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+.mtf-seg {
+  display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; font-family: var(--font-mono, monospace);
+}
+.mtf-seg.investor { background: #334155; color: #f8fafc; }
+.mtf-seg.funded { background: linear-gradient(135deg, #059669, #10b981); color: #ffffff; }
+
+.mtf-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mtf-leg { display: flex; align-items: flex-start; gap: 8px; font-size: 11.5px; }
+.mtf-leg b { display: block; color: #f8fafc; font-size: 13px; }
+.mtf-leg small { color: #94a3b8; font-size: 10.5px; }
+.dot-inv { width: 8px; height: 8px; border-radius: 2px; background: #64748b; margin-top: 4px; }
+.dot-fnd { width: 8px; height: 8px; border-radius: 2px; background: #10b981; margin-top: 4px; }
+
+.mtf-points { display: flex; flex-direction: column; gap: 8px; }
+.mtf-pt { font-size: 11.5px; color: #cbd5e1; display: flex; align-items: center; gap: 8px; }
+.mtf-pt i { color: #10b981; font-size: 13px; }
+
+/* PMS Card */
+.pms-donut-stage { position: relative; width: 140px; height: 140px; margin: 0 auto; }
+.pms-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.pms-bg-ring { fill: none; stroke: #1e293b; stroke-width: 20; }
+.pms-seg { fill: none; stroke-width: 20; }
+.pms-seg.equity { stroke: #10b981; }
+.pms-seg.debt { stroke: #3b82f6; }
+.pms-seg.cash { stroke: #f59e0b; }
+
+.pms-center {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px;
+}
+.pms-center span { font-size: 10px; font-weight: 700; font-family: var(--font-mono, monospace); color: #94a3b8; text-transform: uppercase; line-height: 1.3; }
+
+.pms-legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pms-item { background: #15291f; border-radius: 6px; padding: 6px 8px; display: flex; align-items: center; gap: 6px; }
+.pms-item b { display: block; font-size: 11px; color: #f8fafc; line-height: 1.1; }
+.pms-item small { font-size: 11px; font-weight: 800; font-family: var(--font-mono, monospace); }
+.pms-item.eq small { color: #10b981; }
+.pms-item.dt small { color: #3b82f6; }
+.pms-item.cs small { color: #f59e0b; }
+.pms-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.pms-item.eq .pms-dot { background: #10b981; }
+.pms-item.dt .pms-dot { background: #3b82f6; }
+.pms-item.cs .pms-dot { background: #f59e0b; }
+
+/* SIP Card */
+.sip-vector-stage { width: 100%; height: 120px; background: #15291f; border-radius: 10px; padding: 6px; position: relative; overflow: hidden; }
+.sip-svg { width: 100%; height: 100%; display: block; }
+.sip-caption { text-align: center; font-size: 11px; font-family: var(--font-mono, monospace); color: #a78bfa; font-weight: 600; }
+
+/* IPO Card */
+.ipo-dynamic-list { display: flex; flex-direction: column; gap: 8px; }
+.ipo-card-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; background: #15291f; border-radius: 8px; }
+.ipo-meta b { display: block; font-size: 12px; color: #f8fafc; }
+.ipo-meta small { font-size: 10px; color: #94a3b8; }
+.ipo-badge { font-size: 9.5px; font-weight: 800; font-family: var(--font-mono, monospace); padding: 2px 7px; border-radius: 4px; }
+.ipo-badge.open { background: rgba(59,130,246,0.2); color: #60a5fa; }
+.ipo-badge.allot { background: rgba(249,115,22,0.2); color: #fb923c; }
+.ipo-badge.closed { background: rgba(148,163,184,0.2); color: #cbd5e1; }
+
+.ipo-flow-track { display: flex; align-items: center; justify-content: space-between; font-size: 10.5px; font-family: var(--font-mono, monospace); color: #10b981; font-weight: 700; background: #15291f; padding: 6px 10px; border-radius: 8px; }
+.ipo-flow-track i { color: #64748b; font-size: 10px; }
+
+/* Options Card */
+.options-vector-stage { width: 100%; height: 110px; background: #15291f; border-radius: 10px; padding: 6px; }
+.options-svg { width: 100%; height: 100%; display: block; }
+.options-meta-box { display: flex; flex-direction: column; gap: 8px; }
+.opt-legend-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.chip { font-size: 10px; padding: 3px 6px; background: #15291f; border-radius: 4px; color: #cbd5e1; display: inline-flex; align-items: center; gap: 4px; }
+.chip.bull { border: 1px solid rgba(16,185,129,0.3); color: #34d399; }
+.dot-c { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+.opt-zones-row { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; font-family: var(--font-mono, monospace); }
+.zone-p { color: #34d399; }
+.zone-l { color: #f87171; }
+
+/* ---------- Experience Suite Native UI Components ---------- */
+.xsc-ui-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.xsc-ui-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+.xsc-ui-title {
+  font-family: var(--font-disp, sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading-color);
+  letter-spacing: -0.01em;
+}
+.xsc-ui-badge {
+  font-size: 10px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  color: var(--green);
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+.xsc-ui-divider {
+  height: 1px;
+  background: var(--line);
+  width: 100%;
+}
+
+/* MTF Card Graphic */
+.xsc-mtf-graphic {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mtf-bar-container {
+  display: flex;
+  height: 38px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
+}
+.mtf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.4s ease;
+}
+.mtf-bar.mtf-investor {
+  background: var(--paper-tint);
+  border-right: 2px solid var(--paper-raised);
+}
+.mtf-bar.mtf-funded {
+  background: linear-gradient(135deg, #08753b, #12b85a);
+}
+.mtf-bar-pct {
+  font-size: 12px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+}
+.mtf-investor .mtf-bar-pct { color: var(--ink); }
+.mtf-funded .mtf-bar-pct { color: #ffffff; }
+
+.mtf-legend-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.mtf-leg-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+}
+.leg-dot {
+  width: 10px; height: 10px; border-radius: 3px; margin-top: 3px; flex-shrink: 0;
+}
+.leg-dot.investor { background: var(--ink-faint); }
+.leg-dot.funded { background: var(--green); }
+.mtf-leg-item strong { display: block; color: var(--heading-color); font-size: 13px; }
+.mtf-leg-item small { color: var(--ink-soft); font-size: 11px; }
+
+.xsc-ui-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.xsc-ui-checklist li {
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.xsc-ui-checklist li i {
+  color: var(--green);
+  font-size: 14px;
+}
+
+/* PMS Donut Card */
+.pms-donut-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+.pms-donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.donut-bg {
+  fill: none; stroke: var(--paper-tint); stroke-width: 22;
+}
+.donut-seg {
+  fill: none; stroke-width: 22; stroke-linecap: butt;
+  transition: stroke-dasharray 0.4s ease;
+}
+.seg-equity { stroke: #08753b; }
+.seg-debt { stroke: #3b82f6; }
+.seg-cash { stroke: #f59e0b; }
+
+.pms-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.pms-center-lbl {
+  font-size: 10.5px;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.pms-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.pms-bd-box {
+  background: var(--paper-tint);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bd-top {
+  font-size: 10px; color: var(--ink-soft); display: flex; align-items: center; gap: 4px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.bd-val {
+  font-size: 14px; font-weight: 800; color: var(--heading-color);
+}
+.pms-bd-box.equity .bd-dot { background: #08753b; }
+.pms-bd-box.debt .bd-dot { background: #3b82f6; }
+.pms-bd-box.cash .bd-dot { background: #f59e0b; }
+
+/* SIP Chart Card */
+.sip-chart-container {
+  width: 100%;
+  height: 140px;
+  background: var(--paper-tint);
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.sip-chart-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sip-chart-footer {
+  text-align: center;
+}
+.sip-lbl {
+  font-size: 11.5px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 600;
+  color: #8b5cf6;
+}
+
+/* IPO Tracker Card */
+.ipo-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ipo-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--paper-tint);
+  border-radius: 10px;
+}
+.ipo-co-info strong {
+  display: block;
+  font-size: 13px;
+  color: var(--heading-color);
+}
+.ipo-co-info small {
+  font-size: 10.5px;
+  color: var(--ink-soft);
+}
+.ipo-status-tag {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+.status-open { background: rgba(59,130,246,0.15); color: #2563eb; }
+.status-allotment { background: rgba(249,115,22,0.15); color: #ea580c; }
+.status-closed { background: rgba(100,116,139,0.15); color: #475569; }
+
+.ipo-journey-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--paper-tint);
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+}
+.journey-step { color: var(--ink); }
+.journey-step.active { color: var(--green); }
+.journey-arrow { color: var(--ink-faint); }
+
+/* Options Strategy Card */
+.options-chart-container {
+  width: 100%;
+  height: 120px;
+  background: var(--paper-tint);
+  border-radius: 12px;
+  padding: 8px;
+}
+.options-payoff-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.options-legend-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.opt-leg-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.opt-leg-chip {
+  font-size: 10.5px;
+  padding: 4px 8px;
+  background: var(--paper-tint);
+  border-radius: 6px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.opt-leg-chip.active {
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  color: var(--green);
+  font-weight: 700;
+}
+.leg-indicator {
+  width: 6px; height: 6px; border-radius: 50%; display: inline-block;
+}
+.leg-indicator.bull { background: #10b981; }
+.leg-indicator.bear { background: #ef4444; }
+.leg-indicator.straddle { background: #8b5cf6; }
+
+.options-zone-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+}
+.zone-tag.zone-profit { color: #10b981; }
+.zone-tag.zone-loss { color: #ef4444; }
+
+/* ---------- Experience Suite Visual Card Enhancements ---------- */
+.xsc-mockup-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .xsc-mockup-card {
+  background: #111c24;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color: #f1f5f9;
+}
+
+.xsc-mock-title {
+  font-family: var(--font-disp, sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .xsc-mock-title {
+  color: #f8fafc;
+}
+
+/* MTF Card Styles matching xsc-mtf.png */
+.mtf-buying-bar {
+  display: flex;
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #08753b;
+  box-shadow: 0 4px 12px rgba(8, 117, 59, 0.12);
+}
+
+.mtf-cap-box {
+  width: 25%;
+  background: #e6f7ef;
+  color: #065f46;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  text-align: center;
+  border-right: 2px solid #08753b;
+}
+
+[data-theme="dark"] .mtf-cap-box {
+  background: rgba(18, 184, 90, 0.18);
+  color: #a7f3d0;
+}
+
+.mtf-funded-box {
+  width: 75%;
+  background: #08753b;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.mtf-pct {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-family: var(--font-sans);
+}
+
+.mtf-lbl {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.mtf-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.mtf-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mtf-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #08753b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.mtf-stat-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+[data-theme="dark"] .mtf-stat-title {
+  color: #f8fafc;
+}
+
+.mtf-stat-sub {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .mtf-stat-sub {
+  color: #94a3b8;
+}
+
+/* Portfolio PMS Donut Styles matching xsc-portfolio.png */
+.pms-donut-wrap {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  margin: 4px auto;
+}
+
+.pms-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+[data-theme="dark"] .pms-donut-center {
+  color: #f8fafc;
+}
+
+.pms-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.pms-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* IPO Card Styles matching xsc-ipo.png */
+.ipo-mock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ipo-mock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .ipo-mock-row {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.ipo-co-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .ipo-co-name {
+  color: #f8fafc;
+}
+
+.ipo-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ipo-badge {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ipo-badge.open {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.ipo-badge.allotment {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.ipo-badge.closed {
+  background: #08753b;
+  color: #ffffff;
+}
+
+.ipo-gain-tag {
+  font-size: 13px;
+  font-weight: 700;
+  color: #08753b;
+}
+
+.ipo-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 4px;
+}
+
+[data-theme="dark"] .ipo-timeline {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.t-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #08753b;
+  display: inline-block;
+}
+
+.t-dot.inactive {
+  background: #94a3b8;
+}
+
+/* Options Payoff Card Styles matching xsc-options.png */
+.opt-profit-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #08753b;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.opt-loss-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #475569;
+  text-align: center;
+  margin-top: 2px;
+}
+
+[data-theme="dark"] .opt-loss-heading {
+  color: #94a3b8;
+}
+
+.opt-legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: absolute;
+  right: 28px;
+  bottom: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .opt-legend-list {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Legacy Card Class Support */
+.xsc-right-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.xsc-disclaimer {
+  padding: 12px 32px;
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  font-style: italic;
+  text-align: center;
+}
+[data-theme="dark"] .xsc-disclaimer {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--ink-faint);
+}
+.ph-title {
+  padding: 6px 12px 2px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--line);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .xsc-inner { grid-template-columns: 1fr; min-height: auto; }
-  .xsc-right { border-left: none; border-top: 1px solid rgba(0,0,0,0.06); height: 320px; }
+  .xsc-right { border-left: none; border-top: 1px solid rgba(0,0,0,0.06); height: auto; padding: 32px 40px; }
   .xsc-left { padding: 50px 40px 40px; }
 }
 @media (max-width: 640px) {
   .xsc-card { border-radius: 20px; margin-bottom: 80px; top: 60px; }
   .xsc-left { padding: 36px 24px 32px; }
-  .xsc-right { height: 220px; }
+  .xsc-right { height: auto; padding: 24px 20px; }
   .xsc-title { font-size: 28px; }
   .xsc-stat-row { gap: 18px; flex-wrap: wrap; }
 }
@@ -3056,7 +3996,14 @@ em{ font-style:normal; color:var(--green); }
 .footer-social{ display:flex; gap:10px; margin-top:14px; }
 .footer-social-ico{ width:38px; height:38px; border-radius:11px; border:1px solid var(--line-strong); background:var(--paper-raised); color:var(--ink-soft); display:flex; align-items:center; justify-content:center; transition:transform .25s var(--ease), background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease); }
 .footer-social-ico svg{ width:18px; height:18px; }
-.footer-social-ico:hover{ transform:translateY(-4px) scale(1.06); background:var(--green); border-color:var(--green); color:#fff; box-shadow:0 8px 22px rgba(8,117,59,.28); }
+.footer-social-ico i{
+  margin-right: 0 !important;
+}
+.footer-social-ico:hover i{
+  transform: scale(1.15) translateX(0) !important;
+}
+
+.footer-social-ico:hover{ transform: scale(1.06); background:var(--green); border-color:var(--green); color:#fff; box-shadow:0 8px 22px rgba(8,117,59,.28); }
 .to-top{ position:fixed; right:24px; bottom:24px; z-index:480; width:44px; height:44px; border-radius:50%; background:var(--paper-raised); border:1px solid var(--line-strong); box-shadow:var(--shadow-md); color:var(--green); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transform:translateY(14px) scale(.9); transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s, background .2s, color .2s; }
 .to-top.show{ opacity:1; visibility:visible; transform:translateY(0) scale(1); }
 .to-top:hover{ background:var(--green); color:#fff; }
@@ -4330,4 +5277,12 @@ em{ font-style:normal; color:var(--green); }
 }
 [data-theme="dark"] .live-pulse-btn:hover .dot--live {
   background: #ffffff !important;
+}
+
+.acct-disclaimer{
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 10px;
 }

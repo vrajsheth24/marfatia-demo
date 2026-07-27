@@ -150,8 +150,8 @@
     '<div class="footer-reviews-compact">' +
     '<div class="google-badge"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.5-9.6 6.5-16.6z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.5C3 17 2 20.4 2 24s1 7 4.5 9.9l7.3-5.7z"/><path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.1l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></svg>' +
     '<span><b>4.8</b>/5 \u00B7 2,400+ Reviews</span></div>' +
-    '<p class="footer-review-line">\u201CSwitched from a legacy broker \u2014 the algo automation alone paid for the switch.\u201D <span>\u2014 Rohan Kapadia</span></p>' +
-    '<a href="#" class="btn btn-outline btn-sm"><span>Write a Review \u2192</span></a>' +
+    '<p class="footer-review-line mb-0">\u201CSwitched from a legacy broker \u2014 the algo automation alone paid for the switch.\u201D <span>\u2014 Rohan Kapadia</span></p>' +
+    '<a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review \u2192</span></a>' +
     '</div></div>' +
     '<div class="footer-grid">' +
     '<div class="footer-col footer-col--brand">' +
@@ -161,11 +161,15 @@
     '<address class="footer-address mono"><i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat \u2013 390005, India</address>' +
     '<div class="footer-emails mono"><a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-fill"></i> compliance@marfatia.net</a><a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a></div>' +
     '<div class="footer-social">' +
-    '<a href="#" class="footer-social-ico" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.4c0-.9.2-1.5 1.5-1.5H16.5V4.2C16.2 4.2 15.2 4 14 4c-2.4 0-4 1.5-4 4.1V10.5H7.5v3H10V21h3.5z"/></svg></a>' +
-    '<a href="#" class="footer-social-ico" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>' +
-    '<a href="#" class="footer-social-ico" aria-label="X"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg></a>' +
-    '<a href="#" class="footer-social-ico" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.8 1 12 1 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zm-13 3V9l5.2 3-5.2 3z"/></svg></a>' +
-    '<a href="#" class="footer-social-ico" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9c2.1.8 2.1.6 2.5.5a2.4 2.4 0 0 0 1.6-1.1c.2-.5.2-.9.1-1z"/></svg></a>' +
+    '<a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>' +
+    '<a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>' +
+    '<a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Telegram"><i class="bi bi-telegram"></i></a>' +
+    '<a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>' +
+    '<a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener" class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>' +
+    '<a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>' +
+    '<a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>' +
+    '<a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>' +
+    '<a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>' +
     '</div></div>' +
     '<div class="footer-col"><h5>Quick Links</h5>' +
     '<a href="index.html"><i class="bi bi-house-door"></i> Home</a><a href="#"><i class="bi bi-info-circle"></i> About Us</a><a href="#"><i class="bi bi-people"></i> Key Managerial Personnels</a><a href="#"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a><a href="#"><i class="bi bi-telephone"></i> Contact Us</a><a href="#"><i class="bi bi-geo-alt"></i> Office Addresses</a><a href="#"><i class="bi bi-download"></i> New Downloads</a><a href="#"><i class="bi bi-play-btn"></i> News</a><a href="#"><i class="bi bi-images"></i> Gallery</a></div>' +
