@@ -891,7 +891,7 @@
     /* ── REDESIGNED 01: REGULATORY IDENTITY LEDGER (5 BOXES IN ONE ROW) ── */
     .ab-center-head {
       text-align: center;
-      max-width: 820px;
+      max-width: 1020px;
       margin: 0 auto 40px;
     }
 
@@ -901,7 +901,7 @@
     }
 
     .ab-center-head .sec-title {
-      font-size: clamp(26px, 3.5vw, 36px);
+      /* font-size: clamp(26px, 3.5vw, 36px); */
       margin-bottom: 16px;
     }
 
@@ -1153,6 +1153,8 @@
       border-radius: 8px;
       letter-spacing: 0.05em;
       word-break: break-all;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .ab-reg-terminal-status {
@@ -1213,6 +1215,8 @@
       padding: 3px 8px;
       border-radius: 6px;
       border: 1px solid rgba(155, 206, 22, 0.25);
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     @media(max-width: 960px) {
@@ -1393,11 +1397,488 @@
         grid-template-columns: 1fr;
       }
     }
-    .ab-plat-wrap {
+    /* ═══════════════════════════════════════════
+       TECH PLATFORM — COMPACT LIGHT REDESIGN
+    ═══════════════════════════════════════════ */
+    .plat-section {
+      background: #fff;
+      border-top: 1px solid rgba(8,117,59,0.10);
+      border-bottom: 1px solid rgba(8,117,59,0.10);
+    }
+    .plat-bg-fx  { display: none; }
+    .plat-dot-grid { display: none; }
+    .plat-arc-svg  { display: none; }
+    .plat-wrap-inner { position: relative; }
+
+    /* Two-column split */
+    .plat-split {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1.6fr;
       gap: 48px;
       align-items: center;
+    }
+    @media (max-width: 900px) {
+      .plat-split { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* Left: header + stat strip */
+    .plat-left-head .eyebrow { margin-bottom: 10px; }
+    .plat-left-head .sec-title { font-size: clamp(22px, 3vw, 30px); margin-bottom: 10px; }
+    .plat-left-head .sec-sub { font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 22px; }
+
+    /* Stat strip */
+    .plat-stat-strip {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(8,117,59,0.12);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .plat-stat {
+      flex: 1;
+      text-align: center;
+      padding: 12px 10px;
+      border-right: 1px solid rgba(8,117,59,0.10);
+    }
+    .plat-stat:last-child { border-right: none; }
+    .plat-stat-val {
+      font-family: var(--font-disp);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+    }
+    .plat-stat-lbl {
+      font-size: 10.5px;
+      color: var(--ink-soft);
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    /* Live pulse badge */
+    .plat-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      color: var(--green);
+      background: rgba(8,117,59,0.07);
+      border: 1px solid rgba(8,117,59,0.18);
+      border-radius: 100px;
+      padding: 5px 12px;
+      margin-top: 14px;
+    }
+    .plat-live-badge .dot--live {
+      width: 6px; height: 6px;
+      background: var(--green);
+      animation: plat-blink 1.6s ease-in-out infinite;
+    }
+    @keyframes plat-blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    /* Right: 4×2 icon grid */
+    .plat-feat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 640px) {
+      .plat-feat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .plat-feat-card {
+      background: #f7fdf9;
+      border: 1px solid rgba(8,117,59,0.10);
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+    .plat-feat-card:hover {
+      background: #fff;
+      border-color: var(--green);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(8,117,59,0.10);
+    }
+    .plat-feat-card i {
+      display: block;
+      font-size: 22px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .plat-feat-card-name {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .plat-feat-card-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: rgba(8,117,59,0.08);
+      border-radius: 100px;
+      padding: 2px 7px;
+      margin-top: 5px;
+    }
+
+
+
+    /* Radial glow blobs */
+    .plat-bg-fx {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 30%,  hsla(142,72%,30%,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 50% at 85% 70%,  hsla(80,75%,45%,0.14) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Animated SVG dot grid overlay */
+    .plat-dot-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(155,206,22,0.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .plat-wrap-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Section header */
+    .plat-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .plat-header .eyebrow {
+      color: var(--lime) !important;
+      border-color: rgba(155,206,22,0.25) !important;
+      background: rgba(155,206,22,0.08) !important;
+    }
+    .plat-header .sec-title {
+      color: #e8f5ec !important;
+      margin-top: 12px;
+    }
+    .plat-header .sec-sub {
+      color: rgba(180,210,190,0.65) !important;
+    }
+
+    /* ── BENTO GRID ── */
+    .plat-bento {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    @media (max-width: 1024px) {
+      .plat-bento { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .plat-bento { grid-template-columns: 1fr; }
+    }
+
+    /* Base bento card */
+    .plat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+    .plat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(155,206,22,0.35);
+      background: rgba(255,255,255,0.07);
+    }
+    .plat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(155,206,22,0.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .plat-card:hover::before { opacity: 1; }
+
+    /* CARD 1 — Hero card, spans 2 rows */
+    .plat-card--hero {
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+      background: linear-gradient(145deg, rgba(8,117,59,0.18) 0%, rgba(5,14,8,0.80) 60%);
+      border-color: rgba(8,117,59,0.35);
+    }
+    @media (max-width: 1024px) { .plat-card--hero { grid-row: auto; } }
+
+    .plat-card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--lime);
+      opacity: 0.8;
+      margin-bottom: 14px;
+    }
+    .plat-card-title {
+      font-family: var(--font-disp);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: #e8f5ec;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    .plat-card-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(180,210,190,0.65);
+      margin: 0 0 28px;
+      max-width: 340px;
+    }
+
+    /* Animated feature pills inside hero card */
+    .plat-feat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .plat-feat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(220,240,225,0.85);
+      background: rgba(8,117,59,0.20);
+      border: 1px solid rgba(8,117,59,0.35);
+      border-radius: 100px;
+      padding: 6px 12px;
+      transition: all 0.25s ease;
+    }
+    .plat-feat-pill:hover {
+      background: rgba(8,117,59,0.38);
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+    .plat-feat-pill i { font-size: 12px; color: var(--lime); }
+
+    /* Animated graph bar inside hero card */
+    .plat-hero-graph {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 64px;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .plat-bar {
+      flex: 1;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(180deg, #9bce16, #08753b);
+      opacity: 0.7;
+      animation: plat-bar-grow 1.2s cubic-bezier(0.16,1,0.3,1) both;
+      transform-origin: bottom;
+    }
+    @keyframes plat-bar-grow {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 0.7; }
+    }
+    .plat-bar:nth-child(1)  { height:35%; animation-delay:0.1s; }
+    .plat-bar:nth-child(2)  { height:55%; animation-delay:0.15s; }
+    .plat-bar:nth-child(3)  { height:40%; animation-delay:0.2s; }
+    .plat-bar:nth-child(4)  { height:70%; animation-delay:0.25s; }
+    .plat-bar:nth-child(5)  { height:50%; animation-delay:0.3s; }
+    .plat-bar:nth-child(6)  { height:85%; animation-delay:0.35s; opacity:1; background:linear-gradient(180deg,#c8f530,#4ade80); }
+    .plat-bar:nth-child(7)  { height:65%; animation-delay:0.4s; }
+    .plat-bar:nth-child(8)  { height:75%; animation-delay:0.45s; }
+    .plat-bar:nth-child(9)  { height:90%; animation-delay:0.5s; opacity:1; background:linear-gradient(180deg,#c8f530,#4ade80); }
+    .plat-bar:nth-child(10) { height:60%; animation-delay:0.55s; }
+    .plat-bar:nth-child(11) { height:45%; animation-delay:0.6s; }
+    .plat-bar:nth-child(12) { height:80%; animation-delay:0.65s; }
+    .plat-bar-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: rgba(155,206,22,0.6);
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    /* METRIC CARDS — top right area */
+    .plat-card--metric {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 160px;
+    }
+    .plat-metric-top { display: flex; align-items: center; justify-content: space-between; }
+    .plat-metric-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: rgba(155,206,22,0.12);
+      border: 1px solid rgba(155,206,22,0.20);
+      display: grid; place-items: center;
+      font-size: 18px;
+      color: var(--lime);
+    }
+    .plat-metric-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.08em;
+    }
+    .plat-metric-badge--up   { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
+    .plat-metric-badge--live { background: rgba(155,206,22,0.12); color: var(--lime); border: 1px solid rgba(155,206,22,0.25);
+      animation: plat-badge-blink 1.8s ease-in-out infinite; }
+    @keyframes plat-badge-blink { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .plat-metric-val {
+      font-family: var(--font-disp);
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 800;
+      color: #e8f5ec;
+      line-height: 1;
+      margin: 12px 0 4px;
+    }
+    .plat-metric-label {
+      font-size: 13px;
+      color: rgba(180,210,190,0.55);
+    }
+    .plat-metric-bar {
+      height: 4px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      margin-top: 14px;
+    }
+    .plat-metric-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #08753b, #9bce16);
+      animation: plat-bar-grow 1.4s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+      transform-origin: left;
+    }
+    /* Note: reusing plat-bar-grow animation but from left */
+    @keyframes plat-fill-grow {
+      from { width: 0; }
+      to   { width: var(--w, 70%); }
+    }
+    .plat-metric-bar-fill {
+      height: 100%; border-radius: 4px;
+      background: linear-gradient(90deg, #08753b, #9bce16);
+      animation: plat-fill-grow 1.4s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+      width: 0;
+    }
+
+    /* CAPABILITY ROW — bottom spanning all columns */
+    .plat-card--wide {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    @media (max-width: 640px) {
+      .plat-card--wide { grid-template-columns: 1fr 1fr; }
+    }
+
+    .plat-cap-item {
+      padding: 24px 22px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+    .plat-cap-item:last-child { border-right: none; }
+    .plat-cap-item:hover { background: rgba(155,206,22,0.06); }
+    /* Shimmer sweep on hover */
+    .plat-cap-item::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      transition: left 0.5s ease;
+    }
+    .plat-cap-item:hover::after { left: 140%; }
+
+    .plat-cap-icon {
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: rgba(8,117,59,0.18);
+      border: 1px solid rgba(8,117,59,0.30);
+      display: grid; place-items: center;
+      font-size: 20px;
+      color: #4ade80;
+      margin-bottom: 16px;
+    }
+    .plat-cap-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #e2f5e8;
+      margin: 0 0 6px;
+    }
+    .plat-cap-desc {
+      font-size: 12.5px;
+      color: rgba(155,185,165,0.65);
+      line-height: 1.55;
+    }
+    .plat-cap-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--lime);
+      margin-top: 10px;
+      opacity: 0.75;
+    }
+
+    /* STATUS DOT */
+    .plat-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: rgba(155,206,22,0.8);
+      letter-spacing: 0.08em;
+    }
+    .plat-status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--lime);
+      animation: plat-badge-blink 1.6s ease-in-out infinite;
+    }
+
+    /* Connection arc SVG watermark */
+    .plat-arc-svg {
+      position: absolute;
+      top: 0; right: 0;
+      width: 320px;
+      height: 320px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 1;
     }
 
     @media(max-width:960px) {
@@ -2496,7 +2977,7 @@
 
       <nav class="strip-nav" id="stripNav">
         <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
-        <div class="nav-item"><a class="strip-link" href="#">About Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="about.html">About Us</a></div>
 
         <div class="nav-item">
           <button class="strip-link" data-drawer="services">Services</button>
@@ -2592,8 +3073,8 @@
           </div>
         </div>
 
-        <div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>
-        <div class="nav-item"><a class="strip-link" href="#">FAQs</a></div>
+        <div class="nav-item"><a class="strip-link" href="pricing.html">Pricing</a></div>
+        <div class="nav-item"><a class="strip-link" href="faqs.html">FAQs</a></div>
 
         <!-- <div class="nav-item">
           <button class="strip-link" data-drawer="calculators">Calculators</button>
@@ -2617,8 +3098,8 @@
           </div>
         </div> -->
 
-        <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
-        <div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="partner-with-us.html">Partner With Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
       </nav>
 
       <div class="strip-right">
@@ -3116,69 +3597,91 @@
       </div>
     </section>
 
-    <!-- ── 04: TECHNOLOGY-DRIVEN PLATFORM (Terminal Showcase Design) ── -->
-    <section class="sec sec--tint sec--rule-top plat-section">
-      <div class="plat-bg-fx" aria-hidden="true"></div>
-      <div class="wrap ab-plat-wrap">
-        <div class="plat-copy">
-          <span class="eyebrow" data-reveal>Our Tech Platform</span>
-          <h2 class="sec-title" data-reveal>Technology-driven <em>Platform.</em></h2>
-          <p class="sec-sub" data-reveal style="margin-bottom:24px;">Technology plays a key role in delivering a
-            seamless investment experience. Our infrastructure is designed to support secure transactions, efficient
-            execution, and convenient digital services.</p>
+    <!-- ── 04: TECH PLATFORM (Compact Light) ── -->
+    <section class="sec plat-section">
+      <div class="wrap plat-wrap-inner">
+        <div class="plat-split">
 
-          <div class="ab-plat-features" data-reveal>
-            <div class="ab-plat-feat"><i class="bi bi-shield-lock-fill"></i><span>Secure Trading Infrastructure</span>
-            </div>
-            <div class="ab-plat-feat"><i class="bi bi-phone-vibrate"></i><span>Digital Account Opening</span></div>
-            <div class="ab-plat-feat"><i class="bi bi-diagram-3-fill"></i><span>Integrated Trading &amp; Demat
-                Platform</span></div>
-            <div class="ab-plat-feat"><i class="bi bi-pie-chart-fill"></i><span>Real-Time Portfolio Access</span></div>
-            <div class="ab-plat-feat"><i class="bi bi-lightning-charge-fill"></i><span>Efficient Transaction
-                Processing</span></div>
-            <div class="ab-plat-feat"><i class="bi bi-shield-check"></i><span>Robust Risk Management Systems</span>
-            </div>
-            <div class="ab-plat-feat"><i class="bi bi-lock-fill"></i><span>Secure Data Handling</span></div>
-            <div class="ab-plat-feat"><i class="bi bi-cpu-fill"></i><span>Continuous Technology Enhancements</span>
-            </div>
-          </div>
-        </div>
+          <!-- LEFT: heading + stats -->
+          <div class="plat-left-head" data-reveal>
+            <span class="eyebrow">Our Tech Platform</span>
+            <h2 class="sec-title">Technology-driven <em>Platform.</em></h2>
+            <p class="sec-sub">End-to-end digital infrastructure built for speed, security, and scale — powering every trade and account.</p>
 
-        <div class="plat-visual" data-reveal aria-hidden="true">
-          <!-- Live Market HUD Overlay -->
-          <!-- <div class="plat-live-hud">
-            <div class="plat-hud-row">
-              <span class="plat-hud-symbol">NIFTY 50</span>
-              <span class="plat-hud-val">24,850.40</span>
-              <span class="plat-hud-change">+0.57%</span>
-            </div>
-            <div class="plat-hud-row">
-              <span class="plat-hud-symbol">SENSEX</span>
-              <span class="plat-hud-val">81,420.15</span>
-              <span class="plat-hud-change">+0.59%</span>
-            </div>
-          </div> -->
-
-          <div class="ab-plat-terminal">
-            <div class="ab-plat-topbar">
-              <div class="ab-plat-dots"><span></span><span></span><span></span></div>
-              <span class="ab-plat-title">marfatia.net · Trading Platform</span>
-              <span class="ab-ledger-badge"><span class="dot dot--live"></span> Live Terminal</span>
-            </div>
-            <div class="ab-plat-body" style="position:relative;">
-              <div class="plat-scanline"></div>
-              <img src="content/img/platform-banner.png" alt="Marfatia High-Tech Trading Platform UI"
-                class="ab-plat-banner-img" loading="lazy">
-              <div class="ab-plat-status-row">
-                <span><i class="bi bi-activity" style="color:var(--lime);"></i> Latency: <b id="platPingVal">12ms</b></span>
-                <span><i class="bi bi-shield-check" style="color:var(--lime);"></i> Risk Engine: <b>Active</b></span>
-                <span><i class="bi bi-wifi" style="color:var(--lime);"></i> Platform: <b>Online</b></span>
+            <!-- Stat strip -->
+            <div class="plat-stat-strip">
+              <div class="plat-stat">
+                <div class="plat-stat-val">20+ Yrs</div>
+                <div class="plat-stat-lbl">Market Trust</div>
+              </div>
+              <div class="plat-stat">
+                <div class="plat-stat-val">5000+</div>
+                <div class="plat-stat-lbl">Active Clients</div>
+              </div>
+              <div class="plat-stat">
+                <div class="plat-stat-val">NSE+BSE</div>
+                <div class="plat-stat-lbl">Exchanges</div>
               </div>
             </div>
+
+            <div>
+              <span class="plat-live-badge"><span class="dot dot--live"></span> All Systems Operational</span>
+            </div>
           </div>
-          <div class="plat-orbit-chip plat-orbit-chip--1"><i class="bi bi-shield-check"></i> Secure Data Handling</div>
-          <div class="plat-orbit-chip plat-orbit-chip--2"><i class="bi bi-lightning-charge-fill"></i> Integrated Platform</div>
-        </div>
+
+          <!-- RIGHT: 4×2 feature icon grid -->
+          <div class="plat-feat-grid" data-reveal>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-shield-lock-fill"></i>
+              <div class="plat-feat-card-name">Secure Infrastructure</div>
+              <span class="plat-feat-card-tag">SSL</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-lightning-charge-fill"></i>
+              <div class="plat-feat-card-name">Ultra-Low Latency</div>
+              <span class="plat-feat-card-tag">10ms</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-phone-vibrate"></i>
+              <div class="plat-feat-card-name">Digital Onboarding</div>
+              <span class="plat-feat-card-tag">eKYC</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-pie-chart-fill"></i>
+              <div class="plat-feat-card-name">Live Portfolio</div>
+              <span class="plat-feat-card-tag">Realtime</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-diagram-3-fill"></i>
+              <div class="plat-feat-card-name">Integrated Demat</div>
+              <span class="plat-feat-card-tag">NSE·BSE</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-shield-check"></i>
+              <div class="plat-feat-card-name">Risk Management</div>
+              <span class="plat-feat-card-tag">Auto</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-lock-fill"></i>
+              <div class="plat-feat-card-name">Secure Data</div>
+              <span class="plat-feat-card-tag">AES-256</span>
+            </div>
+
+            <div class="plat-feat-card">
+              <i class="bi bi-cpu-fill"></i>
+              <div class="plat-feat-card-name">Continuous Updates</div>
+              <span class="plat-feat-card-tag">Always On</span>
+            </div>
+
+          </div><!-- /plat-feat-grid -->
+        </div><!-- /plat-split -->
       </div>
     </section>
 

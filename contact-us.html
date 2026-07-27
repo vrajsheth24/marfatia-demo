@@ -24,10 +24,15 @@
       z-index: 1000;
     }
 
+    /* ── GLOBAL SPACING TOKEN ── */
+    :root {
+      --section-pad: clamp(64px, 7.5vw, 100px);
+    }
+
     /* ── NON-BOXED MODERN FULL-WIDTH DESIGN SYSTEM ── */
     .sec-fullwidth {
       position: relative;
-      padding: clamp(60px, 7vw, 96px) 0;
+      padding: var(--section-pad) 0;
       width: 100%;
     }
 
@@ -36,169 +41,392 @@
       border-top: 1px solid var(--line, rgba(8, 117, 59, 0.12));
     }
 
-    /* ── HERO BANNER: OPEN FINANCIAL ANIMATED GRADIENT ── */
+    /* ═══════════════════════════════════════════════════════
+       HERO: VIBRANT MESH GRADIENT — Airy & Premium
+       Cream base · Colour blobs · Topographic lines ·
+       Glassmorphism chips · Spinning rings · Draw-in chart
+    ═══════════════════════════════════════════════════════ */
     .ct-hero-full {
       position: relative;
-      padding: calc(var(--header-h, 140px) + 20px) 0 clamp(60px, 8vw, 90px);
-      background: linear-gradient(135deg, rgba(8, 117, 59, 0.08) 0%, rgba(155, 206, 22, 0.05) 50%, rgba(8, 117, 59, 0.02) 100%);
-      background-size: 200% 200%;
-      animation: heroGradientShift 12s ease infinite;
+      padding: calc(var(--header-h, 140px) + 36px) 0 clamp(80px, 10vw, 130px);
+      background: #f0fdf7;
       overflow: hidden;
+      isolation: isolate;
     }
 
-    @keyframes heroGradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+    /* ── MESH BLOBS: Large blurry colour clouds ── */
+    .ct-hero-aurora {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 10% 20%,  hsla(150,80%,70%,0.38) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 50% at 92% 10%,  hsla(80, 75%,72%,0.30) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 45% at 50% 105%, hsla(142,70%,60%,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 40% at 80% 60%,  hsla(90, 70%,78%,0.25) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+      animation: ct-blob-drift 18s ease-in-out infinite alternate;
+    }
+    @keyframes ct-blob-drift {
+      0%   { transform: scale(1)    translate(0,  0);   }
+      50%  { transform: scale(1.04) translate(12px,-8px); }
+      100% { transform: scale(1)    translate(-8px,6px); }
     }
 
+    /* ── TOPOGRAPHIC / CONTOUR LINES ── */
     .ct-hero-bg-grid {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(8, 117, 59, 0.08) 1px, transparent 1px);
-      background-size: 28px 28px;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ccircle cx='60' cy='60' r='55' fill='none' stroke='rgba(8,117,59,0.07)' stroke-width='0.8'/%3E%3Ccircle cx='60' cy='60' r='42' fill='none' stroke='rgba(8,117,59,0.055)' stroke-width='0.8'/%3E%3Ccircle cx='60' cy='60' r='29' fill='none' stroke='rgba(8,117,59,0.04)' stroke-width='0.8'/%3E%3Ccircle cx='60' cy='60' r='16' fill='none' stroke='rgba(8,117,59,0.03)' stroke-width='0.8'/%3E%3C/svg%3E");
+      background-size: 120px 120px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    /* ── FINE CROSS-HATCH GRID ── */
+    .ct-hero-bg-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(8,117,59,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8,117,59,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
       z-index: 1;
     }
 
+    /* ── DECORATIVE SPINNING RINGS (top-right corner) ── */
+    .ct-hero-rings {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .ct-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(8,117,59,0.12);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: ct-ring-spin linear infinite;
+    }
+    .ct-ring-1 { width: 160px; height: 160px; animation-duration: 28s; border-style: dashed; border-color: rgba(155,206,22,0.2); }
+    .ct-ring-2 { width: 240px; height: 240px; animation-duration: 40s; animation-direction: reverse; }
+    .ct-ring-3 { width: 340px; height: 340px; animation-duration: 55s; border-color: rgba(8,117,59,0.07); }
+    .ct-ring-4 { width: 420px; height: 420px; animation-duration: 70s; animation-direction: reverse; border-style: dashed; border-color: rgba(155,206,22,0.08); }
+    @keyframes ct-ring-spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .ct-ring { animation: none; } }
+
+    /* ── BOTTOM-LEFT DECORATIVE RINGS ── */
+    .ct-hero-rings-bl {
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 280px;
+      height: 280px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .ct-ring-bl {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid rgba(155,206,22,0.14);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: ct-ring-spin linear infinite;
+    }
+    .ct-ring-bl-1 { width: 100px; height: 100px; animation-duration: 22s; border-style: dashed; }
+    .ct-ring-bl-2 { width: 180px; height: 180px; animation-duration: 35s; animation-direction: reverse; border-color: rgba(8,117,59,0.10); }
+    .ct-ring-bl-3 { width: 260px; height: 260px; animation-duration: 50s; }
+
+    /* ── ANIMATED CHART WAVE (bottom) ── */
     .ct-hero-chart-svg {
       position: absolute;
-      bottom: -10px;
+      bottom: 40px;
       left: 0;
       width: 100%;
       height: 180px;
-      opacity: 0.14;
       pointer-events: none;
       z-index: 1;
     }
+    .ct-chart-line {
+      stroke-dasharray: 1400;
+      stroke-dashoffset: 1400;
+      animation: ct-chart-draw 2.6s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+    }
+    .ct-chart-fill {
+      opacity: 0;
+      animation: ct-chart-fade 1.2s ease 2.8s forwards;
+    }
+    @keyframes ct-chart-draw { to { stroke-dashoffset: 0; } }
+    @keyframes ct-chart-fade  { to { opacity: 1; }  }
 
+    /* ── GLASSMORPHISM FLOATING STAT CHIPS ── */
+    .ct-hero-chip {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(8,117,59,0.10), 0 1px 4px rgba(255,255,255,0.9) inset;
+      padding: 11px 16px;
+      z-index: 2;
+      pointer-events: none;
+      animation: ct-chip-float ease-in-out infinite;
+    }
+    .ct-hero-chip--1 { top: 22%; left:  clamp(16px,5vw,60px); animation-duration: 6s;  animation-delay: 0s;   }
+    .ct-hero-chip--2 { top: 18%; right: clamp(16px,5vw,60px); animation-duration: 7s;  animation-delay: -2s;  }
+    .ct-hero-chip--3 { bottom: 22%; left:  clamp(16px,4vw,50px); animation-duration: 8s;  animation-delay: -4s; }
+    @media (max-width: 900px) { .ct-hero-chip { display: none; } }
+    @keyframes ct-chip-float {
+      0%, 100% { transform: translateY(0);    }
+      50%       { transform: translateY(-10px); }
+    }
+    .ct-chip-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--green), #2ec769);
+      color: #fff;
+      display: grid; place-items: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .ct-chip-body b {
+      display: block;
+      font-family: var(--font-disp);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .ct-chip-body span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .ct-chip-trend {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+    .ct-chip-trend--up   { color: #16a34a; }
+    .ct-chip-trend--down { color: #dc2626; }
+
+    /* ── ORBS (soft, light) ── */
     .ct-orb {
       position: absolute;
       border-radius: 50%;
       filter: blur(90px);
-      opacity: 0.18;
       pointer-events: none;
       z-index: 0;
-      animation: ct-drift 14s ease-in-out infinite;
+      animation: ct-drift 22s ease-in-out infinite;
     }
-
     .ct-orb-1 {
-      width: 380px;
-      height: 380px;
-      background: var(--green);
-      top: 2%;
-      left: -120px;
+      width: 380px; height: 380px;
+      background: hsla(142,72%,55%,0.22);
+      top: -80px; left: -100px;
     }
-
     .ct-orb-2 {
-      width: 420px;
-      height: 420px;
-      background: var(--lime);
-      bottom: -40px;
-      right: -140px;
-      animation-delay: -7s;
+      width: 440px; height: 440px;
+      background: hsla(80,76%,65%,0.18);
+      bottom: -100px; right: -120px;
+      animation-delay: -11s;
       animation-direction: reverse;
     }
-
+    .ct-orb-3 {
+      width: 260px; height: 260px;
+      background: hsla(150,68%,70%,0.20);
+      top: 30%; left: 42%;
+      animation-delay: -6s;
+    }
     @keyframes ct-drift {
-
-      0%,
-      100% {
-        transform: translate(0, 0) scale(1);
-      }
-
-      50% {
-        transform: translate(32px, -28px) scale(1.08);
-      }
+      0%, 100% { transform: translate(0,0)       scale(1);    }
+      33%       { transform: translate(26px,-22px) scale(1.07); }
+      66%       { transform: translate(-14px,18px) scale(0.96); }
     }
 
+    /* ── TICKER BAR — frosted glass light ── */
+    .ct-ticker-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40px;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(8,117,59,0.14);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      z-index: 3;
+    }
+    .ct-ticker-label {
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(135deg, var(--green), #2ec769);
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      gap: 7px;
+    }
+    .ct-ticker-track { flex: 1; overflow: hidden; }
+    .ct-ticker-content {
+      display: flex; gap: 52px;
+      animation: ct-ticker-scroll 32s linear infinite;
+      width: max-content; padding: 0 28px;
+    }
+    .ct-ticker-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; white-space: nowrap; }
+    .ct-ticker-sym  { color: var(--ink);      font-weight: 700; }
+    .ct-ticker-val  { color: var(--ink-soft); }
+    .ct-ticker-chg--up   { color: #16a34a; font-weight: 600; }
+    .ct-ticker-chg--down { color: #dc2626; font-weight: 600; }
+    @keyframes ct-ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ct-ticker-content { animation: none; }
+      .ct-ring, .ct-ring-bl { animation: none; }
+    }
+
+    /* ── HERO CONTENT ── */
     .ct-hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       text-align: center;
       margin: 0 auto;
     }
 
-    .ct-hero-title {
-      font-size: clamp(38px, 5.5vw, 60px);
-      font-weight: 800;
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      color: var(--ink);
-      margin: 0 0 16px;
+    /* Eyebrow badge */
+    .ct-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(8,117,59,0.08);
+      border: 1px solid rgba(8,117,59,0.18);
+      border-radius: 100px;
+      padding: 8px 20px;
+      margin-bottom: 24px;
+    }
+    .ct-hero-badge i { font-size: 14px; animation: ct-badge-pulse 2.4s ease-in-out infinite; }
+    @keyframes ct-badge-pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.22); }
     }
 
+    /* Heading */
+    .ct-hero-title {
+      font-size: clamp(38px,5.6vw,46px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: -0.038em;
+      color: var(--ink);
+      margin: 0 0 22px;
+    }
     .ct-hero-title em {
       font-style: normal;
-      background: linear-gradient(120deg, var(--green), #00a859);
+      background: linear-gradient(115deg, #08753b 0%, #2ec769 45%, #9bce16 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    .ct-hero-title em::after {
+      /* content: ''; */
+      display: block;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #08753b, #9bce16);
+      margin-top: 5px;
+      opacity: 0.45;
+      animation: ct-underline-grow 1.5s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+    }
+    @keyframes ct-underline-grow {
+      from { transform: scaleX(0); transform-origin: left; }
+      to   { transform: scaleX(1); transform-origin: left; }
     }
 
     .ct-hero-subtitle {
-      font-size: clamp(16px, 1.8vw, 19px);
-      line-height: 1.65;
+      font-size: clamp(15.5px, 1.8vw, 18.5px);
+      line-height: 1.72;
       color: var(--ink-soft);
-      max-width: 720px;
-      margin: 0 auto 36px;
+      max-width: 660px;
+      margin: 0 auto 44px;
     }
 
-    /* ── ANIMATED COUNTERS ROW (BORDERLESS, FLUID) ── */
+    /* ── COUNTERS (light bg) ── */
     .ct-counters-row {
-      margin-top: 44px;
+      margin-top: 52px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      padding: 30px 20px;
-      border-top: 1px dashed var(--line, rgba(8, 117, 59, 0.2));
-      border-bottom: 1px dashed var(--line, rgba(8, 117, 59, 0.2));
+      gap: 0;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(8,117,59,0.10);
+      border-radius: 18px;
+      overflow: hidden;
     }
-
-    @media (max-width: 900px) {
-      .ct-counters-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .ct-counters-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
+    @media (max-width: 900px) { .ct-counters-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .ct-counters-row { grid-template-columns: 1fr; } }
     .ct-counter-item {
       text-align: center;
+      padding: 32px 20px;
+      border-right: 1px solid rgba(8,117,59,0.08);
     }
-
+    .ct-counter-item:last-child { border-right: none; }
+    @media (max-width: 900px) {
+      .ct-counter-item:nth-child(2) { border-right: none; }
+      .ct-counter-item:nth-child(3) { border-right: 1px solid rgba(8,117,59,.08); }
+      .ct-counter-item { border-bottom: 1px solid rgba(8,117,59,.08); }
+      .ct-counter-item:nth-child(3),
+      .ct-counter-item:nth-child(4) { border-bottom: none; }
+    }
     .ct-counter-num {
       font-family: var(--font-disp);
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(34px, 4.5vw, 52px);
       font-weight: 800;
       color: var(--green);
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
-
     .ct-counter-label {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--ink-soft);
+      letter-spacing: 0.02em;
     }
 
-    /* ── CLICKABLE ACTION CARDS (OPEN NON-BOXED LIFT & GLOW) ── */
+    /* ── CLICKABLE ACTION CARDS ── */
     .ct-action-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      margin-top: 48px;
+      margin-top: 52px;
     }
 
     @media (max-width: 1024px) {
@@ -892,7 +1120,7 @@
 
       <nav class="strip-nav" id="stripNav">
         <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
-        <div class="nav-item"><a class="strip-link" href="#">About Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="about.html">About Us</a></div>
 
         <div class="nav-item">
           <button class="strip-link" data-drawer="services">Services</button>
@@ -988,8 +1216,8 @@
           </div>
         </div>
 
-        <div class="nav-item"><a class="strip-link" href="#">Pricing</a></div>
-        <div class="nav-item"><a class="strip-link" href="#">FAQs</a></div>
+        <div class="nav-item"><a class="strip-link" href="pricing.html">Pricing</a></div>
+        <div class="nav-item"><a class="strip-link" href="faqs.html">FAQs</a></div>
 
         <!-- <div class="nav-item">
           <button class="strip-link" data-drawer="calculators">Calculators</button>
@@ -1013,20 +1241,8 @@
           </div>
         </div> -->
 
-        <div class="nav-item"><a class="strip-link" href="#">Partner With Us</a></div>
-        <div class="nav-item"><a class="strip-link" href="#">Contact Us</a></div>
-
-        <!-- Mobile-only CTAs inside the slide-out nav -->
-        <div class="nav-item mobile-only"
-          style="margin-top:8px; border-top:1px solid var(--line); padding-top:16px; flex-direction:column; gap:10px;">
-          <!-- <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener" class="strip-link" style="justify-content:flex-start;">Login — Traders ↗</a>
-            <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener" class="strip-link" style="justify-content:flex-start;">Login — Back Office ↗</a> -->
-          <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
-            class="btn btn-marfatia mobile-cta" style="margin-top:6px;"><span>Open Demat Account</span></a>
-          <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
-            class="btn btn-ghost btn-outline live-pulse-btn mobile-cta" style="justify-content:center;"><span
-              class="dot dot--live"></span> Live Pulse</a>
-        </div>
+        <div class="nav-item"><a class="strip-link" href="partner-with-us.html">Partner With Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
       </nav>
 
       <div class="strip-right">
@@ -1086,38 +1302,99 @@
 
   <main class="inner-main">
 
-    <!-- ── 1. HERO BANNER: OPEN FULL-WIDTH FINANCIAL ANIMATED GRADIENT ── -->
+    <!-- ── 1. HERO BANNER: DARK FINTECH TERMINAL ── -->
     <section class="ct-hero-full">
+
+      <!-- Layer 1: Aurora glow -->
+      <div class="ct-hero-aurora"></div>
+      <!-- Layer 2: Topographic grid -->
       <div class="ct-hero-bg-grid"></div>
+      <!-- Layer 3: Crosshatch lines -->
+      <div class="ct-hero-bg-lines"></div>
+      <!-- Orbs -->
       <div class="ct-orb ct-orb-1"></div>
       <div class="ct-orb ct-orb-2"></div>
+      <div class="ct-orb ct-orb-3"></div>
 
-      <!-- Financial Wave SVG Overlay -->
-      <svg class="ct-hero-chart-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" fill="url(#heroChartGrad)" />
+      <!-- Spinning decorative rings — top right -->
+      <div class="ct-hero-rings">
+        <div class="ct-ring ct-ring-1"></div>
+        <div class="ct-ring ct-ring-2"></div>
+        <div class="ct-ring ct-ring-3"></div>
+        <div class="ct-ring ct-ring-4"></div>
+      </div>
+      <!-- Spinning decorative rings — bottom left -->
+      <div class="ct-hero-rings-bl">
+        <div class="ct-ring-bl ct-ring-bl-1"></div>
+        <div class="ct-ring-bl ct-ring-bl-2"></div>
+        <div class="ct-ring-bl ct-ring-bl-3"></div>
+      </div>
+
+      <!-- Glassmorphism floating stat chips -->
+      <!-- <div class="ct-hero-chip ct-hero-chip--1">
+        <div class="ct-chip-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <div class="ct-chip-body">
+          <b>NIFTY 50 <span class="ct-chip-trend ct-chip-trend--up">▲ 0.42%</span></b>
+          <span>Live Index</span>
+        </div>
+      </div> -->
+      <div class="ct-hero-chip ct-hero-chip--2">
+        <div class="ct-chip-icon"><i class="bi bi-shield-check"></i></div>
+        <div class="ct-chip-body">
+          <b>SEBI Regulated</b>
+          <span>Since 2002 · Vadodara</span>
+        </div>
+      </div>
+      <div class="ct-hero-chip ct-hero-chip--1">
+        <div class="ct-chip-icon"><i class="bi bi-people-fill"></i></div>
+        <div class="ct-chip-body">
+          <b>50,000+ Clients</b>
+          <span>Active Investors</span>
+        </div>
+      </div>
+
+      <!-- Animated chart SVG (light colour scheme) -->
+      <svg class="ct-hero-chart-svg" viewBox="0 0 1200 180" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="heroChartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#08753b" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="#9bce16" stop-opacity="0" />
+          <linearGradient id="heroLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#08753b" stop-opacity="0.4"/>
+            <stop offset="50%"  stop-color="#2ec769" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#9bce16" stop-opacity="0.4"/>
+          </linearGradient>
+          <linearGradient id="heroFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#08753b" stop-opacity="0.10"/>
+            <stop offset="100%" stop-color="#08753b" stop-opacity="0"/>
           </linearGradient>
         </defs>
+        <path class="ct-chart-fill"
+          d="M0,150 C100,130 200,100 320,115 C440,130 520,60 640,45 C760,30 860,75 980,55 C1060,42 1140,20 1200,15 L1200,180 L0,180 Z"
+          fill="url(#heroFillGrad)"/>
+        <path class="ct-chart-line"
+          d="M0,150 C100,130 200,100 320,115 C440,130 520,60 640,45 C760,30 860,75 980,55 C1060,42 1140,20 1200,15"
+          fill="none" stroke="url(#heroLineGrad)" stroke-width="2.5"/>
       </svg>
 
       <div class="container ct-hero-content">
-        <span class="p-crumb" data-reveal><a href="index.html">Home</a> <span class="dot"></span> <b>Contact
-            Us</b></span>
+        <span class="p-crumb" data-reveal><a href="index.html">Home</a> <span class="dot"></span> <b>Contact Us</b></span>
+
+        <!-- Eyebrow badge -->
+        <!-- <div style="text-align:center; margin-top:22px;" data-reveal>
+          <span class="ct-hero-badge"><i class="bi bi-headset"></i> Marfatia Investor Desk</span>
+        </div> -->
+
         <h1 class="ct-hero-title" data-reveal>Contact <em>Us.</em></h1>
         <p class="ct-hero-subtitle" data-reveal>Talk to a human, not a queue — Reach out to our Vadodara headquarters
           for trading, PMS, demat accounts, and compliance support.</p>
 
+
         <!-- Animated Counters Row (Non-boxed) -->
         <div class="ct-counters-row" data-reveal>
           <div class="ct-counter-item">
-            <div class="ct-counter-num" data-counter-target="30">0+</div>
+            <div class="ct-counter-num" data-counter-target="20">0+</div>
             <div class="ct-counter-label">Years Market Experience</div>
           </div>
           <div class="ct-counter-item">
-            <div class="ct-counter-num" data-counter-target="50000">0+</div>
+            <div class="ct-counter-num" data-counter-target="5000">0+</div>
             <div class="ct-counter-label">Active Investors &amp; Clients</div>
           </div>
           <div class="ct-counter-item">
@@ -1162,6 +1439,28 @@
           </a>
         </div>
       </div>
+
+      <!-- Live Market Ticker Bar -->
+      <!-- <div class="ct-ticker-bar" aria-hidden="true">
+        <span class="ct-ticker-label"><i class="bi bi-activity"></i>&nbsp; Live Market</span>
+        <div class="ct-ticker-track">
+          <div class="ct-ticker-content">
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">NIFTY 50</span><span class="ct-ticker-val">24,835.10</span><span class="ct-ticker-chg--up">▲ +0.42%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">SENSEX</span><span class="ct-ticker-val">81,468.25</span><span class="ct-ticker-chg--up">▲ +0.38%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">BANK NIFTY</span><span class="ct-ticker-val">52,310.60</span><span class="ct-ticker-chg--down">▼ -0.15%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">MIDCAP 50</span><span class="ct-ticker-val">13,920.45</span><span class="ct-ticker-chg--up">▲ +0.61%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">GOLD</span><span class="ct-ticker-val">₹72,800</span><span class="ct-ticker-chg--up">▲ +0.22%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">CRUDE OIL</span><span class="ct-ticker-val">₹6,240</span><span class="ct-ticker-chg--down">▼ -0.30%</span></span>
+            <!-- Duplicate for seamless loop -->
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">NIFTY 50</span><span class="ct-ticker-val">24,835.10</span><span class="ct-ticker-chg--up">▲ +0.42%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">SENSEX</span><span class="ct-ticker-val">81,468.25</span><span class="ct-ticker-chg--up">▲ +0.38%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">BANK NIFTY</span><span class="ct-ticker-val">52,310.60</span><span class="ct-ticker-chg--down">▼ -0.15%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">MIDCAP 50</span><span class="ct-ticker-val">13,920.45</span><span class="ct-ticker-chg--up">▲ +0.61%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">GOLD</span><span class="ct-ticker-val">₹72,800</span><span class="ct-ticker-chg--up">▲ +0.22%</span></span>
+            <span class="ct-ticker-item"><span class="ct-ticker-sym">CRUDE OIL</span><span class="ct-ticker-val">₹6,240</span><span class="ct-ticker-chg--down">▼ -0.30%</span></span>
+          </div>
+        </div>
+      </div> -->
     </section>
 
     <!-- ── 2. ESCALATION MATRIX SECTION (SEAMLESS FULL-WIDTH ROW LAYOUT) ── -->
