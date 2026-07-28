@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advisory for Investors — Marfatia Stock Broking</title>
+  <meta name="description"
+    content="SEBI advisory for investors — beware of guaranteed-return schemes, keep funds moving, verify margin pledges, and know where to check defaulter claims.">
+  <link rel="icon" href="content/fav.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/inner.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    #scrollProgress { z-index: 1000; }
+
+    .pp-hero { padding: calc(var(--header-h, 140px) + 10px) 0 clamp(40px, 5vw, 56px); }
+
+    .pp-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: var(--ink-faint);
+      margin-top: 4px;
+    }
+    .pp-updated i { color: var(--green); }
+
+    .legal-toc-head {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 10px 18px;
+    }
+
+    .pp-contact-card {
+      background: var(--paper-tint);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .pp-contact-card i { font-size: 22px; color: var(--green); margin-top: 2px; }
+    .pp-contact-card a { color: var(--green); font-weight: 700; text-decoration: underline; }
+
+    .legal-toc { top: calc(var(--header-h, 110px) + 24px); }
+
+    .cba-warn-inline {
+      max-width: 100%;
+      background: rgba(194,74,63,.07);
+      border: 1px solid rgba(194,74,63,.25);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .cba-warn-inline i { font-size: 22px; color: var(--down); margin-top: 1px; flex: 0 0 auto; }
+    .cba-warn-inline p { margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--ink); }
+    .cba-warn-inline b { color: var(--down); }
+  </style>
+</head>
+
+<body>
+  <div class="progress-rail">
+    <div class="progress-fill" id="scrollProgress"></div>
+  </div>
+
+  <header class="strip" id="strip">
+    <div class="header-top-bar">
+      <div class="wrap header-top-bar-content">
+        <div class="header-top-bar-info">
+          <span><i class="bi bi-clock-fill"></i> Mon-Fri 10:00 am-6:00 pm</span>
+          <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
+          <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
+        </div>
+        <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
+          Client</a>
+      </div>
+    </div>
+    <div class="strip-row">
+      <a href="index.html" class="strip-logo">
+        <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+      </a>
+
+      <nav class="strip-nav" id="stripNav">
+        <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
+        <div class="nav-item"><a class="strip-link" href="about.html">About Us</a></div>
+
+        <div class="nav-item">
+          <button class="strip-link" data-drawer="services">Services</button>
+          <div class="nav-dropdown services-grid-dropdown">
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-safe"></i></div>
+                <div class="dd-text">
+                  <h4>DP</h4>
+                  <p>Secure custody of stocks &amp; securities</p>
+                </div>
+              </a>
+              <a href="pms.html" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-briefcase"></i></div>
+                <div class="dd-text">
+                  <h4>PMS</h4>
+                  <p>Expert-managed portfolios</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-percent"></i></div>
+                <div class="dd-text">
+                  <h4>MTF</h4>
+                  <p>Up to 4x leverage to buy stocks</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-arrow-left-right"></i></div>
+                <div class="dd-text">
+                  <h4>SLB</h4>
+                  <p>Lend idle stocks to earn extra yield</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-gem"></i></div>
+                <div class="dd-text">
+                  <h4>EGR</h4>
+                  <p>Trade physical gold digitally</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-cash-stack"></i></div>
+                <div class="dd-text">
+                  <h4>Cash cm</h4>
+                  <p>Delivery &amp; intraday share trading</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div class="dd-text">
+                  <h4>FO Derivative</h4>
+                  <p>Trade options &amp; index futures</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-layers"></i></div>
+                <div class="dd-text">
+                  <h4>ETF</h4>
+                  <p>Diversification via market baskets</p>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-column">
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-lightning"></i></div>
+                <div class="dd-text">
+                  <h4>IPO</h4>
+                  <p>Apply for upcoming public issues</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-bank"></i></div>
+                <div class="dd-text">
+                  <h4>Bond</h4>
+                  <p>Safe fixed-income investments</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-shield-check"></i></div>
+                <div class="dd-text">
+                  <h4>Insurance</h4>
+                  <p>Protect health, life &amp; assets</p>
+                </div>
+              </a>
+              <a href="#" class="dd-item">
+                <div class="dd-icon"><i class="bi bi-pie-chart"></i></div>
+                <div class="dd-text">
+                  <h4>MF</h4>
+                  <p>Top mutual funds for every budget</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a class="strip-link" href="pricing.html">Pricing</a></div>
+        <div class="nav-item"><a class="strip-link" href="faqs.html">FAQs</a></div>
+
+        <div class="nav-item"><a class="strip-link" href="partner-with-us.html">Partner With Us</a></div>
+        <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
+      </nav>
+
+      <div class="strip-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+            </path>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+        <div class="login-dd" id="loginDd">
+          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
+              height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="login-dd-menu" id="loginDdMenu">
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Traders ↗</a>
+            <a href="https://backoffice.marfatia.net" target="_blank" rel="noopener">Back Office ↗</a>
+            <a href="https://etrade.marfatia.net/#/app" target="_blank" rel="noopener">Client ↗</a>
+          </div>
+        </div>
+        <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
+          class="btn btn-marfatia"><span>Open Demat Account</span></a>
+        <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
+          class="btn btn-ghost btn-outline live-pulse-btn"><span class="dot dot--live"></span> Live Pulse</a>
+      </div>
+
+      <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="theme-toggle-btn" id="themeToggleBtnMobile" aria-label="Toggle dark mode" style="display:none;">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+          </path>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </header>
+
+  <main class="inner-main">
+
+    <!-- ── PAGE HERO ── -->
+    <section class="p-hero pp-hero">
+      <div class="wrap">
+        <span class="p-crumb"><a href="index.html">Home</a> <span class="dot"></span> <b>Advisory for Investors</b></span>
+        <h1 class="p-hero-title" data-reveal>Attention investors: <em>protect yourself first.</em></h1>
+        <p class="p-hero-sub" data-reveal>Beware of guaranteed-return schemes. A short checklist to keep your funds
+          and securities safe while trading with us.</p>
+        <span class="pp-updated" data-reveal><i class="bi bi-clock-history"></i> Last reviewed: April 2026</span>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap" style="max-width:820px;">
+
+        <div class="cba-warn-inline" data-reveal>
+          <i class="bi bi-exclamation-triangle-fill"></i>
+          <p><b>Beware of fixed/guaranteed/regular returns or capital protection schemes.</b> Brokers, their
+            authorized persons, or any of their associates are not authorized to offer fixed/guaranteed/regular
+            returns or capital protection on your investment, or to enter into any loan agreement with you to pay
+            interest on funds you've offered. In case of default of a member, claims for funds or securities given
+            under any such indicative-return arrangement will not be accepted by the relevant Exchange Committee as
+            per approved norms.</p>
+        </div>
+
+        <div class="legal-body" data-reveal style="max-width:100%; margin-top:36px;">
+          <h2>A short checklist</h2>
+          <ul>
+            <li><b>Don't keep funds idle with us.</b> Your stock broker has to return the credit balance lying with
+              them within three working days in case you have not done any transaction within the last 30 calendar
+              days.</li>
+            <li><b>Check your account settlement frequency.</b> If you've opted for a running account, ensure it's
+              settled not later than once every 90 days (or 30 days if you've opted for 30-day settlement).</li>
+            <li><b>Brokers cannot accept transfer of securities as margin.</b> Securities offered as margin/collateral
+              must remain in your account and can only be pledged to the broker via 'margin pledge' created in the
+              Depository system. Never hand securities directly to a broker, associate, or authorized person.</li>
+            <li><b>Keep your contact details updated.</b> Mobile number and email ID are mandatory and must be
+              provided to your broker for updating in Exchange records. If you stop receiving regular messages from
+              the Exchange/Depositories, contact us or the Exchange immediately.</li>
+            <li><b>Don't ignore emails/SMSs from the Exchange</b> about trades done in your name. Verify against your
+              contract notes/statements and report any discrepancy in writing immediately.</li>
+            <li><b>Cross-check weekly balance messages</b> sent by Exchanges against the weekly statement of accounts
+              from your broker.</li>
+            <li><b>Never transfer trading funds to anyone</b> other than a SEBI-registered stock broker — not to an
+              authorized person, associate, or any individual.</li>
+            <li><b>Don't deal with unregistered intermediaries</b> who are not registered with SEBI/Exchanges.</li>
+          </ul>
+
+          <h2>In case of a broker default</h2>
+          <p>Claims of clients against a defaulter member would be subject to the norms for eligibility of claims for
+            compensation from the Investor Protection Fund (IPF). These norms are available on the respective
+            Exchange websites:</p>
+          <ul>
+            <li><a href="https://www.nseindia.com/invest/about-defaulter-section" target="_blank" rel="noopener">NSE — Defaulter Claims</a></li>
+            <li><a href="https://www.bseindia.com/static/investors/Claim_against_Defaulter.aspx" target="_blank" rel="noopener">BSE — Defaulter Claims</a></li>
+            <li><a href="https://www.msei.in/Investors//Defaulter_Claims" target="_blank" rel="noopener">MSE — Defaulter Claims</a></li>
+            <li><a href="https://www.mcxindia.com/Investor-Services/defaulters/sop-process-faqs-for-handling-of-claims-of-investors-of-defaulter-member" target="_blank" rel="noopener">MCX — Defaulter Claims</a></li>
+          </ul>
+        </div>
+
+        <div class="pp-contact-card" data-reveal>
+          <i class="bi bi-envelope-fill"></i>
+          <div>
+            <p style="margin:0 0 4px; color:var(--ink); font-weight:600;">Spotted something suspicious?</p>
+            <p style="margin:0; font-size:14px; color:var(--ink-soft);">Write to
+              <a href="mailto:compliance@marfatia.net">compliance@marfatia.net</a> or
+              <a href="complaints.html">file a complaint</a> and our Compliance Officer will look into it.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CTA BAND ── -->
+    <section class="ctaband"
+      style="margin:40px auto 80px; max-width:1240px; border-radius:var(--radius-lg); position:relative; overflow:hidden;"
+      data-reveal>
+      <div class="wrap ctaband-inner">
+        <div>
+          <h2 style="font-family:var(--font-disp); font-size:clamp(26px, 3.5vw, 38px); font-weight:800; color:#fff;">
+            Have a question about your account? <em>Talk to us.</em></h2>
+          <p style="opacity:.9;font-size:15.5px;margin-top:8px; color:rgba(255,255,255,0.9);">Our Vadodara desk is a
+            call away for anything these terms don't answer.</p>
+        </div>
+        <div class="ctaband-actions">
+          <a href="tel:02652351355" class="btn btn-lime btn-lg"><span>📞 Call Us Now</span></a>
+          <a href="contact-us.html" class="btn btn-ghostlight btn-lg"><span>Contact Us ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
+    <div class="footer-glow" aria-hidden="true"></div>
+
+    <div class="footer-locate">
+      <a class="footer-map-compact" href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <span class="footer-map-tag mono">📍 Open in Maps</span>
+      </a>
+      <div class="footer-reviews-compact">
+        <div class="google-badge">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#4285F4"
+              d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.5-9.6 6.5-16.6z" />
+            <path fill="#34A853"
+              d="M24 46c5.9 0 10.9-2 14.5-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46z" />
+            <path fill="#FBBC05"
+              d="M11.8 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.5C3 17 2 20.4 2 24s1 7 4.5 9.9l7.3-5.7z" />
+            <path fill="#EA4335"
+              d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.1l7.3 5.7c1.7-5.2 6.5-9 12.2-9z" />
+          </svg>
+          <span><b>4.8</b>/5 · 2,400+ Reviews</span>
+        </div>
+        <p class="footer-review-line mb-0">"Switched from a legacy broker — the algo automation alone paid for the
+          switch." <span>— Rohan Kapadia</span></p>
+        <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+        <p>Marfatia Stock Broking Pvt. Ltd. — SEBI Registered Stock Broker. A trading platform built on real-time
+          intelligence, automation and 30+ years of market trust.</p>
+        <address class="footer-address mono">
+          <i class="bi bi-geo-alt-fill"></i> 216-219, Glacier Complex, Jetalpur Road,<br>Vadodara, Gujarat – 390005,
+          India
+        </address>
+        <div class="footer-emails mono">
+          <a href="mailto:compliance@marfatia.net"><i class="bi bi-envelope-fill"></i> compliance@marfatia.net</a>
+          <a href="mailto:customercare@marfatia.net"><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+          <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener" class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>
+          <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+        <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
+        <a href="key-managerial-personnel.html"><i class="bi bi-people"></i> Key Managerial Personnels</a>
+        <a href="feedback.html"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
+        <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="branches.html"><i class="bi bi-geo-alt"></i> Office Addresses</a>
+        <a href="new-downloads.html"><i class="bi bi-download"></i> New Downloads</a>
+        <a href="#"><i class="bi bi-play-btn"></i> Webinar</a>
+        <a href="#"><i class="bi bi-envelope-open"></i> Web Mail Login</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Downloads &amp; Forms</h5>
+        <a href="new-downloads.html"><i class="bi bi-file-earmark-person"></i> Client Reg. Form (KYC)</a>
+        <a href="new-downloads.html"><i class="bi bi-folder2-open"></i> Download Forms Area</a>
+        <a href="new-downloads.html"><i class="bi bi-file-earmark-arrow-down"></i> NSE Exchange Margin File</a>
+        <a href="#"><i class="bi bi-translate"></i> Vernacular Languages</a>
+        <a href="client-bank-accounts.html"><i class="bi bi-credit-card"></i> Client Bank Accounts</a>
+        <a href="#"><i class="bi bi-book"></i> eKYC Step-by-Step Guide</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Compliance &amp; Legal</h5>
+        <a href="privacy-policy.html"><i class="bi bi-shield-lock"></i> Privacy Policy</a>
+        <a href="terms-of-use.html"><i class="bi bi-file-earmark-check"></i> Terms &amp; Conditions</a>
+        <a href="disclaimer.html"><i class="bi bi-exclamation-triangle"></i> Disclaimer Policy</a>
+        <a href="#"><i class="bi bi-file-earmark-text"></i> Policies and Circulars</a>
+        <a href="#"><i class="bi bi-journal-text"></i> PMS Disclosure Document</a>
+        <a href="complaints.html"><i class="bi bi-question-circle"></i> How to File Complaints</a>
+        <a href="advisory-for-investors.html"><i class="bi bi-megaphone"></i> Advisory for Investors</a>
+        <a href="investor-charter-stockbroker.html"><i class="bi bi-award"></i> Investor Charter — Stock Broker</a>
+        <a href="investor-charter-research-analyst.html"><i class="bi bi-graph-up"></i> Investor Charter — Research Analyst</a>
+        <a href="investor-charter-dp.html"><i class="bi bi-safe"></i> Investor Charter — Depository Participant</a>
+        <a href="advisory-kyc-compliance.html"><i class="bi bi-clipboard-check"></i> Advisory — KYC Compliance</a>
+        <a href="investor-charter-pms.html"><i class="bi bi-briefcase"></i> Investor Charter — PMS</a>
+        <a href="https://smartodr.in/" target="_blank" rel="noopener"><i class="bi bi-cpu-fill"></i> Smart ODR
+          Portal</a>
+      </div>
+    </div>
+
+    <div class="footer-regbar">
+      <span class="mono">Member Code NSE: 11925</span>
+      <span class="mono">Member Code BSE: 3065</span>
+      <span class="mono">SEBI Reg. No: INZ000215330</span>
+      <span class="mono">PMS SEBI Reg. No: INP000005117</span>
+      <span class="mono">Research Analyst SEBI Reg. No: INH000002178</span>
+      <span class="mono">Depository Participant: CDSL (DP ID: 12044400)</span>
+    </div>
+
+    <div class="footer-assoc">
+      <span>SEBI</span><span>NSE</span><span>BSE</span><span>CDSL</span><span>NSDL</span><span>MCX</span><span>NCDEX</span><span>RBI</span>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>Investments in securities market are subject to market risks. Read all the related documents carefully before
+        investing. Marfatia Stock Broking Pvt. Ltd. is a SEBI Registered Stock Broker, Portfolio Manager and Research
+        Analyst. Member: NSE, BSE, MCX. Registered Office: Vadodara, Gujarat, India.</p>
+      <p class="footer-copy">© <span id="year"></span> Marfatia Stock Broking Pvt. Ltd. All Rights Reserved. Powered By:
+        Barodaweb</p>
+    </div>
+  </footer>
+
+  <script src="js/inner.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var yearSpan = document.getElementById("year");
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+
+</html>

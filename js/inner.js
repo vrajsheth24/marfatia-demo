@@ -46,7 +46,7 @@
     '  <button class="strip-link" data-drawer="services">Services</button>' +
     '  <div class="nav-dropdown services-grid-dropdown">' +
     '    <div class="dropdown-column">' +
-    '      <a href="demat.html" class="dd-item">' +
+    '      <a href="depository-participant.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-safe"></i></div>' +
     '        <div class="dd-text"><h4>DP</h4><p>Secure custody of stocks &amp; securities</p></div>' +
     '      </a>' +
@@ -58,7 +58,7 @@
     '        <div class="dd-icon"><i class="bi bi-percent"></i></div>' +
     '        <div class="dd-text"><h4>MTF</h4><p>Up to 4x leverage to buy stocks</p></div>' +
     '      </a>' +
-    '      <a href="slb.html" class="dd-item">' +
+    '      <a href="slbm.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-arrow-left-right"></i></div>' +
     '        <div class="dd-text"><h4>SLB</h4><p>Lend idle stocks to earn extra yield</p></div>' +
     '      </a>' +
@@ -66,25 +66,25 @@
     '        <div class="dd-icon"><i class="bi bi-gem"></i></div>' +
     '        <div class="dd-text"><h4>EGR</h4><p>Trade physical gold digitally</p></div>' +
     '      </a>' +
-    '      <a href="equity.html" class="dd-item">' +
+    '      <a href="equity-cash.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-cash-stack"></i></div>' +
     '        <div class="dd-text"><h4>Cash cm</h4><p>Delivery and intraday share trading</p></div>' +
     '      </a>' +
-    '      <a href="derivatives.html" class="dd-item">' +
+    '      <a href="derivatives-fo.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-graph-up-arrow"></i></div>' +
     '        <div class="dd-text"><h4>FO Derivative</h4><p>Trade market indices &amp; stock futures</p></div>' +
     '      </a>' +
+    '    </div>' +
+    '    <div class="dropdown-column">' +
     '      <a href="etf.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-layers"></i></div>' +
     '        <div class="dd-text"><h4>ETF</h4><p>Instant diversification via market baskets</p></div>' +
     '      </a>' +
-    '    </div>' +
-    '    <div class="dropdown-column">' +
     '      <a href="ipo.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-lightning"></i></div>' +
     '        <div class="dd-text"><h4>IPO</h4><p>Apply for upcoming public issues</p></div>' +
     '      </a>' +
-    '      <a href="bonds.html" class="dd-item">' +
+    '      <a href="bond.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-bank"></i></div>' +
     '        <div class="dd-text"><h4>Bond</h4><p>Safe fixed-income investment options</p></div>' +
     '      </a>' +
@@ -95,6 +95,14 @@
     '      <a href="mutual-funds.html" class="dd-item">' +
     '        <div class="dd-icon"><i class="bi bi-pie-chart"></i></div>' +
     '        <div class="dd-text"><h4>MF</h4><p>Top mutual funds for every budget</p></div>' +
+    '      </a>' +
+    '      <a href="algo-trading.html" class="dd-item">' +
+    '        <div class="dd-icon"><i class="bi bi-cpu-fill"></i></div>' +
+    '        <div class="dd-text"><h4>Algo Trading</h4><p>Rule-based automated execution</p></div>' +
+    '      </a>' +
+    '      <a href="discount-broking.html" class="dd-item">' +
+    '        <div class="dd-icon"><i class="bi bi-tags"></i></div>' +
+    '        <div class="dd-text"><h4>Discount Broking</h4><p>Smart trading with low brokerage</p></div>' +
     '      </a>' +
     '    </div>' +
     '  </div>' +
