@@ -1397,18 +1397,31 @@
         grid-template-columns: 1fr;
       }
     }
+
     /* ═══════════════════════════════════════════
        TECH PLATFORM — COMPACT LIGHT REDESIGN
     ═══════════════════════════════════════════ */
     .plat-section {
       background: #fff;
-      border-top: 1px solid rgba(8,117,59,0.10);
-      border-bottom: 1px solid rgba(8,117,59,0.10);
+      border-top: 1px solid rgba(8, 117, 59, 0.10);
+      border-bottom: 1px solid rgba(8, 117, 59, 0.10);
     }
-    .plat-bg-fx  { display: none; }
-    .plat-dot-grid { display: none; }
-    .plat-arc-svg  { display: none; }
-    .plat-wrap-inner { position: relative; }
+
+    .plat-bg-fx {
+      display: none;
+    }
+
+    .plat-dot-grid {
+      display: none;
+    }
+
+    .plat-arc-svg {
+      display: none;
+    }
+
+    .plat-wrap-inner {
+      position: relative;
+    }
 
     /* Two-column split */
     .plat-split {
@@ -1417,30 +1430,51 @@
       gap: 48px;
       align-items: center;
     }
+
     @media (max-width: 900px) {
-      .plat-split { grid-template-columns: 1fr; gap: 32px; }
+      .plat-split {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
     }
 
     /* Left: header + stat strip */
-    .plat-left-head .eyebrow { margin-bottom: 10px; }
-    .plat-left-head .sec-title { font-size: clamp(22px, 3vw, 30px); margin-bottom: 10px; }
-    .plat-left-head .sec-sub { font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 22px; }
+    .plat-left-head .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    .plat-left-head .sec-title {
+      font-size: clamp(22px, 3vw, 30px);
+      margin-bottom: 10px;
+    }
+
+    .plat-left-head .sec-sub {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 22px;
+    }
 
     /* Stat strip */
     .plat-stat-strip {
       display: flex;
       gap: 0;
-      border: 1px solid rgba(8,117,59,0.12);
+      border: 1px solid rgba(8, 117, 59, 0.12);
       border-radius: 12px;
       overflow: hidden;
     }
+
     .plat-stat {
       flex: 1;
       text-align: center;
       padding: 12px 10px;
-      border-right: 1px solid rgba(8,117,59,0.10);
+      border-right: 1px solid rgba(8, 117, 59, 0.10);
     }
-    .plat-stat:last-child { border-right: none; }
+
+    .plat-stat:last-child {
+      border-right: none;
+    }
+
     .plat-stat-val {
       font-family: var(--font-disp);
       font-size: 20px;
@@ -1448,6 +1482,7 @@
       color: var(--green);
       line-height: 1;
     }
+
     .plat-stat-lbl {
       font-size: 10.5px;
       color: var(--ink-soft);
@@ -1465,18 +1500,31 @@
       font-weight: 700;
       letter-spacing: 0.10em;
       color: var(--green);
-      background: rgba(8,117,59,0.07);
-      border: 1px solid rgba(8,117,59,0.18);
+      background: rgba(8, 117, 59, 0.07);
+      border: 1px solid rgba(8, 117, 59, 0.18);
       border-radius: 100px;
       padding: 5px 12px;
       margin-top: 14px;
     }
+
     .plat-live-badge .dot--live {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       background: var(--green);
       animation: plat-blink 1.6s ease-in-out infinite;
     }
-    @keyframes plat-blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    @keyframes plat-blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
 
     /* Right: 4×2 icon grid */
     .plat-feat-grid {
@@ -1484,37 +1532,44 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 10px;
     }
+
     @media (max-width: 640px) {
-      .plat-feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .plat-feat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .plat-feat-card {
       background: #f7fdf9;
-      border: 1px solid rgba(8,117,59,0.10);
+      border: 1px solid rgba(8, 117, 59, 0.10);
       border-radius: 14px;
       padding: 14px 12px;
       text-align: center;
       transition: all 0.25s ease;
       cursor: default;
     }
+
     .plat-feat-card:hover {
       background: #fff;
       border-color: var(--green);
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(8,117,59,0.10);
+      box-shadow: 0 6px 20px rgba(8, 117, 59, 0.10);
     }
+
     .plat-feat-card i {
       display: block;
       font-size: 22px;
       color: var(--green);
       margin-bottom: 8px;
     }
+
     .plat-feat-card-name {
       font-size: 11.5px;
       font-weight: 600;
       color: var(--ink);
       line-height: 1.3;
     }
+
     .plat-feat-card-tag {
       display: inline-block;
       font-family: var(--font-mono);
@@ -1522,7 +1577,7 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       color: var(--green);
-      background: rgba(8,117,59,0.08);
+      background: rgba(8, 117, 59, 0.08);
       border-radius: 100px;
       padding: 2px 7px;
       margin-top: 5px;
@@ -1535,8 +1590,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 20% 30%,  hsla(142,72%,30%,0.22) 0%, transparent 60%),
-        radial-gradient(ellipse 45% 50% at 85% 70%,  hsla(80,75%,45%,0.14) 0%, transparent 55%);
+        radial-gradient(ellipse 60% 50% at 20% 30%, hsla(142, 72%, 30%, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 50% at 85% 70%, hsla(80, 75%, 45%, 0.14) 0%, transparent 55%);
       pointer-events: none;
       z-index: 0;
     }
@@ -1545,7 +1600,7 @@
     .plat-dot-grid {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(155,206,22,0.12) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(155, 206, 22, 0.12) 1px, transparent 1px);
       background-size: 28px 28px;
       pointer-events: none;
       z-index: 0;
@@ -1561,17 +1616,20 @@
       text-align: center;
       margin-bottom: 52px;
     }
+
     .plat-header .eyebrow {
       color: var(--lime) !important;
-      border-color: rgba(155,206,22,0.25) !important;
-      background: rgba(155,206,22,0.08) !important;
+      border-color: rgba(155, 206, 22, 0.25) !important;
+      background: rgba(155, 206, 22, 0.08) !important;
     }
+
     .plat-header .sec-title {
       color: #e8f5ec !important;
       margin-top: 12px;
     }
+
     .plat-header .sec-sub {
-      color: rgba(180,210,190,0.65) !important;
+      color: rgba(180, 210, 190, 0.65) !important;
     }
 
     /* ── BENTO GRID ── */
@@ -1581,38 +1639,49 @@
       grid-template-rows: auto auto;
       gap: 16px;
     }
+
     @media (max-width: 1024px) {
-      .plat-bento { grid-template-columns: 1fr 1fr; }
+      .plat-bento {
+        grid-template-columns: 1fr 1fr;
+      }
     }
+
     @media (max-width: 640px) {
-      .plat-bento { grid-template-columns: 1fr; }
+      .plat-bento {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Base bento card */
     .plat-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 20px;
       padding: 28px;
       position: relative;
       overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     }
+
     .plat-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(155,206,22,0.35);
-      background: rgba(255,255,255,0.07);
+      border-color: rgba(155, 206, 22, 0.35);
+      background: rgba(255, 255, 255, 0.07);
     }
+
     .plat-card::before {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 20px;
-      background: linear-gradient(135deg, rgba(155,206,22,0.05) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(155, 206, 22, 0.05) 0%, transparent 60%);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    .plat-card:hover::before { opacity: 1; }
+
+    .plat-card:hover::before {
+      opacity: 1;
+    }
 
     /* CARD 1 — Hero card, spans 2 rows */
     .plat-card--hero {
@@ -1621,10 +1690,15 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 380px;
-      background: linear-gradient(145deg, rgba(8,117,59,0.18) 0%, rgba(5,14,8,0.80) 60%);
-      border-color: rgba(8,117,59,0.35);
+      background: linear-gradient(145deg, rgba(8, 117, 59, 0.18) 0%, rgba(5, 14, 8, 0.80) 60%);
+      border-color: rgba(8, 117, 59, 0.35);
     }
-    @media (max-width: 1024px) { .plat-card--hero { grid-row: auto; } }
+
+    @media (max-width: 1024px) {
+      .plat-card--hero {
+        grid-row: auto;
+      }
+    }
 
     .plat-card-eyebrow {
       font-family: var(--font-mono);
@@ -1636,6 +1710,7 @@
       opacity: 0.8;
       margin-bottom: 14px;
     }
+
     .plat-card-title {
       font-family: var(--font-disp);
       font-size: clamp(20px, 2.5vw, 28px);
@@ -1644,10 +1719,11 @@
       line-height: 1.2;
       margin: 0 0 12px;
     }
+
     .plat-card-desc {
       font-size: 14px;
       line-height: 1.7;
-      color: rgba(180,210,190,0.65);
+      color: rgba(180, 210, 190, 0.65);
       margin: 0 0 28px;
       max-width: 340px;
     }
@@ -1659,6 +1735,7 @@
       gap: 8px;
       margin-bottom: 28px;
     }
+
     .plat-feat-pill {
       display: inline-flex;
       align-items: center;
@@ -1666,19 +1743,24 @@
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 600;
-      color: rgba(220,240,225,0.85);
-      background: rgba(8,117,59,0.20);
-      border: 1px solid rgba(8,117,59,0.35);
+      color: rgba(220, 240, 225, 0.85);
+      background: rgba(8, 117, 59, 0.20);
+      border: 1px solid rgba(8, 117, 59, 0.35);
       border-radius: 100px;
       padding: 6px 12px;
       transition: all 0.25s ease;
     }
+
     .plat-feat-pill:hover {
-      background: rgba(8,117,59,0.38);
+      background: rgba(8, 117, 59, 0.38);
       border-color: var(--lime);
       color: var(--lime);
     }
-    .plat-feat-pill i { font-size: 12px; color: var(--lime); }
+
+    .plat-feat-pill i {
+      font-size: 12px;
+      color: var(--lime);
+    }
 
     /* Animated graph bar inside hero card */
     .plat-hero-graph {
@@ -1688,36 +1770,98 @@
       height: 64px;
       margin-top: auto;
       padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
     }
+
     .plat-bar {
       flex: 1;
       border-radius: 4px 4px 0 0;
       background: linear-gradient(180deg, #9bce16, #08753b);
       opacity: 0.7;
-      animation: plat-bar-grow 1.2s cubic-bezier(0.16,1,0.3,1) both;
+      animation: plat-bar-grow 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
       transform-origin: bottom;
     }
+
     @keyframes plat-bar-grow {
-      from { transform: scaleY(0); opacity: 0; }
-      to   { transform: scaleY(1); opacity: 0.7; }
+      from {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scaleY(1);
+        opacity: 0.7;
+      }
     }
-    .plat-bar:nth-child(1)  { height:35%; animation-delay:0.1s; }
-    .plat-bar:nth-child(2)  { height:55%; animation-delay:0.15s; }
-    .plat-bar:nth-child(3)  { height:40%; animation-delay:0.2s; }
-    .plat-bar:nth-child(4)  { height:70%; animation-delay:0.25s; }
-    .plat-bar:nth-child(5)  { height:50%; animation-delay:0.3s; }
-    .plat-bar:nth-child(6)  { height:85%; animation-delay:0.35s; opacity:1; background:linear-gradient(180deg,#c8f530,#4ade80); }
-    .plat-bar:nth-child(7)  { height:65%; animation-delay:0.4s; }
-    .plat-bar:nth-child(8)  { height:75%; animation-delay:0.45s; }
-    .plat-bar:nth-child(9)  { height:90%; animation-delay:0.5s; opacity:1; background:linear-gradient(180deg,#c8f530,#4ade80); }
-    .plat-bar:nth-child(10) { height:60%; animation-delay:0.55s; }
-    .plat-bar:nth-child(11) { height:45%; animation-delay:0.6s; }
-    .plat-bar:nth-child(12) { height:80%; animation-delay:0.65s; }
+
+    .plat-bar:nth-child(1) {
+      height: 35%;
+      animation-delay: 0.1s;
+    }
+
+    .plat-bar:nth-child(2) {
+      height: 55%;
+      animation-delay: 0.15s;
+    }
+
+    .plat-bar:nth-child(3) {
+      height: 40%;
+      animation-delay: 0.2s;
+    }
+
+    .plat-bar:nth-child(4) {
+      height: 70%;
+      animation-delay: 0.25s;
+    }
+
+    .plat-bar:nth-child(5) {
+      height: 50%;
+      animation-delay: 0.3s;
+    }
+
+    .plat-bar:nth-child(6) {
+      height: 85%;
+      animation-delay: 0.35s;
+      opacity: 1;
+      background: linear-gradient(180deg, #c8f530, #4ade80);
+    }
+
+    .plat-bar:nth-child(7) {
+      height: 65%;
+      animation-delay: 0.4s;
+    }
+
+    .plat-bar:nth-child(8) {
+      height: 75%;
+      animation-delay: 0.45s;
+    }
+
+    .plat-bar:nth-child(9) {
+      height: 90%;
+      animation-delay: 0.5s;
+      opacity: 1;
+      background: linear-gradient(180deg, #c8f530, #4ade80);
+    }
+
+    .plat-bar:nth-child(10) {
+      height: 60%;
+      animation-delay: 0.55s;
+    }
+
+    .plat-bar:nth-child(11) {
+      height: 45%;
+      animation-delay: 0.6s;
+    }
+
+    .plat-bar:nth-child(12) {
+      height: 80%;
+      animation-delay: 0.65s;
+    }
+
     .plat-bar-label {
       font-family: var(--font-mono);
       font-size: 9px;
-      color: rgba(155,206,22,0.6);
+      color: rgba(155, 206, 22, 0.6);
       letter-spacing: 0.1em;
       margin-top: 6px;
       text-align: right;
@@ -1730,16 +1874,25 @@
       justify-content: space-between;
       min-height: 160px;
     }
-    .plat-metric-top { display: flex; align-items: center; justify-content: space-between; }
+
+    .plat-metric-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .plat-metric-icon {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
-      background: rgba(155,206,22,0.12);
-      border: 1px solid rgba(155,206,22,0.20);
-      display: grid; place-items: center;
+      background: rgba(155, 206, 22, 0.12);
+      border: 1px solid rgba(155, 206, 22, 0.20);
+      display: grid;
+      place-items: center;
       font-size: 18px;
       color: var(--lime);
     }
+
     .plat-metric-badge {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -1748,10 +1901,32 @@
       border-radius: 100px;
       letter-spacing: 0.08em;
     }
-    .plat-metric-badge--up   { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
-    .plat-metric-badge--live { background: rgba(155,206,22,0.12); color: var(--lime); border: 1px solid rgba(155,206,22,0.25);
-      animation: plat-badge-blink 1.8s ease-in-out infinite; }
-    @keyframes plat-badge-blink { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+
+    .plat-metric-badge--up {
+      background: rgba(74, 222, 128, 0.12);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.25);
+    }
+
+    .plat-metric-badge--live {
+      background: rgba(155, 206, 22, 0.12);
+      color: var(--lime);
+      border: 1px solid rgba(155, 206, 22, 0.25);
+      animation: plat-badge-blink 1.8s ease-in-out infinite;
+    }
+
+    @keyframes plat-badge-blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
     .plat-metric-val {
       font-family: var(--font-disp);
       font-size: clamp(28px, 3vw, 38px);
@@ -1760,33 +1935,44 @@
       line-height: 1;
       margin: 12px 0 4px;
     }
+
     .plat-metric-label {
       font-size: 13px;
-      color: rgba(180,210,190,0.55);
+      color: rgba(180, 210, 190, 0.55);
     }
+
     .plat-metric-bar {
       height: 4px;
       border-radius: 4px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
       overflow: hidden;
       margin-top: 14px;
     }
+
     .plat-metric-bar-fill {
       height: 100%;
       border-radius: 4px;
       background: linear-gradient(90deg, #08753b, #9bce16);
-      animation: plat-bar-grow 1.4s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+      animation: plat-bar-grow 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
       transform-origin: left;
     }
+
     /* Note: reusing plat-bar-grow animation but from left */
     @keyframes plat-fill-grow {
-      from { width: 0; }
-      to   { width: var(--w, 70%); }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: var(--w, 70%);
+      }
     }
+
     .plat-metric-bar-fill {
-      height: 100%; border-radius: 4px;
+      height: 100%;
+      border-radius: 4px;
       background: linear-gradient(90deg, #08753b, #9bce16);
-      animation: plat-fill-grow 1.4s cubic-bezier(0.16,1,0.3,1) 0.5s both;
+      animation: plat-fill-grow 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
       width: 0;
     }
 
@@ -1799,52 +1985,71 @@
       padding: 0;
       overflow: hidden;
     }
+
     @media (max-width: 640px) {
-      .plat-card--wide { grid-template-columns: 1fr 1fr; }
+      .plat-card--wide {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     .plat-cap-item {
       padding: 24px 22px;
-      border-right: 1px solid rgba(255,255,255,0.07);
+      border-right: 1px solid rgba(255, 255, 255, 0.07);
       position: relative;
       overflow: hidden;
       transition: background 0.3s ease;
     }
-    .plat-cap-item:last-child { border-right: none; }
-    .plat-cap-item:hover { background: rgba(155,206,22,0.06); }
+
+    .plat-cap-item:last-child {
+      border-right: none;
+    }
+
+    .plat-cap-item:hover {
+      background: rgba(155, 206, 22, 0.06);
+    }
+
     /* Shimmer sweep on hover */
     .plat-cap-item::after {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
+      top: 0;
+      left: -100%;
       width: 60%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
       transition: left 0.5s ease;
     }
-    .plat-cap-item:hover::after { left: 140%; }
+
+    .plat-cap-item:hover::after {
+      left: 140%;
+    }
 
     .plat-cap-icon {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 14px;
-      background: rgba(8,117,59,0.18);
-      border: 1px solid rgba(8,117,59,0.30);
-      display: grid; place-items: center;
+      background: rgba(8, 117, 59, 0.18);
+      border: 1px solid rgba(8, 117, 59, 0.30);
+      display: grid;
+      place-items: center;
       font-size: 20px;
       color: #4ade80;
       margin-bottom: 16px;
     }
+
     .plat-cap-title {
       font-size: 14.5px;
       font-weight: 700;
       color: #e2f5e8;
       margin: 0 0 6px;
     }
+
     .plat-cap-desc {
       font-size: 12.5px;
-      color: rgba(155,185,165,0.65);
+      color: rgba(155, 185, 165, 0.65);
       line-height: 1.55;
     }
+
     .plat-cap-num {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -1860,11 +2065,13 @@
       gap: 6px;
       font-family: var(--font-mono);
       font-size: 10px;
-      color: rgba(155,206,22,0.8);
+      color: rgba(155, 206, 22, 0.8);
       letter-spacing: 0.08em;
     }
+
     .plat-status-dot {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--lime);
       animation: plat-badge-blink 1.6s ease-in-out infinite;
@@ -1873,7 +2080,8 @@
     /* Connection arc SVG watermark */
     .plat-arc-svg {
       position: absolute;
-      top: 0; right: 0;
+      top: 0;
+      right: 0;
       width: 320px;
       height: 320px;
       opacity: 0.06;
@@ -2041,13 +2249,27 @@
     }
 
     @keyframes platFloat1 {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(1.5deg); }
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-8px) rotate(1.5deg);
+      }
     }
 
     @keyframes platFloat2 {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(9px) rotate(-1.5deg); }
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(9px) rotate(-1.5deg);
+      }
     }
 
     .plat-scanline {
@@ -2063,10 +2285,23 @@
     }
 
     @keyframes platScan {
-      0% { top: 24px; opacity: 0; }
-      15% { opacity: 1; }
-      85% { opacity: 1; }
-      100% { top: 190px; opacity: 0; }
+      0% {
+        top: 24px;
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      85% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 190px;
+        opacity: 0;
+      }
     }
 
     .plat-live-hud {
@@ -2088,8 +2323,17 @@
     }
 
     @keyframes platHudPulse {
-      0%, 100% { border-color: rgba(155, 206, 22, 0.35); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
-      50% { border-color: rgba(155, 206, 22, 0.8); box-shadow: 0 8px 30px rgba(155, 206, 22, 0.3); }
+
+      0%,
+      100% {
+        border-color: rgba(155, 206, 22, 0.35);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      }
+
+      50% {
+        border-color: rgba(155, 206, 22, 0.8);
+        box-shadow: 0 8px 30px rgba(155, 206, 22, 0.3);
+      }
     }
 
     .plat-hud-row {
@@ -2166,13 +2410,23 @@
     }
 
     @keyframes orbFloat1 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-30px, 30px) scale(1.1); }
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(-30px, 30px) scale(1.1);
+      }
     }
 
     @keyframes orbFloat2 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(40px, -25px) scale(1.15); }
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(40px, -25px) scale(1.15);
+      }
     }
 
     .ab-val-stream-grid {
@@ -2958,24 +3212,24 @@
   </div>
 
   <header class="strip" id="strip">
-      <div class="header-top-bar">
-        <div class="wrap header-top-bar-content">
-          <div class="header-top-bar-info d-lg-flex d-none">
-            <span><i class="bi bi-clock-fill"></i> Mon-Fri 10:00 am-6:00 pm</span>
-            <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
-            <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
-          </div>
-          <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
-            Client</a>
+    <div class="header-top-bar">
+      <div class="wrap header-top-bar-content">
+        <div class="header-top-bar-info d-lg-flex d-none">
+          <span><i class="bi bi-clock-fill"></i> Mon-Fri 10:00 am-6:00 pm</span>
+          <span><i class="bi bi-telephone-fill"></i> 0265-2351355</span>
+          <span><i class="bi bi-envelope-fill"></i> customercare@marfatia.net</span>
         </div>
+        <a href="#" class="blink-link" id="voluntaryFreezingLink">Voluntary Freezing/Blocking of Trading Account by
+          Client</a>
       </div>
-      <div class="strip-row">
-        <a href="index.html" class="strip-logo">
-          <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
-          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
-        </a>
+    </div>
+    <div class="strip-row">
+      <a href="index.html" class="strip-logo">
+        <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+      </a>
 
-        <nav class="strip-nav" id="stripNav">
+      <nav class="strip-nav" id="stripNav">
         <div class="nav-item"><a class="strip-link" href="index.html">Home</a></div>
         <div class="nav-item"><a class="strip-link" href="about.html">About Us</a></div>
 
@@ -3116,30 +3370,60 @@
         <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
       </nav>
 
-        <div class="strip-right">
-          <div class="login-dd" id="loginDd">
-            <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
-                height="6" viewBox="0 0 10 6" fill="none">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg></button>
-            <div class="login-dd-menu" id="loginDdMenu">
-              <a href="https://etrade.marfatia.net/#!/app" target="_blank" rel="noopener">E-trade  ↗</a>
-              <a href="https://backoffice.marfatia.net:444/TradeWeb45" target="_blank" rel="noopener">Back Office ↗</a>
-              <a href="https://backoffice.marfatia.net:444/TradeNetX" target="_blank" rel="noopener">New Tradenet  ↗</a>
-            </div>
+      <div class="strip-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
+
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+            </path>
+          </svg>
+
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+        <div class="login-dd" id="loginDd">
+          <button class="btn btn-ghost login-dd-trigger btn-outline" id="loginDdTrigger">Login <svg width="10"
+              height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></button>
+          <div class="login-dd-menu" id="loginDdMenu">
+            <a href="https://etrade.marfatia.net/#!/app" target="_blank" rel="noopener">E-trade ↗</a>
+            <a href="https://backoffice.marfatia.net:444/TradeWeb45" target="_blank" rel="noopener">Back Office ↗</a>
+            <a href="https://backoffice.marfatia.net:444/TradeNetX" target="_blank" rel="noopener">New Tradenet ↗</a>
           </div>
-          <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
-            class="btn btn-marfatia"><span>Open Demat Account</span></a>
-          <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
-            class="btn btn-ghost btn-outline live-pulse-btn"><span class="dot dot--live"></span> Live Pulse</a>
-
         </div>
+        <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener"
+          class="btn btn-marfatia"><span>Open Demat Account</span></a>
+        <a href="https://marfatialivepulse.netlify.app/" target="_blank" rel="noopener"
+          class="btn btn-ghost btn-outline live-pulse-btn"><span class="dot dot--live"></span> Live Pulse</a>
 
-        <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
-      <div class="nav-backdrop" id="navBackdrop"></div>
-    </header>
+
+      <!-- Theme toggle visible always (desktop: inside strip-right; mobile: here) -->
+
+      <button class="strip-burger" id="stripBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="theme-toggle-btn" id="themeToggleBtnMobile" aria-label="Toggle dark mode" style="display:none;">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+          </path>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+  </header>
 
   <main class="inner-main">
 
@@ -3299,7 +3583,9 @@
         <div class="section-head" data-reveal style="margin-bottom:24px; text-align:center;">
           <span class="eyebrow">Regulatory Framework</span>
           <h2 class="sec-title">Registered, audited, <em>accountable.</em></h2>
-          <p class="sec-sub" style="color:var(--mono-ink); opacity:.75; margin-left:auto; margin-right:auto;">Marfatia operates within the regulatory framework established by SEBI and recognized market institutions, reflecting our commitment to compliance, transparency, and responsible financial services.</p>
+          <p class="sec-sub" style="color:var(--mono-ink); opacity:.75; margin-left:auto; margin-right:auto;">Marfatia
+            operates within the regulatory framework established by SEBI and recognized market institutions, reflecting
+            our commitment to compliance, transparency, and responsible financial services.</p>
         </div>
 
         <div style="text-align: center;" data-reveal>
@@ -3320,20 +3606,26 @@
             </div>
             <div>
               <h3 class="ab-reg-terminal-title" id="abRegTitle">SEBI Registered Stock Broker</h3>
-              <p style="font-size:12.5px; color:rgba(220,235,225,0.7); margin-top:4px; margin-bottom:12px;" id="abRegDesc">SEBI regulated capital market stock broker operating across NSE, BSE &amp; MCX segments.</p>
+              <p style="font-size:12.5px; color:rgba(220,235,225,0.7); margin-top:4px; margin-bottom:12px;"
+                id="abRegDesc">SEBI regulated capital market stock broker operating across NSE, BSE &amp; MCX segments.
+              </p>
               <div class="ab-reg-terminal-code-box" id="abRegCode">
                 INZ000215330
               </div>
             </div>
             <div class="ab-reg-terminal-status">
-              <i class="bi bi-patch-check-fill" style="color:var(--lime);"></i> <span id="abRegStatus">Verified Active Credential &bull; 100% Compliant</span>
+              <i class="bi bi-patch-check-fill" style="color:var(--lime);"></i> <span id="abRegStatus">Verified Active
+                Credential &bull; 100% Compliant</span>
             </div>
           </div>
 
           <!-- Right Interactive Chip Deck -->
           <div class="ab-reg-chip-deck" id="abRegDeck">
             <!-- Item 1 -->
-            <div class="ab-reg-chip-item active" data-tag="SEBI REGISTERED" data-ico="bi-shield-check" data-title="SEBI Registered Stock Broker" data-desc="SEBI regulated capital market stock broker operating across NSE, BSE &amp; MCX segments." data-code="INZ000215330" data-status="Active SEBI Stock Broker License">
+            <div class="ab-reg-chip-item active" data-tag="SEBI REGISTERED" data-ico="bi-shield-check"
+              data-title="SEBI Registered Stock Broker"
+              data-desc="SEBI regulated capital market stock broker operating across NSE, BSE &amp; MCX segments."
+              data-code="INZ000215330" data-status="Active SEBI Stock Broker License">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-shield-check"></i>
                 <span>SEBI Stock Broker</span>
@@ -3342,7 +3634,10 @@
             </div>
 
             <!-- Item 2 -->
-            <div class="ab-reg-chip-item" data-tag="SEBI REGISTERED" data-ico="bi-briefcase-fill" data-title="SEBI Registered Portfolio Manager" data-desc="Authorized Portfolio Manager providing specialized PMS investment strategies under SEBI PMS regulations." data-code="INP000005117" data-status="Active SEBI PMS Registration">
+            <div class="ab-reg-chip-item" data-tag="SEBI REGISTERED" data-ico="bi-briefcase-fill"
+              data-title="SEBI Registered Portfolio Manager"
+              data-desc="Authorized Portfolio Manager providing specialized PMS investment strategies under SEBI PMS regulations."
+              data-code="INP000005117" data-status="Active SEBI PMS Registration">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-briefcase-fill"></i>
                 <span>SEBI Portfolio Manager</span>
@@ -3351,7 +3646,10 @@
             </div>
 
             <!-- Item 3 -->
-            <div class="ab-reg-chip-item" data-tag="CDSL DEPOSITORY" data-ico="bi-safe2-fill" data-title="Depository Participant – CDSL" data-desc="Registered Depository Participant with Central Depository Services (India) Limited for demat asset custody." data-code="SEBI: IN-DP-CDSL-227-2016 | DP ID: 12044400" data-status="Active CDSL Depository Custody">
+            <div class="ab-reg-chip-item" data-tag="CDSL DEPOSITORY" data-ico="bi-safe2-fill"
+              data-title="Depository Participant – CDSL"
+              data-desc="Registered Depository Participant with Central Depository Services (India) Limited for demat asset custody."
+              data-code="SEBI: IN-DP-CDSL-227-2016 | DP ID: 12044400" data-status="Active CDSL Depository Custody">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-safe2-fill"></i>
                 <span>Depository Participant – CDSL</span>
@@ -3360,7 +3658,10 @@
             </div>
 
             <!-- Item 4 -->
-            <div class="ab-reg-chip-item" data-tag="EXCHANGE MEMBER" data-ico="bi-building-fill-check" data-title="Trading Member – NSE" data-desc="Registered Trading Member of the National Stock Exchange of India Ltd across Capital &amp; Derivatives markets." data-code="NSE MEMBER CODE: 11925" data-status="Active NSE Exchange Membership">
+            <div class="ab-reg-chip-item" data-tag="EXCHANGE MEMBER" data-ico="bi-building-fill-check"
+              data-title="Trading Member – NSE"
+              data-desc="Registered Trading Member of the National Stock Exchange of India Ltd across Capital &amp; Derivatives markets."
+              data-code="NSE MEMBER CODE: 11925" data-status="Active NSE Exchange Membership">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-building-fill-check"></i>
                 <span>Trading Member – NSE</span>
@@ -3369,7 +3670,10 @@
             </div>
 
             <!-- Item 5 -->
-            <div class="ab-reg-chip-item" data-tag="EXCHANGE MEMBER" data-ico="bi-building-fill-check" data-title="Trading Member – BSE" data-desc="Registered Trading Member of the Bombay Stock Exchange Ltd for equity, debt, and derivatives trading." data-code="BSE MEMBER CODE: 3065" data-status="Active BSE Exchange Membership">
+            <div class="ab-reg-chip-item" data-tag="EXCHANGE MEMBER" data-ico="bi-building-fill-check"
+              data-title="Trading Member – BSE"
+              data-desc="Registered Trading Member of the Bombay Stock Exchange Ltd for equity, debt, and derivatives trading."
+              data-code="BSE MEMBER CODE: 3065" data-status="Active BSE Exchange Membership">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-building-fill-check"></i>
                 <span>Trading Member – BSE</span>
@@ -3378,7 +3682,10 @@
             </div>
 
             <!-- Item 6 -->
-            <div class="ab-reg-chip-item" data-tag="NATIONAL ASSOCIATION" data-ico="bi-people-fill" data-title="Member – ANMI" data-desc="Active member of the Association of National Exchanges Members of India promoting capital market integrity." data-code="ANMI REGISTRATION MEMBER" data-status="Active ANMI Association Member">
+            <div class="ab-reg-chip-item" data-tag="NATIONAL ASSOCIATION" data-ico="bi-people-fill"
+              data-title="Member – ANMI"
+              data-desc="Active member of the Association of National Exchanges Members of India promoting capital market integrity."
+              data-code="ANMI REGISTRATION MEMBER" data-status="Active ANMI Association Member">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-people-fill"></i>
                 <span>Member – ANMI</span>
@@ -3387,7 +3694,10 @@
             </div>
 
             <!-- Item 7 -->
-            <div class="ab-reg-chip-item" data-tag="GLOBAL ENTITY IDENTIFIER" data-ico="bi-fingerprint" data-title="Registered LEI Holder" data-desc="Globally verified Legal Entity Identifier (LEI) for international financial transparency and institutional compliance." data-code="LEI: 8945005ZUWZL7ILT9V25" data-status="Active Global LEI Certification">
+            <div class="ab-reg-chip-item" data-tag="GLOBAL ENTITY IDENTIFIER" data-ico="bi-fingerprint"
+              data-title="Registered LEI Holder"
+              data-desc="Globally verified Legal Entity Identifier (LEI) for international financial transparency and institutional compliance."
+              data-code="LEI: 8945005ZUWZL7ILT9V25" data-status="Active Global LEI Certification">
               <div class="ab-reg-chip-left">
                 <i class="bi bi-fingerprint"></i>
                 <span>Registered LEI Holder</span>
@@ -3405,13 +3715,16 @@
         <div class="section-head" data-reveal style="margin-bottom:36px; text-align:center;">
           <span class="eyebrow">Capital Solutions Matrix</span>
           <h2 class="sec-title" style="color:#0b2216;">What we <em>offer.</em></h2>
-          <p class="sec-sub" style="color:#4a5e52; opacity:.9; margin-left:auto; margin-right:auto;">Comprehensive, technology-driven capital market solutions engineered for institutional, HNI, and retail investors.</p>
+          <p class="sec-sub" style="color:#4a5e52; opacity:.9; margin-left:auto; margin-right:auto;">Comprehensive,
+            technology-driven capital market solutions engineered for institutional, HNI, and retail investors.</p>
         </div>
 
         <!-- Light Interactive Tabs -->
         <div class="ab-svc-tabs ab-sol-light-tabs" data-reveal style="margin-bottom: 32px; justify-content: center;">
-          <button class="ab-svc-tab active" data-filter="all"><i class="bi bi-grid-fill"></i> All Solutions (11)</button>
-          <button class="ab-svc-tab" data-filter="trading"><i class="bi bi-graph-up-arrow"></i> Trading &amp; F&amp;O</button>
+          <button class="ab-svc-tab active" data-filter="all"><i class="bi bi-grid-fill"></i> All Solutions
+            (11)</button>
+          <button class="ab-svc-tab" data-filter="trading"><i class="bi bi-graph-up-arrow"></i> Trading &amp;
+            F&amp;O</button>
           <button class="ab-svc-tab" data-filter="wealth"><i class="bi bi-briefcase-fill"></i> Wealth &amp; PMS</button>
           <button class="ab-svc-tab" data-filter="custody"><i class="bi bi-safe2-fill"></i> Demat &amp; Digital</button>
         </div>
@@ -3426,7 +3739,8 @@
                 <span class="ab-matrix-cat">CAPITAL MARKETS</span>
               </div>
               <h3 class="ab-matrix-title">Equity Trading</h3>
-              <p class="ab-matrix-desc">Trade listed equities across NSE &amp; BSE with fast execution and market depth.</p>
+              <p class="ab-matrix-desc">Trade listed equities across NSE &amp; BSE with fast execution and market depth.
+              </p>
             </div>
             <div class="ab-matrix-foot">
               <a href="equity.html" class="ab-matrix-link">Explore Solution <i class="bi bi-arrow-right"></i></a>
@@ -3442,7 +3756,8 @@
                 <span class="ab-matrix-cat">DERIVATIVES</span>
               </div>
               <h3 class="ab-matrix-title">Equity Derivatives (F&amp;O)</h3>
-              <p class="ab-matrix-desc">Index &amp; stock futures &amp; options for hedging and tactical trading strategies.</p>
+              <p class="ab-matrix-desc">Index &amp; stock futures &amp; options for hedging and tactical trading
+                strategies.</p>
             </div>
             <div class="ab-matrix-foot">
               <a href="derivatives.html" class="ab-matrix-link">Explore F&amp;O <i class="bi bi-arrow-right"></i></a>
@@ -3458,7 +3773,8 @@
                 <span class="ab-matrix-cat">MULTI-ASSET</span>
               </div>
               <h3 class="ab-matrix-title">Commodity &amp; Currency Access</h3>
-              <p class="ab-matrix-desc">Multi-asset exposure to commodity &amp; currency futures across Exchange platforms.</p>
+              <p class="ab-matrix-desc">Multi-asset exposure to commodity &amp; currency futures across Exchange
+                platforms.</p>
             </div>
             <div class="ab-matrix-foot">
               <a href="equity.html" class="ab-matrix-link">Explore Commodities <i class="bi bi-arrow-right"></i></a>
@@ -3474,7 +3790,8 @@
                 <span class="ab-matrix-cat">CDSL CUSTODY</span>
               </div>
               <h3 class="ab-matrix-title">Demat Services (CDSL)</h3>
-              <p class="ab-matrix-desc">Seamless electronic asset custody as a SEBI Registered Depository Participant.</p>
+              <p class="ab-matrix-desc">Seamless electronic asset custody as a SEBI Registered Depository Participant.
+              </p>
             </div>
             <div class="ab-matrix-foot">
               <a href="demat.html" class="ab-matrix-link">Open Demat <i class="bi bi-arrow-right"></i></a>
@@ -3490,7 +3807,8 @@
                 <span class="ab-matrix-cat">WEALTH MANAGEMENT</span>
               </div>
               <h3 class="ab-matrix-title">Portfolio Management (PMS)</h3>
-              <p class="ab-matrix-desc">SEBI registered professional portfolio management for high-net-worth investors.</p>
+              <p class="ab-matrix-desc">SEBI registered professional portfolio management for high-net-worth investors.
+              </p>
             </div>
             <div class="ab-matrix-foot">
               <a href="pms.html" class="ab-matrix-link">Explore PMS <i class="bi bi-arrow-right"></i></a>
@@ -3506,7 +3824,8 @@
                 <span class="ab-matrix-cat">EXCHANGE SLBM</span>
               </div>
               <h3 class="ab-matrix-title">Securities Lending (SLBM)</h3>
-              <p class="ab-matrix-desc">Monetize idle demat stock holdings or borrow eligible shares via Exchange SLBM.</p>
+              <p class="ab-matrix-desc">Monetize idle demat stock holdings or borrow eligible shares via Exchange SLBM.
+              </p>
             </div>
             <div class="ab-matrix-foot">
               <a href="slb.html" class="ab-matrix-link">Explore SLBM <i class="bi bi-arrow-right"></i></a>
@@ -3522,7 +3841,8 @@
                 <span class="ab-matrix-cat">MARGIN FUNDING</span>
               </div>
               <h3 class="ab-matrix-title">Margin Trading Facility (MTF)</h3>
-              <p class="ab-matrix-desc">Amplify equity buying power by paying required margin while Marfatia funds balance.</p>
+              <p class="ab-matrix-desc">Amplify equity buying power by paying required margin while Marfatia funds
+                balance.</p>
             </div>
             <div class="ab-matrix-foot">
               <a href="mtf.html" class="ab-matrix-link">Explore MTF <i class="bi bi-arrow-right"></i></a>
@@ -3586,7 +3906,8 @@
                 <span class="ab-matrix-cat">CORPORATE SERVICES</span>
               </div>
               <h3 class="ab-matrix-title">Capital Market Services</h3>
-              <p class="ab-matrix-desc">End-to-end institutional support, IPO routing, and corporate advisory services.</p>
+              <p class="ab-matrix-desc">End-to-end institutional support, IPO routing, and corporate advisory services.
+              </p>
             </div>
             <div class="ab-matrix-foot">
               <a href="contact-us.html" class="ab-matrix-link">Contact Advisory <i class="bi bi-arrow-right"></i></a>
@@ -3605,7 +3926,8 @@
           <div class="plat-left-head" data-reveal>
             <span class="eyebrow">Our Tech Platform</span>
             <h2 class="sec-title">Technology-driven <em>Platform.</em></h2>
-            <p class="sec-sub">End-to-end digital infrastructure built for speed, security, and scale — powering every trade and account.</p>
+            <p class="sec-sub">End-to-end digital infrastructure built for speed, security, and scale — powering every
+              trade and account.</p>
 
             <!-- Stat strip -->
             <div class="plat-stat-strip">
@@ -3693,7 +4015,8 @@
         <div class="section-head" data-reveal style="margin-bottom:44px; text-align:center;">
           <span class="eyebrow">What We Stand For</span>
           <h2 class="sec-title" style="color:#0b2216;">Our core <em>values.</em></h2>
-          <p class="sec-sub" style="color:#52665b; margin-left:auto; margin-right:auto;">Guided by fundamental principles that govern our operations and strengthen long-term client trust.</p>
+          <p class="sec-sub" style="color:#52665b; margin-left:auto; margin-right:auto;">Guided by fundamental
+            principles that govern our operations and strengthen long-term client trust.</p>
         </div>
 
         <div class="ab-val-stream-grid" data-reveal>
@@ -3704,7 +4027,8 @@
               <div class="ab-val-stream-ico-pod"><i class="bi bi-shield-check"></i></div>
             </div>
             <h3 class="ab-val-stream-title">Integrity</h3>
-            <p class="ab-val-stream-desc">Honest, transparent, and ethical business practices across all capital market operations.</p>
+            <p class="ab-val-stream-desc">Honest, transparent, and ethical business practices across all capital market
+              operations.</p>
           </div>
 
           <!-- 02: Client First -->
@@ -3714,7 +4038,8 @@
               <div class="ab-val-stream-ico-pod"><i class="bi bi-people"></i></div>
             </div>
             <h3 class="ab-val-stream-title">Client First</h3>
-            <p class="ab-val-stream-desc">Client interests remain at the absolute center of our investment and advisory solutions.</p>
+            <p class="ab-val-stream-desc">Client interests remain at the absolute center of our investment and advisory
+              solutions.</p>
           </div>
 
           <!-- 03: Professionalism -->
@@ -3724,7 +4049,8 @@
               <div class="ab-val-stream-ico-pod"><i class="bi bi-award"></i></div>
             </div>
             <h3 class="ab-val-stream-title">Professionalism</h3>
-            <p class="ab-val-stream-desc">Knowledgeable support backed by dependable execution and operational discipline.</p>
+            <p class="ab-val-stream-desc">Knowledgeable support backed by dependable execution and operational
+              discipline.</p>
           </div>
 
           <!-- 04: Innovation -->
@@ -3734,7 +4060,8 @@
               <div class="ab-val-stream-ico-pod"><i class="bi bi-lightbulb"></i></div>
             </div>
             <h3 class="ab-val-stream-title">Innovation</h3>
-            <p class="ab-val-stream-desc">Continuous enhancement of trading technology, digital tools, and infrastructure.</p>
+            <p class="ab-val-stream-desc">Continuous enhancement of trading technology, digital tools, and
+              infrastructure.</p>
           </div>
 
           <!-- 05: Trust -->
@@ -3744,7 +4071,8 @@
               <div class="ab-val-stream-ico-pod"><i class="bi bi-hand-thumbs-up"></i></div>
             </div>
             <h3 class="ab-val-stream-title">Trust</h3>
-            <p class="ab-val-stream-desc">Earned over decades through consistency, strict compliance, and total accountability.</p>
+            <p class="ab-val-stream-desc">Earned over decades through consistency, strict compliance, and total
+              accountability.</p>
           </div>
 
           <!-- 06: Value Creation -->
@@ -3754,7 +4082,8 @@
               <div class="ab-val-stream-ico-pod"><i class="bi bi-graph-up-arrow"></i></div>
             </div>
             <h3 class="ab-val-stream-title">Value Creation</h3>
-            <p class="ab-val-stream-desc">Empowering investors with research-backed insights and reliable market services.</p>
+            <p class="ab-val-stream-desc">Empowering investors with research-backed insights and reliable market
+              services.</p>
           </div>
         </div>
       </div>
@@ -3983,189 +4312,296 @@
   </main>
 
   <footer class="site-footer" id="footer">
-      <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
-      <div class="footer-glow" aria-hidden="true"></div>
+    <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
+    <div class="footer-glow" aria-hidden="true"></div>
 
-      <!-- compact single row: small map thumbnail + rating/review strip, side by side -->
-      <div class="footer-locate">
-        <a class="footer-map-compact" href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"></iframe>
-          <span class="footer-map-tag mono">📍 Open in Maps</span>
-        </a>
-        <div class="footer-reviews-compact">
-          <div class="google-badge">
-            <svg width="18" height="18" viewBox="0 0 48 48">
-              <path fill="#4285F4"
-                d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.5-9.6 6.5-16.6z" />
-              <path fill="#34A853"
-                d="M24 46c5.9 0 10.9-2 14.5-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46z" />
-              <path fill="#FBBC05"
-                d="M11.8 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.5C3 17 2 20.4 2 24s1 7 4.5 9.9l7.3-5.7z" />
-              <path fill="#EA4335"
-                d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.1l7.3 5.7c1.7-5.2 6.5-9 12.2-9z" />
-            </svg>
-            <span><b>4.8</b>/5 · 2,400+ Reviews</span>
+    <!-- compact single row: small map thumbnail + rating/review strip, side by side -->
+    <div class="footer-locate">
+      <a class="footer-map-compact" href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29529.76494906829!2d73.13594341083983!3d22.307494600000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8afb052a7d9%3A0xe7ea93d6d56a1976!2sMarfatia%20Stock%20Broking%20PVT%20LTD.!5e0!3m2!1sen!2sin!4v1783753821164!5m2!1sen!2sin"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <span class="footer-map-tag mono">📍 Open in Maps</span>
+      </a>
+      <div class="footer-reviews-compact">
+        <div class="google-badge">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#4285F4"
+              d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.9 6.5-9.6 6.5-16.6z" />
+            <path fill="#34A853"
+              d="M24 46c5.9 0 10.9-2 14.5-5.4l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46z" />
+            <path fill="#FBBC05"
+              d="M11.8 28.2c-.4-1.3-.7-2.7-.7-4.2s.2-2.9.7-4.2v-5.7H4.5C3 17 2 20.4 2 24s1 7 4.5 9.9l7.3-5.7z" />
+            <path fill="#EA4335"
+              d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.1l7.3 5.7c1.7-5.2 6.5-9 12.2-9z" />
+          </svg>
+          <span><b>4.8</b>/5 · 2,400+ Reviews</span>
+        </div>
+        <p class="footer-review-line mb-0">"Switched from a legacy broker — the algo automation alone paid for the
+          switch." <span>— Rohan Kapadia</span></p>
+        <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener"
+          class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+      </div>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-col--brand">
+        <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
+        <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
+        <p>Marfatia Stock Broking Private Limited (MARFATIA) Member of SEBI, NSE, BSE and CDSL – CIN
+          U67120GJ2002PTC041373</p>
+        <div class="footer-contact-card mt-3">
+          <div class="fcc-item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>
+              <strong>Registered &amp; Correspondence Office Address:</strong>
+              <span>308 – 311 Glacier Complex Jetalpur Road,<br>Vadodara 390007 Gujarat INDIA</span>
+            </div>
           </div>
-          <p class="footer-review-line mb-0">"Switched from a legacy broker — the algo automation alone paid for the
-            switch." <span>— Rohan Kapadia</span></p>
-          <a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review →</span></a>
+          <div class="fcc-item">
+            <i class="bi bi-telephone-fill"></i>
+            <span>18005702650 / 0265-2351355 / 0265-2351513</span>
+          </div>
+          <div class="fcc-item">
+            <i class="bi bi-envelope-fill"></i>
+            <a href="mailto:compliance@marfatia.net">compliance@marfatia.net</a>
+          </div>
+          <div class="fcc-item">
+            <i class="bi bi-globe"></i>
+            <a href="https://www.marfatia.net" target="_blank" rel="noopener">www.marfatia.net</a>
+          </div>
+        </div>
+        <div class="mt-3" style="font-size: 0.85rem; color: var(--ink-soft);">
+          <strong>Compliance Officer:</strong> Mr. Chintan Majumdar
+        </div>
+        <div class="footer-social mt-3">
+          <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener"
+            class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener"
+            class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico"
+            aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+          <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener"
+            class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener"
+            class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener"
+            class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico"
+            aria-label="Medium"><i class="bi bi-medium"></i></a>
+          <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico"
+            aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico"
+            aria-label="Website"><i class="bi bi-globe"></i></a>
         </div>
       </div>
 
-      <div class="footer-grid">
-        <div class="footer-col footer-col--brand">
-          <img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">
-          <img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">
-          <p>Marfatia Stock Broking Private Limited (MARFATIA) Member of SEBI, NSE, BSE and CDSL – CIN U67120GJ2002PTC041373</p>
-          <div class="footer-contact-card mt-3">
-            <div class="fcc-item">
-              <i class="bi bi-geo-alt-fill"></i>
-              <div>
-                <strong>Registered &amp; Correspondence Office Address:</strong>
-                <span>308 – 311 Glacier Complex Jetalpur Road,<br>Vadodara 390007 Gujarat INDIA</span>
-              </div>
-            </div>
-            <div class="fcc-item">
-              <i class="bi bi-telephone-fill"></i>
-              <span>18005702650 / 0265-2351355 / 0265-2351513</span>
-            </div>
-            <div class="fcc-item">
-              <i class="bi bi-envelope-fill"></i>
-              <a href="mailto:compliance@marfatia.net">compliance@marfatia.net</a>
-            </div>
-            <div class="fcc-item">
-              <i class="bi bi-globe"></i>
-              <a href="https://www.marfatia.net" target="_blank" rel="noopener">www.marfatia.net</a>
-            </div>
-          </div>
-          <div class="mt-3" style="font-size: 0.85rem; color: var(--ink-soft);">
-            <strong>Compliance Officer:</strong> Mr. Chintan Majumdar
-          </div>
-          <div class="footer-social mt-3">
-            <a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="https://t.me/MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
-            <a href="https://www.youtube.com/@MarfatiaStockBroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            <a href="https://whatsapp.com/channel/0029VbA6L3M7YSd8T7Yxyz" target="_blank" rel="noopener" class="footer-social-ico" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-            <a href="https://www.linkedin.com/company/marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-            <a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>
-            <a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-            <a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>
-          </div>
-        </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
+        <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
+        <a href="feedback.html"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
+        <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
+        <a href="new-downloads.html"><i class="bi bi-download"></i> New Downloads</a>
+        <a href="https://attendee.gotowebinar.com/pageNotFound.tmpl" target="_blank" rel="noopener"><i
+            class="bi bi-play-btn"></i> Webinar</a>
+        <a href="http://203.88.142.27:8181/webmail3/" target="_blank" rel="noopener"><i class="bi bi-envelope-open"></i>
+          Web Mail Login</a>
 
-        <div class="footer-col">
-          <h5>Quick Links</h5>
-          <a href="index.html"><i class="bi bi-house-door"></i> Home</a>
-          <a href="about.html"><i class="bi bi-info-circle"></i> About Us</a>
-          <a href="feedback.html"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a>
-          <a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a>
-          <a href="new-downloads.html"><i class="bi bi-download"></i> New Downloads</a>
-          <a href="https://attendee.gotowebinar.com/pageNotFound.tmpl" target="_blank" rel="noopener"><i class="bi bi-play-btn"></i> Webinar</a>
-          <a href="http://203.88.142.27:8181/webmail3/" target="_blank" rel="noopener"><i class="bi bi-envelope-open"></i> Web Mail Login</a>
-
-          <h5 class="mt-4">Grievance Resolution</h5>
-          <a href="complaints.html"><i class="bi bi-envelope"></i> Complaint to Marfatia</a>
-          <a href="https://api.marfatia.net/api/files/FilingComplaints.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i> Filing Complaints</a>
-          <a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener"><i class="bi bi-shield-check"></i> SEBI Score Portal</a>
-          <a href="https://smartodr.in/login" target="_blank" rel="noopener"><i class="bi bi-cpu"></i> Smart ODR</a>
-          <a href="contact-us.html"><i class="bi bi-ui-radios"></i> Quick Contact Form</a>
-        </div>
-
-        <div class="footer-col">
-          <h5>Marfatia Services</h5>
-          <a href="https://api.marfatia.net/api/files/NEWKYCFORM.pdf" target="_blank" rel="noopener"><i class="bi bi-file-earmark-person"></i> Client Registration Form</a>
-          <a href="https://api.marfatia.net/api/files/AUTHORISED_PERSON_LIST.pdf" target="_blank" rel="noopener"><i class="bi bi-person-badge"></i> Authorised Person List</a>
-          <a href="new-downloads.html"><i class="bi bi-folder2-open"></i> Download Forms</a>
-          <a href="client-bank-accounts.html"><i class="bi bi-bank"></i> Details of Client Bank Account</a>
-          <a href="https://api.marfatia.net/api/files/StepbyStep-Procedure-for-Account-opening.pdf" target="_blank" rel="noopener"><i class="bi bi-book"></i> Step by Step Procedure of eKYC</a>
-          <a href="key-managerial-personnel.html"><i class="bi bi-people"></i> Key Managerial Personnels</a>
-          <a href="branches.html"><i class="bi bi-geo-alt"></i> Registered Address of Head Office and Branches</a>
-          <a href="privacy-policy.html"><i class="bi bi-shield-lock"></i> Privacy Policy</a>
-          <a href="https://api.marfatia.net/api/files/Policies%20and%20Circulars.rar" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> Policies and Circulars</a>
-          <a href="https://api.marfatia.net/api/files/VERNACULAR_LANGUAGES.rar" target="_blank" rel="noopener"><i class="bi bi-translate"></i> Vernacular Languages</a>
-        </div>
-
-        <div class="footer-col">
-          <h5>Investor Awareness</h5>
-          <a href="https://investor.sebi.gov.in/" target="_blank" rel="noopener"><i class="bi bi-info-circle"></i> SEBI Investor</a>
-          <a href="https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListingAll=yes" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> SEBI Circular</a>
-          <a href="https://www.nseindia.com/resources/exchange-communication-circulars" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> NSE Circular</a>
-          <a href="https://www.bseindia.com/markets/marketinfo/noticescirculars?id=0" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> BSE Circular</a>
-          <a href="https://www.cdslindia.com/eservices/Publications/Communique" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> CDSL Circular</a>
-
-          <h5 class="mt-4">Investor Facility</h5>
-          <a href="https://investorhelpline.nseclearing.in/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener"><i class="bi bi-briefcase"></i> Collateral NCL</a>
-          <a href="https://evoting.cdslindia.com/Evoting/EvotingLogin" target="_blank" rel="noopener"><i class="bi bi-ui-checks"></i> CDSL E Voting</a>
-        </div>
-
-        <div class="footer-col">
-          <h5>Disclosures</h5>
-          <a href="investor-charter-stockbroker.html"><i class="bi bi-award"></i> Investor Charter – Stock Broker, DP, PMS</a>
-          <a href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank" rel="noopener"><i class="bi bi-journal-text"></i> PMS Disclosure Documents</a>
-          <a href="advisory-for-investors.html"><i class="bi bi-exclamation-triangle"></i> Caution for Investor</a>
-          <a href="terms-of-use.html"><i class="bi bi-file-earmark-text"></i> Terms &amp; Condition</a>
-          <a href="disclaimer.html"><i class="bi bi-file-earmark-break"></i> Disclaimer</a>
-          <a href="advisory-kyc-compliance.html"><i class="bi bi-check2-square"></i> Advisory KYC Compliance</a>
-          <a href="exchange-sebi-registration.html"><i class="bi bi-card-checklist"></i> Exchange/SEBI Registration Details</a>
-          <a href="investor-charter-research-analyst.html"><i class="bi bi-person-lines-fill"></i> Investor Charter Research Analyst</a>
-        </div>
+        <h5 class="mt-4">Grievance Resolution</h5>
+        <a href="complaints.html"><i class="bi bi-envelope"></i> Complaint to Marfatia</a>
+        <a href="https://api.marfatia.net/api/files/FilingComplaints.pdf" target="_blank" rel="noopener"><i
+            class="bi bi-file-pdf"></i> Filing Complaints</a>
+        <a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener"><i class="bi bi-shield-check"></i> SEBI
+          Score Portal</a>
+        <a href="https://smartodr.in/login" target="_blank" rel="noopener"><i class="bi bi-cpu"></i> Smart ODR</a>
+        <a href="contact-us.html"><i class="bi bi-ui-radios"></i> Quick Contact Form</a>
       </div>
 
-      <div class="footer-regbar">
-        <span class="mono">SEBI Reg. No.: - INZ000215330</span>
-        <span class="mono">Member Code NSE: - 11925</span>
-        <span class="mono">Member Code BSE: - 3065</span>
-        <span class="mono">PMS SEBI Registration No.: INP000005117</span>
-        <span class="mono">DP SEBI Reg. No.:- IN-DP-CDSL-227-2016 - DP: CDSL - DP ID: 12044400</span>
+      <div class="footer-col">
+        <h5>Marfatia Services</h5>
+        <a href="https://api.marfatia.net/api/files/NEWKYCFORM.pdf" target="_blank" rel="noopener"><i
+            class="bi bi-file-earmark-person"></i> Client Registration Form</a>
+        <a href="https://api.marfatia.net/api/files/AUTHORISED_PERSON_LIST.pdf" target="_blank" rel="noopener"><i
+            class="bi bi-person-badge"></i> Authorised Person List</a>
+        <a href="new-downloads.html"><i class="bi bi-folder2-open"></i> Download Forms</a>
+        <a href="client-bank-accounts.html"><i class="bi bi-bank"></i> Details of Client Bank Account</a>
+        <a href="https://api.marfatia.net/api/files/StepbyStep-Procedure-for-Account-opening.pdf" target="_blank"
+          rel="noopener"><i class="bi bi-book"></i> Step by Step Procedure of eKYC</a>
+        <a href="key-managerial-personnel.html"><i class="bi bi-people"></i> Key Managerial Personnels</a>
+        <a href="branches.html"><i class="bi bi-geo-alt"></i> Registered Address of Head Office and Branches</a>
+        <a href="privacy-policy.html"><i class="bi bi-shield-lock"></i> Privacy Policy</a>
+        <a href="https://api.marfatia.net/api/files/Policies%20and%20Circulars.rar" target="_blank" rel="noopener"><i
+            class="bi bi-file-text"></i> Policies and Circulars</a>
+        <a href="https://api.marfatia.net/api/files/VERNACULAR_LANGUAGES.rar" target="_blank" rel="noopener"><i
+            class="bi bi-translate"></i> Vernacular Languages</a>
       </div>
 
-      <div class="footer-assoc">
-        <span>SEBI</span><span>NSE</span><span>BSE</span><span>CDSL</span><span>NSDL</span><span>MCX</span><span>NCDEX</span><span>RBI</span>
+      <div class="footer-col">
+        <h5>Investor Awareness</h5>
+        <a href="https://investor.sebi.gov.in/" target="_blank" rel="noopener"><i class="bi bi-info-circle"></i> SEBI
+          Investor</a>
+        <a href="https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListingAll=yes" target="_blank" rel="noopener"><i
+            class="bi bi-file-text"></i> SEBI Circular</a>
+        <a href="https://www.nseindia.com/resources/exchange-communication-circulars" target="_blank" rel="noopener"><i
+            class="bi bi-file-text"></i> NSE Circular</a>
+        <a href="https://www.bseindia.com/markets/marketinfo/noticescirculars?id=0" target="_blank" rel="noopener"><i
+            class="bi bi-file-text"></i> BSE Circular</a>
+        <a href="https://www.cdslindia.com/eservices/Publications/Communique" target="_blank" rel="noopener"><i
+            class="bi bi-file-text"></i> CDSL Circular</a>
+
+        <h5 class="mt-4">Investor Facility</h5>
+        <a href="https://investorhelpline.nseclearing.in/ClientCollateral/welcomeCLUser" target="_blank"
+          rel="noopener"><i class="bi bi-briefcase"></i> Collateral NCL</a>
+        <a href="https://evoting.cdslindia.com/Evoting/EvotingLogin" target="_blank" rel="noopener"><i
+            class="bi bi-ui-checks"></i> CDSL E Voting</a>
       </div>
 
-      <div class="footer-disclaimer" style="text-align: left; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
-        <p><strong>SEBI Registration Nos.:</strong> Marfatia Stock Broking Private Limited (MARFATIA), as Stock Broker INZ000215330 (BSE 3065/NSE 11925); as Depository Participant of CDSL: IN-DP-CDSL-227-2016 (12044400); as PMS: INP000005117; Other Registration with: APMI Member ID: 0264; LEI Registration Number 8945005ZUWZL7ILT9V25; ANMI Membership; GST Registration: 24AADCM6730B1ZY; STeADY Registration;</p>
+      <div class="footer-col">
+        <h5>Disclosures</h5>
+        <a href="investor-charter-stockbroker.html"><i class="bi bi-award"></i> Investor Charter – Stock Broker, DP,
+          PMS</a>
+        <a href="https://api.marfatia.net/api/files/MSBPL_PMS_Doslosure_Document-Oct_2024.pdf" target="_blank"
+          rel="noopener"><i class="bi bi-journal-text"></i> PMS Disclosure Documents</a>
+        <a href="advisory-for-investors.html"><i class="bi bi-exclamation-triangle"></i> Caution for Investor</a>
+        <a href="terms-of-use.html"><i class="bi bi-file-earmark-text"></i> Terms &amp; Condition</a>
+        <a href="disclaimer.html"><i class="bi bi-file-earmark-break"></i> Disclaimer</a>
+        <a href="advisory-kyc-compliance.html"><i class="bi bi-check2-square"></i> Advisory KYC Compliance</a>
+        <a href="exchange-sebi-registration.html"><i class="bi bi-card-checklist"></i> Exchange/SEBI Registration
+          Details</a>
+        <a href="investor-charter-research-analyst.html"><i class="bi bi-person-lines-fill"></i> Investor Charter
+          Research Analyst</a>
+      </div>
+    </div>
 
-        <p>Please read the Risk Disclosure Document prescribed by the Stock Exchanges carefully before investing. There is no assurance or guarantee of the returns. #Such representations are not indicative of future results. Investment in securities market are subject to market risk, read all the related documents carefully before investing. Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully.</p>
+    <div class="footer-regbar">
+      <span class="mono">SEBI Reg. No.: - INZ000215330</span>
+      <span class="mono">Member Code NSE: - 11925</span>
+      <span class="mono">Member Code BSE: - 3065</span>
+      <span class="mono">PMS SEBI Registration No.: INP000005117</span>
+      <span class="mono">DP SEBI Reg. No.:- IN-DP-CDSL-227-2016 - DP: CDSL - DP ID: 12044400</span>
+    </div>
 
-        <p><strong>Details of Compliance Officer:</strong> Name: Chintan Majmundar, Email ID: <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>, Contact No.: <a href="tel:18005702650" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">18005702650</a> / <a href="tel:02652351355" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351355</a> / <a href="tel:02652351513" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351513</a>. Customer having any query/feedback/ clarification may write to <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>. In case of grievances for services like Stock Broking and Depository services, any other services rendered by Marfatia Stock Broking Private Limited write to <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>. Marfatia Stock Broking Private Limited do carry Proprietary trading.</p>
+    <div class="footer-assoc">
+      <span>SEBI</span><span>NSE</span><span>BSE</span><span>CDSL</span><span>NSDL</span><span>MCX</span><span>NCDEX</span><span>RBI</span>
+    </div>
 
-        <p><strong>Attention Investors</strong><br>
-        Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.<br>
-        1. Update your mobile number &amp; email Id with your stock broker/depository participant and receive OTP directly from depository on your email id and/or mobile number to create pledge.<br>
-        2. Pay 20% or "var + elm" whichever is higher as upfront margin of the transaction value to trade in cash market segment.<br>
-        3. Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued vide circular reference NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 and BSE vide notice no. 20200731-7 dated July 31, 2020 and 20200831-45 dated August 31, 2020 dated August 31, 2020 and other guidelines issued from time to time in this regard.<br>
-        4. Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month. Issued in the interest of Investors"</p>
+    <div class="footer-disclaimer"
+      style="text-align: left; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+      <p><strong>SEBI Registration Nos.:</strong> Marfatia Stock Broking Private Limited (MARFATIA), as Stock Broker
+        INZ000215330 (BSE 3065/NSE 11925); as Depository Participant of CDSL: IN-DP-CDSL-227-2016 (12044400); as PMS:
+        INP000005117; Other Registration with: APMI Member ID: 0264; LEI Registration Number 8945005ZUWZL7ILT9V25; ANMI
+        Membership; GST Registration: 24AADCM6730B1ZY; STeADY Registration;</p>
 
-        <p><strong>Attention Investors:</strong><br>
-        Facilities available Online: Account Opening, Account Modification, E-DIS, Account closure and more. For further details, please contact our customer care<br>
+      <p>Please read the Risk Disclosure Document prescribed by the Stock Exchanges carefully before investing. There is
+        no assurance or guarantee of the returns. #Such representations are not indicative of future results. Investment
+        in securities market are subject to market risk, read all the related documents carefully before investing.
+        Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities,
+        municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default
+        risks including delay and/or default in payment. Read all the offer related documents carefully.</p>
+
+      <p><strong>Details of Compliance Officer:</strong> Name: Chintan Majmundar, Email ID: <a
+          href="mailto:compliance@marfatia.net"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>,
+        Contact No.: <a href="tel:18005702650"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">18005702650</a> / <a
+          href="tel:02652351355"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351355</a> / <a
+          href="tel:02652351513"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351513</a>. Customer
+        having any query/feedback/ clarification may write to <a href="mailto:compliance@marfatia.net"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>.
+        In case of grievances for services like Stock Broking and Depository services, any other services rendered by
+        Marfatia Stock Broking Private Limited write to <a href="mailto:compliance@marfatia.net"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>.
+        Marfatia Stock Broking Private Limited do carry Proprietary trading.</p>
+
+      <p><strong>Attention Investors</strong><br>
+        Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f.
+        September 1, 2020.<br>
+        1. Update your mobile number &amp; email Id with your stock broker/depository participant and receive OTP
+        directly from depository on your email id and/or mobile number to create pledge.<br>
+        2. Pay 20% or "var + elm" whichever is higher as upfront margin of the transaction value to trade in cash market
+        segment.<br>
+        3. Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued vide circular reference
+        NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 and BSE vide notice no. 20200731-7 dated July 31, 2020 and
+        20200831-45 dated August 31, 2020 dated August 31, 2020 and other guidelines issued from time to time in this
+        regard.<br>
+        4. Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month.
+        Issued in the interest of Investors"</p>
+
+      <p><strong>Attention Investors:</strong><br>
+        Facilities available Online: Account Opening, Account Modification, E-DIS, Account closure and more. For further
+        details, please contact our customer care<br>
         1. Please Linking Your Aadhar With Your Demat Account<br>
-        2. KYC is one time exercise while dealing in securities markets - once KYC is done through a SEBI registered intermediary (Broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach another intermediary<br>
-        3. For Stock Broking Transaction 'Prevent unauthorised transactions in your account --&gt; Update your mobile numbers/email IDs with your stock brokers. Receive information of your transactions directly from Exchange on your mobile/email at the end of the day...Issued in the interest of Investors.<br>
-        4. For Depository Transaction 'Prevent Unauthorized Transactions in your demat account --&gt; Update your Mobile Number with your Depository Participant. Receive alerts on your Registered Mobile for all debit and other important transactions in your demat account directly from CDSL/NSDL on the same day...Issued in the interest of investors.<br>
-        5. No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign in the application form to authorise your bank to make payment in case of allotment. No worries for refund as the money remains in investor's account.<br>
-        6. Investors should be cautious on unsolicited emails and SMS advising to buy, sell or hold securities and trade only on the basis of informed decision. Investors are advised to invest after conducting appropriate analysis of respective companies and not to blindly follow unfounded rumours, tips etc. Further, you are also requested to share your knowledge or evidence of systemic wrongdoing, potential frauds or unethical behaviour through the anonymous portal facility provided on BSE &amp; NSE website.<br>
-        7. Filing compliant on SCORES – Easy &amp; quick - a. register on SCORES portal. b. Mandatory details for filing complaints on SCORES: Name, PAN, Address, Mobile Number, Email ID. c. Benefits: Effective communication. Speedy redressal of the grievances Website: <a href="https://scores.gov.in" target="_blank" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">https://scores.gov.in</a><br>
-        8. Filing compliant on SCORES - One of the pre requisite to file a complaint in SMART ODR is that investor has to take up the complaint with the intermediary before opting for ODR – a. Verify Prerequisites: Ensure your complaint has been raised with your broker, depository participant, or listed company, and that you are unsatisfied with their response (or if it remains unresolved beyond 21 days). b. Access Portal: Navigate to the SMART ODR Login Page and click on Create Account to register. c. File New Dispute: After logging in, select File a New Dispute from the sidebar or main menu. d. Select Intermediary: Choose the type of participant (e.g., Stock Broker, Depository Participant, Mutual Fund) and specifically select the entity you are filing against. e. Choose Category: Select the appropriate category and sub-category for your grievance (such as incorrect statement, trade dispute, or non-receipt of funds). f. Enter Details &amp; Upload: Provide a detailed description of your dispute and upload relevant proof(emails, contract notes, screenshots). The file limit is typically 20MB per dispute. f. Submit &amp; Track: Review the summary of your dispute and submit. You can track the progress and status updates directly on your dashboard's dispute timeline Website: <a href="https://smartodr.in/login" target="_blank" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">https://smartodr.in/login</a></p>
+        2. KYC is one time exercise while dealing in securities markets - once KYC is done through a SEBI registered
+        intermediary (Broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach
+        another intermediary<br>
+        3. For Stock Broking Transaction 'Prevent unauthorised transactions in your account --&gt; Update your mobile
+        numbers/email IDs with your stock brokers. Receive information of your transactions directly from Exchange on
+        your mobile/email at the end of the day...Issued in the interest of Investors.<br>
+        4. For Depository Transaction 'Prevent Unauthorized Transactions in your demat account --&gt; Update your Mobile
+        Number with your Depository Participant. Receive alerts on your Registered Mobile for all debit and other
+        important transactions in your demat account directly from CDSL/NSDL on the same day...Issued in the interest of
+        investors.<br>
+        5. No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign
+        in the application form to authorise your bank to make payment in case of allotment. No worries for refund as
+        the money remains in investor's account.<br>
+        6. Investors should be cautious on unsolicited emails and SMS advising to buy, sell or hold securities and trade
+        only on the basis of informed decision. Investors are advised to invest after conducting appropriate analysis of
+        respective companies and not to blindly follow unfounded rumours, tips etc. Further, you are also requested to
+        share your knowledge or evidence of systemic wrongdoing, potential frauds or unethical behaviour through the
+        anonymous portal facility provided on BSE &amp; NSE website.<br>
+        7. Filing compliant on SCORES – Easy &amp; quick - a. register on SCORES portal. b. Mandatory details for filing
+        complaints on SCORES: Name, PAN, Address, Mobile Number, Email ID. c. Benefits: Effective communication. Speedy
+        redressal of the grievances Website: <a href="https://scores.gov.in" target="_blank"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">https://scores.gov.in</a><br>
+        8. Filing compliant on SCORES - One of the pre requisite to file a complaint in SMART ODR is that investor has
+        to take up the complaint with the intermediary before opting for ODR – a. Verify Prerequisites: Ensure your
+        complaint has been raised with your broker, depository participant, or listed company, and that you are
+        unsatisfied with their response (or if it remains unresolved beyond 21 days). b. Access Portal: Navigate to the
+        SMART ODR Login Page and click on Create Account to register. c. File New Dispute: After logging in, select File
+        a New Dispute from the sidebar or main menu. d. Select Intermediary: Choose the type of participant (e.g., Stock
+        Broker, Depository Participant, Mutual Fund) and specifically select the entity you are filing against. e.
+        Choose Category: Select the appropriate category and sub-category for your grievance (such as incorrect
+        statement, trade dispute, or non-receipt of funds). f. Enter Details &amp; Upload: Provide a detailed
+        description of your dispute and upload relevant proof(emails, contract notes, screenshots). The file limit is
+        typically 20MB per dispute. f. Submit &amp; Track: Review the summary of your dispute and submit. You can track
+        the progress and status updates directly on your dashboard's dispute timeline Website: <a
+          href="https://smartodr.in/login" target="_blank"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">https://smartodr.in/login</a>
+      </p>
 
-        <p><strong>Fraud &amp; Investor Alert</strong><br>
-        Important Notice: MARFATIA has become aware of fraudulent activities where unauthorized individuals are misusing our name and brand to deceive the public. These fraudsters may falsely claim to represent MARFATIA and solicit money by offering investment opportunities, brokerage services, mutual fund schemes, personal loans, or guaranteed returns.<br>
-        Please note that MARFATIA has not authorized any third party, agent, advisor, or organization to provide investment advisory services or collect funds on our behalf. We do not share our research reports or clients' personal or financial information with any unauthorized person.<br>
-        Before acting on any investment offer or making any payment, please verify its authenticity through our official channels. Do not transfer funds or share your personal, banking, or financial details based on unsolicited calls, emails, SMS, WhatsApp messages, or social media communications.<br>
-        For information about our products and services, please visit <a href="https://www.marfatia.net" target="_blank" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">www.marfatia.net</a> or contact us at <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>.<br>
+      <p><strong>Fraud &amp; Investor Alert</strong><br>
+        Important Notice: MARFATIA has become aware of fraudulent activities where unauthorized individuals are misusing
+        our name and brand to deceive the public. These fraudsters may falsely claim to represent MARFATIA and solicit
+        money by offering investment opportunities, brokerage services, mutual fund schemes, personal loans, or
+        guaranteed returns.<br>
+        Please note that MARFATIA has not authorized any third party, agent, advisor, or organization to provide
+        investment advisory services or collect funds on our behalf. We do not share our research reports or clients'
+        personal or financial information with any unauthorized person.<br>
+        Before acting on any investment offer or making any payment, please verify its authenticity through our official
+        channels. Do not transfer funds or share your personal, banking, or financial details based on unsolicited
+        calls, emails, SMS, WhatsApp messages, or social media communications.<br>
+        For information about our products and services, please visit <a href="https://www.marfatia.net" target="_blank"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">www.marfatia.net</a> or
+        contact us at <a href="mailto:compliance@marfatia.net"
+          style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>.<br>
         "Invest wisely. Stay alert. Always deal only through authorized and SEBI-registered intermediaries."</p>
 
-        <p><strong>Segment Details</strong><br>
-        <strong>NSE:</strong> Capital Market (TM) - Enabled, Capital Market (SCM) - Enabled, Future &amp; Options (TM) - Enabled, Future &amp; Options (SCM) - Enabled, Currency Futures (TM) - Disabled, Interest Rate Futures (TM) - Enabled, MFSS - Enabled, Commodity (TM) - Surrendered Membership, Electronic Gold Receipts (TM) - Enabled.<br>
-        <strong>BSE:</strong> Commodity Derivatives (TM) - INACTIVE, Equity (TM) - ACTIVE, Currency Derivatives (TM) - ACTIVE, Debt (TM) - INACTIVE, Equity Derivatives (TM) - ACTIVE, StARMF - ACTIVE.</p>
+      <p><strong>Segment Details</strong><br>
+        <strong>NSE:</strong> Capital Market (TM) - Enabled, Capital Market (SCM) - Enabled, Future &amp; Options (TM) -
+        Enabled, Future &amp; Options (SCM) - Enabled, Currency Futures (TM) - Disabled, Interest Rate Futures (TM) -
+        Enabled, MFSS - Enabled, Commodity (TM) - Surrendered Membership, Electronic Gold Receipts (TM) - Enabled.<br>
+        <strong>BSE:</strong> Commodity Derivatives (TM) - INACTIVE, Equity (TM) - ACTIVE, Currency Derivatives (TM) -
+        ACTIVE, Debt (TM) - INACTIVE, Equity Derivatives (TM) - ACTIVE, StARMF - ACTIVE.
+      </p>
 
-        <p class="footer-copy text-center mt-4">© <span id="year"></span> Marfatia Stock Broking Pvt. Ltd. All Rights Reserved. Powered By: Barodaweb</p>
-      </div>
-    </footer>
+      <p class="footer-copy text-center mt-4">© <span id="year"></span> Marfatia Stock Broking Pvt. Ltd. All Rights
+        Reserved. Powered By: Barodaweb</p>
+    </div>
+  </footer>
   <script src="js/inner.js"></script>
   <script>
     (function () {
