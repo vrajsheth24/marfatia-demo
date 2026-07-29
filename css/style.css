@@ -2336,10 +2336,10 @@ em{ font-style:normal; color:var(--green); }
   display: grid;
   grid-template-columns: 1fr 480px;
   gap: 0;
-  min-height: 500px;
+  min-height: 400px;
 }
 .xsc-left {
-  padding: 64px 56px 64px 72px;
+  padding: 30px 56px 30px 72px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2395,13 +2395,27 @@ em{ font-style:normal; color:var(--green); }
   color: var(--tc, var(--green, #08753b));
 }
 
-/* Description paragraph */
+/* Description paragraph — clamped to 3 lines, full text on hover */
 .xsc-desc {
   font-size: 15px;
   line-height: 1.75;
   color: #5a6672;
   max-width: 480px;
   margin: 0 0 28px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.xsc-desc:hover {
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+  transition: all 0.3s ease;
 }
 
 /* Feature bullet list */
@@ -3267,15 +3281,16 @@ em{ font-style:normal; color:var(--green); }
 }
 
 .ipo-timeline {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-top: 14px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-top: 8px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   color: #334155;
-  margin-top: 4px;
 }
 
 [data-theme="dark"] .ipo-timeline {
@@ -3283,22 +3298,40 @@ em{ font-style:normal; color:var(--green); }
   color: #cbd5e1;
 }
 
+.ipo-timeline::before {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: linear-gradient(90deg, #08753b, #08753b 66%, rgba(148,163,184,.35) 66%);
+}
+
 .timeline-step {
+  position: relative;
+  z-index: 1;
+  flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  text-align: center;
 }
 
 .t-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #08753b;
+  border: 2px solid var(--paper-raised, #fff);
+  box-shadow: 0 0 0 2px #08753b;
   display: inline-block;
 }
 
 .t-dot.inactive {
-  background: #94a3b8;
+  background: var(--paper-raised, #fff);
+  box-shadow: 0 0 0 2px #94a3b8;
 }
 
 /* Options Payoff Card Styles matching xsc-options.png */
