@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complaint to Marfatia — Marfatia Stock Broking</title>
+  <title>Do’s & Don’ts for Investors — Marfatia Stock Broking</title>
   <meta name="description"
-    content="File a complaint or query with Marfatia Stock Broking's Vadodara desk, or track an existing complaint by its complaint code.">
+    content="Essential DOs and DON'Ts for investors trading in securities markets — guidelines on staying safe, unauthorized transactions, margin rules, and grievance mechanisms.">
   <link rel="icon" href="content/fav.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,269 +20,176 @@
 
   <style>
     #scrollProgress { z-index: 1000; }
-    .sec { overflow-x: hidden; }
+    .pp-hero { padding: calc(var(--header-h, 140px) + 10px) 0 clamp(40px, 5vw, 56px); }
 
-    /* ── HERO: same animated gradient + dot grid used across inner pages ── */
-    .cp-hero {
-      background: linear-gradient(135deg, rgba(8, 117, 59, 0.08) 0%, rgba(155, 206, 22, 0.05) 50%, rgba(8, 117, 59, 0.02) 100%) !important;
-      background-size: 200% 200%;
-      animation: cpHeroGradientShift 12s ease infinite;
-      position: relative;
-      overflow: hidden;
-      z-index: 2;
-      padding: calc(var(--header-h, 140px) + 10px) 0 clamp(48px, 6vw, 72px);
-      text-align: center;
-    }
-
-    @keyframes cpHeroGradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .cp-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(8, 117, 59, 0.08) 1px, transparent 1px);
-      background-size: 26px 26px;
-      opacity: .85;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .cp-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(85px);
-      opacity: .18;
-      pointer-events: none;
-      z-index: 0;
-      animation: cp-drift 14s ease-in-out infinite;
-    }
-
-    .cp-orb-1 { width: 360px; height: 360px; background: var(--green); top: 4%; left: -120px; }
-    .cp-orb-2 { width: 400px; height: 400px; background: var(--lime); bottom: 0%; right: -140px; animation-delay: -6s; animation-direction: reverse; }
-
-    @keyframes cp-drift {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(28px, -22px) scale(1.08); }
-    }
-
-    @media(prefers-reduced-motion: reduce) { .cp-orb { animation: none; } }
-
-    .cp-hero-panel { position: relative; z-index: 2; max-width: 740px; margin: 0 auto; }
-
-    .cp-hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .cp-stat-chip {
+    .pp-updated {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--paper-raised);
-      border: 1px solid var(--line);
-      padding: 8px 16px;
-      border-radius: 100px;
       font-family: var(--font-mono);
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--ink-soft);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: var(--ink-faint);
+      margin-top: 4px;
     }
+    .pp-updated i { color: var(--green); }
 
-    .cp-stat-chip i { color: var(--green); }
-
-    /* ── TRACK COMPLAINT STRIP ── */
-    .cp-track-wrap {
-      max-width: 860px;
-      margin: 0 auto 40px;
-      background: var(--paper-raised);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: clamp(24px, 3vw, 32px);
-      box-shadow: 0 12px 32px rgba(8, 117, 59, 0.06);
-    }
-
-    .cp-track-row {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-      flex-wrap: wrap;
-    }
-
-    .cp-track-field { flex: 1 1 260px; }
-
-    .cp-track-field label {
-      display: block;
+    .legal-toc-head {
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: .1em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--ink-faint);
-      margin-bottom: 8px;
+      margin: 0 0 14px 18px;
+      font-weight: 700;
+      display: block;
     }
 
-    .cp-track-field input {
-      width: 100%;
-      background: var(--paper);
-      border: 1.5px solid var(--line-strong, #cbd5e1);
+    .safe-banner {
+      background: linear-gradient(135deg, rgba(6, 31, 18, 0.04), rgba(16, 185, 129, 0.08));
+      border: 1px solid rgba(16, 185, 129, 0.25);
       border-radius: 12px;
-      padding: 13px 16px;
-      font-size: 15px;
-      font-family: inherit;
+      padding: 22px 26px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+    .safe-banner h3 {
+      font-family: var(--font-disp);
+      font-size: 20px;
+      font-weight: 700;
       color: var(--ink);
-      outline: none;
-      transition: all .25s var(--ease);
+      margin: 0 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    .cp-track-field input:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 4px rgba(8, 117, 59, 0.14);
-    }
-
-    #cpTrackResult {
-      display: none;
-      margin-top: 20px;
-      padding: 16px 20px;
-      border-radius: 12px;
+    .safe-banner p {
       font-size: 14.5px;
-      line-height: 1.6;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0;
     }
 
-    #cpTrackResult.show { display: block; }
-    #cpTrackResult.status-open { background: rgba(194, 74, 63, .08); border: 1px solid rgba(194, 74, 63, .25); color: var(--down); }
-    #cpTrackResult.status-process { background: rgba(30, 144, 255, .08); border: 1px solid rgba(30, 144, 255, .25); color: #0284c7; }
-    #cpTrackResult.status-closed { background: rgba(8, 117, 59, .08); border: 1px solid rgba(8, 117, 59, .25); color: var(--green); }
-    #cpTrackResult.status-notfound { background: var(--paper-tint); border: 1px dashed var(--line); color: var(--ink-soft); }
-
-    #cpTrackResult h4 { font-size: 15px; font-weight: 700; margin: 0 0 4px; color: inherit; }
-    #cpTrackResult p { margin: 0; }
-
-    /* ── FORM CARD (reuses contact-us.html's floating-label form pattern) ── */
-    .cp-form-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    .dodont-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 20px 0 36px;
+    }
+    .dodont-card {
       background: var(--paper-raised);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: clamp(28px, 4vw, 48px);
-      box-shadow: 0 20px 50px rgba(8, 117, 59, 0.08);
-    }
-
-    .f-floating-group {
-      position: relative;
-      margin-bottom: 22px;
-    }
-
-    .f-floating-group input,
-    .f-floating-group textarea,
-    .f-floating-group select {
-      width: 100%;
-      padding: 22px 18px 10px 18px;
-      background: var(--paper);
-      border: 1.5px solid var(--line-strong, #cbd5e1);
-      border-radius: 14px;
-      font-size: 15px;
-      font-family: inherit;
-      color: var(--ink);
-      outline: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .f-floating-group textarea { min-height: 120px; resize: vertical; }
-
-    .f-floating-group label {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 14px;
-      color: var(--ink-soft);
-      pointer-events: none;
-      transition: all 0.25s ease;
-    }
-
-    .f-floating-group textarea ~ label { top: 24px; transform: none; }
-
-    .f-floating-group input:focus,
-    .f-floating-group textarea:focus,
-    .f-floating-group select:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 4px rgba(8, 117, 59, 0.14);
-    }
-
-    .f-floating-group input:focus ~ label,
-    .f-floating-group input:not(:placeholder-shown) ~ label,
-    .f-floating-group textarea:focus ~ label,
-    .f-floating-group textarea:not(:placeholder-shown) ~ label,
-    .f-floating-group select:valid ~ label {
-      top: 12px;
-      transform: translateY(0);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--green);
-      letter-spacing: 0.03em;
-    }
-
-    .cp-form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
-    .cp-form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 20px; }
-    @media(max-width: 720px) {
-      .cp-form-row-2, .cp-form-row-3 { grid-template-columns: 1fr; }
-    }
-
-    #cpFormStatus {
-      display: none;
-      padding: 12px 16px;
-      border-radius: 10px;
-      margin-bottom: 18px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* ── ESCALATION NOTE BANNER (matches contact-us.html) ── */
-    .cp-note-banner {
-      max-width: 860px;
-      margin: 32px auto 0;
-      padding: 22px 28px;
-      background: rgba(155, 206, 22, 0.09);
-      border-left: 4px solid var(--green);
       border-radius: 12px;
+      padding: 20px 22px;
       display: flex;
-      gap: 16px;
+      gap: 14px;
       align-items: flex-start;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .dodont-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--line-strong);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+    }
+    .dodont-card.do-card {
+      border-left: 4px solid var(--green);
+    }
+    .dodont-card.dont-card {
+      border-left: 4px solid #ef4444;
+    }
+    .dodont-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .do-card .dodont-icon {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--green);
+    }
+    .dont-card .dodont-icon {
+      background: rgba(239, 68, 68, 0.12);
+      color: #ef4444;
+    }
+    .dodont-text h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+    .dodont-text p {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0;
     }
 
-    .cp-note-banner i { font-size: 24px; color: var(--green); margin-top: 2px; }
-    .cp-note-banner p { font-size: 13.5px; color: var(--ink); line-height: 1.6; margin: 0 0 4px; }
-    .cp-note-banner a { color: var(--green); font-weight: 700; text-decoration: underline; }
-
-    .sec--dots { position: relative; }
-    .sec--dots::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(8, 117, 59, 0.06) 1px, transparent 1px);
-      background-size: 26px 26px;
-      z-index: 0;
-      pointer-events: none;
+    .alert-box {
+      background: rgba(239, 68, 68, 0.04);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 24px 0 32px;
     }
-    .sec--dots .wrap { position: relative; z-index: 1; }
+    .alert-box h4 {
+      color: #dc2626;
+      margin: 0 0 10px;
+      font-size: 16.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .alert-box p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin: 0 0 12px;
+    }
+    .alert-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Dark Mode overrides */
+    [data-theme="dark"] .safe-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(6, 31, 18, 0.2));
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    [data-theme="dark"] .alert-box {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+    [data-theme="dark"] .alert-box h4 {
+      color: #f87171;
+    }
+    [data-theme="dark"] .dont-card {
+      border-left-color: #f87171;
+    }
+    [data-theme="dark"] .dont-card .dodont-icon {
+      background: rgba(248, 113, 113, 0.18);
+      color: #f87171;
+    }
   </style>
+
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    })();
+  </script>
 </head>
 
 <body>
-  <div class="progress-rail">
-    <div class="progress-fill" id="scrollProgress"></div>
-  </div>
+  <div id="scrollProgress"></div>
 
+  <!-- ── SITE HEADER ── -->
   <header class="strip" id="strip">
       <div class="header-top-bar">
         <div class="wrap header-top-bar-content">
@@ -395,49 +302,12 @@
                   <p>Top mutual funds for every budget</p>
                 </div>
               </a>
-              <!-- <a href="algo-trading.html" class="dd-item">
-                <div class="dd-icon"><i class="bi bi-cpu-fill"></i></div>
-                <div class="dd-text">
-                  <h4>Algo Trading</h4>
-                  <p>Rule-based automated execution</p>
-                </div>
-              </a>
-              <a href="discount-broking.html" class="dd-item">
-                <div class="dd-icon"><i class="bi bi-tags"></i></div>
-                <div class="dd-text">
-                  <h4>Discount Broking</h4>
-                  <p>Smart trading with low brokerage</p>
-                </div>
-              </a> -->
             </div>
           </div>
         </div>
 
         <div class="nav-item"><a class="strip-link" href="pricing.html">Pricing</a></div>
         <div class="nav-item"><a class="strip-link" href="faqs.html">FAQs</a></div>
-
-        <!-- <div class="nav-item">
-          <button class="strip-link" data-drawer="calculators">Calculators</button>
-          <div class="nav-dropdown calculators-dropdown">
-            <div class="dropdown-column">
-              <a href="#" class="dd-item-simple">Interest</a>
-              <a href="#" class="dd-item-simple">SIP</a>
-              <a href="#" class="dd-item-simple">Brokerage</a>
-              <a href="#" class="dd-item-simple">Margin</a>
-              <a href="#" class="dd-item-simple">CAGR</a>
-              <a href="#" class="dd-item-simple">SWP</a>
-            </div>
-            <div class="dropdown-column">
-              <a href="#" class="dd-item-simple">FD</a>
-              <a href="#" class="dd-item-simple">RD</a>
-              <a href="#" class="dd-item-simple">Lump sum</a>
-              <a href="#" class="dd-item-simple">Future Value</a>
-              <a href="#" class="dd-item-simple">EMI</a>
-              <a href="#" class="dd-item-simple">Option Value</a>
-            </div>
-          </div>
-        </div> -->
-
         <div class="nav-item"><a class="strip-link" href="partner-with-us.html">Partner With Us</a></div>
         <div class="nav-item"><a class="strip-link" href="contact-us.html">Contact Us</a></div>
       </nav>
@@ -470,146 +340,225 @@
   <main class="inner-main">
 
     <!-- ── PAGE HERO ── -->
-    <section class="cp-hero">
-      <div class="cp-orb cp-orb-1"></div>
-      <div class="cp-orb cp-orb-2"></div>
-      <div class="wrap cp-hero-panel">
-        <span class="p-crumb"><a href="index.html">Home</a> <span class="dot"></span> <b>Complaint to Marfatia</b></span>
-        <h1 class="p-hero-title" data-reveal>Something went wrong? <em>Tell us directly.</em></h1>
-        <p class="p-hero-sub" data-reveal style="margin-left:auto;margin-right:auto;">Every complaint reaches our
-          Vadodara desk and is tracked to resolution. File a new complaint below, or check the status of one you've
-          already raised.</p>
-
-        <div class="cp-hero-stats" data-reveal>
-          <span class="cp-stat-chip"><i class="bi bi-clock-history"></i> Acknowledged within 1 business day</span>
-          <span class="cp-stat-chip"><i class="bi bi-shield-check"></i> Reviewed by Compliance</span>
-          <span class="cp-stat-chip"><i class="bi bi-search"></i> Trackable by Complaint Code</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec sec--dots">
+    <section class="p-hero pp-hero">
       <div class="wrap">
-
-        <!-- ── TRACK AN EXISTING COMPLAINT ── -->
-        <div class="cp-track-wrap" data-reveal>
-          <span class="eyebrow"><i class="bi bi-search"></i> Track Status</span>
-          <h2 class="sec-title" style="margin:8px 0 6px; font-size:clamp(22px,2.4vw,28px);">Track your <em>complaint.</em></h2>
-          <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:20px;">Enter the complaint code you
-            received on submission to check its current status.</p>
-
-          <form id="cpTrackForm">
-            <div class="cp-track-row">
-              <div class="cp-track-field">
-                <label for="cpTrackCode">Complaint Code</label>
-                <input type="text" id="cpTrackCode" placeholder="e.g. CMP-2026-00123" required>
-              </div>
-              <button type="submit" class="btn btn-marfatia" style="padding:13px 26px;"><span>Check Status</span></button>
-            </div>
-          </form>
-
-          <div id="cpTrackResult"></div>
-        </div>
-
-        <!-- ── FILE A COMPLAINT FORM ── -->
-        <div class="cp-form-wrap" data-reveal>
-          <span class="eyebrow"><i class="bi bi-exclamation-circle-fill"></i> New Complaint</span>
-          <h2 class="sec-title" style="margin:8px 0 8px;">File a <em>complaint or query.</em></h2>
-          <p style="color:var(--ink-soft); font-size:15px; margin-bottom:28px;">Fields marked * are required. You'll
-            receive a complaint code once submitted — save it to track status later.</p>
-
-          <div id="cpFormStatus"></div>
-
-          <form id="complaintForm" novalidate>
-            <div class="cp-form-row-2">
-              <div class="f-floating-group">
-                <input type="text" id="cpFirstName" name="fName" placeholder=" " required>
-                <label for="cpFirstName">First Name *</label>
-              </div>
-              <div class="f-floating-group">
-                <input type="text" id="cpLastName" name="lName" placeholder=" " required>
-                <label for="cpLastName">Last Name *</label>
-              </div>
-            </div>
-
-            <div class="cp-form-row-3">
-              <div class="f-floating-group">
-                <input type="tel" id="cpContact" name="contactNo" placeholder=" " pattern="[0-9]{10}" maxlength="10" required>
-                <label for="cpContact">Contact Number *</label>
-              </div>
-              <div class="f-floating-group">
-                <input type="email" id="cpEmail" name="email" placeholder=" " required>
-                <label for="cpEmail">Email *</label>
-              </div>
-              <div class="f-floating-group">
-                <select id="cpDept" name="department" required>
-                  <option value="" disabled selected hidden></option>
-                  <option value="Back Office">Back Office</option>
-                  <option value="DP">DP</option>
-                  <option value="IT">IT</option>
-                  <option value="All Others">All Others</option>
-                </select>
-                <label for="cpDept">Department *</label>
-              </div>
-            </div>
-
-            <div class="cp-form-row-2">
-              <div class="f-floating-group">
-                <textarea id="cpAddress" name="address" placeholder=" " rows="3"></textarea>
-                <label for="cpAddress">Address</label>
-              </div>
-              <div class="f-floating-group">
-                <textarea id="cpMessage" name="complain" placeholder=" " rows="3" required></textarea>
-                <label for="cpMessage">Your Complaint / Query *</label>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-marfatia btn-lg" style="width:100%; justify-content:center;">
-              <span>Submit Complaint <i class="bi bi-send-fill" style="margin-left:8px;"></i></span>
-            </button>
-          </form>
-        </div>
-
-        <!-- ── ESCALATION NOTE (matches contact-us.html wording) ── -->
-        <div class="cp-note-banner" data-reveal>
-          <i class="bi bi-info-circle-fill"></i>
-          <div>
-            <p>Not satisfied with the response? See our full <a href="contact-us.html#map-section">Escalation
-                Matrix</a> for the next contact and turnaround time.</p>
-            <p>In absence of response, or if a complaint is not addressed to your satisfaction, you may lodge it with
-              SEBI at <a href="https://scores.gov.in/scores/Welcome.html" target="_blank" rel="noopener">SEBI
-                SCORES</a> or the Exchange at <a href="https://bsecrs.bseindia.com/ecomplaint/frminvestorHome.aspx"
-                target="_blank" rel="noopener">BSE Complaint Redressal</a>. You may also use the <a
-                href="https://smartodr.in/" target="_blank" rel="noopener">SMART ODR Portal</a> for online dispute
-              resolution.</p>
-          </div>
-        </div>
+        <span class="p-crumb"><a href="index.html">Home</a> <span class="dot"></span> <b>Disclosures &amp; Do’s &amp; Don’ts</b></span>
+        <h1 class="p-hero-title" data-reveal>How to Stay Safe: <em>Do’s &amp; Don’ts for Investors</em></h1>
+        <p class="p-hero-sub" data-reveal>Important regulatory guidelines, mandatory security precautions, and precautions against fraudulent practices in securities trading.</p>
+        <span class="pp-updated" data-reveal><i class="bi bi-shield-check"></i> SEBI &amp; Exchange Investor Awareness Guidelines</span>
       </div>
     </section>
 
-    <!-- ── CTA BAND ── -->
-    <section class="ctaband"
-      style="margin:40px auto 80px; max-width:1240px; border-radius:var(--radius-lg); position:relative; overflow:hidden;"
-      data-reveal>
-      <div class="wrap ctaband-inner">
-        <div>
-          <h2 style="font-family:var(--font-disp); font-size:clamp(26px, 3.5vw, 38px); font-weight:800; color:#fff;">
-            Prefer to talk it through? <em>Call our desk.</em></h2>
-          <p style="opacity:.9;font-size:15.5px;margin-top:8px; color:rgba(255,255,255,0.9);">One call gets you a
-            straight answer from someone who actually works here at our Vadodara desk.</p>
-        </div>
-        <div class="ctaband-actions">
-          <a href="tel:02652351355" class="btn btn-lime btn-lg"><span>📞 Call Us Now</span></a>
-          <a href="contact-us.html" class="btn btn-ghostlight btn-lg"><span>Contact Us ↗</span></a>
+    <section class="sec">
+      <div class="wrap">
+        <div class="legal-grid">
+
+          <!-- ── TOC ── -->
+          <nav class="legal-toc" data-reveal>
+            <p class="legal-toc-head">On this page</p>
+            <a href="#how-to-stay-safe">How to Stay Safe</a>
+            <a href="#dos-list">Investor DOs</a>
+            <a href="#donts-list">Investor DON'Ts</a>
+            <a href="#fraud-alert">Fraud &amp; Investor Alert</a>
+            <a href="#attention-investors">Attention Investors</a>
+            <a href="#grievance-scores">SCORES &amp; SMART ODR</a>
+          </nav>
+
+          <!-- ── BODY ── -->
+          <article class="legal-body">
+
+            <div id="how-to-stay-safe" class="safe-banner">
+              <h3><i class="bi bi-shield-lock-fill" style="color: var(--green);"></i> HOW TO STAY SAFE</h3>
+              <p>To ensure that you get world-class &amp; seamless services from us and don’t fall prey to any fraudulent practices, here are a few important DOs &amp; DON’Ts. Follow these instructions to keep your funds, securities, and sensitive trading information secure.</p>
+            </div>
+
+            <!-- ── DOS SECTION ── -->
+            <h2 id="dos-list"><i class="bi bi-hand-thumbs-up-fill" style="color: var(--green);"></i> DOs — Recommended Investor Practices</h2>
+            <p>Always follow these key practices when dealing in stock markets and maintaining your demat/trading accounts:</p>
+
+            <div class="dodont-card-grid">
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Trade Only with SEBI Registered Members</h4>
+                  <p>Trade only through Registered Members of the Exchange. Always check valid SEBI registration numbers before onboarding.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Read &amp; Sign Voluntary Clauses Carefully</h4>
+                  <p>Ensure to read, understand and then sign the voluntary clauses, if any, agreed between you and the Member.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Register Mobile Number &amp; Email ID</h4>
+                  <p>Register your mobile number and email ID with the Member to receive trade confirmation alerts/details of transactions directly from the Exchange by end of day.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Examine Scope of Power of Attorney (PoA)</h4>
+                  <p>Before granting Power of Attorney to anyone to operate your demat account, carefully examine the scope and implications of powers being granted.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Examine Authorised Person Credentials</h4>
+                  <p>Always examine the Authorised Person's credentials before Account Opening.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Verify Quarterly Account Statements</h4>
+                  <p>Always verify your Quarterly Statement of Account sent by MARFATIA.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Report Unauthorized Trading Immediately</h4>
+                  <p>Inform us of any irregularity or unauthorised trading activity observed by you immediately.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card do-card">
+                <div class="dodont-icon"><i class="bi bi-check-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Regular Ledger Balance Verification</h4>
+                  <p>Check your ledger balance regularly on <b>www.marfatia.net</b>.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── DONTS SECTION ── -->
+            <h2 id="donts-list"><i class="bi bi-hand-thumbs-down-fill" style="color: #ef4444;"></i> DON'Ts — Strictly Avoided Practices</h2>
+            <p>Avoid these high-risk and unauthorized activities to keep your investments and credentials protected:</p>
+
+            <div class="dodont-card-grid">
+              <div class="dodont-card dont-card">
+                <div class="dodont-icon"><i class="bi bi-x-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>No Assured Return Schemes</h4>
+                  <p>Do not enter into assured returns arrangement. Fixed returns do not constitute guaranteed or assured returns in securities markets.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card dont-card">
+                <div class="dodont-icon"><i class="bi bi-x-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Avoid Unsolicited Tips &amp; Rumours</h4>
+                  <p>Do not get carried away by luring advertisements, rumours, hot tips, explicit / implicit promise of returns, etc.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card dont-card">
+                <div class="dodont-icon"><i class="bi bi-x-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>No Cash Transactions for Margin/Settlement</h4>
+                  <p>Do not make payments in cash / take any cash towards margins and settlement to / from the Member.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card dont-card">
+                <div class="dodont-icon"><i class="bi bi-x-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Never Trade Without Reading Risk Documents</h4>
+                  <p>Do not start trading before reading and understanding the Risk Disclosure Agreement prescribed by Stock Exchanges.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card dont-card">
+                <div class="dodont-icon"><i class="bi bi-x-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Protect Passwords &amp; Login Credentials</h4>
+                  <p>Protect your login details and do not share login credentials with anyone. Password should be unique. Keep strong and complex passwords and change password at regular intervals.</p>
+                </div>
+              </div>
+
+              <div class="dodont-card dont-card">
+                <div class="dodont-icon"><i class="bi bi-x-lg"></i></div>
+                <div class="dodont-text">
+                  <h4>Do Not Deal With Unregistered Entities</h4>
+                  <p>Do not deal with any unregistered intermediaries or unauthorized advisors.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── FRAUD ALERT SECTION ── -->
+            <h2 id="fraud-alert">Fraud &amp; Investor Alert</h2>
+            <div class="alert-box">
+              <h4><i class="bi bi-exclamation-octagon-fill"></i> Important Warning Notice: Beware of Fraudulent Schemes</h4>
+              <p>MARFATIA has become aware of fraudulent activities where unauthorized individuals are misusing our name and brand to deceive the public. These fraudsters may falsely claim to represent MARFATIA and solicit money by offering investment opportunities, brokerage services, mutual fund schemes, personal loans, or guaranteed returns.</p>
+              <p>Please note that MARFATIA has <b>not authorized any third party, agent, advisor, or organization</b> to provide investment advisory services or collect funds on our behalf. We do not share our research reports or clients' personal or financial information with any unauthorized person.</p>
+              <p>Before acting on any investment offer or making any payment, please verify its authenticity through our official channels. Do not transfer funds or share your personal, banking, or financial details based on unsolicited calls, emails, SMS, WhatsApp messages, or social media communications.</p>
+              <p><b>Support Contact for Unauthorized Transactions:</b> Call our Support team immediately on <b>18005702650</b> or email <b>compliance@marfatia.net</b>.</p>
+              <p style="font-weight: 700; color: var(--ink); margin-top: 10px;"><i>“Invest wisely. Stay alert. Always deal only through authorized and SEBI-registered intermediaries.”</i></p>
+            </div>
+
+            <!-- ── ATTENTION INVESTORS SECTION ── -->
+            <h2 id="attention-investors">Attention Investors — Essential Market Guidelines</h2>
+            <ul>
+              <li><b>Margin Pledge Rules:</b> Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system (w.e.f. September 1, 2020). Update your mobile number &amp; email ID with your stock broker / depository participant to receive OTP directly from depository to create pledge.</li>
+              <li><b>Upfront Margin:</b> Pay 20% or "VAR + ELM" whichever is higher as upfront margin of the transaction value to trade in cash market segment. Refer to Exchange FAQs (NSE/INSP/45191 &amp; BSE 20200731-7).</li>
+              <li><b>Monthly CAS Verification:</b> Check your Securities / MF / Bonds in the consolidated account statement (CAS) issued by NSDL/CDSL every month.</li>
+              <li><b>Aadhaar Linkage:</b> Please link your Aadhaar with your Demat account as mandated by SEBI.</li>
+              <li><b>One-Time KYC:</b> KYC is a one-time exercise while dealing in securities markets — once KYC is done through a SEBI registered intermediary (Broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach another intermediary.</li>
+              <li><b>IPO Subscription:</b> No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign in the application form to authorize your bank to make payment in case of allotment.</li>
+            </ul>
+
+            <!-- ── SCORES & SMART ODR ── -->
+            <h2 id="grievance-scores">Grievance Redressal — SCORES &amp; SMART ODR</h2>
+            <p>If you have any grievance or complaint against the broker/DP that remains unresolved, you can file a complaint on official regulatory portals:</p>
+            
+            <h3>1. Filing Complaint on SEBI SCORES Portal</h3>
+            <p>Filing complaint on SCORES is easy &amp; quick:</p>
+            <ul>
+              <li><b>Register on SCORES:</b> Visit <a href="https://scores.gov.in" target="_blank" rel="noopener">scores.gov.in</a> and create an account.</li>
+              <li><b>Mandatory details:</b> Name, PAN, Address, Mobile Number, Email ID.</li>
+              <li><b>Benefits:</b> Effective communication and speedy redressal of grievances.</li>
+            </ul>
+
+            <h3>2. Filing Complaint on SMART ODR Portal</h3>
+            <p>One of the prerequisites to file a complaint in SMART ODR is that the investor has to take up the complaint with the intermediary first before opting for ODR:</p>
+            <ol>
+              <li><b>Verify Prerequisites:</b> Ensure your complaint has been raised with your broker/DP and remains unresolved beyond 21 days or response is unsatisfactory.</li>
+              <li><b>Access Portal:</b> Visit <a href="https://smartodr.in/login" target="_blank" rel="noopener">smartodr.in/login</a>.</li>
+              <li><b>File New Dispute:</b> Choose participant type (Stock Broker / Depository Participant / PMS), category, upload contract notes / screenshots proof (up to 20MB), and submit.</li>
+            </ol>
+
+          </article>
+
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- ── SITE FOOTER ── -->
   <footer class="site-footer" id="footer">
       <img class="footer-skyline" src="content/img/skyline.png" alt="" aria-hidden="true">
       <div class="footer-glow" aria-hidden="true"></div>
+
+      <!-- <div class="footer-ticker" aria-hidden="true">
+      <div class="footer-ticker-track" id="footerTicker"></div>
+    </div> -->
+
+      <div class="footer-top">
+        <h2>Ready to trade<br><em>on your terms?</em></h2>
+        <a href="https://live.meon.co.in/marfatia/individual" target="_blank" rel="noopener" class="btn btn-accent btn-lg magnetic"><span>Open Demat Account →</span></a>
+      </div>
 
       <!-- compact single row: small map thumbnail + rating/review strip, side by side -->
       <div class="footer-locate">
@@ -691,7 +640,7 @@
           <a href="new-downloads.html"><i class="bi bi-download"></i> New Downloads</a>
           <a href="https://attendee.gotowebinar.com/pageNotFound.tmpl" target="_blank" rel="noopener"><i class="bi bi-play-btn"></i> Webinar</a>
           <a href="http://203.88.142.27:8181/webmail3/" target="_blank" rel="noopener"><i class="bi bi-envelope-open"></i> Web Mail Login</a>
-
+          
           <h5 style="margin-top: 20px;">Grievance Resolution</h5>
           <a href="complaints.html"><i class="bi bi-envelope"></i> Complaint to Marfatia</a>
           <a href="https://api.marfatia.net/api/files/FilingComplaints.pdf" target="_blank" rel="noopener"><i class="bi bi-file-pdf"></i> Filing Complaints</a>
@@ -721,7 +670,7 @@
           <a href="https://www.nseindia.com/resources/exchange-communication-circulars" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> NSE Circular</a>
           <a href="https://www.bseindia.com/markets/marketinfo/noticescirculars?id=0" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> BSE Circular</a>
           <a href="https://www.cdslindia.com/eservices/Publications/Communique" target="_blank" rel="noopener"><i class="bi bi-file-text"></i> CDSL Circular</a>
-
+          
           <h5 style="margin-top: 20px;">Grievance Resolution</h5>          <a href="https://investorhelpline.nseclearing.in/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener"><i class="bi bi-briefcase"></i> Collateral NCL</a>
           <a href="https://evoting.cdslindia.com/Evoting/EvotingLogin" target="_blank" rel="noopener"><i class="bi bi-ui-checks"></i> CDSL E Voting</a>
         </div>
@@ -760,14 +709,14 @@
         <p>Please read the Risk Disclosure Document prescribed by the Stock Exchanges carefully before investing. There is no assurance or guarantee of the returns. #Such representations are not indicative of future results. Investment in securities market are subject to market risk, read all the related documents carefully before investing. Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully.</p>
 
         <p><strong>Details of Compliance Officer:</strong> Name: Chintan Majmundar, Email ID: <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>, Contact No.: <a href="tel:18005702650" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">18005702650</a> / <a href="tel:02652351355" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351355</a> / <a href="tel:02652351513" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351513</a>. Customer having any query/feedback/ clarification may write to <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>. In case of grievances for services like Stock Broking and Depository services, any other services rendered by Marfatia Stock Broking Private Limited write to <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>. Marfatia Stock Broking Private Limited do carry Proprietary trading.</p>
-
+        
         <p><strong>Attention Investors</strong><br>
         Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.<br>
         1. Update your mobile number &amp; email Id with your stock broker/depository participant and receive OTP directly from depository on your email id and/or mobile number to create pledge.<br>
         2. Pay 20% or "var + elm" whichever is higher as upfront margin of the transaction value to trade in cash market segment.<br>
         3. Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued vide circular reference NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 and BSE vide notice no. 20200731-7 dated July 31, 2020 and 20200831-45 dated August 31, 2020 dated August 31, 2020 and other guidelines issued from time to time in this regard.<br>
         4. Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month. Issued in the interest of Investors"</p>
-
+        
         <p><strong>Attention Investors:</strong><br>
         Facilities available Online: Account Opening, Account Modification, E-DIS, Account closure and more. For further details, please contact our customer care<br>
         1. Please Linking Your Aadhar With Your Demat Account<br>
@@ -784,7 +733,7 @@
         Please note that MARFATIA has not authorized any third party, agent, advisor, or organization to provide investment advisory services or collect funds on our behalf. We do not share our research reports or clients' personal or financial information with any unauthorized person.<br>
         Before acting on any investment offer or making any payment, please verify its authenticity through our official channels. Do not transfer funds or share your personal, banking, or financial details based on unsolicited calls, emails, SMS, WhatsApp messages, or social media communications.<br>
         For information about our products and services, please visit <a href="https://www.marfatia.net" target="_blank" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">www.marfatia.net</a> or contact us at <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>.<br>
-        "Invest wisely. Stay alert. Always deal only through authorized and SEBI-registered intermediaries."</p>
+        “Invest wisely. Stay alert. Always deal only through authorized and SEBI-registered intermediaries.”</p>
 
         <p><strong>Segment Details</strong><br>
         <strong>NSE:</strong> Capital Market (TM) - Enabled, Capital Market (SCM) - Enabled, Future &amp; Options (TM) - Enabled, Future &amp; Options (SCM) - Enabled, Currency Futures (TM) - Disabled, Interest Rate Futures (TM) - Enabled, MFSS - Enabled, Commodity (TM) - Surrendered Membership, Electronic Gold Receipts (TM) - Enabled.<br>
@@ -795,80 +744,10 @@
     </footer>
 
   <script src="js/inner.js"></script>
+  <script src="js/enhance.js"></script>
   <script>
     (function () {
       "use strict";
-
-      // ── FILE A COMPLAINT ──
-      var complaintForm = document.getElementById("complaintForm");
-      var formStatus = document.getElementById("cpFormStatus");
-
-      function randomComplaintCode() {
-        var year = new Date().getFullYear();
-        var num = Math.floor(10000 + Math.random() * 90000);
-        return "CMP-" + year + "-" + num;
-      }
-
-      if (complaintForm) {
-        complaintForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          var fName = document.getElementById("cpFirstName").value.trim();
-          var lName = document.getElementById("cpLastName").value.trim();
-          var contactNo = document.getElementById("cpContact").value.trim();
-          var email = document.getElementById("cpEmail").value.trim();
-          var dept = document.getElementById("cpDept").value;
-          var message = document.getElementById("cpMessage").value.trim();
-
-          if (!fName || !lName || !contactNo || !email || !dept || !message) {
-            formStatus.style.display = "block";
-            formStatus.style.background = "rgba(239, 68, 68, 0.15)";
-            formStatus.style.color = "#dc2626";
-            formStatus.style.border = "1px solid rgba(239, 68, 68, 0.3)";
-            formStatus.innerHTML = "<i class='bi bi-exclamation-triangle-fill'></i> Please fill in all required fields.";
-            return;
-          }
-
-          var submitBtn = complaintForm.querySelector("button[type='submit']");
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = "<span>Submitting...</span>";
-
-          setTimeout(function () {
-            var code = randomComplaintCode();
-            formStatus.style.display = "block";
-            formStatus.style.background = "rgba(34, 197, 94, 0.15)";
-            formStatus.style.color = "#15803d";
-            formStatus.style.border = "1px solid rgba(34, 197, 94, 0.3)";
-            formStatus.innerHTML = "<i class='bi bi-check-circle-fill'></i> Thank you, " + fName + "! Your complaint has been registered. Your complaint code is <strong>" + code + "</strong> — save it to track status above.";
-            complaintForm.reset();
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = "<span>Submit Complaint <i class='bi bi-send-fill' style='margin-left:8px;'></i></span>";
-          }, 1200);
-        });
-      }
-
-      // ── TRACK COMPLAINT ──
-      var trackForm = document.getElementById("cpTrackForm");
-      var trackResult = document.getElementById("cpTrackResult");
-
-      if (trackForm) {
-        trackForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var code = document.getElementById("cpTrackCode").value.trim();
-          trackResult.className = "";
-
-          if (!code) return;
-
-          trackResult.classList.add("show", "status-notfound");
-          trackResult.innerHTML = "<h4><i class='bi bi-search'></i> Looking that up...</h4><p>Checking complaint code " + code + ".</p>";
-
-          setTimeout(function () {
-            trackResult.className = "show status-notfound";
-            trackResult.innerHTML = "<h4>No record found</h4><p>We couldn't find a complaint with code <strong>" + code + "</strong>. Double-check the code, or call us at <a href='tel:02652351355' style='color:inherit;text-decoration:underline;'>0265-2351355</a> and we'll look it up directly.</p>";
-          }, 900);
-        });
-      }
-
       var yearSpan = document.getElementById("year");
       if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     })();
