@@ -1212,7 +1212,7 @@ em{ font-style:normal; color:var(--green); }
 .footer-assoc span{ font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.06em; color:var(--ink-soft); border:1px solid var(--line-strong); padding:6px 14px; border-radius:100px; }
 
 .footer-disclaimer{ max-width:1320px; margin:34px auto 0; padding-top:26px; border-top:1px solid var(--line-strong); }
-.footer-disclaimer p{ color:var(--ink-faint); font-size:11.5px; line-height:1.6; margin:0 0 16px; }
+.footer-disclaimer p{ color:#3d3d3d; font-size:11.5px; line-height:1.6; margin:0 0 16px; }
 .footer-disclaimer p:last-child{ margin-bottom:0; }
 .footer-disclaimer a,
 .footer-disclaimer a:visited {
@@ -5368,7 +5368,7 @@ em{ font-style:normal; color:var(--green); }
 [data-theme="dark"] .fcc-item a:visited,
 [data-theme="dark"] .footer-emails a,
 [data-theme="dark"] .footer-emails a:visited {
-  color: var(--lime);
+  color: #fff;
 }
 
 [data-theme="dark"] .footer-col a:hover,
@@ -5827,4 +5827,7 @@ em{ font-style:normal; color:var(--green); }
 
 [data-theme="dark"] .unfold-section {
   background: #1a2921;
+}
+[data-theme="dark"] .footer-disclaimer p {
+  color: #d4d4d4;
 }
