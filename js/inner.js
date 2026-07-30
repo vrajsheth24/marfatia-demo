@@ -161,18 +161,22 @@
     '<p class="footer-review-line mb-0">\u201CSwitched from a legacy broker \u2014 the algo automation alone paid for the switch.\u201D <span>\u2014 Rohan Kapadia</span></p>' +
     '<a href="https://maps.app.goo.gl/VgQeNhWqs4mZZX2x9" target="_blank" rel="noopener" class="btn btn-outline btn-sm"><span>Write a Review \u2192</span></a>' +
     '</div></div>' +
-    '<div class="footer-grid">' +
-    '<div class="footer-col footer-col--brand">' +
+    '<div class="footer-brand-section">' +
+    '<div class="footer-brand-logo">' +
     '<img class="logo-light" src="content/logo.png" alt="Marfatia Stock Broking">' +
     '<img class="logo-dark" src="content/marfatia-white.png" alt="Marfatia Stock Broking">' +
-    '<p>Marfatia Stock Broking Private Limited (MARFATIA) Member of SEBI, NSE, BSE and CDSL \u2013 CIN U67120GJ2002PTC041373</p>' +
-    '<div class="footer-contact-card mt-3">' +
+    '</div>' +
+    '<div class="footer-brand-content">' +
+    // '<p class="footer-brand-desc">Marfatia Stock Broking Private Limited (MARFATIA) Member of SEBI, NSE, BSE and CDSL \u2013 CIN U67120GJ2002PTC041373</p>' +
+    '<div class="footer-brand-info-grid">' +
+    '<div class="footer-contact-card">' +
     '<div class="fcc-item"><i class="bi bi-geo-alt-fill"></i><div><strong>Registered &amp; Correspondence Office Address:</strong><span>308 \u2013 311 Glacier Complex Jetalpur Road,<br>Vadodara 390007 Gujarat INDIA</span></div></div>' +
     '<div class="fcc-item"><i class="bi bi-telephone-fill"></i><span>18005702650 / 0265-2351355 / 0265-2351513</span></div>' +
     '<div class="fcc-item"><i class="bi bi-envelope-fill"></i><a href="mailto:compliance@marfatia.net">compliance@marfatia.net</a></div>' +
     '<div class="fcc-item"><i class="bi bi-globe"></i><a href="https://www.marfatia.net" target="_blank" rel="noopener">www.marfatia.net</a></div>' +
     '</div>' +
-    '<div class="mt-3" style="font-size: 0.85rem; color: var(--ink-soft);"><strong>Compliance Officer:</strong> Mr. Chintan Majumdar</div>' +
+    '<div class="footer-brand-meta">' +
+    '<div class="footer-compliance-card"><strong>Compliance Officer:</strong> Mr. Chintan Majumdar</div>' +
     '<div class="footer-social mt-3">' +
     '<a href="https://www.facebook.com/profile.php?id=61590507447571" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Facebook"><i class="bi bi-facebook"></i></a>' +
     '<a href="https://www.instagram.com/marfatiastockbroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Instagram"><i class="bi bi-instagram"></i></a>' +
@@ -183,7 +187,8 @@
     '<a href="https://medium.com/@marfatiastockbroking" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Medium"><i class="bi bi-medium"></i></a>' +
     '<a href="https://in.pinterest.com/Marfatiabroking/" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>' +
     '<a href="https://www.marfatia.net" target="_blank" rel="noopener" class="footer-social-ico" aria-label="Website"><i class="bi bi-globe"></i></a>' +
-    '</div></div>' +
+    '</div></div></div></div></div>' +
+    '<div class="footer-links-grid">' +
     '<div class="footer-col"><h5>Quick Links</h5>' +
     '<a href="index.html"><i class="bi bi-house-door"></i> Home</a><a href="about.html"><i class="bi bi-info-circle"></i> About Us</a><a href="feedback.html"><i class="bi bi-chat-left-text"></i> Feedback &amp; Queries</a><a href="contact-us.html"><i class="bi bi-telephone"></i> Contact Us</a><a href="new-downloads.html"><i class="bi bi-download"></i> New Downloads</a><a href="https://attendee.gotowebinar.com/pageNotFound.tmpl" target="_blank" rel="noopener"><i class="bi bi-play-btn"></i> Webinar</a><a href="http://203.88.142.27:8181/webmail3/" target="_blank" rel="noopener"><i class="bi bi-envelope-open"></i> Web Mail Login</a></div>' +
     '<div class="footer-col"><h5>Grievance Resolution</h5>' +
@@ -204,6 +209,7 @@
     '</div>' +
     '<div class="footer-assoc"><span>SEBI</span><span>NSE</span><span>BSE</span><span>CDSL</span><span>NSDL</span><span>MCX</span><span>NCDEX</span><span>RBI</span></div>' +
     '<div class="footer-disclaimer" style="text-align: left; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">' +
+    '<p>Marfatia Stock Broking Private Limited (MARFATIA) Member of SEBI, NSE, BSE and CDSL – CIN U67120GJ2002PTC041373</p>'+
     '<p><strong>SEBI Registration Nos.:</strong> Marfatia Stock Broking Private Limited (MARFATIA), as Stock Broker INZ000215330 (BSE 3065/NSE 11925); as Depository Participant of CDSL: IN-DP-CDSL-227-2016 (12044400); as PMS: INP000005117; Other Registration with: APMI Member ID: 0264; LEI Registration Number 8945005ZUWZL7ILT9V25; ANMI Membership; GST Registration: 24AADCM6730B1ZY; STeADY Registration;</p>' +
     '<p>Please read the Risk Disclosure Document prescribed by the Stock Exchanges carefully before investing. There is no assurance or guarantee of the returns. #Such representations are not indicative of future results. Investment in securities market are subject to market risk, read all the related documents carefully before investing. Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully.</p>' +
     '<p><strong>Details of Compliance Officer:</strong> Name: Chintan Majmundar, Email ID: <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>, Contact No.: <a href="tel:18005702650" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">18005702650</a> / <a href="tel:02652351355" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351355</a> / <a href="tel:02652351513" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">0265-2351513</a>. Customer having any query/feedback/ clarification may write to <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>. In case of grievances for services like Stock Broking and Depository services, any other services rendered by Marfatia Stock Broking Private Limited write to <a href="mailto:compliance@marfatia.net" style="text-decoration: underline; font-weight: 600; color: var(--green, #08753b);">Compliance@marfatia.net</a>. Marfatia Stock Broking Private Limited do carry Proprietary trading.</p>' +
@@ -219,33 +225,30 @@
 
   document.addEventListener("DOMContentLoaded", function () {
 
-    /* ---------- inject header / footer ---------- */
-    var header = $("#siteHeader");
-    if (header) { header.className = "strip"; header.id = "strip"; header.innerHTML = HEADER_HTML; }
+    /* ---------- header / footer (static in HTML) ---------- */
     var footer = $("#siteFooter") || $("#footer");
     if (footer) {
-      footer.className = "site-footer";
-      footer.id = "footer";
-      footer.innerHTML = FOOTER_HTML;
       /* inject scroll-to-top button after footer, same as index.html */
-      var toTop = document.createElement("button");
-      toTop.className = "to-top";
-      toTop.id = "toTop";
-      toTop.setAttribute("aria-label", "Back to top");
-      toTop.innerHTML =
-        '<svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true">' +
-        '<circle class="to-top-track" cx="22" cy="22" r="19"></circle>' +
-        '<circle class="to-top-prog" id="toTopProg" cx="22" cy="22" r="19"></circle></svg>' +
-        '<svg class="to-top-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
-        '<path d="M12 19V6M6 12l6-6 6 6"/></svg>';
-      footer.parentNode.insertBefore(toTop, footer.nextSibling);
-      toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
-      window.addEventListener("scroll", function () {
-        toTop.classList.toggle("visible", window.scrollY > 300);
-        var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-        var prog = document.getElementById("toTopProg");
-        if (prog) prog.style.strokeDashoffset = 119.4 * (1 - pct);
-      }, { passive: true });
+      if (!document.getElementById("toTop")) {
+        var toTop = document.createElement("button");
+        toTop.className = "to-top";
+        toTop.id = "toTop";
+        toTop.setAttribute("aria-label", "Back to top");
+        toTop.innerHTML =
+          '<svg class="to-top-ring" viewBox="0 0 44 44" aria-hidden="true">' +
+          '<circle class="to-top-track" cx="22" cy="22" r="19"></circle>' +
+          '<circle class="to-top-prog" id="toTopProg" cx="22" cy="22" r="19"></circle></svg>' +
+          '<svg class="to-top-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="M12 19V6M6 12l6-6 6 6"/></svg>';
+        footer.parentNode.insertBefore(toTop, footer.nextSibling);
+        toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+        window.addEventListener("scroll", function () {
+          toTop.classList.toggle("visible", window.scrollY > 300);
+          var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+          var prog = document.getElementById("toTopProg");
+          if (prog) prog.style.strokeDashoffset = 119.4 * (1 - pct);
+        }, { passive: true });
+      }
     }
 
     var yearEl = $("#year"); if (yearEl) yearEl.textContent = new Date().getFullYear();

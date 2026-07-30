@@ -1063,6 +1063,66 @@ em{ font-style:normal; color:var(--green); }
 .footer-top{ max-width:1320px; margin:0 auto 70px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:26px; border-bottom:1px solid var(--line-strong); padding-bottom:50px; }
 .footer-top h2{ font-family:var(--font-disp); font-size:clamp(26px,3.6vw,42px); font-weight:800; }
 .footer-grid{ max-width:1320px; margin:0 auto; display:grid; grid-template-columns:1.8fr 1fr 1.1fr 1.05fr 1.2fr; gap:28px; }
+
+/* New Footer Layout: Brand Header (Logo Left, Info Right) + Links Below */
+.footer-brand-section {
+  max-width: 1320px;
+  margin: 0 auto 36px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.footer-brand-logo {
+  flex-shrink: 0;
+  width: 210px;
+}
+.footer-brand-logo img {
+  max-width: 100%;
+  height: auto;
+}
+.footer-brand-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.footer-brand-desc {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.footer-brand-info-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  align-items: start;
+}
+.footer-brand-info-grid .footer-contact-card {
+  margin-top: 0;
+}
+.footer-compliance-card {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  background: var(--paper-raised, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--line-strong, rgba(0, 0, 0, 0.08));
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+[data-theme="dark"] .footer-compliance-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.footer-links-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
 .footer-col{ display:flex; flex-direction:column; gap:12px; }
 .footer-col--brand img{max-width: 200px; margin-bottom:8px; }
 .footer-col--brand p{ color:var(--ink-soft); font-size:14px; line-height:1.6; }

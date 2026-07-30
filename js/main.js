@@ -1638,4 +1638,39 @@ if(dqChips){
     });
   })();
 
+  /* ---------------- video play on scroll ---------------- */
+  (function(){
+    const stage = document.getElementById("unfoldStage");
+    if(!stage) return;
+
+    function getActiveVideo() {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      return isDark ? document.getElementById("unfoldPhoneDark") : document.getElementById("unfoldPhone");
+    }
+
+    function getInactiveVideo() {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      return isDark ? document.getElementById("unfoldPhone") : document.getElementById("unfoldPhoneDark");
+    }
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const activeVid = getActiveVideo();
+          const inactiveVid = getInactiveVideo();
+          if (inactiveVid) inactiveVid.pause();
+          if (activeVid) {
+            if (entry.isIntersecting) {
+              activeVid.play().catch(() => {});
+            } else {
+              activeVid.pause();
+            }
+          }
+        });
+      }, { threshold: 0.15 });
+
+      observer.observe(stage);
+    }
+  })();
+
 })();

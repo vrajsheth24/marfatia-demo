@@ -944,6 +944,23 @@ img, video, canvas, iframe {
     grid-template-columns: 1fr 1fr !important;
     gap: 32px;
   }
+  .footer-brand-section {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+  }
+  .footer-brand-logo {
+    width: 180px;
+  }
+  .footer-brand-info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .footer-links-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
   .footer-top {
     flex-direction: column;
     gap: 20px;
@@ -957,7 +974,8 @@ img, video, canvas, iframe {
   .site-footer {
     padding: 60px 20px 32px;
   }
-  .footer-grid {
+  .footer-grid,
+  .footer-links-grid {
     grid-template-columns: 1fr !important;
     gap: 28px;
   }
