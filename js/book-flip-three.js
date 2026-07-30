@@ -11,6 +11,10 @@
    ============================================================ */
 (function () {
   "use strict";
+
+  // Disable Three.js & html2canvas on small screens (< 768px) to optimize performance
+  if (window.innerWidth < 768) return;
+
   var BEND = -0.55;        // curl strength (radians of extra curve at page middle)
   var TEX_SCALE = 1.25;   // snapshot resolution multiplier
   var HIDE_LO = 0.012, HIDE_HI = 0.988; // localP window where the real card is hidden

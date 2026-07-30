@@ -51,7 +51,7 @@
     .payout-list li i{ color:var(--lime); background:var(--green-deep); border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex:0 0 auto; }
 
     /* ── 01: MODEL SWITCHER (sliding-pill toggle + morphing panel) ── */
-    .model-switcher{ max-width:920px; margin:0 auto; }
+    .model-switcher{  margin:0 auto; }
     .model-toggle{ position:relative; display:flex; justify-content:center; gap:4px; background:var(--paper-tint); border:1px solid var(--line); border-radius:100px; padding:6px; margin:0 auto 32px; max-width:100%; width:fit-content; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
     .model-toggle::-webkit-scrollbar{ display:none; }
     .model-toggle-pill{ position:absolute; top:6px; left:6px; height:calc(100% - 12px); width:100px; background:var(--green-deep); border-radius:100px; transition:left .45s var(--ease), width .45s var(--ease); z-index:0; box-shadow:0 8px 20px rgba(8,117,59,.28); }
@@ -75,6 +75,14 @@
     @media(max-width:760px){ .model-view-list{ border-top:0; padding-top:4px; } }
     .model-view-list li{ font-size:14px; color:var(--ink-soft); display:flex; gap:10px; align-items:flex-start; }
     .model-view-list li i{ color:var(--green); margin-top:3px; flex:0 0 auto; }
+
+    /* ── partnership card highlights for balance ── */
+    .pw-highlights-card{ background:var(--paper-tint); border:1px solid var(--line); border-radius:var(--radius-md); padding:20px 22px; margin-top:20px; }
+    .pw-highlights-card h4{ font-family:var(--font-disp); font-size:15px; font-weight:700; color:var(--green); margin:0 0 12px; }
+    .pw-highlights-list{ list-style:none; padding:0; margin:0 0 16px; display:flex; flex-direction:column; gap:10px; }
+    .pw-highlights-list li{ font-size:13.5px; color:var(--ink-soft); display:flex; align-items:flex-start; gap:10px; line-height:1.45; }
+    .pw-highlights-list li i{ color:var(--green); font-size:14px; margin-top:2px; flex:0 0 auto; }
+
 
     /* ── partnership model rows: title stacked over description, not run together ── */
     .model-role-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
@@ -132,8 +140,8 @@
 
     /* ── 04: REVENUE — gauge dashboard ── */
     .gauge-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-    @media(max-width:900px){ .gauge-row{ grid-template-columns:repeat(2,1fr); } }
-    @media(max-width:520px){ .gauge-row{ grid-template-columns:1fr; } }
+    @media(max-width:900px){ .gauge-row{ grid-template-columns:repeat(2,1fr) !important; } }
+    @media(max-width:520px){ .gauge-row{ grid-template-columns:1fr !important; } }
     .gauge-card{ background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px 20px; text-align:center; transition:transform .35s var(--ease), box-shadow .35s var(--ease); }
     .gauge-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
     .gauge-ring{ position:relative; width:110px; height:110px; margin:0 auto 18px; }
@@ -466,6 +474,16 @@
                   <span class="model-view-tag">Five Ways to Partner</span>
                   <h3>Build a successful financial business, together</h3>
                   <p>With over two decades of experience in the Indian capital markets, our partner programs are designed to help you expand your network, generate recurring income, and provide comprehensive financial solutions to your clients.</p>
+                  
+                  <div class="pw-highlights-card">
+                    <h4>Key Partnership Advantages</h4>
+                    <ul class="pw-highlights-list">
+                      <li><i class="bi bi-graph-up-arrow"></i> <strong>High Revenue Share:</strong> Competitive commission &amp; payout structures.</li>
+                      <li><i class="bi bi-shield-check"></i> <strong>Full Infrastructure:</strong> Modern trading technology &amp; backoffice tools.</li>
+                      <li><i class="bi bi-headset"></i> <strong>Dedicated Support:</strong> Personal Relationship Managers for your growth.</li>
+                    </ul>
+                    <a href="#partnerForm" class="btn btn-marfatia btn-sm"><span>Become a Partner &rarr;</span></a>
+                  </div>
                 </div>
                 <ul class="model-role-list">
                   <li class="model-role">

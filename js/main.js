@@ -836,50 +836,57 @@ $$(".ai-chip").forEach(chip=>{
     }
   }
 
-  // Mobile arrow buttons click handlers
+  let activeCardIndex = 0;
+
+  function goToCardIndex(i) {
+    i = Math.max(0, Math.min(n - 1, i));
+    activeCardIndex = i;
+
+    if (window.innerWidth < 768) {
+      mobileActiveIdx = i;
+      renderMobile(mobileActiveIdx);
+    } else {
+      let targetP = 0;
+      if (i > 0) {
+        if (i === n - 1) {
+          targetP = 1;
+        } else {
+          targetP = (i - 0.5) / (n - 1);
+        }
+      }
+      const stickyTop = parseInt(window.getComputedStyle(pin).top) || 0;
+      const pinHeight = pin ? pin.offsetHeight : 0;
+      const startScroll = pinOffset - stickyTop;
+      const r = section.getBoundingClientRect();
+      const totalStickyScroll = r.height - pinHeight - pinOffset;
+      const scrollPos = window.scrollY + r.top + startScroll + targetP * totalStickyScroll;
+      window.scrollTo({ top: scrollPos, behavior: "smooth" });
+    }
+  }
+
+  // Side arrow navigation button click handlers (works on desktop & mobile)
   if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      if (window.innerWidth < 768 && mobileActiveIdx > 0) {
-        mobileActiveIdx--;
-        renderMobile(mobileActiveIdx);
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const current = (window.innerWidth < 768) ? mobileActiveIdx : activeCardIndex;
+      if (current > 0) {
+        goToCardIndex(current - 1);
       }
     });
   }
   if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      if (window.innerWidth < 768 && mobileActiveIdx < n - 1) {
-        mobileActiveIdx++;
-        renderMobile(mobileActiveIdx);
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const current = (window.innerWidth < 768) ? mobileActiveIdx : activeCardIndex;
+      if (current < n - 1) {
+        goToCardIndex(current + 1);
       }
     });
   }
 
-  // Swipe support for mobile
-  let touchStartX = 0;
-  let touchStartY = 0;
-  stage.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-  
-  stage.addEventListener("touchend", (e) => {
-    if (window.innerWidth >= 768) return;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx < 0) {
-        if (mobileActiveIdx < n - 1) {
-          mobileActiveIdx++;
-          renderMobile(mobileActiveIdx);
-        }
-      } else {
-        if (mobileActiveIdx > 0) {
-          mobileActiveIdx--;
-          renderMobile(mobileActiveIdx);
-        }
-      }
-    }
-  }, { passive: true });
+  // Hand swipe disabled on touch devices so page scrolls naturally
 
   // Handle Resize and Orientation Change Mode Switching
   let lastWasMobile = window.innerWidth < 768;
@@ -984,23 +991,11 @@ if(rundown){
 /* ============================================================
    SEC-14 — UNFOLD SEQUENCE
    ============================================================ */
+/* ============================================================
+   SEC-14 — UNFOLD SEQUENCE
+   ============================================================ */
 (function(){
-  const section=$(".unfold-section"), phone=$("#unfoldPhone"), screen=$(".phone-screen");
-  if(!section) return;
-  
-  function onScroll(){
-    const r=section.getBoundingClientRect();
-    const total=r.height-window.innerHeight;
-    const progress=clamp(-r.top/total,0,1);
-    const stage=clamp(progress*2.2,0,1);
-    const rotY = -90 + stage*90;
-    const scale = 0.5 + stage*0.4;
-    phone.style.transform = `rotateY(${rotY}deg) scale(${scale})`;
-    screen.style.opacity = clamp((progress-0.4)*3,0,1);
-  }
-  window.addEventListener("scroll", onScroll, {passive:true});
-  onScroll();
-
+  // Scroll rotation trigger disabled for right side video as requested
   const dl=$("#appDownloads");
   const obs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ animateCount(dl,250000,1800,"","+"); obs.disconnect(); } }); });
   if(dl) obs.observe(dl);
@@ -1165,6 +1160,9 @@ if(dqChips){
             if (btn.dataset.feature === "feat-options") {
                 drawOptionsStrategy();
             }
+
+            // Trigger layout recalculation for stage height on mobile
+            window.dispatchEvent(new Event("resize"));
         });
     });
 
@@ -1633,6 +1631,10 @@ if(dqChips){
         document.documentElement.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
       }
+      const lightVid = document.getElementById("unfoldPhone");
+      const darkVid = document.getElementById("unfoldPhoneDark");
+      if (lightVid) lightVid.play().catch(() => {});
+      if (darkVid) darkVid.play().catch(() => {});
     });
   })();
 

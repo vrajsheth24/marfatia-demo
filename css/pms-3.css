@@ -1522,11 +1522,12 @@
   }
 
   .pms-page .pms-title {
-    font-size: clamp(35px, 10vw, 46px);
+    font-size: clamp(28px, 7vw, 46px);
   }
 
   .pms-page .pms-hero-title {
-    font-size: clamp(47px, 13.6vw, 70px);
+    font-size: clamp(47px, 8.6vw, 70px);
+    line-height: 1;
   }
 
   .pms-page .pms-hero-actions {
@@ -1572,7 +1573,7 @@
     color: var(--pms-faint);
     font: 700 9px/1 var(--font-mono);
     letter-spacing: .08em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
   }
 
   .pms-page .pms-comparison-row span {
@@ -3081,7 +3082,7 @@
   }
 
   .pms-page .pms-journey-steps {
-    padding-left: 66px;
+    padding-left: 0;
   }
 
   .pms-page .pms-journey-steps::before,
@@ -4315,7 +4316,7 @@
    any non-!important rule regardless of media query — re-assert enough clearance
    here (after the inline-competing rules above) so the eyebrow/title don't sit
    under the taller wrapped mobile header. */
-@media (max-width:640px){ .pms-page .pms-hero{ padding-top:190px !important; } }
+@media (max-width:640px){ .pms-page .pms-hero{ padding-top:110px !important; } }
 @media (max-width:900px) and (min-width:641px){ .pms-page .pms-hero{ padding-top:160px !important; } }
 
 /* .pms-way-grid has several conflicting definitions earlier in this file (some

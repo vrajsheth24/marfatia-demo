@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marfatia Admin — Investor Charter Complaint Manager</title>
+  <link rel="icon" href="../content/fav.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --green: #08753b;
+      --lime: #9bce16;
+      --dark: #091a12;
+      --bg: #f4f7f5;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --ink: #0f172a;
+      --ink-soft: #475569;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      padding-bottom: 60px;
+    }
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 18px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-wrap img { height: 38px; }
+    .brand-wrap h1 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #fff; }
+    .brand-wrap span { font-size: 11px; background: rgba(155,206,22,0.2); color: var(--lime); padding: 3px 10px; border-radius: 100px; font-family: 'JetBrains Mono', monospace; }
+    
+    .container { max-width: 1240px; margin: 30px auto; padding: 0 20px; }
+
+    .entity-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .entity-tab {
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      color: var(--ink-soft);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .entity-tab:hover { border-color: var(--green); color: var(--green); }
+    .entity-tab.active { background: var(--green); border-color: var(--green); color: #fff; box-shadow: 0 6px 16px rgba(8,117,59,0.2); }
+
+    .admin-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .admin-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .month-picker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      background: var(--bg);
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .month-picker-wrap label { font-weight: 600; font-size: 14px; color: var(--ink); }
+    .month-picker-wrap input { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; }
+
+    table.form-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+    }
+    table.form-table th {
+      background: var(--bg);
+      padding: 10px 12px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      text-align: left;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--border);
+    }
+    table.form-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    table.form-table input[type="text"],
+    table.form-table input[type="number"] {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 13.5px;
+      font-family: inherit;
+    }
+    table.form-table input:focus { border-color: var(--green); outline: none; box-shadow: 0 0 0 3px rgba(8,117,59,0.1); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      border: 0;
+      transition: all 0.25s ease;
+    }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: #065b2e; }
+    .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+    .btn-danger { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; }
+    .btn-danger:hover { background: #dc2626; color: #fff; }
+
+    .action-bar {
+      position: sticky;
+      bottom: 20px;
+      background: var(--dark);
+      padding: 16px 28px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+    .action-bar p { color: #cbd5e1; font-size: 13px; }
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--green);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+      z-index: 99999;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-wrap">
+      <img src="../content/marfatia-white.png" alt="Marfatia Logo">
+      <h1>Investor Charter Admin Panel</h1>
+      <span>Dynamic Tables Manager</span>
+    </div>
+    <div>
+      <a href="../index.html" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.3);"><i class="bi bi-box-arrow-up-right"></i> View Website</a>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Entity Selector Tabs -->
+    <div class="entity-tabs" id="entityTabs">
+      <button class="entity-tab active" data-entity="stockbroker"><i class="bi bi-award"></i> Stock Broker</button>
+      <button class="entity-tab" data-entity="dp"><i class="bi bi-shield-check"></i> Depository Participant</button>
+      <button class="entity-tab" data-entity="pms"><i class="bi bi-pie-chart"></i> Portfolio Manager</button>
+      <button class="entity-tab" data-entity="research-analyst"><i class="bi bi-person-lines-fill"></i> Research Analyst</button>
+    </div>
+
+    <!-- Month Picker Banner -->
+    <div class="month-picker-wrap">
+      <label for="currentMonthInput"><i class="bi bi-calendar-event"></i> Reporting Month Ending Header:</label>
+      <input type="text" id="currentMonthInput" value="April 2026" placeholder="e.g. April 2026">
+      <span style="font-size: 12px; color: var(--ink-soft); margin-left: auto;">(Updates Table 1 title across website)</span>
+    </div>
+
+    <!-- Table 1: Current Month Complaints -->
+    <div class="admin-card">
+      <h2>1. Current Month Ending Investor Complaints Data</h2>
+      <table class="form-table" id="table1Form">
+        <thead>
+          <tr>
+            <th>Received from</th>
+            <th>Carried Forward</th>
+            <th>Received</th>
+            <th>Total Pending</th>
+            <th>Resolved</th>
+            <th>Pending End Month</th>
+            <th>Avg Res Time (Days)</th>
+          </tr>
+        </thead>
+        <tbody id="table1Body"></tbody>
+      </table>
+    </div>
+
+    <!-- Table 2: 12-Month Disposal Trend -->
+    <div class="admin-card">
+      <h2>
+        <span>2. Trend of Monthly Disposal of Complaints (Last 12 Months Only)</span>
+        <button class="btn btn-green" id="addMonthBtn"><i class="bi bi-plus-lg"></i> Add New Month Report</button>
+      </h2>
+      <p style="font-size: 13px; color: var(--ink-soft); margin-bottom: 16px;">
+        <i class="bi bi-info-circle-fill" style="color: var(--green);"></i> PDF Rule Enforced: Only the last 12 months are retained. Adding a 13th month automatically removes the oldest entry.
+      </p>
+      <table class="form-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Carried Forward</th>
+            <th>Received</th>
+            <th>Resolved</th>
+            <th>Pending</th>
+            <th style="width: 80px;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="table2Body"></tbody>
+      </table>
+    </div>
+
+    <!-- Table 3: Annual Disposal Trend -->
+    <div class="admin-card">
+      <h2>
+        <span>3. Trend of Annual Disposal of Complaints</span>
+        <button class="btn btn-outline" id="addYearBtn"><i class="bi bi-plus-lg"></i> Add Financial Year</button>
+      </h2>
+      <table class="form-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Carried Forward</th>
+            <th>Received</th>
+            <th>Resolved</th>
+            <th>Pending</th>
+            <th style="width: 80px;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="table3Body"></tbody>
+      </table>
+    </div>
+
+    <!-- Data Import / Export Tools -->
+    <div class="admin-card">
+      <h2><span><i class="bi bi-file-earmark-arrow-up"></i> Form Data Backup &amp; Upload</span></h2>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
+        <button class="btn btn-outline" id="exportDataBtn"><i class="bi bi-download"></i> Export JSON Backup</button>
+        <button class="btn btn-outline" id="importDataBtn"><i class="bi bi-upload"></i> Upload Form JSON</button>
+        <input type="file" id="importFileInput" accept=".json" style="display: none;">
+        <button class="btn btn-danger" id="resetDataBtn" style="margin-left: auto;"><i class="bi bi-arrow-counterclockwise"></i> Reset Default Data</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sticky Action Footer -->
+  <div class="container">
+    <div class="action-bar">
+      <p><i class="bi bi-shield-lock-fill"></i> Marfatia Administrative Data Management Console</p>
+      <button class="btn btn-green" id="saveAllBtn"><i class="bi bi-check-circle-fill"></i> Save All Changes Live</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Changes saved successfully!</div>
+
+  <script src="../js/investor-charter-data.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      var currentEntity = 'stockbroker';
+      var allData = window.InvestorCharterSystem.loadAllData();
+
+      var entityTabs = document.getElementById('entityTabs');
+      var monthInput = document.getElementById('currentMonthInput');
+      var table1Body = document.getElementById('table1Body');
+      var table2Body = document.getElementById('table2Body');
+      var table3Body = document.getElementById('table3Body');
+
+      function showToast(msg) {
+        var t = document.getElementById('toast');
+        t.textContent = msg || 'Changes saved successfully!';
+        t.classList.add('show');
+        setTimeout(function() { t.classList.remove('show'); }, 3000);
+      }
+
+      function renderForm() {
+        var entity = allData[currentEntity];
+        monthInput.value = entity.currentMonth || 'April 2026';
+
+        // Table 1
+        table1Body.innerHTML = entity.table1.map(function(r, idx) {
+          return '<tr data-idx="' + idx + '">' +
+            '  <td><strong>' + r.source + '</strong></td>' +
+            '  <td><input type="number" class="t1-carried" value="' + r.carried + '"></td>' +
+            '  <td><input type="number" class="t1-received" value="' + r.received + '"></td>' +
+            '  <td><input type="number" class="t1-pendingTotal" value="' + r.pendingTotal + '"></td>' +
+            '  <td><input type="number" class="t1-resolved" value="' + r.resolved + '"></td>' +
+            '  <td><input type="number" class="t1-pendingEnd" value="' + r.pendingEnd + '"></td>' +
+            '  <td><input type="number" class="t1-avgTime" value="' + r.avgTime + '"></td>' +
+            '</tr>';
+        }).join('');
+
+        // Table 2 (12 Month Limit)
+        table2Body.innerHTML = entity.monthlyTrend.map(function(r, idx) {
+          return '<tr data-idx="' + idx + '">' +
+            '  <td><input type="text" class="t2-month" value="' + r.month + '"></td>' +
+            '  <td><input type="number" class="t2-carried" value="' + r.carried + '"></td>' +
+            '  <td><input type="number" class="t2-received" value="' + r.received + '"></td>' +
+            '  <td><input type="number" class="t2-resolved" value="' + r.resolved + '"></td>' +
+            '  <td><input type="number" class="t2-pending" value="' + r.pending + '"></td>' +
+            '  <td><button class="btn btn-danger btn-sm del-t2" data-idx="' + idx + '"><i class="bi bi-trash"></i></button></td>' +
+            '</tr>';
+        }).join('');
+
+        // Table 3
+        table3Body.innerHTML = entity.annualTrend.map(function(r, idx) {
+          return '<tr data-idx="' + idx + '">' +
+            '  <td><input type="text" class="t3-year" value="' + r.year + '"></td>' +
+            '  <td><input type="number" class="t3-carried" value="' + r.carried + '"></td>' +
+            '  <td><input type="number" class="t3-received" value="' + r.received + '"></td>' +
+            '  <td><input type="number" class="t3-resolved" value="' + r.resolved + '"></td>' +
+            '  <td><input type="number" class="t3-pending" value="' + r.pending + '"></td>' +
+            '  <td><button class="btn btn-danger btn-sm del-t3" data-idx="' + idx + '"><i class="bi bi-trash"></i></button></td>' +
+            '</tr>';
+        }).join('');
+      }
+
+      function readFormState() {
+        var entity = allData[currentEntity];
+        entity.currentMonth = monthInput.value;
+
+        // Read Table 1
+        var rows1 = table1Body.querySelectorAll('tr');
+        rows1.forEach(function(row, idx) {
+          entity.table1[idx].carried = parseInt(row.querySelector('.t1-carried').value, 10) || 0;
+          entity.table1[idx].received = parseInt(row.querySelector('.t1-received').value, 10) || 0;
+          entity.table1[idx].pendingTotal = parseInt(row.querySelector('.t1-pendingTotal').value, 10) || 0;
+          entity.table1[idx].resolved = parseInt(row.querySelector('.t1-resolved').value, 10) || 0;
+          entity.table1[idx].pendingEnd = parseInt(row.querySelector('.t1-pendingEnd').value, 10) || 0;
+          entity.table1[idx].avgTime = parseInt(row.querySelector('.t1-avgTime').value, 10) || 0;
+        });
+
+        // Read Table 2
+        var rows2 = table2Body.querySelectorAll('tr');
+        entity.monthlyTrend = [];
+        rows2.forEach(function(row) {
+          entity.monthlyTrend.push({
+            month: row.querySelector('.t2-month').value || '',
+            carried: parseInt(row.querySelector('.t2-carried').value, 10) || 0,
+            received: parseInt(row.querySelector('.t2-received').value, 10) || 0,
+            resolved: parseInt(row.querySelector('.t2-resolved').value, 10) || 0,
+            pending: parseInt(row.querySelector('.t2-pending').value, 10) || 0
+          });
+        });
+
+        // Read Table 3
+        var rows3 = table3Body.querySelectorAll('tr');
+        entity.annualTrend = [];
+        rows3.forEach(function(row) {
+          entity.annualTrend.push({
+            year: row.querySelector('.t3-year').value || '',
+            carried: parseInt(row.querySelector('.t3-carried').value, 10) || 0,
+            received: parseInt(row.querySelector('.t3-received').value, 10) || 0,
+            resolved: parseInt(row.querySelector('.t3-resolved').value, 10) || 0,
+            pending: parseInt(row.querySelector('.t3-pending').value, 10) || 0
+          });
+        });
+      }
+
+      // Switch entity tab
+      entityTabs.addEventListener('click', function(e) {
+        var btn = e.target.closest('.entity-tab');
+        if (!btn) return;
+        readFormState();
+        entityTabs.querySelectorAll('.entity-tab').forEach(function(t) { t.classList.remove('active'); });
+        btn.classList.add('active');
+        currentEntity = btn.getAttribute('data-entity');
+        renderForm();
+      });
+
+      // Add Month button (Rule: trim to 12 months)
+      document.getElementById('addMonthBtn').addEventListener('click', function() {
+        readFormState();
+        allData[currentEntity].monthlyTrend.push({ month: "July 2026", carried: 0, received: 0, resolved: 0, pending: 0 });
+        if (allData[currentEntity].monthlyTrend.length > 12) {
+          allData[currentEntity].monthlyTrend.shift(); // Remove oldest month
+          showToast('Added July 2026 report & auto-removed oldest month (April 2025)');
+        } else {
+          showToast('Added new month entry');
+        }
+        renderForm();
+      });
+
+      // Add Year button
+      document.getElementById('addYearBtn').addEventListener('click', function() {
+        readFormState();
+        allData[currentEntity].annualTrend.push({ year: "2026-27", carried: 0, received: 0, resolved: 0, pending: 0 });
+        renderForm();
+      });
+
+      // Delete handlers
+      table2Body.addEventListener('click', function(e) {
+        var btn = e.target.closest('.del-t2');
+        if (!btn) return;
+        var idx = parseInt(btn.getAttribute('data-idx'), 10);
+        readFormState();
+        allData[currentEntity].monthlyTrend.splice(idx, 1);
+        renderForm();
+      });
+
+      table3Body.addEventListener('click', function(e) {
+        var btn = e.target.closest('.del-t3');
+        if (!btn) return;
+        var idx = parseInt(btn.getAttribute('data-idx'), 10);
+        readFormState();
+        allData[currentEntity].annualTrend.splice(idx, 1);
+        renderForm();
+      });
+
+      // Save All button
+      document.getElementById('saveAllBtn').addEventListener('click', function() {
+        readFormState();
+        window.InvestorCharterSystem.saveAllData(allData);
+        showToast('All Investor Charter Complaint Tables Saved Live!');
+      });
+
+      // Export JSON
+      document.getElementById('exportDataBtn').addEventListener('click', function() {
+        readFormState();
+        var blob = new Blob([JSON.stringify(allData, null, 2)], { type: 'application/json' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'marfatia-investor-charter-data.json';
+        a.click();
+      });
+
+      // Import JSON
+      var fileInput = document.getElementById('importFileInput');
+      document.getElementById('importDataBtn').addEventListener('click', function() {
+        fileInput.click();
+      });
+      fileInput.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+          try {
+            var imported = JSON.parse(evt.target.result);
+            allData = Object.assign({}, window.InvestorCharterSystem.DEFAULT_DATA, imported);
+            window.InvestorCharterSystem.saveAllData(allData);
+            renderForm();
+            showToast('Form data imported & saved successfully!');
+          } catch(err) {
+            alert('Invalid JSON file.');
+          }
+        };
+        reader.readAsText(file);
+      });
+
+      // Reset button
+      document.getElementById('resetDataBtn').addEventListener('click', function() {
+        if (confirm('Are you sure you want to reset all complaint tables to default values?')) {
+          allData = JSON.parse(JSON.stringify(window.InvestorCharterSystem.DEFAULT_DATA));
+          window.InvestorCharterSystem.saveAllData(allData);
+          renderForm();
+          showToast('Data reset to defaults!');
+        }
+      });
+
+      renderForm();
+    })();
+  </script>
+</body>
+</html>
